@@ -1,5 +1,70 @@
 @CHARSET "UTF-8";
 
+
+/* 해더 시작 */
+#btop {
+  display: inline;
+  position: fixed;
+  top: 0;left: 0;
+  height: 40px;
+  background-color: rgb(70, 70, 70);
+  width: 100%;
+}
+#bheader {
+  display: -webkit-flex;
+  display: flex;
+  margin: auto;
+  width: 1200px;
+  max-width: 1200px;
+//  border : thin solid blue;
+}
+#blefttop {
+    padding:20 20 20 20px;
+    text-align:right;
+    float: left;
+  	width: 20%;
+  /* 	border : thin solid blue; */
+		border-color: red;
+		
+	  font-family: 'Tangerine';
+	  font-style: normal;	  
+	  font-size: 28px;
+	  font-weight: bold;
+	  text-shadow: 4px 4px 4px #baaa;
+}
+header {	
+	margin: 20px auto;
+}
+#bfootlogo {
+    margin-right: 10px;
+    text-align:right;
+    float: right;		
+	  font-family: 'Tangerine';
+	  font-style: normal;	  
+	  font-size: 50px;
+	  font-weight: bold;
+	  text-shadow: 4px 4px 4px #baaa;
+}
+
+#brighttop{	
+		float:right;
+    padding:20 20 20 20px;
+    margin: auto;
+    text-align:left;
+  	width: 75%;
+    /* border:#bFFCC00 double 1px; */
+}
+
+#bbankButton{	
+    text-align:left;
+}
+#blogin{	
+    text-align:right;
+}
+/* 해더 끝 */
+
+
+/* 
 #header1{
 	height: 70px;
 	width: 100%;
@@ -15,10 +80,13 @@
 	width: 100%;
 	border: 1px solid red;
 }
+ */
 
+
+ 
 #container{
 	max-width: 1300px;  
-    margin: 100px auto;
+    margin: 40px auto;
     border: 1px solid black;
     
 }
