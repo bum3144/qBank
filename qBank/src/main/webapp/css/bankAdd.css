@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+#bcategoryBox { 
+	width:100%; 
+	border:1px solid #ccc; 
+	background-color:#fff; 
+	margin: 0 auto;
+	padding:10px; 
+	min-height:100px; 
+	text-align: center;
+}
+
+.bcategory{
+	display: inline-block;
+	width: 200px;
+	min-width: 200px;
+	border:1px solid #ccc; 
+	background-color:#fff; 
+	padding:10px; 
+}
+
+
+#blevel{	
+	border : thin solid blue;
+ }
+#baddQuestion{	
+	border : thin solid gray;
+ }
+#baddButton{	
+	border : thin solid green;
+ }
+ 
+ 
