@@ -1,14 +1,14 @@
-function bit() {}
-bit.getContextRootPath = function() {
+function qbank() {}
+qbank.getContextRootPath = function() {
 	var currPath = location.pathname;
 	console.log(currPath);
 
 	var end = currPath.indexOf('/', 1);
 	return currPath.substring(0, end);
 }
-bit.contextRoot = bit.getContextRootPath();
+qbank.contextRoot = qbank.getContextRootPath();
 
 $(document).ready(function(){
-	$('#btop').load(bit.contextRoot + '/header.html');
-	$('#bfooter').load(bit.contextRoot + '/footer.html');
+	$('#btop').load(qbank.contextRoot + '/header.html');
+	$('#bfooter').load(qbank.contextRoot + '/footer.html');
 });
