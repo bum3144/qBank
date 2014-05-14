@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;left: 0;
   height: 40px;
-  background-color: gray;
+  background-color: rgb(70, 70, 70);
   width: 100%;
 }
 #header {
@@ -14,7 +14,7 @@
   margin: auto;
   width: 1200px;
   max-width: 1200px;
-  border : thin solid blue;
+//  border : thin solid blue;
 }
 #block{
 	margin: 40px;
@@ -33,21 +33,23 @@
   margin:auto;
   width: 1200px;
   min-height: 700px;
-  border : thin solid red;
+ // border : thin solid red;
 }
 
 #nav {
     float: left;
+    padding: 10px;
   	width: 20%;
-  	margin-left: 10px;
-  	border : thin solid blue;
+
+  	background-color: rgb(235, 230, 230);
+  	border : thin solid rgb(146, 146, 146);
 }
 
 #flex-column {
   -webkit-flex: 1;
           flex: 1;
   padding: 10px;
-  border : thin solid green;
+//  border : thin solid green;
 }
 
 #bankAdd {
@@ -78,27 +80,28 @@ button{
   padding: 5px;
   width: 1200px;
   max-width: 1200px;
-  border : thin solid blue;
+  background-color: rgb(75, 73, 73);
+//  border : thin solid blue;
 }
 #leftBottom{	
     padding:20 20 20 20px;
     text-align:right;
     float: left;
   	width: 20%;
-  	border : thin solid blue;
+  	/* border : thin solid blue; */
 }
 #rightBottom{	
 	
 		float:left;
     padding:20 20 20 20px;
-    margin-left: 10px;
+    margin-left: 30px;
     text-align:left;
+    color: rgb(150, 150, 150);
   	width: 80%;
-    border:#FFCC00 double 1px;
+   /*  border:#FFCC00 double 1px; */
     margin:0 0 0 10;
 }
 #toplogo{
-
 	height: 40px;
 }
 #footlogo{
@@ -108,4 +111,47 @@ button{
 	width: 150px;
     float: right;
 }
+
+#lefttop {
+    padding:20 20 20 20px;
+    text-align:right;
+    float: left;
+  	width: 20%;
+  /* 	border : thin solid blue; */
+		border-color: red;
+		
+	  font-family: 'Tangerine';
+	  font-style: normal;	  
+	  font-size: 28px;
+	  font-weight: bold;
+	  text-shadow: 4px 4px 4px #aaa;
+}
+
+#footlogo {
+    margin-right: 10px;
+    text-align:right;
+    float: right;		
+	  font-family: 'Tangerine';
+	  font-style: normal;	  
+	  font-size: 50px;
+	  font-weight: bold;
+	  text-shadow: 4px 4px 4px #aaa;
+}
+
+#righttop{	
+		float:right;
+    padding:20 20 20 20px;
+    margin: auto;
+    text-align:left;
+  	width: 75%;
+    /* border:#FFCC00 double 1px; */
+}
+
+#bankButton{	
+    text-align:left;
+}
+#login{	
+    text-align:right;
+}
+
 
