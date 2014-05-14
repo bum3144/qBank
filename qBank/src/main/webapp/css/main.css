@@ -125,13 +125,13 @@ header {
 	float: left;
 	
 }
-
+/* 
 #footer{
 	height: 100px; 
 	border: 1px solid black;
 	margin-bottom: 0px; 
 }
-
+ */
 .item{
 	width: 1300px;
 	height: 450px; 
@@ -201,6 +201,46 @@ img.rotate:hover {
 
 
 
+
+
+
+
+
+#bfooter{
+  display: -webkit-flex;
+  display: flex;
+  margin: auto;
+  padding: 5px;
+  width: 1300px;
+  max-width: 1300px;
+  background-color: rgb(75, 73, 73);
+//  border : thin solid blue;
+}
+#bleftBottom{	
+    padding:20 20 20 20px;
+    text-align:right;
+    float: left;
+  	width: 20%;
+  	/* border : thin solid blue; */
+}
+#brightBottom{	
+	
+		float:left;
+    padding:20 20 20 20px;
+    margin-left: 30px;
+    text-align:left;
+    color: rgb(150, 150, 150);
+  	width: 80%;
+   /*  border:#bFFCC00 double 1px; */
+    margin:0 0 0 10;
+}
+#bfootlogo{
+	width: 150px;
+}
+#bfamily{
+	width: 150px;
+    float: right;
+}
 
 
 
