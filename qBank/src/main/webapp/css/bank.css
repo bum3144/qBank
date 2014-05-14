@@ -73,13 +73,7 @@ header {
 
 
 
-#bbottom {  
-	clear:both;  
-  background:#bCCCCCC;
-  border:#bFFCC00 double 3px;
-  height: 100px;
 
-}
 
 #bcontainer {
   display: -webkit-flex;
@@ -121,6 +115,9 @@ header {
 button{
 	align : right;
 }
+
+
+
 
 
 #bfooter{
