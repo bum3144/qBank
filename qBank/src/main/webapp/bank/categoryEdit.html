@@ -13,60 +13,45 @@
 </head>
 <body>
 <script type="text/javascript" src="../js/dtree.js"></script>
-	<div id="btop">
-		<div id="bheader">		
-			<div id="blefttop" class="font-effect-3d">
-				QBank 
-			</div>
-			
-			<div id="brighttop">
-			 <span id="bbankButton"><button type="button">문제은행</button></span>
-			 <span id="blogin">
-			 	<ul style="margin:3px 10px 0 0; float:right; text-align:right; list-style:none;">
-					<li style="list-style:none; height:25px;">
-						<table align="right" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
-					    <td>    
-						    <span class="view2"><a href="#">로그인</a>&nbsp;&nbsp;|</span>		    
-						    &nbsp;&nbsp;
-					    </td>
-					    <td><a href="#">회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
-					    <td><a href="#">ID／PW찾기</a></td>
-				    </tr>
-				    </tbody>
-				    </table>   
-					</li>
-         </ul>
-			 </span>			 
-			</div>				
-		</div>
-	</div>	
+	
+	
+	<!-- 해더 -->
+	<div id="btop"></div>		
 	<div id="bblock"></div>
+	<!-- 해더 끝 -->
+	
+	
 	<div id="bcontainer">
 		<div id="bnav">
 			<p>
 				<a href="javascript: d.openAll();">open all</a> | <a
 					href="javascript: d.closeAll();">close all</a>
 			</p>
-
-			<script type="text/javascript">	
-			d = new dTree('d');
-	
-			d.add(0,-1,'문제은행');
-			d.add(1,0,'ENGLISH','#');
-			d.add(2,1,'GRAMMAR','#');
-			d.add(3,2,'동사','#');
-			d.add(4,3,'B Verb','#');
-			d.add(5,3,'동사의 시제','#');
-			d.add(6,1,'LISTENING','#');
-			d.add(7,6,'Listening Test','#','Pictures of Gullfoss and Geysir');
-			d.add(8,1,'WRITING','#');
-			d.add(9,0,'MATH','#','Pictures I\'ve taken over the years','','','img/imgfolder.gif');
-			d.add(10,9,'도형과 방정식','#','Pictures of Gullfoss and Geysir');
-			d.add(11,10,'집합과 명제','#');
-			d.add(16,0,'Recycle Bin','example01.html','','','img/trash.gif');
-	
-			document.write(d);	
+			
+			<!-- 문제은행 트리 -->
+			<div id="dTree">
+				<script type="text/javascript">	
+				d = new dTree('d');
+		
+				d.add(0,-1,'문제은행');
+				d.add(1,0,'ENGLISH','#');
+				d.add(2,1,'GRAMMAR','#');
+				d.add(3,2,'동사','#');
+				d.add(4,3,'B Verb','#');
+				d.add(5,3,'동사의 시제','#');
+				d.add(6,1,'LISTENING','#');
+				d.add(7,6,'Listening Test','#','Pictures of Gullfoss and Geysir');
+				d.add(8,1,'WRITING','#');
+				d.add(9,0,'MATH','#','Pictures I\'ve taken over the years','','','img/imgfolder.gif');
+				d.add(10,9,'도형과 방정식','#','Pictures of Gullfoss and Geysir');
+				d.add(11,10,'집합과 명제','#');
+				d.add(16,0,'Recycle Bin','example01.html','','','img/trash.gif');
+		
+				document.write(d);	
 			</script>
+			</div>
+			<!--  문제은행 트리 끝 -->
+		
 		</div>
 
 		<div id="bflex-column">
@@ -145,38 +130,13 @@
 				</div>
 		</div>
 	</div>
-
-	<div id="bfooter">
-		<div id="bleftBottom">				
-			<div id="bfootlogo" class="font-effect-3d">
-				QBank
-			</div>
-			<br>			  				
-			<select class="form-control" id="bfamily">
-			<option>패밀리사이트</option>
-			<option>대한문제은행협회</option>
-			<option>국제문제은행기구</option>
-			<option>세계문제은행위원회</option>
-			</select>	
-		</div>
-		<div id="brightBottom">
-		<p> 
-		<a href="#">회사소개</a> 
-		| <a href="#">이용약관</a>
-		| <a href="#">개인정보취급약관</a>
-		| <a href="#">이메일무단수집거부</a>
-		| <a href="#">찾아오시는길</a>
-		| &copy; <b>2014 Bit HoneyJam Corporation.</b></p>
-   	<span>(주) 비트교육센터 서울시 서초구 서초동 1327-15 비트아카데미빌딩 | 
-   	사업자등록번호 123-45-67890 BitAcademy Bldg,,</span><br>
-		<span>1327-15 Seocho-dong, Seocho-gu, Seoul, Korea 문의전화: 02-123-45676 | 
-		통신판매업 신고번호 제 서초-00000gh</span><br>
-   	<span>email : test@test.com COPYRIGHT BY BITACADEMY. 
-   	ALL RIGHTS RESERVED.</span>
-		</div>
-	</div>
+		
+	<!-- 풋터 -->
+	<div id="bfooter"></div>
+	<!-- 풋터 끝 -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script	src="../js/bank.js"></script>
+<script src="../js/include.js"></script>
 </body>
 </html>
