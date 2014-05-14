@@ -1,101 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap-theme.css">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Qbank main</title>
+<link rel='stylesheet' type='text/css' href='css/main.css'>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" 
+	href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d">
+</head>
+<body> 
 
-    <title>Carousel Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- 해더 (로그인쪽)-->
+	<div id="btop" style="z-index:99;top:0px;left:0px;right:0px;
+			position:absoulte !important; position:fixed;>
+		<div id="bheader">		
+			<div id="blefttop" class="font-effect-3d">
+				QBank 
+			</div>
+			
+			<div id="brighttop">
+			 <span id="blogin">
+			 	<ul style="margin:3px 10px 0 0; float:right; text-align:right; list-style:none;">
+					<li style="list-style:none; height:25px;">
+						<table align="right" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
+					    <td>    
+						    <span class="view2"><a href="#">로그인</a>&nbsp;&nbsp;|</span>		    
+						    &nbsp;&nbsp;
+					    </td>
+					    <td><a href="#">회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+					    <td><a href="#">ID／PW찾기</a></td>
+				    </tr>
+				    </tbody>
+				    </table>   
+					</li>
+         </ul>
+			 </span>			 
+			</div>	
+						
+		</div>
+	</div>
+	<!-- 해더 끝 -->
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<div id=container>	  
+  <div id="carousel-example-generic" class="carousel slide container2" data-ride="carousel">
+  
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active liBtn"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1" class="liBtn"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2" class="liBtn"></li>
+  </ol>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
-  </head>
-<!-- NAVBAR
-================================================== -->
-  <body>
- 
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="item active">
-          <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-            </div>
-          </div>
-        </div>
+<!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item">
+      <img id=img1 src="image/First_slide.jpg" alt="img/First_slide.jpg">
+      <div class="carousel-caption">
+         <div id=img1_slide class="carousel-caption">
+        <h1>Easy.</h1>
+        <h3>making your Test</h3>
       </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div><!-- /.carousel -->
+      </div>
+    </div>
+     <div class="item ">
+      <img id=img2 src="image/Second_slide.png" alt="img/Second_slide.jpg">
+      <div id=img2_slide class="carousel-caption">
+        <h1>Easy.</h1>
+        <h3>making your qustion</h3>
+      </div>
+    </div>
+     <div class="item active">
+      <img id=img3 src="image/Third_slide.png" alt="img/Third_slide.png">
+         <div id=img3_slide class="carousel-caption">
+        <h1>Easy.</h1>
+        <h3>making your Test</h3>
+      </div>
+    </div>
+  </div>
 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+ </div>      
+	 
+	 
+	 <div id=container3>
+	 
+	  <div id=slight>
+	    <h1>title</h1>
+	  </div>
+	  
+	  <div id=boxs>
+	    <div class=minibox>
+	       <img src="image/cpimg.png" class="rotate">
+	    </div>
+	    <div class=minibox>
+	       <img src="image/testimg.png" class="rotate">
+	    </div>
+	    <div class=minibox>
+	       <img src="image/ideaimg.png" class="rotate">
+	    </div>
+	    <div class=minibox>
+	       <img src="image/userimg.png" class="rotate">
+	    </div>
+	  </div>
+	  
+	 </div>
+	 
+	 <div id=footer>
+	  <h1>footer</h1>
+	 </div>
+	
+	</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-
-
-      <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
-    </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/docs.min.js"></script>
-  </body>
+</body>
 </html>
