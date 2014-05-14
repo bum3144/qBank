@@ -16,9 +16,63 @@
   max-width: 1200px;
 //  border : thin solid blue;
 }
+#blefttop {
+    padding:20 20 20 20px;
+    text-align:right;
+    float: left;
+  	width: 20%;
+  /* 	border : thin solid blue; */
+		border-color: red;
+		
+	  font-family: 'Tangerine';
+	  font-style: normal;	  
+	  font-size: 28px;
+	  font-weight: bold;
+	  text-shadow: 4px 4px 4px #baaa;
+}
 #bblock{
 	margin: 40px;
 }
+#btoplogo{
+	height: 40px;
+}
+header {	
+	margin: 20px auto;
+}
+#bfootlogo {
+    margin-right: 10px;
+    text-align:right;
+    float: right;		
+	  font-family: 'Tangerine';
+	  font-style: normal;	  
+	  font-size: 50px;
+	  font-weight: bold;
+	  text-shadow: 4px 4px 4px #baaa;
+}
+
+#brighttop{	
+		float:right;
+    padding:20 20 20 20px;
+    margin: auto;
+    text-align:left;
+  	width: 75%;
+    /* border:#bFFCC00 double 1px; */
+}
+
+#bbankButton{	
+    text-align:left;
+}
+#blogin{	
+    text-align:right;
+}
+
+
+
+
+
+
+
+
 #bbottom {  
 	clear:both;  
   background:#bCCCCCC;
@@ -64,10 +118,6 @@
 	text-align: center;
 }
 
-header {	
-	margin: 20px auto;
-}
-
 button{
 	align : right;
 }
@@ -101,9 +151,6 @@ button{
    /*  border:#bFFCC00 double 1px; */
     margin:0 0 0 10;
 }
-#btoplogo{
-	height: 40px;
-}
 #bfootlogo{
 	width: 150px;
 }
@@ -111,47 +158,4 @@ button{
 	width: 150px;
     float: right;
 }
-
-#blefttop {
-    padding:20 20 20 20px;
-    text-align:right;
-    float: left;
-  	width: 20%;
-  /* 	border : thin solid blue; */
-		border-color: red;
-		
-	  font-family: 'Tangerine';
-	  font-style: normal;	  
-	  font-size: 28px;
-	  font-weight: bold;
-	  text-shadow: 4px 4px 4px #baaa;
-}
-
-#bfootlogo {
-    margin-right: 10px;
-    text-align:right;
-    float: right;		
-	  font-family: 'Tangerine';
-	  font-style: normal;	  
-	  font-size: 50px;
-	  font-weight: bold;
-	  text-shadow: 4px 4px 4px #baaa;
-}
-
-#brighttop{	
-		float:right;
-    padding:20 20 20 20px;
-    margin: auto;
-    text-align:left;
-  	width: 75%;
-    /* border:#bFFCC00 double 1px; */
-}
-
-#bbankButton{	
-    text-align:left;
-}
-#blogin{	
-    text-align:right;
-}
-
 
