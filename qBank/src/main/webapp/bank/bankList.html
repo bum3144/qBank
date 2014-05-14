@@ -9,7 +9,6 @@
 	href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d">
 <link rel="stylesheet" href="../css/bank.css"/>
 <link rel="StyleSheet" href="../css/dtree.css"/>
-
 </head>
 <body>
 <script type="text/javascript" src="../js/dtree.js"></script>
@@ -17,7 +16,7 @@
 		<div id="header">
 		
 			<div id="lefttop" class="font-effect-3d">
-				QBank
+				QBank 
 			</div>
 			
 			<div id="righttop">
@@ -83,8 +82,8 @@
 			</section>
 			<section>			
 				<div id="bankAdd">
-					<button type="button" class="btn btn-primary btn-lg disabled">등록</button>
-					<button type="button" class="btn btn-primary btn-lg disabled">삭제</button>
+					<button type="button">등록</button>
+					<button type="button">삭제</button>
 				</div>				
 				<br>
 				<table id="subjectList" class="table table table-bordered">
@@ -96,7 +95,7 @@
 							<th>등록날자</th>
 							<th>문제코드</th>
 							<th>사용 <span class="caret"></span></th>
-							<th><input type="checkbox"/></th>
+							<th><input type="checkbox" id='check_all'/></th>
 						</tr>
 						<tr class="dataRow">
 							<td>1</td>
@@ -105,7 +104,7 @@
 							<td>2013-10-20</td>
 							<td>Q0001</td>
 							<td>O</td>
-							<td><input type="checkbox"/></td>
+							<td><input type="checkbox" name='mycheck' value='1'/></td>
 						</tr>
 						<tr class="dataRow">
 							<td>2</td>
@@ -114,7 +113,7 @@
 							<td>2013-10-20</td>
 							<td>Q0001</td>
 							<td>O</td>
-							<td><input type="checkbox"/></td>
+							<td><input type="checkbox" name='mycheck' value='2'/></td>
 						</tr>
 						<tr class="dataRow">
 							<td>3</td>
@@ -123,7 +122,7 @@
 							<td>2013-10-20</td>
 							<td>Q0001</td>
 							<td>O</td>
-							<td><input type="checkbox"/></td>
+							<td><input type="checkbox" name='mycheck' value='3'/></td>
 						</tr>
 						<tr class="dataRow">
 							<td>4</td>
@@ -132,7 +131,7 @@
 							<td>2013-10-20</td>
 							<td>Q0001</td>
 							<td>O</td>
-							<td><input type="checkbox"/></td>
+							<td><input type="checkbox" name='mycheck' value='3'/></td>
 						</tr>
 						<tr class="dataRow">
 							<td>5</td>
@@ -141,7 +140,7 @@
 							<td>2013-10-20</td>
 							<td>Q0001</td>
 							<td>O</td>
-							<td><input type="checkbox"/></td>
+							<td><input type="checkbox" name='mycheck' value='4'/></td>
 						</tr>
 					</tbody>
 				</table>
@@ -172,8 +171,11 @@
 	</div>
 		
 	<div id="footer">
-		<div id="leftBottom">
-			<img src="../image/qbank_logo.jpg" id="footlogo"/><br>	<br>			  				
+		<div id="leftBottom">				
+			<div id="footlogo" class="font-effect-3d">
+				QBank
+			</div>
+			<br>			  				
 			<select class="form-control" id="family">
 			<option>패밀리사이트</option>
 			<option>대한문제은행협회</option>
@@ -197,6 +199,8 @@
    	ALL RIGHTS RESERVED.</span>
 		</div>
 	</div>
-	
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script	src="../js/bank.js"></script>
 </body>
 </html>
