@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-#top {
+#btop {
   display: inline;
   position: fixed;
   top: 0;left: 0;
@@ -8,7 +8,7 @@
   background-color: rgb(70, 70, 70);
   width: 100%;
 }
-#header {
+#bheader {
   display: -webkit-flex;
   display: flex;
   margin: auto;
@@ -16,18 +16,18 @@
   max-width: 1200px;
 //  border : thin solid blue;
 }
-#block{
+#bblock{
 	margin: 40px;
 }
-#bottom {  
+#bbottom {  
 	clear:both;  
-  background:#CCCCCC;
-  border:#FFCC00 double 3px;
+  background:#bCCCCCC;
+  border:#bFFCC00 double 3px;
   height: 100px;
 
 }
 
-#container {
+#bcontainer {
   display: -webkit-flex;
   display: flex;
   margin:auto;
@@ -36,7 +36,7 @@
  // border : thin solid red;
 }
 
-#nav {
+#bnav {
     float: left;
     padding: 10px;
   	width: 20%;
@@ -45,22 +45,22 @@
   	border : thin solid rgb(146, 146, 146);
 }
 
-#flex-column {
+#bflex-column {
   -webkit-flex: 1;
           flex: 1;
   padding: 10px;
 //  border : thin solid green;
 }
 
-#bankAdd {
+#bbankAdd {
 	text-align: right;	
 }
 
-#pageSerch {
+#bpageSerch {
 	align: right;	
 }
 
-#pageMove{
+#bpageMove{
 	text-align: center;
 }
 
@@ -73,7 +73,7 @@ button{
 }
 
 
-#footer{
+#bfooter{
   display: -webkit-flex;
   display: flex;
   margin: auto;
@@ -83,14 +83,14 @@ button{
   background-color: rgb(75, 73, 73);
 //  border : thin solid blue;
 }
-#leftBottom{	
+#bleftBottom{	
     padding:20 20 20 20px;
     text-align:right;
     float: left;
   	width: 20%;
   	/* border : thin solid blue; */
 }
-#rightBottom{	
+#brightBottom{	
 	
 		float:left;
     padding:20 20 20 20px;
@@ -98,21 +98,21 @@ button{
     text-align:left;
     color: rgb(150, 150, 150);
   	width: 80%;
-   /*  border:#FFCC00 double 1px; */
+   /*  border:#bFFCC00 double 1px; */
     margin:0 0 0 10;
 }
-#toplogo{
+#btoplogo{
 	height: 40px;
 }
-#footlogo{
+#bfootlogo{
 	width: 150px;
 }
-#family{
+#bfamily{
 	width: 150px;
     float: right;
 }
 
-#lefttop {
+#blefttop {
     padding:20 20 20 20px;
     text-align:right;
     float: left;
@@ -124,10 +124,10 @@ button{
 	  font-style: normal;	  
 	  font-size: 28px;
 	  font-weight: bold;
-	  text-shadow: 4px 4px 4px #aaa;
+	  text-shadow: 4px 4px 4px #baaa;
 }
 
-#footlogo {
+#bfootlogo {
     margin-right: 10px;
     text-align:right;
     float: right;		
@@ -135,22 +135,22 @@ button{
 	  font-style: normal;	  
 	  font-size: 50px;
 	  font-weight: bold;
-	  text-shadow: 4px 4px 4px #aaa;
+	  text-shadow: 4px 4px 4px #baaa;
 }
 
-#righttop{	
+#brighttop{	
 		float:right;
     padding:20 20 20 20px;
     margin: auto;
     text-align:left;
   	width: 75%;
-    /* border:#FFCC00 double 1px; */
+    /* border:#bFFCC00 double 1px; */
 }
 
-#bankButton{	
+#bbankButton{	
     text-align:left;
 }
-#login{	
+#blogin{	
     text-align:right;
 }
 
