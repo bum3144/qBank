@@ -1,0 +1,111 @@
+@CHARSET "UTF-8";
+
+#top {
+  display: inline;
+  position: fixed;
+  top: 0;left: 0;
+  height: 40px;
+  background-color: gray;
+  width: 100%;
+}
+#header {
+  display: -webkit-flex;
+  display: flex;
+  margin: auto;
+  width: 1200px;
+  max-width: 1200px;
+  border : thin solid blue;
+}
+#block{
+	margin: 40px;
+}
+#bottom {  
+	clear:both;  
+  background:#CCCCCC;
+  border:#FFCC00 double 3px;
+  height: 100px;
+
+}
+
+#container {
+  display: -webkit-flex;
+  display: flex;
+  margin:auto;
+  width: 1200px;
+  min-height: 700px;
+  border : thin solid red;
+}
+
+#nav {
+    float: left;
+  	width: 20%;
+  	margin-left: 10px;
+  	border : thin solid blue;
+}
+
+#flex-column {
+  -webkit-flex: 1;
+          flex: 1;
+  padding: 10px;
+  border : thin solid green;
+}
+
+#bankAdd {
+	text-align: right;	
+}
+
+#pageSerch {
+	align: right;	
+}
+
+#pageMove{
+	text-align: center;
+}
+
+header {	
+	margin: 20px auto;
+}
+
+button{
+	align : right;
+}
+
+
+#footer{
+  display: -webkit-flex;
+  display: flex;
+  margin: auto;
+  padding: 5px;
+  width: 1200px;
+  max-width: 1200px;
+  border : thin solid blue;
+}
+#leftBottom{	
+    padding:20 20 20 20px;
+    text-align:right;
+    float: left;
+  	width: 20%;
+  	border : thin solid blue;
+}
+#rightBottom{	
+	
+		float:left;
+    padding:20 20 20 20px;
+    margin-left: 10px;
+    text-align:left;
+  	width: 80%;
+    border:#FFCC00 double 1px;
+    margin:0 0 0 10;
+}
+#toplogo{
+
+	height: 40px;
+}
+#footlogo{
+	width: 150px;
+}
+#family{
+	width: 150px;
+    float: right;
+}
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문제은행 List</title>	
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../css/bank.css"/>
+<link rel="StyleSheet" href="../css/dtree.css"/>
+
+</head>
+<body>
+<script type="text/javascript" src="../js/dtree.js"></script>
+	<div id="top">
+		<div id="header">
+			<div id="lefttop">
+				<img src="../image/qbank_logo.jpg" id="toplogo"/>
+			</div>
+			<div id="righttop">
+			</div>	
+		</div>
+	</div>
+	
+	<div id="block"></div>
+	<div id="container">	
+		<div id="nav">		
+		<p>
+		<a href="javascript: d.openAll();">open all</a> 
+		| <a href="javascript: d.closeAll();">close all</a>
+		</p>
+		
+			<script type="text/javascript">	
+			d = new dTree('d');
+	
+			d.add(0,-1,'문제은행');
+			d.add(1,0,'ENGLISH','#');
+			d.add(2,1,'GRAMMAR','#');
+			d.add(3,2,'동사','#');
+			d.add(4,3,'B Verb','#');
+			d.add(5,3,'동사의 시제','#');
+			d.add(6,1,'LISTENING','#');
+			d.add(7,6,'Listening Test','#','Pictures of Gullfoss and Geysir');
+			d.add(8,1,'WRITING','#');
+			d.add(9,0,'MATH','#','Pictures I\'ve taken over the years','','','img/imgfolder.gif');
+			d.add(10,9,'도형과 방정식','#','Pictures of Gullfoss and Geysir');
+			d.add(11,10,'집합과 명제','#');
+			d.add(16,0,'Recycle Bin','example01.html','','','img/trash.gif');
+	
+			document.write(d);	
+			</script>
+		</div>
+
+		<div id="flex-column">
+			<section>
+			<h1>▣ 문제 은행 List</h1>
+			<br>
+			<a href="#">ENGLISH</a> &raquo; 
+			<a href="#">GRAMMAR</a> &raquo; 
+			<a href="#">동사</a> &raquo; 
+			<a href="#">B Verb</a>			
+			</section>
+			<section>			
+				<div id="bankAdd">
+					<button type="button" class="btn btn-success">등록</button>
+					<button type="button" class="btn btn-danger">삭제</button>
+				</div>				
+				<br>
+				<table id="subjectList" class="table table table-bordered">
+					<tbody>
+						<tr>
+							<th>번호</th>
+							<th>문제명</th>
+							<th>문형 <span class="caret"></span></th>
+							<th>등록날자</th>
+							<th>문제코드</th>
+							<th>사용 <span class="caret"></span></th>
+							<th><input type="checkbox"/></th>
+						</tr>
+						<tr class="dataRow">
+							<td>1</td>
+							<td>Coral reefs oWe their brilliant ..</td>
+							<td>객관식</td>
+							<td>2013-10-20</td>
+							<td>Q0001</td>
+							<td>O</td>
+							<td><input type="checkbox"/></td>
+						</tr>
+						<tr class="dataRow">
+							<td>2</td>
+							<td>Coral reefs oWe their brilliant ..</td>
+							<td>객관식</td>
+							<td>2013-10-20</td>
+							<td>Q0001</td>
+							<td>O</td>
+							<td><input type="checkbox"/></td>
+						</tr>
+						<tr class="dataRow">
+							<td>3</td>
+							<td>Coral reefs oWe their brilliant ..</td>
+							<td>객관식</td>
+							<td>2013-10-20</td>
+							<td>Q0001</td>
+							<td>O</td>
+							<td><input type="checkbox"/></td>
+						</tr>
+						<tr class="dataRow">
+							<td>4</td>
+							<td>Coral reefs oWe their brilliant ..</td>
+							<td>객관식</td>
+							<td>2013-10-20</td>
+							<td>Q0001</td>
+							<td>O</td>
+							<td><input type="checkbox"/></td>
+						</tr>
+						<tr class="dataRow">
+							<td>5</td>
+							<td>Coral reefs oWe their brilliant ..</td>
+							<td>객관식</td>
+							<td>2013-10-20</td>
+							<td>Q0001</td>
+							<td>O</td>
+							<td><input type="checkbox"/></td>
+						</tr>
+					</tbody>
+				</table>
+
+
+				<div id="pageMove">
+					<button id="prevPage" class="btn">이전</button>
+					<span id="currPageNo">1</span>
+					<button id="nextPage" class="btn">다음</button>
+				</div><br>
+
+
+				<div id="pageSerch">	
+			 		<div class="col-xs-2">    				
+						<select class="form-control">
+						<option>문제명</option>
+						<option>문제코드</option>
+						</select>	
+				  </div>				  
+			    <div class="col-sm-10">
+			    	<input type="text" class="form-control" 
+			    			placeholder="검색어를 입력하세요" id="inputSuccess3">
+			  	</div>
+
+				</div>							
+			</section>
+		</div>			
+	</div>
+		
+	<div id="footer">
+		<div id="leftBottom">
+			<img src="../image/qbank_logo.jpg" id="footlogo"/><br>	<br>			  				
+			<select class="form-control" id="family">
+			<option>패밀리사이트</option>
+			<option>대한문제은행협회</option>
+			<option>국제문제은행기구</option>
+			<option>세계문제은행위원회</option>
+			</select>	
+		</div>
+		<div id="rightBottom">
+		<p> 
+		<a href="#">회사소개</a> 
+		| <a href="#">이용약관</a>
+		| <a href="#">개인정보취급약관</a>
+		| <a href="#">이메일무단수집거부</a>
+		| <a href="#">찾아오시는길</a>
+		| &copy; <b>2014 Bit HoneyJam Corporation.</b></p>
+   	<span>(주) 비트교육센터 서울시 서초구 서초동 1327-15 비트아카데미빌딩 | 
+   	사업자등록번호 123-45-67890 BitAcademy Bldg,,</span><br>
+		<span>1327-15 Seocho-dong, Seocho-gu, Seoul, Korea 문의전화: 02-123-45676 | 
+		통신판매업 신고번호 제 서초-00000gh</span><br>
+   	<span>email : test@test.com COPYRIGHT BY BITACADEMY. 
+   	ALL RIGHTS RESERVED.</span>
+		</div>
+	</div>
+	
+</body>
+</html>
