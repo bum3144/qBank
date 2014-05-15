@@ -1,32 +1,24 @@
 @CHARSET "UTF-8";
-#bcategoryBox { 
-	width:100%; 
-	border:1px solid #ccc; 
-	background-color:#fff; 
-	margin: 0 auto;
-	padding:10px; 
-	min-height:100px; 
-	text-align: center;
-}
 
+#selectGroup{
+	border:1px solid #ccc; 
+	padding-left: 140px; 
+	margin-bottom: 20px; 
+}
 .bcategory{
+	width: 350px; 
 	display: inline-block;
-	width: 200px;
-	min-width: 200px;
-	border:1px solid #ccc; 
-	background-color:#fff; 
 	padding:10px; 
 }
 
 
-#blevel{	
-	border : thin solid blue;
- }
-#baddQuestion{	
-	border : thin solid gray;
- }
-#baddButton{	
-	border : thin solid green;
- }
- 
- 
+textarea{ 
+  width: 350px; 
+  max-width:350px;  
+  min-width:350px; 
+}
+
+.container{
+	border:1px solid #ccc; 
+}
+
