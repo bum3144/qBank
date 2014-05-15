@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>시험지 List</title>	
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" 
+	href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d">
+<link rel="stylesheet" href="../css/bankTest.css"/>
+<link rel="StyleSheet" href="../css/dtree.css"/>
+</head>
+<body>
+<script type="text/javascript" src="../js/dtree.js"></script>
+
+	<!-- 해더 -->
+	<div id="btop"></div>		
+	<div id="bblock"></div>
+	<!-- 해더 끝 -->
+	
+	<div id="bcontainer">	
+		<div id="bnav">		
+		<p>
+		<a href="javascript: d.openAll();">open all</a> 
+		| <a href="javascript: d.closeAll();">close all</a>
+		</p>
+			
+			<!-- 문제은행 트리 -->
+			<div id="dTree">
+				<script type="text/javascript">	
+				d = new dTree('d');
+		
+				d.add(0,-1,'문제은행');
+				d.add(1,0,'ENGLISH','#');
+				d.add(2,1,'GRAMMAR','#');
+				d.add(3,2,'동사','#');
+				d.add(4,3,'B Verb','#');
+				d.add(5,3,'동사의 시제','#');
+				d.add(6,1,'LISTENING','#');
+				d.add(7,6,'Listening Test','#','Pictures of Gullfoss and Geysir');
+				d.add(8,1,'WRITING','#');
+				d.add(9,0,'MATH','#','Pictures I\'ve taken over the years','','','img/imgfolder.gif');
+				d.add(10,9,'도형과 방정식','#','Pictures of Gullfoss and Geysir');
+				d.add(11,10,'집합과 명제','#');
+				d.add(16,0,'Recycle Bin','example01.html','','','img/trash.gif');
+		
+				document.write(d);	
+			</script>
+			</div>
+			<!--  문제은행 트리 끝 -->
+		
+		</div>
+
+		<div id="bflex-column">
+			<section>
+			<h1>▣ 시험지 List</h1>
+			</section>
+			<section>			
+				<div id="bbankAdd">
+					<button type="button" onClick="javascipt:location.href='bankTestAdd1.html'">등록</button>
+					<button type="button">삭제</button>
+				</div>				
+				<br>
+				<table id="subjectList" class="table table-hover">
+					<tbody>
+						<tr class="warning">
+							<th>번호</th>
+							<th>시험지명</th>
+							<th>등록날자</th>
+							<th>시험지코드</th>
+							<th>사용유무<span class="caret"></span></th>
+							<th><input type="checkbox" id='check_all'/></th>
+						</tr>
+						<tr class="dataRow">
+							<td>1</td>
+							<td>Coral reefs oWe their brilliant ..</td>
+							<td>2013-10-20</td>
+							<td>Q0001</td>
+							<td>O</td>
+							<td><input type="checkbox" name='mycheck' value='1'/></td>
+						</tr>
+						<tr class="dataRow">
+							<td>2</td>
+							<td>Coral reefs oWe their brilliant ..</td>
+							<td>2013-10-20</td>
+							<td>Q0001</td>
+							<td>O</td>
+							<td><input type="checkbox" name='mycheck' value='2'/></td>
+						</tr>
+						<tr class="dataRow">
+							<td>3</td>
+							<td>Coral reefs oWe their brilliant ..</td>
+							<td>2013-10-20</td>
+							<td>Q0001</td>
+							<td>O</td>
+							<td><input type="checkbox" name='mycheck' value='3'/></td>
+						</tr>
+						<tr class="dataRow">
+							<td>4</td>
+							<td>Coral reefs oWe their brilliant ..</td>
+							<td>2013-10-20</td>
+							<td>Q0001</td>
+							<td>O</td>
+							<td><input type="checkbox" name='mycheck' value='3'/></td>
+						</tr>
+						<tr class="dataRow">
+							<td>5</td>
+							<td>Coral reefs oWe their brilliant ..</td>
+							<td>2013-10-20</td>
+							<td>Q0001</td>
+							<td>O</td>
+							<td><input type="checkbox" name='mycheck' value='4'/></td>
+						</tr>
+					</tbody>
+				</table>
+
+
+				<div id="bpageMove">
+					<button id="prevPage" class="btn">이전</button>
+					<span id="currPageNo">1</span>
+					<button id="nextPage" class="btn">다음</button>
+				</div><br>
+
+
+				<div id="bpageSerch">	
+			 		<div class="col-xs-2">    				
+						<select class="form-control">
+						<option>시험지명</option>
+						<option>시험지코드</option>
+						</select>	
+				  </div>				  
+			    <div class="col-sm-10">
+			    	<input type="text" class="form-control" 
+			    			placeholder="검색어를 입력하세요" id="inputSuccess3">
+			  	</div>
+
+				</div>							
+			</section>
+		</div>			
+	</div>
+		
+		
+	<!-- 풋터 -->
+	<div id="bfooter"></div>
+	<!-- 풋터 끝 -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script	src="../js/bank.js"></script>
+<script src="../js/include.js"></script>
+</body>
+</html>
