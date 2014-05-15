@@ -8,7 +8,7 @@ body{
   display: inline;
   position: fixed;
   top: 0;left: 0;
-  height: 40px;
+  height: 50px;
   background-color: rgb(70, 70, 70);
   width: 100%;
 }
@@ -16,6 +16,7 @@ body{
   display: -webkit-flex;
   display: flex;
   margin: auto;
+  margin-top: 5px; 
   width: 1200px;
   max-width: 1200px;
 //  border : thin solid blue;
@@ -74,7 +75,6 @@ header {
 
 
 .container2{
-	width: 1300px;  
 	background-color: rgb(70, 70, 70);; 
 	height: 460px;
 	margin-bottom: 40px; 
@@ -111,7 +111,6 @@ header {
 	width: 250px;
 	height: 380px; 
 	float: left;
-	
 }
 
 .item{
@@ -169,8 +168,7 @@ img.rotate {
   -o-transition: all 0.3s ease-in-out; 
   -ms-transition: all 0.3s ease-in-out; 
   transition: all 0.3s ease-in-out; 
-  margin-top: 30px; 
-  margin-left: 60px; 
+  margin-left:7px; 
 }
 
 img.rotate:hover {
@@ -179,7 +177,18 @@ img.rotate:hover {
   -o-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
   transform: rotate(360deg);
+  color:red; 
 } 
+
+.hoverbox{
+   margin: auto; 
+   width: 135px; 
+   height: 190px; 
+}
+
+.hoverbox:hover{
+	color: #AE5E1A; 
+}
 
 h4{
 	text-align: center;
