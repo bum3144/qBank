@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>카테고리 edit</title>	
+<title>문제 은행 등록</title>	
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" 
@@ -102,95 +102,87 @@
 					<div id="blevel">
 
 						<div class="form-inline">
-							<label>문형: </label> <select class="form-control">
+							<label>문형: </label> 
+							<select class="form-control">
 								<option>객관식</option>
 								<option>주관식</option>
 								<option>서술형</option>
-							</select> <label>난이도: </label> <select class="form-control">
+							</select> 
+							<label>난이도: </label> 
+							<select class="form-control">
 								<option>상</option>
 								<option>중</option>
 								<option>하</option>
 							</select>
+				            <label > 에디터 사용</label>
+				            <input type="checkbox"/>
 						</div>
 					</div>
 
 
 			<div class="container">
-              <div id="addQuestion">
-				<label> <input type="checkbox" /> 에디터 사용
-						</label>
+				
 
-						<div class="form-inline">
-							<label class="col-sm-2 control-label">문제입력: </label>
-							<div class="col-sm-10">
+						<div class=questBox>
+							<label>문제입력 </label>
+								<textarea class="form-control" rows="5"></textarea>
+						</div>
+						
+						<div class=questBox>
+							<input type="checkbox"/> <label>지문입력</label>
+							<div>
 								<textarea class="form-control" rows="5"></textarea>
 							</div>
 						</div>
 
-						<div class="form-inline">
-							<label class="col-sm-2 control-label"><input
-								type="checkbox" />지문입력: </label>
-							<div class="col-sm-10">
-								<textarea class="form-control" rows="5"></textarea>
-							</div>
+						<div class=questBox>
+							<input type="checkbox"/> <label>  이미지 등록 </label>
+							<input type="file" value="파일을 선택해주세요"></input>
 						</div>
 
-						<div class="form-inline">
-							<label class="col-sm-2 control-label"> <input
-								type="checkbox" /> 이미지 등록
-							</label>
-							<div class="col-sm-10">
-								<input type="file" value="파일을 선택해주세요"></input>
-							</div>
+
+                        <div class=questBox>
+							<input type="checkbox" /> <label> 미디어파일등록 </label>
+							<input type="file" value="파일을 선택해주세요"></input>
 						</div>
 
-						<div class="form-inline">
-							<label class="col-sm-2 control-label"> <input
-								type="checkbox" /> 미디어파일등록
-							</label>
-							<div class="col-sm-10">
-								<input type="file" value="파일을 선택해주세요"></input>
-							</div>
-						</div>
 
-						<div class="form-inline">
-							<label class="col-sm-2 control-label">보기 </label>
-							<div class="col-sm-10">
+						<div class=questBox>
+							<label>보기 
 								<select>
 									<option>2</option>
 									<option>3</option>
 									<option>4</option>
 									<option>5</option>
-								</select><br> <input type="checkbox" /><input type="text" /><br>
-								<input type="checkbox" /><input type="text" /><br> <input
-									type="checkbox" /><input type="text" /><br> <input
-									type="checkbox" /><input type="text" /><br> <input
-									type="checkbox" /><input type="text" /><br>
-							</div>
-						</div>
-
-						<div class="form-inline">
-							<label class="col-sm-2 control-label"> <input
-								type="checkbox" /> 해설 입력
-							</label>
-							<div class="col-sm-10">
-								<input type="text" value="해설을 입력해주세요"></input>
-							</div>
-						</div>
-
-						<div class="form-inline">
-							<label class="col-sm-2 control-label"> <input
-								type="checkbox" /> 출처입력
-							</label>
-							<div class="col-sm-10">
-								<input type="text" value="해설을 입력해주세요"></input>
-							</div>
+								</select>
+								</label>
+						
+							<div>
+							<input type="checkbox" /><input type="text" class="form-control textInput" /><br>
+							<input type="checkbox" /><input type="text" class="form-control textInput"/><br> 
+							<input type="checkbox" /><input type="text" class="form-control textInput"/><br> 
+							<input type="checkbox" /><input type="text" class="form-control textInput"/><br> 
+							<input type="checkbox" /><input type="text" class="form-control textInput"/><br>
+						    </div>
 						</div>
 						
-                      </div>
+						<div class=questBox>
+							<input type="checkbox" />
+							<label> 해설 입력 </label>
+							<input class="form-control textInput" type="text" value="해설을 입력해주세요"></input>
+							
+						</div>
+						
+						<div class=questBox>
+							 <input type="checkbox" /> 
+							 <label>출처 입력</label>
+							<input class="form-control textInput" class="" type="text" value="해설을 입력해주세요"></input>
+						</div>
+
 					</div>
+				<hr>
 					
-				<div>
+				<div class="btnBox">
 				 <button class="btn btn-primary">취소</button>
 				 <button class="btn btn-primary">미리보기</button>
 				 <button class="btn btn-primary">완료</button>
