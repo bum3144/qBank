@@ -41,11 +41,11 @@
 		 		 <ul class="nav nav-tabs">
 						<table align="right" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
 					    <td>    
-						    <span class="view2"><a href="#">로그인</a>&nbsp;&nbsp;|</span>		    
+						    <span class="view2"><a href="javascript:opencenter('login.html',700,400)" >로그인</a>&nbsp;&nbsp;|</span>		    
 						    &nbsp;&nbsp;
 					    </td>
-					    <td><a href="#">회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
-					    <td><a href="#">ID／PW찾기</a></td>
+					    <td><a href="javascript:opencenter('member.html',700,450)" >회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+					    <td><a href="javascript:opencenter('find.html',700,400)" >ID／PW찾기</a></td>
 				    </tr>
 				    </tbody>
 				    </table>   
@@ -56,4 +56,24 @@
 			</div>	
 						
 		</div>
+		
+<script language ="javascript">
+function opencenter(winNM,width,height)
+{
+var sw=screen.availWidth;                           
+var sh=screen.availHeight;                          
+ 
+var px=(sw-width)/2;
+var py=(sh-height)/2;
+ 
+var set='top='+py+',left='+px;
+set+=',width='+width+',height='+height+
+"toolbar=0,resizable=0,scrollbars=0,status=no,menubar=0";
+ 
+window.open(winNM,'',set);
+}
+
+
+
+</script>
 	<!-- 해더 끝 -->
