@@ -8,40 +8,220 @@
       
       <script type="text/javascript"></script>
 <script language ="javascript">
-function opencenter(winNM,width,height)
-{
-var sw=screen.availWidth;                           
-var sh=screen.availHeight;                          
- 
-var px=(sw-width)/2;
-var py=(sh-height)/2;
- 
-var set='top='+py+',left='+px;
-set+=',width='+width+',height='+height+
-"toolbar=0,resizable=0,scrollbars=0,status=no,menubar=0";
- 
-window.open(winNM,'',set);
-}
+$(function() {
+  var 
+    ID = $( "#ID" ),
+    password = $( "#password" ),
+    allFields = $( [] ).add( ID ).add( password ),
+    tips = $( ".validateTips" );
+
+
+  function checkLength( o, n, min, max ) {
+    if ( o.val().length > max || o.val().length < min ) {
+      o.addClass( "ui-state-error" );
+      updateTips( "Length of " + n + " must be between " +
+        min + " and " + max + "." );
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function checkRegexp( o, regexp, n ) {
+    if ( !( regexp.test( o.val() ) ) ) {
+      o.addClass( "ui-state-error" );
+      updateTips( n );
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  
+  
+  
+  $( "#login-form" ).dialog({
+    autoOpen: false,
+    height: 300,
+    width: 350,
+    modal: true,
+    buttons: {
+      "로그인": function() {
+        var bValid = true;
+        allFields.removeClass( "ui-state-error" ); 
+
+        bValid = bValid && checkLength( ID, "ID", 6, 80 );
+        bValid = bValid && checkLength( password, "password", 5, 16 );
+
+
+        if ( bValid ) {
+          $( this ).dialog( "close" );
+        }
+      },
+      "닫기": function() {
+        $( this ).dialog( "close" );
+      }
+    },
+    close: function() {
+      allFields.val( "" ).removeClass( "ui-state-error" );
+    }
+  });
+
+  
+  $( "#create-form" ).dialog({
+    autoOpen: false,
+    height: 500,
+    width: 400,
+    modal: true,
+    buttons: {
+      "회원가입": function() {
+        var bValid = true;
+        allFields.removeClass( "ui-state-error" ); 
+
+        bValid = bValid && checkLength( ID, "ID", 6, 80 );
+        bValid = bValid && checkLength( password, "password", 5, 16 );
+
+        bValid = bValid && checkRegexp( ID, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com" );
+        bValid = bValid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+
+        if ( bValid ) {
+          $( this ).dialog( "close" );
+        }
+      },
+      "닫기": function() {
+        $( this ).dialog( "close" );
+      }
+    },
+    close: function() {
+      allFields.val( "" ).removeClass( "ui-state-error" );
+    }
+  });
+
+
+  
+  $( "#find-form" ).dialog({
+    autoOpen: false,
+    height: 300,
+    width: 350,
+    modal: true,
+    buttons: {
+      "찾기": function() {
+        var bValid = true;
+        allFields.removeClass( "ui-state-error" ); 
+        bValid = bValid && checkLength( ID, "ID", 6, 80 ); 
+        bValid = bValid && checkRegexp( ID, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com" );
+
+        if ( bValid ) {
+          $( this ).dialog( "close" );
+        }
+      },
+      "닫기": function() {
+        $( this ).dialog( "close" );
+      }
+    },
+    close: function() {
+      allFields.val( "" ).removeClass( "ui-state-error" );
+    }
+  });
+
+  
+  
+  $( "#login-user" )
+    .button()
+    .click(function() {
+      $( "#login-form" ).dialog( "open" );
+    });
+  
+  
+  
+  $( "#create-user" )
+  .button()
+  .click(function() {
+    $( "#create-form" ).dialog( "open" );
+  });
+  
+  
+  
+  $( "#find-user" )
+  .button()
+  .click(function() {
+    $( "#find-form" ).dialog( "open" );
+  });
+  
+  
+  
+  
+});
 
 
 
 </script>
 			 <span id="bbankButton"><button type="button" class="btn btn-default">문제은행</button></span>
 			 <span id="blogin">
-			 	<ul style="margin:3px 10px 0 0; float:right; text-align:right; list-style:none;">
-					<li style="list-style:none; height:25px;">
-						<table align="right" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
-					    <td>    
-						    <span class="view2"><a href="javascript:opencenter('login.html',700,400)" >로그인</a>&nbsp;&nbsp;|</span>   
-						    &nbsp;&nbsp;
-					    </td>
-					    <td><a href="javascript:opencenter('member.html',700,450)" >회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
-					    <td><a href="javascript:opencenter('find.html',700,400)" >ID／PW찾기</a></td>
-				    </tr>
-				    </tbody>
-				    </table>   
-					</li>
-         </ul>
+			 	<div id="login-form" title="login user">
+  <p class="validateTips">회원 로그인.</p> 
+  <form>
+  <fieldset>
+    <label for="ID">ID</label>
+    <input type="text" name="ID" id="ID" value="" class="text ui-widget-content ui-corner-all">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
+  </fieldset>
+  </form>
+</div>
+
+
+
+ 
+<div id="create-form" title="Create new user">
+  <p class="validateTips">회원 가입.</p> 
+  <form>
+  <fieldset>
+    <label for="cID">ID</label>
+    <input type="text" name="cID" id="cID" value="" class="text ui-widget-content ui-corner-all">
+    <label for="cpassword">Password</label>
+    <input type="password" name="cpassword" id="cpassword" value="" class="text ui-widget-content ui-corner-all">
+    <label for="cpasswordOK">PasswordOK</label>
+    <input type="password" name="cpasswordOK" id="cpasswordOK" value="" class="text ui-widget-content ui-corner-all">
+ 
+  
+  
+    <label for="cname">이름</label>
+    <input type="text" name="cname" id="cname" value="" class="text ui-widget-content ui-corner-all">
+ 
+    <label for="cemail">이메일</label>
+    <input type="text" name="cemail" id="cemail" value="" class="text ui-widget-content ui-corner-all">
+ 
+  
+    <label for="caddr">주소</label>
+    <input type="text" name="caddr" id="caddr" value="" class="text ui-widget-content ui-corner-all">
+  
+    <label for="ctel">전화번호</label>
+    <input type="text" name="ctel" id="ctel" value="" class="text ui-widget-content ui-corner-all">
+  </fieldset>
+  </form>
+</div>
+ 
+ 
+ 
+<div id="find-form" title="find user">
+  <p class="validateTips">아이디/비번 찾기.</p> 
+  <form>
+  <fieldset>
+    <label for="fID">ID</label>
+    <input type="text" name="ID" id="ID" value="" class="text ui-widget-content ui-corner-all">
+    <label for="fname">이름</label>
+    <input type="password" name="fname" id="fname" value="" class="text ui-widget-content ui-corner-all">
+  </fieldset>
+  </form>
+</div>
+
+ 
+ 
+
+<button id="login-user" style="float:right" >로그인</button>
+<button id="create-user" style="float:right" >회원가입</button>
+<button id="find-user" style="float:right" >아이디/패스워드찾기</button>
 			 </span>			 
 			</div>	
 						
