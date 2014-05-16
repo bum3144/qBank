@@ -1,14 +1,22 @@
 @CHARSET "UTF-8";
+#bflex-column{
+	margin: auto; 
+}
 
 #selectGroup{
 	border:1px solid #ccc; 
 	padding-left: 140px; 
 	margin-bottom: 20px; 
+	width: 950px; 
 }
 .bcategory{
 	width: 350px; 
 	display: inline-block;
 	padding:10px; 
+}
+
+#blevel{
+	
 }
 
 
@@ -20,5 +28,6 @@ textarea{
 
 .container{
 	border:1px solid #ccc; 
+	width: 950px; 
 }
 
