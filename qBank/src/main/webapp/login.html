@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</div>
+<table width="80%" cellpadding="0" cellspacing="0" border="0" align="center"
+  style="padding-top: 45px; padding-bottom: 5px">
+  <tr>
+    <td>QBANK</td>
+  </tr>
+</table>
+
+<table width="80%" height="240" align="center" border="0" cellpadding="0"
+  cellspacing="0" style="border: 2px #dddddd solid;">
+  <tr>
+    <td>
+      <table cellspacing=0 cellpadding=0 align=center>
+        <tr>
+          <td><script language="JavaScript">
+											function TnTtype_check(FormName) {
+												if (FormName.m_id.value == '') {
+													alert('아이디를 입력하십시오.');
+													FormName.m_id.focus();
+													return false;
+												}
+												if (FormName.m_pass.value == '') {
+													alert('비밀번호를 입력하십시오.');
+													FormName.m_pass.focus();
+													return false;
+												}
+											}
+											if (document.TnTLoginForm.secure_send.checked == true) { // 보안접속 에 체크한 경우
+												document.TnTLoginForm.action = "https://www.05test.com:45943/technote7/member.php";
+											} else {
+												document.TnTLoginForm.action = "member.php";
+											}
+											function OpenFromLogin(Url, Target,
+													Xsize, Ysize, Scroll) {
+												newwinopen = window
+														.open(
+																Url,
+																Target,
+																'left=40,top=30,width='
+																		+ Xsize
+																		+ ',height='
+																		+ Ysize
+																		+ ',scrollbars='
+																		+ Scroll
+																		+ ',resizable=1');
+												newwinopen.focus();
+											}
+										</script>
+
+              <table cellpadding="0" cellspacing="0" align="center">
+                <tr>
+                  <td align="right" valign="middle" height="40" width="67">아이디</td>
+                  <td align="center" valign="middle" width="180"><input
+                    type='text' name='m_id' value='test'
+                    style='width: 150; height: 30; border: 1px solid #B0B0B0; background-color: #dddddd; font-size: 18px; font-weight: bold; padding-left: 10'></td>
+                </tr>
+                <tr>
+                  <td align="right" valign="middle" height="40">패스워드</td>
+                  <td align="center" valign="middle"><input type='password'
+                    name='m_pass' value=''
+                    style='width: 150; height: 30; border: 1px solid #B0B0B0; font-size: 5pt; background-color: #dddddd; font-size: 18px; font-weight: bold; padding-left: 10' /></td>
+                </tr>
+                <tr>
+                  <td colspan="3" align="center" valign="bottom" height="30"><input
+                    type=checkbox name=rmb_pass value=1 id='rmb_passid'><label
+                    for='rmb_passid'> 아이디 저장</label><input
+                    type=hidden name=secure_send value=1 align="absmiddle"
+                    checked></td>
+                </tr>
+              </table></td>
+          <td>
+            <table cellpadding="0" cellspacing="0" align="center">
+              <tr>
+                <td height="40" align="right" valign="middle"></td>
+                <td rowspan="2" align="left" valign="middle" width="89"><input
+                  type='submit' value="LOGIN" width="89"
+                  height="70" border="0"></td>
+              </tr>
+              <tr>
+                <td height="40" align="right" valign="middle">&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center" valign="middle" height="30"><label
+                  for='rmb_passid'>&nbsp;</label></td>
+              </tr>
+            </table>
+          </td>
+          </form>
+        </tr>
+      </table>
+    </td>
+
+  </tr>
+

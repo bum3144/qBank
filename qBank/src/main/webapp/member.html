@@ -1,0 +1,1001 @@
+
+
+
+
+<HTML>
+<HEAD>
+<meta http-equiv='Content-Type' content='text/html; charset=euc-kr'>
+<META http-equiv='cache-control' content='no-cache'>
+<META http-equiv='pragma' content='no-cache'>
+<TITLE>Member Content</TITLE>
+<STYLE TYPE='text/css'>
+body,td,input,div,form,select,textarea,pre {
+	font-size: 9pt;
+	font-family: 굴림, Tahoma;
+	word-break: break-all;
+}
+
+body {
+	border-width: 0;
+	overflow: auto;
+	scrollbar-face-color: #f2f2f2;
+	scrollbar-highlight-color: #EFEFEF;
+	scrollbar-3dlight-color: #ffffff;
+	scrollbar-shadow-color: #cccccc;
+	scrollbar-darkshadow-color: #ffffff;
+	scrollbar-track-color: #ffffff;
+	scrollbar-arrow-color: #dcdcdc;
+}
+
+img {
+	border: 0;
+}
+
+a,label {
+	cursor: pointer;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+A:link {
+	color: #000000;
+	text-decoration: none;
+}
+
+A:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+A:hover {
+	color: #FF5005;
+	text-decoration: none;
+}
+</STYLE>
+<script language="JavaScript">
+            // 새창 출력
+            function OpenWin_smart(Url,Target,Xsize,Ysize,Scroll){
+                smart_Browser=window.open(Url,Target,'left=40,top=30,width='+Xsize+',height='+Ysize+',scrollbars='+Scroll+',resizable=1');
+                smart_Browser.focus();
+            }
+        </script>
+</HEAD>
+<BODY bgcolor=#ffffff text=#000000 topmargin=3 leftmargin=0 rightmargin=0>
+  <div style='padding-top: 3; text-align: center;'>
+
+
+    <!-- ★ 회원관련 Content 삽입 -->
+
+
+
+
+
+
+
+    <STYLE TYPE=text/css>
+.my_data_title {
+	padding: 9 0 5 7;
+}
+
+td {
+	color: #7d7d7d;
+}
+
+.input_text {
+	border: 1px solid #aaaaaa;
+}
+
+textarea {
+	overflow: auto;
+	border: 1px solid #aaaaaa;
+}
+
+select {
+	border: 1px solid #aaaaaa;
+}
+
+.left_td {
+	text-align: left;
+	height: 30px;
+	background-color: #f3f7fa;
+	width: 180;
+	font-weight: bold;
+	color: #65666a; solid #fdfdfd;
+	padding: 4 3 0 10;
+} /*좌측 Subject 부분 <td>*/
+.check_td {
+	text-align: right;
+	width: 15px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #fdfdfd;
+	padding-top: 5;
+} /*체크 이미지 부분 <td>*/
+/*.dv_line{background-color:#eeeeee; height:1px; padding:0;}  구분라인 <td>*/
+.dv_line {
+	background-image: url("./img/board/dotlinet2.gif");
+	height: 1px;
+	padding: 0;
+} /*  구분 라인을 점선으로 표시하려면 이것을 사용 하면됨 */
+.ew_top_line_1 {
+	background-color: #193867;
+	height: 2px;
+}
+
+.secretly_margin {
+	width: 70px;
+}
+
+.regist_admin_re_1 {
+	background-color: #FFFFFF;
+	padding: 2 2 2 2;
+}
+
+.regist_admin_re_2 {
+	background-color: #193867;
+	padding: 10 7 6 7;
+	color: #e8ff51;
+	font: bold 9pt '굴림';
+}
+</style>
+
+    <script src="./other_insert/prototype.js"></script>
+    <script src="./other_insert/ajax_register_form.js"></script>
+
+    <script language="JavaScript">
+
+	// 자료 전송전 입력값 체크 - 필요한 경우만 수정할 것(여기에 체크과정을 넣지 않아도 자료 저장전 php 쪽에서 체크함)
+	function RegInput_checking(){
+		var MemBerForm=document.MemberRegForm;
+
+		// 입력값 체크 예
+		//	if(MemBerForm.m_name.value==""){
+		//		alert('이름을 입력하십시오.');
+		//		return false;
+		//	}
+
+
+		if(MemBerForm.m_id.value=="" || MemBerForm.m_id.value.strip().length < 3){
+			alert('회원아이디를 입력하지 않았거나 입력에 오류가 있습니다.');
+			return false;
+		}
+
+		//if(MemBerForm.m_nick.value=="" || MemBerForm.m_nick.value.strip().length < 3){
+		//	alert('학원명을 입력하지 않았거나 입력에 오류가 있습니다.');
+		//	return false;
+		// }
+
+		if(MemBerForm.m_mail.value==""){
+			alert('E-mail을 입력하지 않았거나 입력에 오류가 있습니다.');
+			return false;
+		}
+		try {
+		if(MemBerForm.is_recomid.value==MemBerForm.m_id.value){
+			alert('자기자신을 추천할 수 없습니다.');
+			return false;
+		}
+                }
+                catch(e){}
+ 
+
+		ClickImgbt();
+		
+	if(document.MemberRegForm.secure_send.checked==true){ // 보안접속 에 체크한 경우
+      document.MemberRegForm.action="https://www.05test.com:45943/technote7/member.php"; 
+       } 
+    else{ 
+      document.MemberRegForm.action="/technote7/member.php"; 
+       }
+		MemBerForm.submit(); // 폼 전송
+   	}
+
+	function autoselect_action(birthfield,sexfield){// 주민번호 입력시 자동선택
+		var MemBerForm=document.MemberRegForm;
+		if(birthfield=='1'){// 생년월일
+			var jumin1=MemBerForm.jumin1.value.replace(/\D/g,'');
+			MemBerForm.y_birth.value='19'+jumin1.substr(0,2);
+			MemBerForm.m_birth.value=eval(jumin1.substr(2,2));
+			MemBerForm.d_birth.value=eval(jumin1.substr(4,2));
+		}
+		if(sexfield=='1'){//성별
+			var jumin2=MemBerForm.jumin2.value.replace(/\D/g,'');
+			var sexnum=jumin2.substr(0,1);
+				if(sexnum==1 || sexnum==3) MemBerForm.sex[0].checked=true;
+				if(sexnum==2 || sexnum==4) MemBerForm.sex[1].checked=true;
+		}
+	}
+	function ClickImgbt(){
+		var FormFields=new Array('homepage','name','mail','tel','id','password');
+		for(i=0; i<FormFields.length; i++){Fgi=eval('document.MemberRegForm.'+FormFields[i]); if(Fgi && Fgi.value=='1') Fgi.value='';}
+	}
+</script>
+
+
+
+
+
+
+
+    <body
+      style="margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0; overflow-x: hidden">
+
+      <table align="left" width="80%">
+        <tr>
+          <td align="right"></td>
+        </tr>
+      </table>
+
+
+
+      <div id='m_reg_agree' style="text-align: center; margin-top: 45px">
+
+        <style type='text/css'>
+.td_table_01 {
+	width: 100%;
+	background-color: #f5fbfb;
+	padding: 8 8 8 8;
+}
+
+.td_member_s1 {
+	font-size: 9pt; width =100%;
+	background-color: #ffffff;
+}
+
+.td_member_s2 {
+	width: 100%;
+	padding-top: 6;
+}
+
+.td_member_line_01 {
+	width: 100%;
+	border-top-width: 1;
+	border-right-width: 0;
+	border-bottom-width: 1;
+	border-left-width: 0;
+	border-color: #ff9900;
+	border-style: solid;
+	background-color: #ffffff;
+	font-size: 9pt;
+	padding: 10 0 8 0;
+}
+</style>
+
+        <script language="JavaScript">
+		function move_agree(){
+			var boxsize=TnTreg_notice.style.pixelHeight;
+			if(boxsize<600) TnTreg_notice.style.pixelHeight=300+boxsize;
+			else TnTreg_notice.style.pixelHeight=200;
+		}
+
+                        function move_agree1(){
+			var boxsize=TnTreg_free.style.pixelHeight;
+			if(boxsize<600) TnTreg_free.style.pixelHeight=300+boxsize;
+			else TnTreg_free.style.pixelHeight=200;
+		}
+
+		function agree_checked(num){
+			if(num==1){ // 동의함
+				TnTmemberRegForm.style.display='inline';
+				m_reg_agree.style.display='none';
+			}
+			else{ // 동의안함
+				TnTmemberRegForm.style.display='none';
+				history.go(-1);
+				setTimeout("window.close(0)",500);
+			}
+		}
+</script>
+
+        <table cellpadding=0 cellspacing=0 width=90% align="center">
+          <tr>
+            <td width=100%>
+              <!-- 상단 테이블 -->
+              <table cellpadding=0 cellspacing=0 width=100%
+                style="border: 3px solid #94DDF8">
+                <tr>
+                  <td align=center>약관동의</td>
+                </tr>
+              </table> <!-- 약관타이틀 -->
+              <table cellpadding=0 cellspacing=0 width=100%
+                style='margin: 25 0 0 0';>
+                <tr>
+                  <td width=50% align=left style="padding-left: 10;">약관동의</td>
+                  <td width=50% align
+                  
+                  =right style="padding-right: 14;"></td>
+                </tr>
+              </table> <!-- 약관내용 -->
+              <table cellpadding=0 cellspacing=0 width=100%
+                style='margin: 5 0 0 0' ; align="center">
+                <tr>
+                  <td class=' td_table_01'>
+
+                    <table cellpadding=0 cellspacing=0 width=100%>
+                      <tr>
+                        <td class=' td_member_s1'>
+
+                          <div id=TnTreg_notice
+                            style="height: 60; color: #909090; padding: 5; overflow: auto; border: 1px solid #00c7cd; line-height: 140%; word-break: break-all; scrollbar-face-color: #fafafa; scrollbar-highlight-color: #f6f6f6; scrollbar-3dlight-color: #ffffff; scrollbar-shadow-color: #dddddd; scrollbar-darkshadow-color: #ffffff; scrollbar-track-color: #ffffff; scrollbar-arrow-color: #dcdcdc;">
+
+                            <!---------------------- 회원등록 약관 출력 내용 시작----------------------------------->
+
+                            <b>제 1 조 (목적)</b><br> 이 규칙은 본
+                            사이트의 회원가입에 대한 조건 및 절차와 기타 필요한 사항을 규정함을 목적으로 합니다.<br>
+                            <br>  <b> 제 2 조 (규칙의 효력 및 변경)</b><br>
+                            ① 이 규칙의 내용은 회원가입시 동의와 공지에 의해서 효력을 발생합니다.<br> ②
+                            본 사이트 운영위가 필요하다고 인정되는 경우 이 규칙의 내용을 개정(변경, 삭제 또는 추가)
+                            할 수 있으며, 개정된 규칙은 상기 제①항과 같은 방법으로 효력을 발생합니다.<br>
+                            <br>  <b> 제 3 조 (규칙외 준칙)</b><br> 이
+                            규칙에 명시되지 않은 사항은 전기통신기본법, 전기 통신사업법 및 기타 관련법령의 규정에
+                            의합니다.<br>
+                            <br>  <b>제 4 조 (회원의 범위)</b><br> ①
+                            회원가입을 한자에 한해 회원됨을 원칙으로 합니다.<br> ② 비회원은 특정 영역의
+                            게시판을 사용하실 수 없습니다.<br> ③ 회원이라 함은 회원과 비회원을 통칭합니다.<br>
+                            ④ 기타 언급되지 않은 사항은 일반 통상적 회원가입 기준을 따릅니다.<br>
+                            <br>  <b>제 5 조 (회원의 의무)</b><br> ①
+                            회원은 이 규칙에서 규정하는 사항과 공지된 사항을 준수하여야 합니다.<br> ②
+                            정식회원은 아래 각 호의 행위를 하여서는 안됩니다.<br> &nbsp; 1. 정당한
+                            이유없이 타인의 명예를 손상시키거나 권리를 침해하는 행위<br> &nbsp; 2.
+                            공공질서 또는 미풍양속을 해하는 행위<br> &nbsp; 3. 본 사이트의 명예를
+                            손상시키거나 운영을 방해하는 행위<br> &nbsp; 4. 국가안전을 위협하거나
+                            범죄와 결부된다고 인정되는 행위<br> &nbsp; 5. 본 규칙에 위반하여
+                            회원활동을 하는 행위<br> &nbsp; 6. 기타 현행법에 위배되는 행위<br>
+                            <br>  <b>제 6 조 (회원가입 제한)</b><br> 다음
+                            각호에 해당되는 경우 사전 경고없이 해당 회원에 대해 삭제, 이동, 이용자 접근 제한, 이용
+                            정지 등의 조치를 취할 수 있습니다.<br> ① 제 5 조에 의한 회원의 의무를
+                            위반하였을 경우<br> ② 게시판에 불법 성인물 및 음란물을 게시하거나 링크하는 경우<br>
+                            ③ 게시판에 저작권 및 저작인접권을 침해하는 내용을 게시하거나 링크하는 경우<br>
+                            ④ 회원가입시 거짓정보를 기입한 경우.<br> ⑤ 회원의 동의없이 상업적 광고성 글을
+                            게제하는 경우.<br>
+                            <br>  <b>제 7 조 (게시판 글의 저작권)</b><br>
+                            ① 게시판에 게시한 글의 저작권에 대한 일체의 권리는 해당 글의 게시자에게 있습니다.<br>
+                            ② 게시판의 글과 관련한 모든 법적인 문제에 대한 책임은 해당 글의 게시자에게 있습니다.<br>
+                            <br> > <b>제 8 조 (내용의 변경 및 추가)</b><br>
+                            본 운영위가 필요하다고 판단하는 경우 본 홈페이지의 내용을 추가, 변경 또는 삭제할 수 있으며
+                            그 내용을 홈페이지내에 게시하거나 별도로 공지합니다.<br>
+                            <br>  <b>제 9 조 (관리운영자의 의무)</b><br>
+                            회원가입과 관련하여 알게 된 회원의 신상정보를 본인의 승낙없이 타인에게 누설, 배포하거나
+                            상업적 목적으로 사용할 수 없습니다.<br> 단, 관계법령에 근거하여 관계 기관의
+                            요구가 있는 경우, 운영위의 토의에 의해서 이에 응할 수 있습니다.<br>
+                            <br>  <b>제 10 조 (본 사이트의 관리)</b><br>
+                            ① 게시판에 글을 게시, 변경, 삭제의 책임은 해당 글의 게시자에게 있습니다.<br>
+                            ② 게시판 글의 손망실에 대비한 원본 및 사본 유지(백업)의 책임은 해당 글의 게시자에게
+                            있습니다.<br> ③ 특정 회원 및 비회원의 게시한 글이 본 사이트의 운영에 타격을
+                            준다고 판단할 경우, 해당 글의 게시자에게 시정을 권고하거나 해당 글의 게시자에 대한 접근을
+                            차단할 수 있습니다. 이 경우, 접근차단 즉시 해당 글의 게시자에게 접근차단 사실을 통보하여야
+                            합니다.<br> ④ 유료회원 기간동안 등록되었던 자료는 유료기간이 종료됨과 동시에
+                            삭제되는 것이 원칙입니다.<br> ⑤ 게시물의 삭제 기준은 모든 회원들이 알 수
+                            있도록 공지하며 변경사항이 발생할 때는 즉시 해당 내용을 공지합니다.<br> ⑥
+                            로그인 권한은 동시간대 1대의 PC만 허용됩니다.<br>
+                            <br>  <b>제 11 조 (손해배상 및 면책)</b><br>
+                            ① 회원은 본 사이트에서 허용하지 않은 행위 또는 활동으로 인한 모든 결과 및 손실에 대한
+                            책임은 해당 회원에게 있으며, 본 사이트는 책임을 지지 않습니다.<br> ② 회원
+                            또는 본 사이트 운영위는 천재지변, 불가항력적인 사유으로 인하여 본 규칙에서 정하는 바를
+                            위반하게 될 경우, 해당 책임을 지지 않습니다.<br> ③ 본 홈페이지 운영의
+                            중단으로 인하여 회원에게 발생할 수 있는 제반 손해에 대하여 배상할 책임을 지지 않습니다.<br>
+                            ④ 회원의 귀책사유로 인한 본 사이트 운영장애에 대하여 책임을 지지 않으며 이로 인해 본사가
+                            입는 손해는 해당 회원이 배상하여야 합니다.<br> ⑤ 당사는 회원에게 제공, 게시
+                            또는 전송한 자료의 신뢰도, 정확성 등의 사항에 관하여 책임을 지지 않습니다.<br>
+
+                            <!---------------------- 회원등록 약관 출력 내용 끝 ----------------------------------->
+
+                          </div>
+
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table> <!-- 개인정보보호정책타이틀 -->
+              <table cellpadding=0 cellspacing=0 width=100%
+                style='margin: 25 0 0 0';>
+                <tr>
+                  <td width=50% align=left style="padding-left: 10;">약관동의</td>
+                  <td width=50% align=right style="padding-right: 14;"></td>
+                </tr>
+              </table> <!-- 개인정보보호정책내용 -->
+              <table cellpadding=0 cellspacing=0 width=100%
+                style='margin: 5 0 0 0' ; align="center">
+                <tr>
+                  <td class=' td_table_01'>
+
+                    <table cellpadding=0 cellspacing=0 width=100% border=0>
+                      <tr>
+                        <td class=' td_member_s1'>
+
+                          <div id=TnTreg_free
+                            style="height: 60; color: #909090; padding: 5; overflow: auto; border: 1px solid #00c7cd; line-height: 140%; word-break: break-all; scrollbar-face-color: #fafafa; scrollbar-highlight-color: #dcfdff; scrollbar-3dlight-color: #ffffff; scrollbar-shadow-color: #dddddd; scrollbar-darkshadow-color: #ffffff; scrollbar-track-color: #ffffff; scrollbar-arrow-color: #dcdcdc;">
+
+                            <!---------------------- 개인정보보호정책  출력 내용 시작----------------------------------->
+
+                            <div>영어 문제은행(www.05test.com)은 통신비밀보호법,
+                              전기통신사업법, 정보통신망 이용촉진 및 정보보호 등에</div>
+                            <div>관한 법률 등 정보통신서비스제공자가 준수하여야 할 관련 법령상의
+                              개인정보보호 규정을 준수하며, 관련 법령에</div>
+                            <div>
+                              의거한 개인정보취급방침을 정하여 이용자 권익 보호에 최선을 다하고 있습니다.&nbsp;<br>
+                              본&nbsp;개인정보취급방침은 다음과 같은 내용을 담고 있습니다.&nbsp;<br>
+                              1. 수집하는 개인정보의 항목 및 수집방법&nbsp;<br> 2. 개인정보의 수집
+                              및 이용목적&nbsp;<br> 3. 개인정보 공유 및 제공&nbsp;<br>
+                              4. 개인정보의 취급위탁&nbsp;<br> 5. 개인정보의 보유 및
+                              이용기간&nbsp;<br> 6. 개인정보 파기절차 및 방법&nbsp;<br>
+                              7. 이용자 및 법정대리인의 권리와 그 행사방법&nbsp;<br> 8. 개인정보
+                              자동 수집 장치의 설치/운영 및 거부에 관한 사항&nbsp;<br> 9.
+                              개인정보의 기술적/관리적 보호 대책&nbsp;<br> 10.
+                              개인정보관리책임자&nbsp;<br> 11. 기타<br> <br>
+                              <strong>1. 수집하는 개인정보의 항목 및 수집방법&nbsp;<br>
+                              </strong>가. 수집하는 개인정보의 항목&nbsp;<br> 첫째, 회사는 회원가입, 원활한
+                              고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 개인정보를
+                            </div>
+                            <div>
+                              수집하고 있습니다.&nbsp;<br> &lt; 일반 회원가입 시
+                              &gt;&nbsp;<br> 필수항목 : 성명,&nbsp;아이디, 비밀번호,
+                              본인확인문답, 이메일 주소, 만 14세 미만인 경우 법정 대리인 정보선택사항 : 휴대폰
+                              번호&nbsp;<br> &lt; 아이핀(i-Pin) 회원가입 시
+                              &gt;&nbsp;<br> 필수항목 : 필수항목 : 성명, 생년월일, 성별,
+                              아이핀 번호, 아이디, 비밀번호, 본인확인문답, 이메일 주소, 만14세 미만인 경우
+                              법정대리인 정보선택사항 : 휴대폰 번호&nbsp;<br> &lt; 단체아이디
+                              회원가입 시 &gt;&nbsp;<br> 필수항목 : 단체아이디, 회사명, 업종,
+                              대표자명, 대표 전화번호, 대표 팩스, 대표 이메일 주소, 단체주소, 관리자 아이디,
+                              관리자 연락처, 관리자 부서/직위선택사항 : 창립일, 대표 홈페이지
+                            </div>
+                            <div>
+                              둘째, 서비스 이용과정이나 사업처리 과정에서 아래와 같은 정보들이 자동으로 생성되어 수집될
+                              수 있습니다.&nbsp;<br> IP Address, 쿠키, 방문 일시, 서비스
+                              이용 기록, 불량 이용 기록&nbsp;<br> 셋째, 부가 서비스 및 맞춤식
+                              서비스 이용 또는 이벤트 응모 과정에서 해당 서비스의 이용자에 한해서만 아래와 같은
+                              정보들이 수집될 수 있습니다.&nbsp;<br> 넷째, 유료 서비스 이용 과정에서
+                              아래와 같은 결제 정보들이 수집될 수 있습니다.&nbsp;<br> 신용카드 결제시
+                              : 카드사명, 카드번호 등휴대전화 결제시 : 이동전화번호, 통신사, 결제승인번호
+                              등계좌이체시 : 은행명, 계좌번호 등상품권 이용시 : 상품권 번호&nbsp;<br>
+                              나. 개인정보 수집방법&nbsp;<br> 회사는 다음과 같은 방법으로 개인정보를
+                              수집합니다.&nbsp;<br> 홈페이지, 서면양식, 팩스, 전화, 상담 게시판,
+                              이메일&nbsp;등으로 부터의 제공생성정보 수집 툴을 통한 수집&nbsp;<br>
+                              <br> <strong>2. 개인정보의 수집 및 이용목적</strong>&nbsp;<br>
+                              가. 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산&nbsp;<br>
+                              컨텐츠 제공, 특정 맞춤 서비스 제공, 물품배송 또는 청구서 등 발송, 본인인증, 구매 및
+                              요금 결제, 요금추심&nbsp;<br> 나. 회원관리&nbsp;<br>
+                              회원제 서비스 이용 및 제한적 본인 확인제에 따른 본인확인, 개인식별, 불량회원의 부정
+                              이용방지와 비인가 사용방지,
+                            </div>
+                            <div>가입의사 확인, 가입 및 가입횟수 제한, 만14세 미만 아동 개인정보 수집
+                              시 법정 대리인 동의여부 확인, 추후 법정 대리인</div>
+                            <div>
+                              본인확인, 분쟁 조정을 위한 기록보존, 불만처리 등 민원처리, 고지사항 전달&nbsp;<br>
+                              다. 신규 서비스 개발 및 마케팅&nbsp;<br> 신규 서비스 개발 및 맞춤
+                              서비스 제공, 통계학적 특성에 따른 서비스 제공 및 광고 게재, 서비스의 유효성 확인,
+                            </div>
+                            <div>
+                              이벤트 및 광고성 정보 제공 및 참여기회 제공, 접속빈도 파악, 회원의 서비스이용에 대한
+                              통계&nbsp;<br> <br> <strong>3.
+                                개인정보의 공유 및 제공</strong>&nbsp;<br> 회사는 이용자들의 개인정보를 "2.
+                              개인정보의 수집목적 및 이용목적"에서 고지한 범위내에서 사용하며, 이용자의 사전
+                            </div>
+                            <div>동의 없이는 동 범위를 초과하여 이용하거나 원칙적으로 이용자의 개인정보를
+                              외부에 공개하지 않습니다.</div>
+                            <div>
+                              다만, 아래의 경우에는 예외로 합니다.&nbsp;<br> 이용자들이 사전에 공개에
+                              동의한 경우&nbsp;<br> 법령의 규정에 의거하거나, 수사 목적으로 법령에
+                              정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우&nbsp;<br> <br>
+                              <strong>4. 개인정보의 취급위탁</strong>&nbsp;<br> 개인정보
+                              취급 위탁 해당내용이 없습니다.
+                            </div>
+                            <div>
+                              <br> <strong>5. 개인정보의 보유 및 이용기간</strong>&nbsp;<br>
+                              이용자의 개인정보는 원칙적으로 개인정보의 수집 및 이용목적이 달성되면 지체 없이
+                              파기합니다.
+                            </div>
+                            <div>
+                              단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.&nbsp;<br>
+                              가. 회사 내부 방침에 의한 정보보유 사유&nbsp;<br> &lt; 부정이용기록
+                              &gt;&nbsp;<br> 보존 이유 : 부정 이용 방지보존 기간 :
+                              1년&nbsp;<br> 나. 관련법령에 의한 정보보유 사유&nbsp;<br>
+                              상법, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할
+                              필요가 있는 경우 회사는
+                            </div>
+                            <div>관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다. 이 경우 회사는
+                              보관하는 정보를 그 보관의 목적으로만</div>
+                            <div>
+                              이용하며 보존기간은 아래와 같습니다.&nbsp;<br> &lt; 계약 또는
+                              청약철회 등에 관한 기록 &gt;&nbsp;<br> 보존 이유 : 전자상거래
+                              등에서의 소비자보호에 관한 법률보존 기간 : 5년&nbsp;<br> &lt;
+                              대금결제 및 재화 등의 공급에 관한 기록 &gt;&nbsp;<br> 보존 이유 :
+                              전자상거래 등에서의 소비자보호에 관한 법률보존 기간 : 5년&nbsp;<br>
+                              &lt; 소비자의 불만 또는 분쟁처리에 관한 기록 &gt;&nbsp;<br> 보존
+                              이유 : 전자상거래 등에서의 소비자보호에 관한 법률보존 기간 : 3년&nbsp;<br>
+                              &lt; 본인확인에 관한 기록 &gt;&nbsp;<br> 보존 이유 : 정보통신
+                              이용촉진 및 정보보호 등에 관한 법률보존 기간 : 6개월&nbsp;<br>
+                              &lt; 방문에 관한 기록 &gt;&nbsp;<br> 보존 이유 :
+                              통신비밀보호법보존 기간 : 3개월&nbsp;<br> <br> <strong>6.
+                                개인정보 파기절차 및 방법&nbsp;<br>
+                              </strong>이용자의 개인정보는 원칙적으로 개인정보의 수집 및 이용목적이 달성되면 지체 없이
+                              파기합니다.&nbsp;<br> 회사의 개인정보 파기절차 및 방법은 다음과
+                              같습니다.&nbsp;<br> 가. 파기절차&nbsp;<br> 이용자가
+                              회원가입 등을 위해 입력한 정보는 목적이 달성된 후 별도의 DB로 옮겨져(종이의 경우
+                              별도의 서류함) 내부
+                            </div>
+                            <div>방침 및 기타 관련 법령에 의한 정보보호 사유에 따라(보유 및 이용기간
+                              참조)일정 기간 저장된 후 파기됩니다.</div>
+                            <div>
+                              동 개인정보는 법률에 의한 경우가 아니고서는 보유되는 이외의 다른 목적으로 이용되지
+                              않습니다.&nbsp;<br> 나. 파기방법&nbsp;<br> 종이에
+                              출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.&nbsp;<br>
+                              전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여
+                              삭제합니다.&nbsp;<br> <br> <strong>7.
+                                이용자 및 법정대리인의 권리와 그 행사방법</strong>&nbsp;<br> 이용자 및 법정
+                              대리인은 언제든지 등록되어 있는 자신 혹은 당해 만 14세 미만 아동의 개인정보를
+                              조회하거나 수정할
+                            </div>
+                            <div>
+                              수 있으며 가입해지를 요청할 수도 있습니다.&nbsp;<br> 이용자 혹은 만
+                              14세 미만 아동의 개인정보 조회, 수정을 위해서는 '개인정보변경'(또는 '회원정보수정'
+                              등)을, 가입해지(동의철회)를 위해서는 "회원탈퇴"를 클릭하여 본인 확인 절차를 거치신 후
+                              직접 열람, 정정 또는 탈퇴가 가능합니다.&nbsp;<br> 혹은
+                              개인정보관리책임자에게 서면, 전화 또는 이메일로 연락하시면 지체 없이
+                              조치하겠습니다.&nbsp;<br> 이용자가 개인정보의 오류에 대한 정정을 요청하신
+                              경우에는 정정을 완료하기 전까지 당해 개인정보를 이용 또는 제공하지 않습니다. 또한 잘못된
+                              개인정보를 제3 자에게 이미 제공한 경우에는 정정 처리결과를 제3자에게 지체 없이 통지하여
+                              정정이 이루어지도록 하겠습니다.&nbsp;<br> 회사는 이용자 혹은 법정
+                              대리인의 요청에 의해 해지 또는 삭제된 개인정보는 "5. 개인정보의 보유 및 이용기간"에
+                              명시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용할 수 없도록 처리하고
+                              있습니다.&nbsp;<br> <br> <strong>8.
+                                개인정보 자동 수집 장치의 설치/운영 및 거부에 관한 사항</strong>&nbsp;<br>
+                              회사는 이용자들에게 특화된 맞춤서비스를 제공하기 위해서 이용자들의 정보를 저장하고 수시로
+                              불러오는 '쿠키(cookie)'를 사용합니다. 쿠키는 웹사이트를 운영하는데 이용되는
+                              서버(HTTP)가 이용자의 컴퓨터 브라우저에게 보내는 소량의 정보이며 이용자들의 PC
+                              컴퓨터내의 하드디스크에 저장되기도 합니다.&nbsp;<br> 가. 쿠키의 사용
+                              목적&nbsp;<br> 이용자들이 방문한&nbsp;각 서비스와 웹 사이트들에 대한
+                              방문 및 이용형태, 인기 검색어, 보안접속 여부, 뉴스편집, 이용자 규모 등을 파악하여
+                              이용자에게 최적화된 정보 제공을 위하여 사용합니다.&nbsp;<br> 나. 쿠키의
+                              사용 목적&nbsp;<br> 이용자는 쿠키 설치에 대한 선택권을 가지고 있습니다.
+                              따라서, 이용자는 웹브라우저에서 옵션을 설정함으로써 모든 쿠키를 허용하거나, 쿠키가 저장될
+                              때마다 확인을 거치거나, 아니면 모든 쿠키의 저장을 거부할 수도 있습니다.&nbsp;<br>
+                              쿠키 설정을 거부하는 방법으로는 이용자가 사용하는 웹 브라우저의 옵션을 선택함으로써 모든
+                              쿠키를 허용하거나 쿠키를 저장할 때마다 확인을 거치거나, 모든 쿠키의 저장을 거부할 수
+                              있습니다.&nbsp;<br> 설정방법 예(인터넷 익스플로어의 경우) : 웹
+                              브라우저 상단의 도구 &gt; 인터넷 옵션 &gt; 개인정보&nbsp;<br>
+                              다만, 쿠키의 저장을 거부할 경우에는 로그인이 필요한&nbsp;일부 서비스는 이용에
+                              어려움이 있을 수 있습니다.&nbsp;<br> <br> <strong>9.
+                                개인정보의 기술적/관리적 보호 대책</strong>&nbsp;<br> 회사는 이용자들의
+                              개인정보를 취급함에 있어 개인정보가 분실, 도난, 누출, 변조 또는 훼손되지 않도록 안전성
+                              확보를
+                            </div>
+                            <div>
+                              위하여 다음과 같은 기술적/관리적 대책을 강구하고 있습니다.&nbsp;<br>
+                              가. 비밀번호 암호화&nbsp;<br> 회원 아이디(ID)의 비밀번호는 암호화되어
+                              저장 및 관리되고 있어 본인만이 알고 있으며, 개인정보의 확인 및 변경도
+                            </div>
+                            <div>
+                              비밀번호를 알고 있는 본인에 의해서만 가능합니다.&nbsp;<br> 나. 해킹
+                              등에 대비한 대책&nbsp;<br> 회사는 해킹이나 컴퓨터 바이러스 등에 의해
+                              회원의 개인정보가 유출되거나 훼손되는 것을 막기 위해 최선을 다하고 있습니다.&nbsp;<br>
+                              개인정보의 훼손에 대비해서 자료를 수시로 백업하고 있고, 최신 백신프로그램을 이용하여
+                              이용자들의 개인정보나 자료가 누출되거나 손상되지 않도록 방지하고 있으며, 암호화통신 등을
+                              통하여 네트워크상에서 개인정보를 안전하게 전송할 수 있도록 하고 있습니다. 그리고
+                              침입차단시스템을 이용하여 외부로부터의 무단 접근을 통제하고 있으며, 기타 시스템적으로
+                              보안성을 확보하기 위한 가능한 모든 기술적 장치를 갖추려 노력하고 있습니다.&nbsp;<br>
+                              다. 취급 직원의 최소화 및 교육&nbsp;<br> 회사의 개인정보관련 취급
+                              직원은 담당자에 한정시키고 있고 이를 위한 별도의 비밀번호를 부여하여 정기적으로 갱신하고
+                              있으며, 담당자에 대한 수시 교육을 통하여&nbsp;개인정보취급방침의 준수를 항상 강조하고
+                              있습니다.&nbsp;<br> 라. 개인정보보호전담기구의 운영&nbsp;<br>
+                              그리고 사내 개인정보보호전담기구 등을 통하여&nbsp;개인정보취급방침의 이행사항 및
+                              담당자의 준수여부를 확인하여 문제가 발견될 경우 즉시 수정하고 바로 잡을 수 있도록
+                              노력하고 있습니다.&nbsp;<br> 단, 이용자 본인의 부주의나 인터넷상의
+                              문제로 ID, 비밀번호, 주민등록번호 등 개인정보가 유출되어 발생한 문제에 대해 회사는
+                              일체의 책임을 지지 않습니다.&nbsp;<br> <br> <strong>10.
+                                개인정보관리책임자<br>
+                              </strong>회사의 서비스를 이용하며 발생하는&nbsp;개인정보보호 관련민원을
+                              개인정보관리책임자에게&nbsp;신고하실 수 있습니다.
+                            </div>
+                            <div>기계적 방식의 무단수집을 방지하기 위해&nbsp;담당자
+                              연락처(전화번호,메일주소)는 홈페이지 하단에 이미지로 표시했습니다.</div>
+                            <div>
+                              기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기
+                              바랍니다.&nbsp;<br> 개인분쟁조정위원회 (www.1336.or.kr /
+                              1336)&nbsp;<br> 정보보호마크인증위원회
+                              (www.eprivacy.or.kr / 02-580-0533~4)&nbsp;<br>
+                              대검찰청 인터넷범죄수사센터 (http://icic.sppo.go.kr /
+                              02-3480-3600)&nbsp;<br> 경찰청 사이버테러대응센터
+                              (www.ctrc.go.kr / 02-392-0330)&nbsp;<br> <br>
+                              <strong>11. 기타</strong>&nbsp;<br> 현 개인정보취급방침
+                              내용 추가, 삭제 및 수정이 있을 시에는&nbsp;'공지사항'을 통해 고지할
+                              것입니다.&nbsp;<br> 최종수정일자 : 2013년 8월 26일
+                            </div>
+
+                            <!---------------------- 회원등록 약관 출력 내용 끝 ----------------------------------->
+
+                          </div>
+
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table> <!-- 약관동의 -->
+              <table cellpadding="0" cellspacing="0" width="100%"
+                style='margin: 30 0 0 0';>
+                <tr>
+                  <td width=50% align=center><b>위의 이용약관에 동의하시면 다음단계로
+                      진행하세요.</b></td>
+                </tr>
+              </table>
+
+
+
+              <table cellpadding=0 cellspacing=0 width=100%
+                style='margin: 20 0 0 0';>
+                <tr>
+                  <td width=100% align=center>
+                    <table cellpadding="0" cellspacing="0" width=180>
+                      <tr>
+                        <td><a href='#rest?move=ok'
+                          onclick=agree_checked(1)>다음으로</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><a onclick=parent.$.fn.colorbox.close();>가입취소</a></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+
+
+      </div>
+    </body>
+
+    <div id='TnTmemberRegForm' style='text-align: center; display: none'>
+
+
+
+      <!--회원등록 양식 테이블################################################-->
+      <table cellpadding=0 cellspacing=0 border=0 width=92% align=center
+        style='margin-top: 45px;'>
+        <form name=MemberRegForm method=post action="/technote7/member.php"
+          enctype='multipart/form-data' target='mhiddenframe'>
+          <input type=hidden name=command value='member'> <input
+            type=hidden name=exe value='save'> <input type=hidden
+            name=mboard value='memberboard'> <input type=hidden
+            name=board value=''> <input type=hidden name=config value=''>
+          <input type=hidden name=MAX_FILE_SIZE value=999999> <input
+            type=hidden name=login_after_url value=''> <input
+            type=hidden name=regist_after_url value=''> <input
+            type=hidden name=modify value=''> <input type=hidden
+            name=page value=''> <input type=hidden name=no value=''>
+          <input type=hidden name=tmcommand value='mem_reg'> <input
+            type=hidden name=target value=''>
+          <tr>
+            <td width=100%>
+              <table cellpadding=0 cellspacing=0 width=100% border=0
+                align="center">
+                <tr>
+                  <td width=100%>
+
+
+
+                    <table cellpadding=0 cellspacing=0 width=100% border=0
+                      align="center">
+                      <tr>
+                        <td width=100%>
+                          <!-- 상단 테이블 -->
+
+                          <table border=0 cellspacing=0 cellpadding=0
+                            width='100%' border=0 align="center">
+                            <tr>
+                              <td>
+
+
+                                <table cellpadding=0 cellspacing=0 width=100%>
+                                  <tr>
+                                    <td width=100%>
+                                      <!-- 상단 테이블 -->
+                                      <table cellpadding=0 cellspacing=0
+                                        width=100%
+                                        style="border: 3px solid #94DDF8">
+                                        <tr>
+                                          <td align=center>회원가입</td>
+                                        </tr>
+                                      </table>
+
+                                    </td>
+                                  </tr>
+                                  
+                                </table> <br>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="padding-top: 0;">
+                                <table cellpadding=0 cellspacing=0 width=100%
+                                  align=center>
+                                  <tr>
+                                    <td align=right height=20>* 표시는 필수항목이므로 반드시 기입 바랍니다.</td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td bgcolor=#2AC4D0 height=2
+                                style="visibility: visible"></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table cellpadding=4 cellspacing=0 width=100%
+                                  border=0 align=center>
+
+                                  <tr>
+                                    <td class=left_td> 아이디</td>
+                                    <td class=check_td></td>
+                                    <td><input type=text name=m_id size=18
+                                      value='' maxlength=18 class=input_text
+                                      style='imemode: inactive' id='reg_mb_id'
+                                      onkeyup='reg_mb_id_check();'> <span
+                                      id='msg_mb_id'></span></td>
+                                    <td class=secretly_margin></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+
+
+
+
+                                  <tr>
+                                    <td class=left_td> 비밀번호</td>
+                                    <td class=check_td></td>
+                                    <td colspan=2><input type=password
+                                      name=m_pass size=18 maxlength=20
+                                      style='height: 18; width: 118; font-size: 5pt;'
+                                      class=input_text></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+
+                                  <tr>
+                                    <td class=left_td> 비밀번호확인</td>
+                                    <td class=check_td></td>
+                                    <td colspan=2><input type=password
+                                      name=m_pass2 size=18 maxlength=20
+                                      class=input_text
+                                      style='height: 18; width: 118; font-size: 5pt;'></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+                                  <tr>
+                                    <td class=left_td> 이
+                                      름(본명)</td>
+                                    <td class=check_td></td>
+                                    <td colspan=2><input type=text
+                                      name='m_name' value='' size='18'
+                                      maxlength='30' class=input_text>
+                                      한글</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+                                  <tr>
+                                    <td class=left_td>
+                                      이메일(진단평가수신)</td>
+                                    <td class=check_td></td>
+                                    <td colspan=2><input type=text
+                                      name=m_mail size=25 value='' maxlength=50
+                                      class=input_text id='reg_mb_email'
+                                      onkeyup='reg_mb_email_check();'> <span
+                                      id='msg_mb_email'></span>
+                                    <td><input type=hidden name='c_mail'
+                                      value=2></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+                                  <tr>
+                                    <td class=left_td> 우편번호</td>
+                                    <td class=check_td></td>
+                                    <td><input type=text name=wpyan1
+                                      maxlength=3 size=7 value=''
+                                      class=input_text> - <input
+                                      type=text name=wpyan2 maxlength=3 size=7
+                                      value='' class=input_text> <img
+                                      src='./skin_member/mem_standard/img_category/regist_form/find.gif'
+                                      align=absmiddle style='cursor: pointer;'
+                                      onClick="window.open('/technote7/member.php?mboard=memberboard&board=&config=&command=public&exe=postnum&num1=wpyan1&num2=wpyan2&address=juso1&formname=MemberRegForm','','scrollbars=yes,resizable=yes,width=470,height=200')">
+                                    </td>
+                                    <td class=secretly_margin></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+                                  <tr>
+                                    <td class=left_td> 주소</td>
+                                    <td class=check_td></td>
+                                    <td><input type=text name=juso1 size=43
+                                      value="" maxlength=200 class=input_text
+                                      style='letter-spacing: -1;'><br>
+                                      <input type=text name=juso2 size=31
+                                      value='' maxlength=200 class=input_text
+                                      style='letter-spacing: -1;'>←나머지주소
+                                    </td>
+                                    <td class=secretly_margin><input
+                                      type=hidden name='c_juso' value=1></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+
+
+                                  <tr>
+                                    <td class=left_td>
+                                      일반전화(결과표삽입)</td>
+                                    <td class=check_td></td>
+                                    <td><select name='tel1_a'>
+                                        <option value=''>국번</option>
+                                        <option value='02'>02</option>
+                                        <option value='031'>031</option>
+                                        <option value='032'>032</option>
+                                        <option value='033'>033</option>
+                                        <option value='041'>041</option>
+                                        <option value='042'>042</option>
+                                        <option value='043'>043</option>
+                                        <option value='051'>051</option>
+                                        <option value='052'>052</option>
+                                        <option value='053'>053</option>
+                                        <option value='054'>054</option>
+                                        <option value='055'>055</option>
+                                        <option value='061'>061</option>
+                                        <option value='062'>062</option>
+                                        <option value='063'>063</option>
+                                        <option value='064'>064</option>
+                                        <option value='070'>070</option>
+                                        <option value='080'>080</option>
+                                    </select> - <input type=text name=tel1_b size=7
+                                      value='' maxlength=4 class=input_text>
+                                      - <input type=text name=tel1_c size=8
+                                      value='' maxlength=4 class=input_text>
+                                    </td>
+                                    <td class=secretly_margin><input
+                                      type=hidden name='c_tel1' value=1></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+
+                                  <tr>
+                                    <td class=left_td> 휴대전화</td>
+                                    <td class=check_td></td>
+                                    <td><select name='tel2_a'>
+                                        <option value=''>국번</option>
+                                        <option value='010'>010</option>
+                                        <option value='011'>011</option>
+                                        <option value='016'>016</option>
+                                        <option value='017'>017</option>
+                                        <option value='018'>018</option>
+                                        <option value='019'>019</option>
+                                    </select> - <input type=text name=tel2_b size=7
+                                      value='' maxlength=4 class=input_text>
+                                      - <input type=text name=tel2_c size=8
+                                      value='' maxlength=4 class=input_text>
+                                    </td>
+                                    <td class=secretly_margin><input
+                                      type=hidden name='c_tel2' value=1>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table cellpadding=4 cellspacing=0 width=100%
+                                  border=0>
+                                  <tr>
+                                    <td class=left_td>
+                                      학원명(시험지삽입)</td>
+                                    <td class=check_td></td>
+                                    <td><input type=text name=m_nick
+                                      size=18 value='' maxlength=50
+                                      class=input_text> 한글,영문</td>
+                                    <td class=secretly_margin></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+                                  <tr>
+                                    <td class=left_td>
+                                      학원로고(시험지삽입)</td>
+                                    <td class=check_td></td>
+                                    <td
+                                      style='font-size: 8pt; font-family: 돋움; line-height: 150%;'>
+                                      <input type=file name=myphoto size=22
+                                      maxlength=255 class=input_text><br>
+                                      <font color='#B03708'>200</font> x <font
+                                      color='#B03708'>45</font> 픽셀 이하 크기만 허용
+                                      (높이는 45px이 보기 좋음)
+                                    </td>
+                                    <td class=secretly_margin></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan=5 height=1 class=dv_line></td>
+                                  </tr>
+                                  <tr>
+                                    <td class=left_td> 추천인
+                                      아이디</td>
+                                    <td class=check_td></td>
+                                    <td><input type=text name=is_recomid
+                                      size=18 value='' maxlength=30
+                                      class=input_text style='imemode: inactive'
+                                      id='reg_mb_reco_id'
+                                      onkeyup='reg_mb_reco_id_check();'>
+                                      <span id='msg_mb_reco_id'></span></td>
+                                    <td class=secretly_margin></td>
+                                  </tr>
+                                </table>
+
+                              </td>
+                            </tr>
+                            <tr style='display: none'>
+                              <td><input type=text name='homepage'
+                                value='1'><input type=text name='name'
+                                value='1'><input type=text name='mail'
+                                value='1'> <input type=text name='tel'
+                                value='1'><input type=text name='id'
+                                value='1'><input type=text
+                                name='password' value='1'></td>
+                            </tr>
+
+
+                            <tr>
+                              <td bgcolor=#2AC4D0 height=2
+                                style="visibility: visible"></td>
+                            </tr>
+
+                            <tr>
+                              <td align=center style='padding-top: 0'>
+                                <table cellpadding=0 cellspacing=0 border=0>
+                                  <tr>
+                                    <td colspan=5 align=center><br> <input
+                                      type=hidden name=secure_send value=1><img
+                                      src='./skin_member/mem_standard/img_category/regist_form/button_write_ok.gif'
+                                      style='cursor: pointer' border=0
+                                      onclick="RegInput_checking()"
+                                      align="absmiddle">&#160;&#160;&#160;
+                                      <img
+                                      src='./skin_member/mem_standard/img_category/regist_form/button_write_reset.gif'
+                                      style='cursor: pointer' border=0
+                                      onclick="parent.$.fn.colorbox.close();"
+                                      align="absmiddle"></td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td height=1 style='display: none;'><iframe
+                                  name='mhiddenframe' frameBorder='0'
+                                  scrolling='0' width='1' height='1'
+                                  marginheight='0' marginwidth='0'
+                                  src='./img/other/is_iframe.html'></iframe></td>
+                            </tr>
+                            <tr>
+                              <td height=10></td>
+                            </tr>
+
+                          </table>
+                        </td>
+                      </tr>
+                      </form>
+                    </table>
+
+                    </div> <!-- 회원관리설정 [2-32] - 회원등록폼 하단 삽입-->
+
+
+                    </div>
+</BODY>
+</HTML>

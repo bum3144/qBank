@@ -1,0 +1,397 @@
+
+
+
+
+<HTML>
+<HEAD>
+<meta http-equiv='Content-Type' content='text/html; charset=euc-kr'>
+<META http-equiv='cache-control' content='no-cache'>
+<META http-equiv='pragma' content='no-cache'>
+<TITLE>Member Content</TITLE>
+<STYLE TYPE='text/css'>
+body,td,input,div,form,select,textarea,pre {
+	font-size: 9pt;
+	font-family: 굴림, Tahoma;
+	word-break: break-all;
+}
+
+body {
+	border-width: 0;
+	overflow: auto;
+	scrollbar-face-color: #f2f2f2;
+	scrollbar-highlight-color: #EFEFEF;
+	scrollbar-3dlight-color: #ffffff;
+	scrollbar-shadow-color: #cccccc;
+	scrollbar-darkshadow-color: #ffffff;
+	scrollbar-track-color: #ffffff;
+	scrollbar-arrow-color: #dcdcdc;
+}
+
+img {
+	border: 0;
+}
+
+a,label {
+	cursor: pointer;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+A:link {
+	color: #000000;
+	text-decoration: none;
+}
+
+A:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+A:hover {
+	color: #FF5005;
+	text-decoration: none;
+}
+
+
+</STYLE>
+<script language="JavaScript">
+	// 새창 출력
+	function OpenWin_smart(Url, Target, Xsize, Ysize, Scroll) {
+		smart_Browser = window.open(Url, Target, 'left=40,top=30,width='
+				+ Xsize + ',height=' + Ysize + ',scrollbars=' + Scroll
+				+ ',resizable=1');
+		smart_Browser.focus();
+	}
+</script>
+</HEAD>
+<BODY bgcolor=#ffffff text=#000000 topmargin=3 leftmargin=0 rightmargin=0>
+  <div style='padding-top: 3; text-align: center;'>
+
+
+    <!-- ★ 회원관련 Content 삽입 -->
+
+
+    <style type=text/css>
+.text_field {
+	border: 1px solid #bbbbbb;
+	width: 70px;
+}
+
+.form_size {
+	width: 450px;
+}
+
+.text_ord {
+	color: #767676;
+	height: 26px;
+	padding-left: 4;
+}
+
+.text_ord_line {
+	background-color: #e7ebf6;
+	height: 1px;
+}
+
+.passwd_lose_line {
+	background-color: #eeeeee;
+	height: 1px;
+}
+
+.passwd_lose_td {
+	background-color: #f8f8f8;
+	width: 100px;
+	height: 28px;
+	padding-left: 4;
+	color: #3586be;
+	font-weight: bold;
+}
+
+.passwd_lose_check {
+	background-color: #f8f8f8;
+	width: 20px;
+}
+
+.passwd_lose_right {
+	padding-left: 7;
+	letter-spacing: -1;
+	color: #858585;
+	line-height: 120%;
+  line-width: 150%;
+}
+</style>
+
+    <script language="JavaScript">
+					function juminwrcheck(value) {
+						if (value == "1") {
+							tr_display('jumin_tr', 'none');
+							tr_display('mid_tr', '');
+							tr_display('mhint_tr', '');
+							tr_display('mnick_tr', '');
+						} else {
+							tr_display('jumin_tr', '');
+							tr_display('mid_tr', 'none');
+							tr_display('mhint_tr', 'none');
+							tr_display('mnick_tr', 'none');
+						}
+					}
+					function tr_display(trid, dipl) {
+						document.getElementById(trid).style.display = dipl;
+					}
+				</script>
+
+
+    
+    <body
+      style="margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;">
+
+      <table cellpadding=0 cellspacing=0 width=100% align=center>
+        <form name=pass_find_form method=post action="/technote7/member.php"
+          style='display: inline;'>
+          <input type=hidden name=command value='member'> <input
+            type=hidden name=exe value='passwd_lose'> <input type=hidden
+            name=passwd_find value='1'> <input type=hidden name=mboard
+            value='memberboard'> <input type=hidden name=board value=''>
+          <input type=hidden name=config value=''>
+          <tr>
+            <td>
+              <table cellpadding=0 cellspacing=0 width=100%>
+                <tr>
+                  <td>
+                    <table cellpadding=0 cellspacing=0 width=100%>
+                      <tr>
+                        <td width=100% height=20><a
+                          onClick='parent.$.fn.colorbox.close();'></a></td>
+                      </tr>
+                    </table>
+                   
+                  </td>
+                </tr>
+                <tr>
+                  
+                          <table cellpadding=0 cellspacing=0 width=100%>
+                            <tr>
+                              <td class=text_ord>회원가입 당시 등록했던 내용을 입력하세요.</td>
+                            </tr>
+                            <tr>
+                              <td class=text_ord_line></td>
+                            </tr>
+                            <tr>
+                              <td class=text_ord>체크표시된 항목은 반드시 입력해야 합니다.</td>
+                            </tr>
+                            <tr>
+                              <td class=text_ord_line></td>
+                            </tr>
+                            <tr>
+                              <td class=text_ord>전혀 찾을 수 없다면 관리 운영자에게 문의해주세요.</td>
+                            </tr>
+                          </table>
+                        </td>
+                        
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td align=center style="padding-top: 16;" align="center">
+
+                    <script type="text/javascript"
+                      src="./skin_member/mem_standard/script/jquery-1.7.2.min.js"></script>
+                    <script type="text/javascript">
+																					jQuery(function(
+																							$) {
+																						$(
+																								'input[name=input_findid_submit]')
+																								.click(
+																										function() {
+																											var _email1 = $
+																													.trim($(
+																															'input[name=input_findid_email1]')
+																															.val());
+																											if (_email1 == '') {
+																												alert('이메일을 입력해 주세요.');
+																												$(
+																														'input[name=input_findid_email1]')
+																														.focus();
+																												return false;
+																											}
+																											var _email2 = $
+																													.trim($(
+																															'input[name=input_findid_email2]')
+																															.val());
+																											if (_email2 == '') {
+																												alert('이메일을 입력해 주세요.');
+																												$(
+																														'input[name=input_findid_email2]')
+																														.focus();
+																												return false;
+																											}
+																											var _email = _email1
+																													+ '@'
+																													+ _email2;
+																											$
+																													.post(
+																															'./find_id_pw.php',
+																															{
+																																'idpw' : 'id',
+																																'email' : _email
+																															},
+																															function(
+																																	r) {
+																																if (typeof r != typeof undefined
+																																		&& r.result) {
+																																	alert("입력하신 이메일로 회원님의 아이디를 발송하였습니다. \n\n이메일을 확인해 주세요.");
+																																} else {
+																																	alert("올바른 이메일을 입력해 주세요.");
+																																}
+																															},
+																															'json')
+																											return false;
+																										});
+																						$(
+																								'input[name=input_findpw_submit]')
+																								.click(
+																										function() {
+																											var _id = $
+																													.trim($(
+																															'input[name=input_findpw_id]')
+																															.val());
+																											if (_id == '') {
+																												alert('아이디를 입력해 주세요.');
+																												$(
+																														'input[name=input_findpw_id]')
+																														.focus();
+																												return false;
+																											}
+																											var _email1 = $
+																													.trim($(
+																															'input[name=input_findpw_email1]')
+																															.val());
+																											if (_email1 == '') {
+																												alert('이메일을 입력해 주세요.');
+																												$(
+																														'input[name=input_findpw_email1]')
+																														.focus();
+																												return false;
+																											}
+																											var _email2 = $
+																													.trim($(
+																															'input[name=input_findpw_email2]')
+																															.val());
+																											if (_email2 == '') {
+																												alert('이메일을 입력해 주세요.');
+																												$(
+																														'input[name=input_findpw_email2]')
+																														.focus();
+																												return false;
+																											}
+																											var _email = _email1
+																													+ '@'
+																													+ _email2;
+																											$
+																													.post(
+																															'./find_id_pw.php',
+																															{
+																																'idpw' : 'pw',
+																																'id' : _id,
+																																'email' : _email
+																															},
+																															function(
+																																	r) {
+																																if (typeof r != typeof undefined
+																																		&& r.result) {
+																																	alert("입력하신 이메일로 새로운 비밀번호를 발송하였습니다. \n\n이메일을 확인해 주세요.");
+																																} else {
+																																	alert("입력한 아이디와 이메일이 올바른지 확인후 다시 입력해 주세요.");
+																																}
+																															},
+																															'json')
+																											return false;
+																										});
+																					});
+																				</script>
+
+
+
+                    <table cellpadding=0 cellspacing=0 class=form_size>
+                      <tr>
+                        <td>
+                          <table cellpadding=0 cellspacing=0 width=150%;>
+                            <tr>
+                              <td colspan=3 class=passwd_lose_line></td>
+                            </tr>
+                            <tr>
+                              <td rowspan="2" class=passwd_lose_td>아이디 찾기</td>
+                              <td align=center class=passwd_lose_check
+                                valign="middle"></td>
+                              <td class=passwd_lose_right valign="bottom"
+                                height="30">이메일 <input type="text"
+                                name="input_findid_email1"> @ <input
+                                type="text" name="input_findid_email2"></td>
+                            </tr>
+                            <tr>
+                              <td align=center class=passwd_lose_check
+                                height="30">&nbsp;</td>
+                              <td class=passwd_lose_right align="center"
+                                valign="middle"><input
+                                name="input_findid_submit" type="button"
+                                value="  찾기  "></td>
+                            </tr>
+
+                            <tr>
+                              <td colspan=3 class=passwd_lose_line></td>
+                            </tr>
+                            <tr>
+                              <td rowspan="3" class=passwd_lose_td>비밀번호 찾기</td>
+                              <td align=center class=passwd_lose_check
+                                valign="middle"></td>
+                              <td class=passwd_lose_right height="30"
+                                valign="middle">아이디 <input type="text"
+                                name="input_findpw_id"></td>
+                            </tr>
+                            <tr>
+                              <td align=center class=passwd_lose_check></td>
+                              <td class=passwd_lose_right>이메일 <input
+                                type="text" name="input_findpw_email1">@<input type="text" name="input_findpw_email2" ></td>
+                            </tr>
+                            <tr>
+                              <td align=center class=passwd_lose_check
+                                height="30">&nbsp;</td>
+                              <td class=passwd_lose_right align="center"
+                                valign="middle"><input
+                                name="input_findpw_submit" type="button"
+                                value="  찾기  "></td>
+                            </tr>
+                            <tr>
+                              <td colspan=3 class=passwd_lose_line></td>
+                            </tr>
+
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+              </table>
+
+            </td>
+          </tr>
+      </table>
+      </td>
+      </tr>
+      </form>
+      </table>
+
+    </body>
+
+
+
+
+
+
+  </div>
+</BODY>
+</HTML>
