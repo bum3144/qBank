@@ -1,12 +1,16 @@
 @CHARSET "UTF-8";
 
-
 #btop {
   display: inline;
   position: fixed;
   top: 0;left: 0;
   height: 50px;
-  background-color: rgb(70, 70, 70);
+/*   background-color: rgb(70, 70, 70); */
+  background-image: url(/qBank/image/bg.png);
+  opacity: 0.9;
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  
   width: 100%;
   z-index:99;
   top:0px;
@@ -23,7 +27,7 @@
   width: 1200px;
   margin-top: 5px; 
   max-width: 1200px;
-//  border : thin solid blue;
+/*   border : thin solid blue; */
 }
 
 #blefttop {
@@ -42,7 +46,7 @@
 }
 
 #bblock{
-	margin: 40px;
+	margin: 50px;
 }
 
 #btoplogo{
@@ -90,7 +94,7 @@ header {
   width: 1200px;
   max-width: 1200px;
   background-color: rgb(75, 73, 73);
-//  border : thin solid blue;
+ /*  border : thin solid blue; */
 }
 #bleftBottom{	
     padding:20 20 20 20px;

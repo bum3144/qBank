@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" 
 	href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d">
+<link rel="stylesheet" href="../css/popup1.css" media="all" />	
 <link rel="stylesheet" href="../css/include.css"/>
 <link rel="stylesheet" href="../css/bank.css"/>
 <link rel="StyleSheet" href="../css/dtree.css"/>
@@ -123,7 +124,7 @@
 				</div><br>
 
 
-				<div id="bpageSerch">	
+<!-- 				<div id="bpageSerch">	
 			 		<div class="col-xs-2">    				
 						<select class="form-control">
 						<option>시험지명</option>
@@ -134,18 +135,97 @@
 			    	<input type="text" class="form-control" 
 			    			placeholder="검색어를 입력하세요" id="inputSuccess3">
 			  	</div>
+				</div> -->	
+										
+			</section>
+			
+			
+			<section>		
+			
+		<br><hr><br>
+		
+			<div class="container">			
+				<form class="form-horizontal">                  
+					<div class="form-inline">
+						<label class="col-sm-2 control-label editBox">시험지 코드: </label>
+						<div class="col-sm-10">
+							<input class="form-control editBox" placeholder="TEST006" readonly>
+						</div>
+					</div>
 
-				</div>							
+
+					<div class="form-inline">
+						<label class="col-sm-2 control-label editBox">문제수: </label>
+						<div class="col-sm-10">
+							<input class="form-control editBox" placeholder="10"> (문항)
+						</div>
+					</div>
+
+					<div class="form-inline">
+						<label class="col-sm-2 control-label editBox">배 치: </label>
+						 <div class="col-sm-10 checkbox">
+					        <input type="checkbox"> 문제 랜덤 배치 
+					        <input type="checkbox"> 보기 랜덤 배치
+					     </div>
+					</div>
+
+					<div class="form-inline">
+						<label class="col-sm-2 control-label editBox">사용 유무: </label>
+						<div class="col-sm-10 editBox">
+							<select class="form-control">
+								<option>사용</option>
+								<option>미사용</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-inline editBox">
+						<label class="col-sm-2 control-label">기간 설정: </label>
+						<div class="col-sm-10">
+							<input type="text" id="datepicker"  
+									class="form-control"  placeholder="시작 날짜입력">~
+							<input type="text" id="datepicker2"  
+									class="form-control"  placeholder="종료 날짜입력">
+									
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			<div id=finishBox>
+			 <h5>응기 가능 기간을 설정하시려면 날짜 입력창을 클릭하시면 달력을 확인할 수 있습니다</h5>
+			 <hr>
+			 	<a href="#" class="btn btn-primary topopup">만들기</a>
+			</div>
+			
 			</section>
 		</div>			
 	</div>
 		
+		
+	<!-- Popup -->
+    <div id="toPopup">
+        <div class="close">닫기</div>
+       	<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span>
+				<div id="popup_content"> <!--your content start-->
+            <p> 이곳에 내용 입력하기 ㅋㅋ 행복 참고하길~. </p>
+            <p> 밖에 클릭하면 닫기~  </p>
+            
+            <p align="center"><a href="#" class="livebox">클릭하면 경고창!!</a></p>
+        </div> <!--your content end-->
+    </div> <!--toPopup end-->
+
+	<div class="loader"></div>
+  <div id="backgroundPopup"></div>
+  <!-- Popup -->
+  	
 		
 	<!-- 풋터 -->
 	<div id="bfooter"></div>
 	<!-- 풋터 끝 -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../js/popup1.js"></script>
 <script	src="../js/bank.js"></script>
 <script src="../js/include.js"></script>
 </body>

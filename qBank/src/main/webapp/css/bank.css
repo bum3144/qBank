@@ -1,13 +1,15 @@
 @CHARSET "UTF-8";
 
 
+
+
 #bcontainer {
   display: -webkit-flex;
   display: flex;
   margin:auto;
   width: 1200px;
   min-height: 700px;
- // border : thin solid red;
+ /*  border : thin solid red; */
 }
 
 #bnav {
@@ -23,7 +25,7 @@
   -webkit-flex: 1;
           flex: 1;
   padding: 10px;
-//  border : thin solid green;
+/*   border : thin solid green; */
 }
 
 #bbankAdd {
@@ -62,7 +64,10 @@ textarea{
 }
 
 #finishBox{
-	margin-top: 50px; 
+	text-align: center;
+/* 	background-color:skyblue; */
+}
+#finishBox h5{
 	text-align: center;
 }
 
