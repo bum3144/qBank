@@ -22,28 +22,29 @@
 
 
 textarea{ 
-  width: 350px; 
-  max-width:350px;  
+  width: 500px; 
+  max-width:500px;  
   min-width:350px; 
 }
 
 .container{
 	width: 950px; 
+	padding-top: 20px; 
 	padding-bottom: 20px; 
 	border:1px solid #ccc; 
 }
 
 .questBox{
 	display: list-item;
-	margin-top: 20px; 
-	margin-left: 150px; 
+	margin-left: 20%; 
+	margin-bottom: 20px; 
 }
 .btnBox{
    margin-left: 600px;  
 }
 
 button{
-	margin-left: 10px; 
+	margin-left: 20px; 
 }
 
 label{
