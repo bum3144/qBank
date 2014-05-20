@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>카테고리 edit</title>	
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" 	href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d">
+<link rel="stylesheet" href="../css/include.css"/>
+<link rel="stylesheet" href="../css/bank.css"/>
+<link rel="stylesheet" href="../css/bankTestAdd.css"/>
+<link rel="StyleSheet" href="../css/dtree.css"/>
+<style>
+  #sortable1, #sortable2, #sortable3 { list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;}
+  #sortable1 li, #sortable2 li, #sortable3 li { margin: 5px; padding: 5px; font-size: 1.2em; width: 120px; }
+  </style>
+  <script>
+  $(function() {
+    $( "ul.droptrue" ).sortable({
+      connectWith: "ul"
+    });
+ 
+    $( "ul.dropfalse" ).sortable({
+      connectWith: "ul",
+      dropOnEmpty: false
+    });
+ 
+    $( "#sortable1, #sortable2, #sortable3" ).disableSelection();
+  });
+  </script>
+</head>
+<body>
+<script type="text/javascript" src="../js/dtree.js"></script>
+	
+	
+	<!-- 해더 -->
+	<div id="btop"></div>		
+	<div id="bblock"></div>
+	<!-- 해더 끝 -->
+	
+	
+	<div id="bcontainer">
+		<div id="bnav">
+			<p>
+				<a href="javascript: d.openAll();">open all</a> | <a
+					href="javascript: d.closeAll();">close all</a>
+			</p>
+			
+			<!-- 문제은행 트리 -->
+			<div id="dTree">
+				<script type="text/javascript">	
+				d = new dTree('d');
+		
+				d.add(0,-1,'문제은행');
+				d.add(1,0,'ENGLISH','#');
+				d.add(2,1,'GRAMMAR','#');
+				d.add(3,2,'동사','#');
+				d.add(4,3,'B Verb','#');
+				d.add(5,3,'동사의 시제','#');
+				d.add(6,1,'LISTENING','#');
+				d.add(7,6,'Listening Test','#','Pictures of Gullfoss and Geysir');
+				d.add(8,1,'WRITING','#');
+				d.add(9,0,'MATH','#','Pictures I\'ve taken over the years','','','img/imgfolder.gif');
+				d.add(10,9,'도형과 방정식','#','Pictures of Gullfoss and Geysir');
+				d.add(11,10,'집합과 명제','#');
+				d.add(16,0,'Recycle Bin','example01.html','','','img/trash.gif');
+		
+				document.write(d);	
+			</script>
+			</div>
+			<!--  문제은행 트리 끝 -->
+		
+		</div>
+
+		<div id="bflex-column">
+			<section>
+				<h1>▣ 시험지 만들기</h1>				
+			</section>
+			<br>
+
+			<div class="container">
+			
+				<div id="testBox">
+					<div id="testTopButton">
+							<button type="button">문제입력</button>
+							<button type="button">선택입력</button>
+							<button type="button">설정수정</button>
+							<button type="button">프린터</button>
+					</div>
+					<div id="testTitleBox">
+						<div id="testTitle">제목</div>
+						<div id="testInput">
+							<input type="text">
+							<input type="text">
+							<input type="text">
+							<input type="text">
+						</div>
+					</div>
+					
+					<div id="testContentLeft">
+					
+					<!-- 문제 시작 -->
+					<div id="test1">
+						<table border="0" cellpadding="0" cellspacing="0" width="325" 
+						style="border:1px #F3DAB2 dotted; border-collapse:collapse;">
+						<tbody>
+						<tr>
+							<td width="20" align="center" valign="top" style="padding-top:1px">1.</td>
+							<td colspan="16" width="305" valign="top" style="table-layout:fixed; 
+							text-align:justify; line-height:130%;" class="img0">
+							<span style="white-space: nowrap">다음 중 문맥상 <u>어색한</u> 것은??</span> 
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">①</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">②</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">③</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">④</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>					
+	
+						<tr>
+							<td width="20" valign="bottom">&nbsp;</td>
+							<td width="305" valign="bottom" colspan="15" 
+						style="line-height:130%;" id="answer"><font color="blue">[4]</font></td>
+						</tr>
+						</tbody>
+						</table>
+					</div>
+					<!-- 문제끝 -->
+					
+					
+					<!-- 문제 시작 -->
+					<div id="test1">
+						<table border="0" cellpadding="0" cellspacing="0" width="325" 
+						style="border:1px #F3DAB2 dotted; border-collapse:collapse;">
+						<tbody>
+						<tr>
+							<td width="20" align="center" valign="top" style="padding-top:1px">2.</td>
+							<td colspan="16" width="305" valign="top" style="table-layout:fixed; 
+							text-align:justify; line-height:130%;" class="img0">
+							<span style="white-space: nowrap">다음 중 문맥상 <u>어색한</u> 것은??</span> 
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">①</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">②</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">③</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">④</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>					
+	
+						<tr>
+							<td width="20" valign="bottom">&nbsp;</td>
+							<td width="305" valign="bottom" colspan="15" 
+						style="line-height:130%;" id="answer"><font color="blue">[4]</font></td>
+						</tr>
+						</tbody>
+						</table>
+					</div>
+					<!-- 문제끝 -->
+					
+					
+					</div>
+					<div id="testContentright">
+					
+					<!-- 문제 시작 -->
+					<div id="test1">
+						<table border="0" cellpadding="0" cellspacing="0" width="325" 
+						style="border:1px #F3DAB2 dotted; border-collapse:collapse;">
+						<tbody>
+						<tr>
+							<td width="20" align="center" valign="top" style="padding-top:1px">3.</td>
+							<td colspan="16" width="305" valign="top" style="table-layout:fixed; 
+							text-align:justify; line-height:130%;" class="img0">
+							<span style="white-space: nowrap">다음 중 문맥상 <u>어색한</u> 것은??</span> 
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">①</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">②</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">③</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="16">
+								<table width="100%" border="0" cellpadding="0" 
+								cellspacing="0" align="center">
+									<tbody>
+										<tr>
+											<td width="20">&nbsp;</td>
+											<td width="15" align="left" valign="top">④</td>
+											<td width="290" valign="top" style="text-align:justify; 
+											line-height:130%;" class="img1">
+												<span style="white-space: nowrap">A: Do you like milk or juice?</span><br>
+												<span style="white-space: nowrap">B: I like juice.</span> 
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>					
+	
+						<tr>
+							<td width="20" valign="bottom">&nbsp;</td>
+							<td width="305" valign="bottom" colspan="15" 
+						style="line-height:130%;" id="answer"><font color="blue">[4]</font></td>
+						</tr>
+						</tbody>
+						</table>
+					</div>
+					<!-- 문제끝 -->
+					
+					
+					<!-- 문제 시작 -->
+					<div id="test1">
+			
+			
+			 
+<ul id="sortable1" class="droptrue">
+  <li class="ui-state-default">Can be dropped..</li>
+  <li class="ui-state-default">..on an empty list</li>
+  <li class="ui-state-default">Item 3</li>
+  <li class="ui-state-default">Item 4</li>
+  <li class="ui-state-default">Item 5</li>
+</ul>
+ 
+<ul id="sortable2" class="dropfalse">
+  <li class="ui-state-highlight">Cannot be dropped..</li>
+  <li class="ui-state-highlight">..on an empty list</li>
+  <li class="ui-state-highlight">Item 3</li>
+  <li class="ui-state-highlight">Item 4</li>
+  <li class="ui-state-highlight">Item 5</li>
+</ul>
+ 
+ 
+<br style="clear:both">
+					</div>
+					<!-- 문제끝 -->
+		
+					</div>
+				</div>
+			
+			</div>
+			
+			
+			<div id=finishBox>
+			 <hr>
+			<button type="button" class="btn btn-primary">만들기</button>
+
+			</div>
+		</div>
+	</div>
+		
+	<!-- 풋터 -->
+	<div id="bfooter"></div>
+	<!-- 풋터 끝 -->
+	
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script	src="../js/bank.js"></script>
+<script src="../js/include.js"></script>
+  <script>
+  $(function() {
+	    $( "#datepicker" ).datepicker({
+	      changeMonth: true,
+	      changeYear: true
+	    });
+	  });
+  $(function() {
+	    $( "#datepicker2" ).datepicker({
+	      changeMonth: true,
+	      changeYear: true
+	    });
+	  });
+  </script>
+</body>
+</html>

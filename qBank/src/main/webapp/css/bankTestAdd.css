@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+
+#testTopButton{
+	background:#CCCCCC;
+  padding:10px 10px 10px 10px;
+  height:50px;
+  width:910px;
+  border:#FFCC00 solid 1px;
+  margin:0 0 10px 0px;
+}
+
+#testTitleBox{
+	background:#FFFFFF;
+  padding:0;
+  height:100px;
+  width:910px;
+  border:#FFCC00 solid 1px;
+}
+
+#testTitle{
+	background:#DDDDDD;
+  padding:5px;
+  height:50px;
+  width:910px;
+  border:#FFCC00 solid 1px;
+}
+
+#testInput{
+	background:#DDDDDD;
+  padding:5px;
+  height:50px;
+  width:910px;
+  border:#FFCC00 solid 1px;
+	text-align: center;
+}
+
+#testContentLeft{
+	float:left;
+	background:#DDDDDD;
+  padding:5px;
+  height:100%;
+  width:455px;
+  border:#FFCC00 solid 1px;
+	text-align: center;
+  margin:10px 0 0 0;
+}
+
+#testContentright{
+	float:left;
+	background:#DDDDDD;
+  padding:5px;
+  height:100%;
+  width:455px;
+  border:#FFCC00 solid 1px;
+	text-align: center;
+  margin:10px 0 0 0px;
+}
+.test1{
+	background:#FFFFFF;
+  padding:5px;
+  height:100%;
+  width:420px;
+  border:#FFCC00 solid 1px;
+	text-align: center;
+  margin:10px 0 0 10px;
+}
+#answer{
+	text-align: left;
+}
