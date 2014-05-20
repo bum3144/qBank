@@ -1,78 +1,87 @@
-	<!-- 해더 -->
-		<div id="bheader">		
-			<div id="blefttop">
-			  <a href="/qBank/main2.html" class="font-effect-3d" style="text-decoration:none;">
-				QBank 
-				</a>
-			</div>
-			
-			<div id="brighttop">
-			 <span id="bbankButton">				 
-		 
-		 		 <ul class="nav nav-tabs">
-				 
-				  <li class="dropdown">
-				    <a class="dropdown-toggle" href="/qBank/bank/bankList.html">
-				      문제은행
-				    </a>
-				    <!-- ul class="dropdown-menu">
-				      ...
-				    </ul-->
-				  </li>
-				  <li class="dropdown">
-				    <a class="dropdown-toggle" data-toggle="dropdown" href="/qBank/bank/categoryEdit.html">
-				      카테고리관리
-				    </a>				    
-				    <ul class="dropdown-menu">
-				      권한자만 보임
-				    </ul>
-				    
-				  </li>
-				  <li class="dropdown">
-				    <a class="dropdown-toggle" data-toggle="dropdown" href="/qBank/bank/bankTestList.html">
-				      시험지관리
-				    </a>
-				    <ul class="dropdown-menu">
-				      권한자만 보임
-				    </ul>
-				  </li>
-				  ...
 
-		 		 <ul class="nav nav-tabs">
-						<table align="right" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
-					    <td>    
-						    <span class="view2"><a href="#" class="topopup">로그인</a>&nbsp;&nbsp;|</span>		    
-						    &nbsp;&nbsp;
-					    </td>
-					    <td><a href="javascript:opencenter('member.html',700,450)" >회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
-					    <td><a href="javascript:opencenter('find.html',700,400)" >ID／PW찾기</a></td>
-				    </tr>
-				    </tbody>
-				    </table>   
-					
-         </ul>
-         </ul>
-			 </span>			 
-			</div>	
-						
-		</div>
-		
-    
-	<!-- Login Popup -->
-    <div id="toPopup">
-        <div class="close">닫기</div>
-       	<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span>
-				<div id="popup_content"> <!--your content start-->
-            <p> 이곳에 내용 입력하기 ㅋㅋ 행복 참고하길~. </p>
-            <p> 밖에 클릭하면 닫기~  </p>
-            
-            <p align="center"><a href="#" class="livebox">클릭하면 경고창!!</a></p>
-        </div> <!--your content end-->
-    </div> <!--toPopup end-->
+<!-- 해더 -->
+<script src="/qBank/js/loginPop.js"></script>
+<link rel="stylesheet" href="/qBank/css/loginPop.css" media="all" />
+<link href="/qBank/css/login-box.css" rel="stylesheet" type="text/css" />
 
-	<div class="loader"></div>
-  <div id="backgroundPopup"></div>
-  <!-- Popup -->
-  
-  
-	<!-- 해더 끝 -->
+<div id="bheader">
+  <div id="blefttop">
+    <a href="/qBank/main2.html" class="font-effect-3d"
+      style="text-decoration: none;"> QBank </a>
+  </div>
+
+  <div id="brighttop">
+    <span id="bbankButton">
+
+      <ul class="nav nav-tabs">
+        <li class="dropdown"><a class="dropdown-toggle"
+          href="/qBank/bank/bankList.html"> 문제은행 </a></li>
+        <li class="dropdown"><a class="dropdown-toggle"
+          data-toggle="dropdown" href="/qBank/bank/categoryEdit.html">
+            카테고리관리 </a></li>
+        <li class="dropdown"><a class="dropdown-toggle"
+          data-toggle="dropdown" href="/qBank/bank/bankTestList.html"> 시험지관리
+        </a></li>
+
+        <ul class="nav nav-tabs">
+          <table align="right" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr>
+                <td><span class="view2"><a href="#" class="toPopup">
+                      로그인
+                  </a>&nbsp;&nbsp;|</span> &nbsp;&nbsp;</td>
+                <td><a href="#" class="toPopup">회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                <td><a href="#" class="toPopup">ID／PW찾기</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </ul>
+      </ul>
+    </span>
+  </div>
+
+</div>
+
+
+<!-- Login Popup -->
+<div id="toPopup">
+  <div class="close">닫기</div>
+  <span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span>
+  <div id="popup_content">
+    <!--your content start-->
+    <div id="login-box">
+                        <H2>QBank</H2>
+                        로그인을 하시면 많은 정보를 제공 받으실 수 있습니다. <br /> <br />
+                        <div id="login-box-name" style="margin-top: 20px;">이메일:</div>
+                        <div id="login-box-field" style="margin-top: 20px;">
+                          <input name="q" class="form-login" title="Username"
+                            value="" size="30" maxlength="2048" />
+                        </div>
+                        <div id="login-box-name">비밀번호:</div>
+                        <div id="login-box-field">
+                          <input name="q" type="password" class="form-login"
+                            title="Password" value="" size="30" maxlength="2048" />
+                        </div>
+                        <br /> <span class="login-box-options"><input
+                          type="checkbox" name="1" value="1"> 아이디 저장 <a
+                          href="find.html" style="margin-left: 30px;">비밀번호
+                            찾기</a></span> <br /> <br /> <a href="#"><img
+                          src=image/login-btn.png " width="103" height="42"
+                          style="margin-left: 90px;" /></a>
+                      </div>
+
+<!--     <p align="center">
+      <a href="#" class="livebox">클릭하면 경고창!!</a>
+    </p> -->
+  </div>
+  <!--your content end-->
+</div>
+<!--toPopup end-->
+
+<div class="loader"></div>
+<div id="backgroundPopup"></div>
+<!-- Popup -->
+
+
+<!-- 해더 끝 -->
