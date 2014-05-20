@@ -10,7 +10,7 @@
 <TITLE>Member Content</TITLE>
 <STYLE TYPE='text/css'>
 body,td,input,div,form,select,textarea,pre {
-	font-size: 9pt;
+	font-size: 10pt;
 	font-family: 굴림, Tahoma;
 	word-break: break-all;
 }
@@ -301,7 +301,6 @@ select {
               <table cellpadding=0 cellspacing=0 width=100%
                 style='margin: 25 0 0 0';>
                 <tr>
-                  <td width=50% align=left style="padding-left: 10;">약관동의</td>
                   <td width=50% align
                   
                   =right style="padding-right: 14;"></td>
@@ -375,7 +374,7 @@ select {
                             또는 본 사이트 운영위는 천재지변, 불가항력적인 사유으로 인하여 본 규칙에서 정하는 바를
                             위반하게 될 경우, 해당 책임을 지지 않습니다.<br> ③ 본 홈페이지 운영의
                             중단으로 인하여 회원에게 발생할 수 있는 제반 손해에 대하여 배상할 책임을 지지 않습니다.<br>
-                            ④ 회원의 귀책사유로 인한 본 사이트 운영장애에 대하여 책임을 지지 않으며 이로 인해 본사가
+                            ④ 회원의 귀책사,유로 인한 본 사이트 운영장애에 대하여 책임을 지지 않으며 이로 인해 본사가
                             입는 손해는 해당 회원이 배상하여야 합니다.<br> ⑤ 당사는 회원에게 제공, 게시
                             또는 전송한 자료의 신뢰도, 정확성 등의 사항에 관하여 책임을 지지 않습니다.<br>
 
@@ -390,9 +389,8 @@ select {
                 </tr>
               </table> <!-- 개인정보보호정책타이틀 -->
               <table cellpadding=0 cellspacing=0 width=100%
-                style='margin: 25 0 0 0';>
+                style='margin: 0 0 0 0';>
                 <tr>
-                  <td width=50% align=left style="padding-left: 10;">약관동의</td>
                   <td width=50% align=right style="padding-right: 14;"></td>
                 </tr>
               </table> <!-- 개인정보보호정책내용 -->
@@ -613,12 +611,14 @@ select {
                     </table>
                   </td>
                 </tr>
+                <input type="checkbox" value="동의" align="center">동의
               </table> <!-- 약관동의 -->
               <table cellpadding="0" cellspacing="0" width="100%"
-                style='margin: 30 0 0 0';>
+                style='margin: 0 0 0 0';>
                 <tr>
                   <td width=50% align=center><b>위의 이용약관에 동의하시면 다음단계로
                       진행하세요.</b></td>
+                      <input type="checkbox" name= "chk"value="동의" align="center">동의
                 </tr>
               </table>
 
@@ -628,12 +628,12 @@ select {
                 style='margin: 20 0 0 0';>
                 <tr>
                   <td width=100% align=center>
-                    <table cellpadding="0" cellspacing="0" width=180>
+                    <table cellpadding="0" cellspacing="0" width=0>
                       <tr>
-                        <td><a href='#rest?move=ok'
+                        <td align=center><a href='#rest?move=ok'
                           onclick=agree_checked(1)>다음으로</a></td>
-                        <td>&nbsp;&nbsp;&nbsp;</td>
-                        <td><a onclick=parent.$.fn.colorbox.close();>가입취소</a></td>
+                        
+                       
                       </tr>
                     </table>
                   </td>
@@ -768,19 +768,19 @@ select {
                                   </tr>
                                   <tr>
                                     <td class=left_td> 이
-                                      름(본명)</td>
+                                      름</td>
                                     <td class=check_td></td>
                                     <td colspan=2><input type=text
                                       name='m_name' value='' size='18'
                                       maxlength='30' class=input_text>
-                                      한글</td>
+                                      </td>
                                   </tr>
                                   <tr>
                                     <td colspan=5 height=1 class=dv_line></td>
                                   </tr>
                                   <tr>
                                     <td class=left_td>
-                                      이메일(진단평가수신)</td>
+                                      이메일</td>
                                     <td class=check_td></td>
                                     <td colspan=2><input type=text
                                       name=m_mail size=25 value='' maxlength=50
@@ -800,10 +800,7 @@ select {
                                       maxlength=3 size=7 value=''
                                       class=input_text> - <input
                                       type=text name=wpyan2 maxlength=3 size=7
-                                      value='' class=input_text> <img
-                                      src='./skin_member/mem_standard/img_category/regist_form/find.gif'
-                                      align=absmiddle style='cursor: pointer;'
-                                      onClick="window.open('/technote7/member.php?mboard=memberboard&board=&config=&command=public&exe=postnum&num1=wpyan1&num2=wpyan2&address=juso1&formname=MemberRegForm','','scrollbars=yes,resizable=yes,width=470,height=200')">
+                                      value='' class=input_text> 
                                     </td>
                                     <td class=secretly_margin></td>
                                   </tr>
@@ -893,50 +890,7 @@ select {
                             </tr>
                             <tr>
                               <td>
-                                <table cellpadding=4 cellspacing=0 width=100%
-                                  border=0>
-                                  <tr>
-                                    <td class=left_td>
-                                      학원명(시험지삽입)</td>
-                                    <td class=check_td></td>
-                                    <td><input type=text name=m_nick
-                                      size=18 value='' maxlength=50
-                                      class=input_text> 한글,영문</td>
-                                    <td class=secretly_margin></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan=5 height=1 class=dv_line></td>
-                                  </tr>
-                                  <tr>
-                                    <td class=left_td>
-                                      학원로고(시험지삽입)</td>
-                                    <td class=check_td></td>
-                                    <td
-                                      style='font-size: 8pt; font-family: 돋움; line-height: 150%;'>
-                                      <input type=file name=myphoto size=22
-                                      maxlength=255 class=input_text><br>
-                                      <font color='#B03708'>200</font> x <font
-                                      color='#B03708'>45</font> 픽셀 이하 크기만 허용
-                                      (높이는 45px이 보기 좋음)
-                                    </td>
-                                    <td class=secretly_margin></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan=5 height=1 class=dv_line></td>
-                                  </tr>
-                                  <tr>
-                                    <td class=left_td> 추천인
-                                      아이디</td>
-                                    <td class=check_td></td>
-                                    <td><input type=text name=is_recomid
-                                      size=18 value='' maxlength=30
-                                      class=input_text style='imemode: inactive'
-                                      id='reg_mb_reco_id'
-                                      onkeyup='reg_mb_reco_id_check();'>
-                                      <span id='msg_mb_reco_id'></span></td>
-                                    <td class=secretly_margin></td>
-                                  </tr>
-                                </table>
+                                
 
                               </td>
                             </tr>
@@ -962,12 +916,12 @@ select {
                                   <tr>
                                     <td colspan=5 align=center><br> <input
                                       type=hidden name=secure_send value=1><img
-                                      src='./skin_member/mem_standard/img_category/regist_form/button_write_ok.gif'
+                                      src='image/join.jpg'
                                       style='cursor: pointer' border=0
                                       onclick="RegInput_checking()"
                                       align="absmiddle">&#160;&#160;&#160;
                                       <img
-                                      src='./skin_member/mem_standard/img_category/regist_form/button_write_reset.gif'
+                                      src='image/joincancel.jpg'
                                       style='cursor: pointer' border=0
                                       onclick="parent.$.fn.colorbox.close();"
                                       align="absmiddle"></td>
