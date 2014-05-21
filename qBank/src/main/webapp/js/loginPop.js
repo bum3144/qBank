@@ -1,11 +1,12 @@
 jQuery(function($) {
 
-	$("a.topopup").click(function() {
-			loading(); // loading
+	$("a.toPopup").click(function() {
+		console.log(34)
+		loading(); // loading
 			setTimeout(function(){ // then show popup, deley in .5 second
 				loadPopup(); // function show popup
 			}, 500); // .5 second
-	return false;
+	return false; 
 	});
 
 	/* event for close the popup */
@@ -32,10 +33,10 @@ jQuery(function($) {
 		disablePopup();  // function close pop up
 	});
 
-	$('a.livebox').click(function() {
+/*	$('a.livebox').click(function() {
 		alert('다친다! 언넝 닫아라!');
 	return false;
-	});
+	});*/
 
 	 /************** start: functions. **************/
 	function loading() {
