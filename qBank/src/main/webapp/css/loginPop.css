@@ -19,10 +19,11 @@
     display: none;
     font-size: 14px;
     left: 50%;
-    margin-left: -402px;
+    margin-left: -250px;
     position: fixed;
-    top: 10%;
-    width: 800px;
+    top: 25%;
+    width: 500px;
+    height: 400px;
     z-index: 2;
 }
 div.loader {
