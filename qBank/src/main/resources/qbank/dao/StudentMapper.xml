@@ -4,8 +4,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="sems.dao.StudentDao">
-  <resultMap type="sems.vo.StudentVo" id="studentMap">
+<mapper namespace="qbank.dao.StudentDao">
+  <resultMap type="qbank.vo.StudentVo" id="studentMap">
     <id column="UNO" property="no"/><!-- PK 컬럼에 대해서만 설정한다. -->
     <result column="UID" property="uid"/>
     <result column="UEMAIL" property="uemail"/>
