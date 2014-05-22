@@ -32,11 +32,11 @@ public class AuthFilter implements Filter {
 		
 		// 2) 만약 URL에 '/auth/' 문자열을 포함하고 있지 않다면
 		//    로그인 여부 검사한다.
-		if (!servletPath.startsWith("/auth/")) {
+		if (!servletPath.startsWith("/")) {
 			HttpSession session = httpRequest.getSession();
 			if (session.getAttribute("loginUser") == null) {
 				String contextRoot= httpRequest.getContextPath(); // "/web01"
-				httpResponse.sendRedirect(contextRoot + "/auth/login.html");
+				httpResponse.sendRedirect(contextRoot + "/header.html");
 				//  "/web01/auth/login.bit"
 				return;
 			}

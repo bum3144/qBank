@@ -18,7 +18,7 @@ import qbank.vo.AjaxResult;
 import qbank.vo.UserVo;
 
 @Controller
-@RequestMapping("/auth")
+@RequestMapping("/")
 @SessionAttributes("loginUser")
 public class AuthControl {
 	static Logger log = Logger.getLogger(AuthControl.class);
@@ -29,7 +29,7 @@ public class AuthControl {
 	 * - 자동으로 JSON 문자열로 변환하려면, 빈 설정파일에
 	 *   JSON 변환 해결사를 등록해야 한다.
 	 */
-	@RequestMapping("/login")
+	@RequestMapping("/header")
 	public AjaxResult login(
 			String uid, 
 			String password, 
