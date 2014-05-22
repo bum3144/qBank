@@ -2,9 +2,9 @@ $(document).ready(function(){
 	// 화면 로딩이 완료되면, 로그인 버튼의 리스너를 등록한다.
 	$('#btnLogin').on('click', function(event){
 		event.preventDefault();
-		if ($('#email').val().length == 0 ||
+		if ($('#uid').val().length == 0 ||
 				$('#password').val().length == 0) {
-			alert('이메일과 암호는 필수 입력입니다.');
+			alert('아이디와 암호는 필수 입력입니다.');
 			return;
 		}
 		
@@ -12,9 +12,9 @@ $(document).ready(function(){
 			type: 'POST',
 			dataType: 'json', /*서버에서 보내는 데이터의 형식 지정 */
 			data: { /* 서버쪽으로 보내는 데이터 */
-				email: $('#email').val(),
+				uid: $('#uid').val(),
 				password: $('#password').val(),
-				saveEmail: ($('#saveEmail:checked').length > 0) ? 
+				saveEmail: ($('#saveUid:checked').length > 0) ? 
 						'true':'false'
 			},
 			success: function(jsonObj){
