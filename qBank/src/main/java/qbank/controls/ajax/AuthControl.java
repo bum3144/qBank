@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import qbank.service.AuthService;
+import qbank.services.AuthService;
+import qbank.services.UserGroup;
 import qbank.vo.AjaxResult;
 import qbank.vo.UserVo;
 
@@ -31,14 +32,16 @@ public class AuthControl {
 	 */
 	@RequestMapping("/login")
 	public AjaxResult login(
-			String email, 
+			String uid, 
 			String password, 
-			@RequestParam(required=false) String saveEmail,
+			@RequestParam(required=false) String saveUid,
 			HttpServletResponse response,
 			Model model) {
+		
 		try {
+
 				UserVo userVo = authService.getLoginUser(
-							email, password);
+							uid, password, UserGroup.STUDENT);
 				
 				AjaxResult result = null;
 				if (userVo == null) {
@@ -48,8 +51,8 @@ public class AuthControl {
 					result = new AjaxResult().setStatus("ok")	.setData("success");
 					model.addAttribute("loginUser", userVo);
 					
-					if (saveEmail.equals("true")) {
-						Cookie cookie = new Cookie("loginEmail", email);
+					if (saveUid.equals("true")) {
+						Cookie cookie = new Cookie("loginUid", uid);
 						cookie.setDomain("localhost"); // 서버 범위
 						cookie.setPath("/qBank");					// 하위 폴더 범위
 						
