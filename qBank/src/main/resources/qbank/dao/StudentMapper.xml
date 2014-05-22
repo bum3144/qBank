@@ -6,7 +6,7 @@
   
 <mapper namespace="qbank.dao.StudentDao">
   <resultMap type="qbank.vo.StudentVo" id="studentMap">
-    <id column="UNO" property="no"/><!-- PK 컬럼에 대해서만 설정한다. -->
+    <id column="UNO" property="uno"/><!-- PK 컬럼에 대해서만 설정한다. -->
     <result column="UID" property="uid"/>
     <result column="UEMAIL" property="uemail"/>
     <result column="UNAME" property="uname"/>
@@ -32,7 +32,7 @@
   -->
   
   <select id="getLoginUser" parameterType="map" resultMap="studentMap">
-    select UNO, UNAME, UEMAIL 
+    select UNO, UID, UNAME, UEMAIL, UPASS
     from USERS
     where UID=#{uid} and UPASS=#{password}
   </select>
