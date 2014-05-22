@@ -8,7 +8,7 @@
   
   <!--
   <typeAliases>
-    <typeAlias type="sems.vo.SubjectVo" alias="subjectVo"/>
+    <typeAlias type="qbank.vo.SubjectVo" alias="subjectVo"/>
   </typeAliases>
 -->
 
