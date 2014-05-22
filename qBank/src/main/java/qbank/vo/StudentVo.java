@@ -56,13 +56,4 @@ public class StudentVo extends UserVo {
 		return this;
 	}
 
-/*	@Override
-  public String toString() {
-	  return "StudentVo [company=" + company + ", position=" + position
-	      + ", workingState=" + workingState + ", lastSchool=" + lastSchool
-	      + ", bankingAccount=" + bankingAccount + ", no=" + no + ", email="
-	      + email + ", password=" + password + ", name=" + name + ", tel=" + tel
-	      + ", fax=" + fax + ", postNo=" + postNo + ", address=" + address
-	      + ", photoPath=" + photoPath + "]";
-  }*/
 }

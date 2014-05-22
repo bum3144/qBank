@@ -11,12 +11,6 @@ public class UserVo implements Serializable{
   String 	upass;
   String 	uname;
   String 	uemail;
-  String 	uaddr1;
-  String 	uaddr2;
-  String 	uzipcode;
-  String 	utel;
-  String 	ucellphone;
-  String 	ubirth;
   
   
 public int getUno() {
@@ -60,51 +54,7 @@ public String getUemail() {
 public UserVo setUemail(String uemail) {
 	this.uemail = uemail;
 	return this;
-}
-public String getUaddr1() {
-	return uaddr1;
-}
-public UserVo setUaddr1(String uaddr1) {
-	this.uaddr1 = uaddr1;
-	return this;
-}
-public String getUaddr2() {
-	return uaddr2;
-}
-public UserVo setUaddr2(String uaddr2) {
-	this.uaddr2 = uaddr2;
-	return this;
-}
-public String getUzipcode() {
-	return uzipcode;
-}
-public UserVo setUzipcode(String uzipcode) {
-	this.uzipcode = uzipcode;
-	return this;
-}
-public String getUtel() {
-	return utel;
-}
-public UserVo setUtel(String utel) {
-	this.utel = utel;
-	return this;
-}
-public String getUcellphone() {
-	return ucellphone;
-}
-public UserVo setUcellphone(String ucellphone) {
-	this.ucellphone = ucellphone;
-	return this;
-}
-public String getUbirth() {
-	return ubirth;
-}
-public UserVo setUbirth(String ubirth) {
-	this.ubirth = ubirth;
-	return this;
-}
-
-  
+}  
   
 }
 
