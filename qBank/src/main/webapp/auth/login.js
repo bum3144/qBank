@@ -14,7 +14,7 @@ $(document).ready(function(){
 			data: { /* 서버쪽으로 보내는 데이터 */
 				uid: $('#uid').val(),
 				password: $('#password').val(),
-				saveEmail: ($('#saveUid:checked').length > 0) ? 
+				saveUid: ($('#saveUid:checked').length > 0) ? 
 						'true':'false'
 			},
 			success: function(jsonObj){
@@ -31,6 +31,7 @@ $(document).ready(function(){
 				console.log(status);
 				console.log(errorThrown);
 			}
+			
 		});
 		
 		// 로그인 성공 후에 해야할 작업을 여기에 기술한다면,당신은 바보!
