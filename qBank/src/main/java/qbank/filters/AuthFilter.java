@@ -36,7 +36,7 @@ public class AuthFilter implements Filter {
 			HttpSession session = httpRequest.getSession();
 			if (session.getAttribute("loginUser") == null) {
 				String contextRoot= httpRequest.getContextPath(); // "/web01"
-				httpResponse.sendRedirect(contextRoot + "/auth/login.bit");
+				httpResponse.sendRedirect(contextRoot + "/auth/login.html");
 				//  "/web01/auth/login.bit"
 				return;
 			}
