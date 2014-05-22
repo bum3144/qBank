@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SubjectMapper.xml -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<!-- DAO 인터페이스만 선언하고, 구현체를 자동 생성되게 하려면
+네임스페이스 이름을 인터페이스 이름과 같게 한다.
+SQL 아이디 값을 인터페이스의 메서드 이름과 같게 한다.
+ -->  
+<mapper namespace="qbank.dao.UserDao">
+  <resultMap type="qbank.vo.UserVo" id="userMap">
+    <id column="UNO" property="no"/><!-- PK 컬럼에 대해서만 설정한다. -->
+    <result column="UID" property="uid"/>
+    <result column="UCLASS" property="uclass"/>
+    <result column="UEMAIL" property="email"/>
+    <result column="UPASS" property="password"/>
+    <result column="UNAME" property="name"/>
+    <result column="UTEL" property="tel"/>
+    <result column="UCELLPHONE" property="cell"/>
+    <result column="UBIRTH" property="birth"/>
+    <result column="UADDR1" property="addr1"/>
+    <result column="UADDR2" property="addr2"/>
+    <result column="UZIPCODE" property="zipcode"/>
+    <result column="USEX" property="sex"/>
+  </resultMap> 
+
+  <select id="getUser" parameterType="map" resultMap="userMap">
+    select 
+    			UNO, 
+    			UCLASS, 
+    			UID, 
+    			UPASS, 
+    			UNAME, 
+    			UEMAIL, 
+    			UADDR1,
+    			UADDR2,
+    			UZIPCODE, 
+    			UTEL, 
+    			UCELLPHONE, 
+    			UBIRTH, 
+    			USEX
+    from 
+    			USERS
+    where 
+    			UID=#{uid} 
+    	and PWD=#{password}
+  </select>
+  
+  <insert id="insert" parameterType="userVo"
+      useGeneratedKeys="true" keyColumn="UNO" keyProperty="no">
+    insert into SE_USERS 
+          (NAME,EMAIL,PWD,TEL,FAX,POSTNO,ADDR,PHOT_PATH)
+    values (#{name},
+            #{email},
+            #{password},
+            #{tel},
+            #{fax},
+            #{postNo},
+            #{address},
+            #{photoPath})
+  </insert>
+</mapper>
