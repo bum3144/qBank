@@ -71,7 +71,7 @@ public class AuthControl {
 	@RequestMapping("/logout")
   public String logout(HttpSession session) {
 	  session.invalidate();
-	  return "redirect:login.bit";
+	  return "redirect:login.html";
   }
 	
 	@RequestMapping("/getLoginUser")
