@@ -5,96 +5,107 @@ import java.io.Serializable;
 public class UserVo implements Serializable{
   private static final long serialVersionUID = 1L;
 
-  int 		no;
+  int 		uno;
   String	uclass;
-  String	id;
-  String 	password;
-  String 	email;
-  String 	name;
-  String 	tel;
-  String 	fax;
-  String 	postNo;
-  String 	address;
-  String 	photoPath;
+  String	uid;
+  String 	upass;
+  String 	uname;
+  String 	uemail;
+  String 	uaddr1;
+  String 	uaddr2;
+  String 	uzipcode;
+  String 	utel;
+  String 	ucellphone;
+  String 	ubirth;
   
-	public int getNo() {
-		return no;
-	}
-	public UserVo setNo(int no) {
-		this.no = no;
-		return this;
-	}
-	
-	public String getUclass() {
-		return uclass;
-	}
-	public UserVo setUclass(String uclass) {
-		this.uclass = uclass;
-		return this;
-	}
-	public String getId() {
-		return id;
-	}
-	public UserVo setId(String id) {
-		this.id = id;
-		return this;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public UserVo setEmail(String email) {
-		this.email = email;
-		return this;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public UserVo setPassword(String password) {
-		this.password = password;
-		return this;
-	}
-	public String getName() {
-		return name;
-	}
-	public UserVo setName(String name) {
-		this.name = name;
-		return this;
-	}
-	public String getTel() {
-		return tel;
-	}
-	public UserVo setTel(String tel) {
-		this.tel = tel;
-		return this;
-	}
-	public String getFax() {
-		return fax;
-	}
-	public UserVo setFax(String fax) {
-		this.fax = fax;
-		return this;
-	}
-	public String getPostNo() {
-		return postNo;
-	}
-	public UserVo setPostNo(String postNo) {
-		this.postNo = postNo;
-		return this;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public UserVo setAddress(String address) {
-		this.address = address;
-		return this;
-	}
-	public String getPhotoPath() {
-		return photoPath;
-	}
-	public UserVo setPhotoPath(String photoPath) {
-		this.photoPath = photoPath;
-		return this;
-	}
+  
+public int getUno() {
+	return uno;
+}
+public UserVo setUno(int uno) {
+	this.uno = uno;
+	return this;
+}
+public String getUclass() {
+	return uclass;
+}
+public UserVo setUclass(String uclass) {
+	this.uclass = uclass;
+	return this;
+}
+public String getUid() {
+	return uid;
+}
+public UserVo setUid(String uid) {
+	this.uid = uid;
+	return this;
+}
+public String getUpass() {
+	return upass;
+}
+public UserVo setUpass(String upass) {
+	this.upass = upass;
+	return this;
+}
+public String getUname() {
+	return uname;
+}
+public UserVo setUname(String uname) {
+	this.uname = uname;
+	return this;
+}
+public String getUemail() {
+	return uemail;
+}
+public UserVo setUemail(String uemail) {
+	this.uemail = uemail;
+	return this;
+}
+public String getUaddr1() {
+	return uaddr1;
+}
+public UserVo setUaddr1(String uaddr1) {
+	this.uaddr1 = uaddr1;
+	return this;
+}
+public String getUaddr2() {
+	return uaddr2;
+}
+public UserVo setUaddr2(String uaddr2) {
+	this.uaddr2 = uaddr2;
+	return this;
+}
+public String getUzipcode() {
+	return uzipcode;
+}
+public UserVo setUzipcode(String uzipcode) {
+	this.uzipcode = uzipcode;
+	return this;
+}
+public String getUtel() {
+	return utel;
+}
+public UserVo setUtel(String utel) {
+	this.utel = utel;
+	return this;
+}
+public String getUcellphone() {
+	return ucellphone;
+}
+public UserVo setUcellphone(String ucellphone) {
+	this.ucellphone = ucellphone;
+	return this;
+}
+public String getUbirth() {
+	return ubirth;
+}
+public UserVo setUbirth(String ubirth) {
+	this.ubirth = ubirth;
+	return this;
+}
+
+  
+  
 }
 
 
