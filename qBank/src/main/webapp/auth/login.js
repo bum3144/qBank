@@ -23,7 +23,7 @@ $(document).ready(function(){
 				if (result.status == "ok" && result.data == "success") {
 					location.href="../main2.html";
 				} else {
-					alert('이메일 또는 암호가 맞지 않습니다.');
+					alert('아이디 또는 암호가 맞지 않습니다.');
 				}
 			},
 			error: function(xhr, status, errorThrown){
