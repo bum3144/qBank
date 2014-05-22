@@ -1,7 +1,11 @@
 
 <!-- 해더 -->
 <script src="/qBank/js/loginPop.js"></script>
+<script src="/qBank/js/loginPop1.js"></script>
+<script src="/qBank/js/loginPop2.js"></script>
 <link rel="stylesheet" href="/qBank/css/loginPop.css" media="all" />
+<link rel="stylesheet" href="/qBank/css/loginPop1.css" media="all" />
+<link rel="stylesheet" href="/qBank/css/loginPop2.css" media="all" />
 <link href="/qBank/css/login-box.css" rel="stylesheet" type="text/css" />
 
 <div id="bheader">
@@ -30,8 +34,8 @@
                 <td><span class="view2"><a href="#" class="toPopup">
                       로그인 
                   </a>&nbsp;&nbsp;|</span> &nbsp;&nbsp;</td>
-                <td><a href="#" class="toPopup">회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
-                <td><a href="#" class="toPopup">ID／PW찾기</a></td>
+                <td><a href="#" class="toPopup1">회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                <td><a href="#" class="toPopup2">ID／PW찾기</a></td>
               </tr>
             </tbody>
           </table>
@@ -46,33 +50,32 @@
 
 <!-- Login Popup -->
 <div id="toPopup">
-  <div class="close">닫기</div>
+  <div class="close"><img src="/qBank/image/xBox1.JPG" id="xBoxImg"/></div>
   <span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span>
-  <div id="popup_content">
+  <div id="popup_content">  
     <!--your content start-->
     <div id="login-box" align="center">
                         <H2>QBank</H2>
                         로그인을 하시면 많은 정보를 제공 받으실 수 있습니다. <br /> <br />
                         
                         <div>
-                        <label id="login-box-name">이메일:</label> 
+                        <label></label> 
                           <input name="q" class="form-login" title="Username"
-                            value="" size="30" maxlength="2048" />
+                            size="30" maxlength="2048" " type="text" value="Email" onfocus="this.value=''"/>
                         </div>
                         
                         
                         <div>
-                        <label id="login-box-name">비밀번호:</label> 
+                        <label></label> 
                           <input name="q" class="form-login" title="password"
-                            value="" size="30" maxlength="2048" />
+                            value="Password" size="30" maxlength="2048" type="text" onfocus="this.value=''"/>
                         </div>
                         
                         <br /> <span class="login-box-options"><input
                           type="checkbox" name="1" value="1"> 아이디 저장 <a
                           href="find.html" style="margin-left: 30px;">비밀번호
                             찾기</a></span> <br /> <br /> <a href="#"><img
-                          src=/qBank/image/login-btn.png " width="103" height="42"
-                          style="margin-left: 90px;" /></a>
+                          src=/qBank/image/login-btn.png " width="103" height="42"/></a>
                       </div>
 
 <!--     <p align="center">
@@ -86,6 +89,109 @@
 <div class="loader"></div>
 <div id="backgroundPopup"></div>
 <!-- Popup -->
+
+
+<!-- member Popup -->
+<div id="toPopup1">
+  <div class="close1"><img src="/qBank/image/xBox1.JPG" id="xBoxImg"/></div>
+  <span class="ecs_tooltip1">Press Esc to close <span class="arrow1"></span></span>
+  <div id="popup_content1">
+    <!--your content start-->
+    <div id="login-box" align="center">
+                        <H2>QBank</H2>
+                        회원가입 <br /> <br />
+		<form action="mailto:iwebgenie@hanmail.net" method="post">
+		<table border="0" cellpadding="3" cellspacing="1" align="center">
+			<tr>
+				<td colspan="2" align="center">
+				</td>
+			</tr>
+			<tr>
+				<td align="left" ><b></b></td>
+				<td>
+					<input type="text" value="Email" onfocus="this.value=''" class="form-member " title="Username"
+                             size="30" maxlength="2048" /></td>
+			</tr>
+			<tr>
+				<td align="left" ><b></b></td>
+				<td>
+					<input type="text" value="Name" onfocus="this.value=''" class="form-member " title="Username"
+                             size="30" maxlength="2048" /><br>
+			</tr>
+			<tr>
+				<td align="left" ><b></b></td>
+				<td>
+        <input type="text" value="Password" onfocus="this.value=''" class="form-member " title="Username"
+                            size="30" maxlength="2048" /></td>
+			</tr>
+			<tr>
+				<td align="left"><b></b></td>
+				<td>
+					<input type="text" value="PasswordConfirm" onfocus="this.value=''" class="form-member " title="Username"
+                             size="30" maxlength="2048" /></td>
+			</tr>
+			
+ 
+    
+     
+                    			<tr>
+                              <td align=center style='padding-top: 0'>
+                                <table cellpadding=0 cellspacing=0 border=0 >
+                                  <tr>
+                                    <td colspan=0  align=center><br> <button type="button" class="btn btn-primary">회원가입</button>
+                                      <button type="button" class="btn btn-primary">가입취소</button></td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                              </table><br>
+		</form>
+		</div>
+
+<!--     <p align="center">
+      <a href="#" class="livebox">클릭하면 경고창!!</a>
+    </p> -->
+  </div>
+  <!--your content end-->
+</div>
+<!--toPopup end-->
+
+<div class="loader1"></div>
+<div id="backgroundPopup1"></div>
+
+
+
+
+<!-- find Popup -->
+<div id="toPopup2">
+  <div class="close2"><img src="/qBank/image/xBox1.JPG" id="xBoxImg"/></div>
+  <span class="ecs_tooltip2">Press Esc to close <span class="arrow2"></span></span>
+  <div id="popup_content2">
+    <!--your content start-->
+    <div id="login-box" align="center">
+                        <H2>QBank</H2>
+                        아이디/비밀번호찾기 <br /> <br />
+                      <tr>
+                        <td>
+    
+                 
+</td>
+</tr>
+</div>          
+                      
+
+<!--     <p align="center">
+      <a href="#" class="livebox">클릭하면 경고창!!</a>
+    </p> -->
+  </div>
+  <!--your content end-->
+</div>
+<!--toPopup end-->
+
+<div class="loader2"></div>
+<div id="backgroundPopup2"></div>
+<!-- Popup -->
+
 
 
 <!-- 해더 끝 -->

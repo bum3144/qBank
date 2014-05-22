@@ -1,11 +1,12 @@
 
 #login-box {
-	width:600px;
+	width:500px;
 	height: 360px;
 	color: #ebebeb;
 	font: 12px Arial, Helvetica, sans-serif;
 	background: url(../image/login-box-backg.png) no-repeat left top;
-	margin-left: -10px;
+	margin-left: 30px;
+	margin-top: 15px;
 }
 
 #login-box img {
@@ -27,7 +28,7 @@
 	width:80px;
 	text-align: right;
 	margin-top: 20px;
-	padding: 14px 10px 0 0;
+	padding: 0px 0px 0 0;
 	margin:0 0 7px 0;
 }
 
@@ -35,19 +36,42 @@
 
 
 .form-login  {
-	width: 205px;
+	width: 230px;
 	padding: 10px 4px 6px 3px;
 	border: 1px solid #0d2c52;
 	background-color:#1e4f8a;
-	font-size: 16px;
+	font-size: 13px;
 	color: #ebebeb;
+	margin-top: 15px;
 }
+
+.form-member  {
+	width: 230px;
+	padding: 10px 4px 6px 3px;
+	border: 1px solid #0d2c52;
+	background-color:#1e4f8a;
+	font-size: 13px;
+	color: #ebebeb;
+	margin-left: -190px;
+	margin-top: 15px;
+}
+
+
+.form-find  {
+	width: 120px;
+	padding: 8px 4px 6px 3px;
+	border: 1px solid #0d2c52;
+	background-color:#1e4f8a;
+	font-size: 11px;
+	color: #ebebeb;
+	margin-top: 10px;
+}
+
 
 
 .login-box-options  {
 	clear:both;
-	padding-left:87px;
-	font-size: 11px;
+	font-size: 12px;
 }
 
 .login-box-options a {
