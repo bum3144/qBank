@@ -25,7 +25,6 @@ public class AuthControl {
 	
 	@Autowired
 	AuthService authService;
-	
 	/* 리턴 타입은 JSON으로 출력할 객체이다.
 	 * - 자동으로 JSON 문자열로 변환하려면, 빈 설정파일에
 	 *   JSON 변환 해결사를 등록해야 한다.
@@ -37,12 +36,10 @@ public class AuthControl {
 			@RequestParam(required=false) String saveUid,
 			HttpServletResponse response,
 			Model model) {
-		
 		try {
 
 				UserVo userVo = authService.getLoginUser(
 							uid, password, UserGroup.STUDENT);
-				
 				AjaxResult result = null;
 				if (userVo == null) {
 					result =  new AjaxResult().setStatus("ok").setData("failure");
@@ -53,7 +50,7 @@ public class AuthControl {
 					
 					if (saveUid.equals("true")) {
 						Cookie cookie = new Cookie("loginUid", uid);
-						cookie.setDomain("localhost"); // 서버 범위
+						cookie.setDomain("http://localhost:9999"); // 서버 범위
 						cookie.setPath("/qBank");					// 하위 폴더 범위
 						
 						response.addCookie(cookie);
