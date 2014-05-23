@@ -1,12 +1,12 @@
 
 #login-box {
-	width:500px;
+	width:450px;
 	height: 360px;
 	color: #ebebeb;
 	font: 12px Arial, Helvetica, sans-serif;
 	background: url(../image/login-box-backg.png) no-repeat left top;
-	margin-left: 30px;
-	margin-top: 15px;
+	margin:auto; 
+	margin-top: 10px; 
 }
 
 #login-box img {
