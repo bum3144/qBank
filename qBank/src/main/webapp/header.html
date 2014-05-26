@@ -88,7 +88,7 @@
 </div>
 <!--toPopup end-->
 
-<div class="loader"></div>
+<div class="loader" ></div>
 <div id="backgroundPopup"></div>
 <!-- Popup -->
 
@@ -102,53 +102,23 @@
     <div id="login-box" align="center">
                         <H2>QBank</H2>
                         회원가입 <br /> <br />
-		<form action="mailto:iwebgenie@hanmail.net" method="post">
-		<table border="0" cellpadding="3" cellspacing="1" align="center">
-			<tr>
-				<td colspan="2" align="center">
-				</td>
-			</tr>
-			<tr>
-				<td align="left" ><b></b></td>
-				<td>
-					<input type="text" value="Email" onfocus="this.value=''" class="form-member " title="Username"
-                             size="30" maxlength="2048" /></td>
-			</tr>
-			<tr>
-				<td align="left" ><b></b></td>
-				<td>
-					<input type="text" value="Name" onfocus="this.value=''" class="form-member " title="Username"
-                             size="30" maxlength="2048" /><br>
-			</tr>
-			<tr>
-				<td align="left" ><b></b></td>
-				<td>
-        <input type="text" value="Password" onfocus="this.value=''" class="form-member " title="Username"
-                            size="30" maxlength="2048" /></td>
-			</tr>
-			<tr>
-				<td align="left"><b></b></td>
-				<td>
-					<input type="text" value="PasswordConfirm" onfocus="this.value=''" class="form-member " title="Username"
-                             size="30" maxlength="2048" /></td>
-			</tr>
-			
- 
-    
-     
-                    			<tr>
-                              <td align=center style='padding-top: 0'>
-                                <table cellpadding=0 cellspacing=0 border=0 >
-                                  <tr>
-                                    <td colspan=0  align=center><br> <button type="button" class="btn btn-primary">회원가입</button>
-                                      <button type="button" class="btn btn-primary">가입취소</button></td>
-                                  </tr>
-                                </table>
-                              </td>
-                            </tr>
-                              </table><br>
-		</form>
-		</div>
+
+
+        <table>
+          <tr>
+            <td colspan=0 align=center><br>
+              <button type="button" class="btn btn-primary"
+               style="width:170px; height:150px; font-size: 40px;"
+               onclick="window.location.href='member.html'">학 생</button>
+              <button type="button" class="btn btn-primary"
+               style="width:170px; height:150px; font-size: 40px;
+                margin-left:30px;" onclick="window.location.href='member.html'"
+                >선생님</button></td>
+          </tr>
+        </table>
+        
+        
+    </div>
 
 <!--     <p align="center">
       <a href="#" class="livebox">클릭하면 경고창!!</a>
@@ -171,18 +141,26 @@
   <div id="popup_content2">
     <!--your content start-->
     <div id="login-box" align="center">
-                        <H2>QBank</H2>
-                        아이디/비밀번호찾기 <br /> <br />
-                      <tr>
-                        <td>
-    
-                 
-</td>
-</tr>
-</div>          
-                      
+      <H2>QBank</H2>
+      아이디/비밀번호찾기 <br /> <br />
+      <table align="center">
+        <tr>
+          <td>회원가입 당시 등록했던 내용을 입력하세요.</td>
+              </tr>
+      </table>
+      <div align="center" >아이디 찾기</div>
+      <div>
+        아이디: &nbsp;<input class="form-find" type="text" size="20">
+        <button type="button" class="btn btn-primary"
+          style="width: 50px; height: 25px; font-size: 13px; margin-left: 10px;">찾기</button>
+      </div>
+      <br> <br> 아이디: &nbsp;<input class="form-find" type="text"
+        size="20"><br> 비밀번호: &nbsp;<input class="form-find"
+        type="text" size="20">
+    </div>
 
-<!--     <p align="center">
+
+    <!--     <p align="center">
       <a href="#" class="livebox">클릭하면 경고창!!</a>
     </p> -->
   </div>
