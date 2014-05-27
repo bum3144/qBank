@@ -8,6 +8,7 @@
   
   <typeAliases>
     <typeAlias type="qbank.vo.StudentVo" alias="studentVo"/>
+    <typeAlias type="qbank.vo.BankTestVo" alias="bankTestVo"/>
   </typeAliases>
 
   <environments default="development">
