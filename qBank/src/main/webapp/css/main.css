@@ -77,7 +77,8 @@ header {
 
 
 .container2{
-	background-color: rgb(70, 70, 70);
+	background-image: url(/qBank/image/tree3.png);
+	background-size:cover;
 	height: 460px;
 	margin-top:50px; 
 	margin-bottom: 40px; 
