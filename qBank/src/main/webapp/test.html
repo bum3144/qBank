@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('#total').click(function(){
+		if ($("#total").is(":checked")) { 
+		$('input:checkbox[id^=test[]]:not(checked)').attr("checked", true); 
+		} else { 
+		$('input:checkbox[id^=test[]]:checked').attr("checked", false); 
+		} 
+			
+	}); 
+});
+	
+</script>
+</head>
+
+ <body>
+     <table>
+	 <tr>
+       <th class="bbs_left"><input type="checkbox" id="total" />전체</th>
+     </tr>
+     <tr>
+     <td><input type="checkbox" id="test[]"/>테스트1</td>
+     </tr>
+     <tr>
+     <td><input type="checkbox" id="test[]"/>테스트2</td>
+     </tr>
+     <tr>
+     <td><input type="checkbox" id="test[]"/>테스트3</td>
+     </tr>    
+     </table>
+ </body>
+</html>
