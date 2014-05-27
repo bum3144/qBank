@@ -6,10 +6,9 @@
   top: 0;left: 0;
   height: 50px;
 /*   background-color: rgb(70, 70, 70); */
-  background-image: url(/qBank/image/bg.png);
-  opacity: 0.9;
+  background-image: url(/qBank/image/tree3.png);
   background-repeat:no-repeat;
-  background-size:100% 100%;
+  background-size: cover;
   
   width: 100%;
   z-index:99;
@@ -93,7 +92,9 @@ header {
   padding: 5px;
   width: 1200px;
   max-width: 1200px;
-  background-color: rgb(75, 73, 73);
+  background-image: url(/qBank/image/tree3.png);
+  background-repeat:no-repeat;
+  background-size: cover;
  /*  border : thin solid blue; */
 }
 #bleftBottom{	
@@ -109,7 +110,7 @@ header {
     padding:20 20 20 20px;
     margin-left: 30px;
     text-align:left;
-    color: rgb(150, 150, 150);
+    color: white;
   	width: 80%;
    /*  border:#bFFCC00 double 1px; */
     margin:0 0 0 10;
