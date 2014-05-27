@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" 
 	href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d">
-<link rel="stylesheet" href="../css/popup1.css" media="all" />	
 <link rel="stylesheet" href="../css/include.css"/>
 <link rel="stylesheet" href="../css/bank.css"/>
 <link rel="StyleSheet" href="../css/dtree.css"/>
@@ -59,61 +58,19 @@
 			</section>
 			<section>			
 				<div id="bbankAdd">
-					<button type="button" onClick="javascipt:location.href='bankTestAdd1.html'">등록</button>
-					<button type="button">삭제</button>
+					<button type="button" onClick="javascipt:location.href='bankTestAdd2.html'">등록</button>
+
 				</div>				
 				<br>
-				<table id="subjectList" class="table table-hover">
-					<tbody>
-						<tr class="warning">
-							<th>번호</th>
-							<th>시험지명</th>
-							<th>등록날자</th>
-							<th>시험지코드</th>
-							<th>사용유무<span class="caret"></span></th>
-							<th><input type="checkbox" id='check_all'/></th>
-						</tr>
-						<tr class="dataRow">
-							<td>1</td>
-							<td>Coral reefs oWe their brilliant ..</td>
-							<td>2013-10-20</td>
-							<td>Q0001</td>
-							<td>O</td>
-							<td><input type="checkbox" name='mycheck' value='1'/></td>
-						</tr>
-						<tr class="dataRow">
-							<td>2</td>
-							<td>Coral reefs oWe their brilliant ..</td>
-							<td>2013-10-20</td>
-							<td>Q0001</td>
-							<td>O</td>
-							<td><input type="checkbox" name='mycheck' value='2'/></td>
-						</tr>
-						<tr class="dataRow">
-							<td>3</td>
-							<td>Coral reefs oWe their brilliant ..</td>
-							<td>2013-10-20</td>
-							<td>Q0001</td>
-							<td>O</td>
-							<td><input type="checkbox" name='mycheck' value='3'/></td>
-						</tr>
-						<tr class="dataRow">
-							<td>4</td>
-							<td>Coral reefs oWe their brilliant ..</td>
-							<td>2013-10-20</td>
-							<td>Q0001</td>
-							<td>O</td>
-							<td><input type="checkbox" name='mycheck' value='3'/></td>
-						</tr>
-						<tr class="dataRow">
-							<td>5</td>
-							<td>Coral reefs oWe their brilliant ..</td>
-							<td>2013-10-20</td>
-							<td>Q0001</td>
-							<td>O</td>
-							<td><input type="checkbox" name='mycheck' value='4'/></td>
-						</tr>
-					</tbody>
+				<table id="bankTestList" class="table table-hover">
+					<tr class="warning">
+						<th>번호</th>
+						<th>시험지명</th>
+						<th>문항수</th>
+						<th>시험기간</th>
+						<th>사용유무</th>
+						<th>삭제</th>
+					</tr>						
 				</table>
 
 
@@ -123,23 +80,11 @@
 					<button id="nextPage" class="btn">다음</button>
 				</div><br>
 
-
-<!-- 				<div id="bpageSerch">	
-			 		<div class="col-xs-2">    				
-						<select class="form-control">
-						<option>시험지명</option>
-						<option>시험지코드</option>
-						</select>	
-				  </div>				  
-			    <div class="col-sm-10">
-			    	<input type="text" class="form-control" 
-			    			placeholder="검색어를 입력하세요" id="inputSuccess3">
-			  	</div>
-				</div> -->	
-										
 			</section>
-			
-			
+
+
+
+		
 			<section>		
 			
 		<br><hr><br>
@@ -192,6 +137,8 @@
 				</form>
 			</div>
 			
+		<br><br><br>
+				
 			<div id=finishBox>
 			 <h5>응기 가능 기간을 설정하시려면 날짜 입력창을 클릭하시면 달력을 확인할 수 있습니다</h5>
 			 <hr>
@@ -199,34 +146,17 @@
 			</div>
 			
 			</section>
+
+	
 		</div>			
 	</div>
-		
-		
-	<!-- Popup -->
-    <div id="toPopup">
-        <div class="close">닫기</div>
-       	<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span>
-				<div id="popup_content"> <!--your content start-->
-            <p> 이곳에 내용 입력하기 ㅋㅋ 행복 참고하길~. </p>
-            <p> 밖에 클릭하면 닫기~  </p>
-            
-            <p align="center"><a href="#" class="livebox">클릭하면 경고창!!</a></p>
-        </div> <!--your content end-->
-    </div> <!--toPopup end-->
-
-	<div class="loader"></div>
-  <div id="backgroundPopup"></div>
-  <!-- Popup -->
-  	
-		
 	<!-- 풋터 -->
 	<div id="bfooter"></div>
 	<!-- 풋터 끝 -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="../js/popup1.js"></script>
 <script	src="../js/bank.js"></script>
 <script src="../js/include.js"></script>
+<script	src="../js/bankTest.js"></script>
 </body>
 </html>
