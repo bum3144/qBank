@@ -4,8 +4,19 @@ $(document).ready(function(){
 		event.preventDefault();
 		if ($('#uid').val().length == 0 ||
 				$('#password').val().length == 0) {
-			alert('아이디와 암호는 필수 입력입니다.');
-			return;
+			
+
+			$('#loginMassege')
+			.text('아이디와 암호는 필수 항목입니다')
+			.css('color','red');
+			
+			setTimeout(function() {
+				$('#loginMassege')
+				.text('로그인을 하시면 많은 정보를 제공 받으실 수 있습니다.')
+				.css('color','white');
+		      }, 3000 );
+	      		
+			return;			
 		}
 		
 		$.ajax('header.ajax', {
@@ -23,7 +34,23 @@ $(document).ready(function(){
 				if (result.status == "ok" && result.data == "success") {
 					location.href="/qBank/bank/bankList.html";
 				} else {
-					alert('아이디 또는 암호가 맞지 않습니다.');
+					$('#loginMassege')
+					.text(' 아이디와 암호를 확인해 주세요! ')
+						.css({
+							'color':'red',
+							'background-color': 'white'
+							});
+					
+					setTimeout(function() {
+						$('#loginMassege')
+						.text('로그인을 하시면 많은 정보를 제공 받으실 수 있습니다.')
+						.css({
+							'color':'white',
+							'background-color': ''
+							});
+				      }, 3000 );
+			      	
+					/*alert('아이디 또는 암호가 맞지 않습니다.');*/
 				}
 			},
 			error: function(xhr, status, errorThrown){
