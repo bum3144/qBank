@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BankTestMapper.xml -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 구현체 자동 생성하려면 SQL 파일을 Dao인터페이스와 맞춰야 한다.
+namespace=인터페이스이름(패키지 이름 포함)
+SQL id=인터페이스 메서드명
+ -->  
+<mapper namespace="qbank.dao.BankTestDao">
+  <resultMap type="qbank.vo.BankTestVo" id="bankTestMap">
+    <id column="SENO" property="no"/><!-- PK 컬럼에 대해서만 설정한다. -->
+    <result column="SETITLE" property="title"/>
+    <result column="SEQTY" property="qty"/>
+    <result column="SEQPOSITION" property="position"/>
+    <result column="SETEXPOSITION" property="texposition"/>
+    <result column="SEUSEYN" property="useyn"/>
+    <result column="SESTARTDATE" property="startdate"/>
+    <result column="SEENDDATE" property="enddate"/>
+    <result column="REGDATE" property="regdate"/>
+    <result column="UNO2" property="uno"/>
+  </resultMap> 
+   
+   <insert id="insert" parameterType="bankTestVo">
+    insert into SETTING(SETITLE, SEQTY, SEQPOSITION, SETEXPOSITION, 
+    										SEUSEYN, SESTARTDATE, SEENDDATE, UNO2)
+    values (#{title}, #{qty}, #{position}, #{texposition}, 
+    									#{useyn}, #{startdate}, #{enddate}, #{uno})
+  </insert>
+   
+  <select id="list" resultMap="bankTestMap" parameterType="map">
+    select * from SETTING order by SENO desc 
+    limit #{startIndex}, #{pageSize}
+  </select>
+
+  <select id="detail" parameterType="int" resultMap="bankTestMap">
+    select SENO, SETITLE, SEQTY, SEQTY, SEQPOSITION, SETEXPOSITION, 
+    										SEUSEYN, SESTARTDATE, SEENDDATE , REGDATE
+    from SETTING
+    where SENO=#{no}
+  </select>
+  
+  <update id="update" parameterType="bankTestVo">
+    update SETTING set
+      SETITLE=#{title},
+      SEQTY=#{qty},
+      SEQPOSITION=#{position},
+      SETEXPOSITION=#{texposition},
+      SEUSEYN=#{useyn},
+      SESTARTDATE=#{startdate},
+      SEENDDATE=#{enddate}
+    where SENO=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from TEST where SENO=#{no}
+  </delete>
+
+  <delete id="delete2" parameterType="int">
+    delete from SETTING where SENO=#{no}
+  </delete>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
