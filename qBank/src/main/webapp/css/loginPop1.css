@@ -90,6 +90,9 @@ div#popup_content1 {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px; 
+  background-image: url(/qBank/image/tree3.png);
+  background-repeat:no-repeat;
+  background-size: cover;
   
 }
 #content1{border:1px solid green; margin:auto; z-index:1; }
