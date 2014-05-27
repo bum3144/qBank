@@ -106,13 +106,12 @@ header {
 }
 #brightBottom{	
 	
-		float:left;
+	float:left;
     padding:20 20 20 20px;
     margin-left: 30px;
     text-align:left;
     color: white;
   	width: 80%;
-   /*  border:#bFFCC00 double 1px; */
     margin:0 0 0 10;
 }
 #bfootlogo{
