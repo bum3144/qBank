@@ -78,7 +78,6 @@ span.arrow1 {
 
 .contentBox{
   width: 540px; 
-  border: 1px solid black; 
   margin: auto; 
   text-align: center;
   padding-top: 10px;
@@ -100,14 +99,14 @@ span.arrow1 {
  color: black;
 }
 
-#toPopup1 h1{
+.contentBox h1{
 	padding:0;
 	margin:0;
 	color: #ebebeb;
 	font: bold 44px "Calibri", Arial;
 }
 
-#toPopup1 p{
+.contentBox p{
 	color: #ebebeb;
 	font-size: 15px;
 }
