@@ -110,3 +110,32 @@ span.arrow1 {
 	color: #ebebeb;
 	font-size: 15px;
 }
+
+#studentBtn{
+	background: url(../image/student.png) no-repeat;
+	background-size: contain;
+	background-color: white;
+	border: 5px solid #664D36;
+    border-radius: 5px;
+	width: 170px; 
+	height: 140px; 
+	display: -webkit-inline-box;
+	margin-left: 30px; 
+	b
+}
+
+#teacherBtn{
+	background: url(../image/teacher.png) no-repeat;
+	background-size: contain;
+	background-color: white;
+	border: 5px solid #664D36;
+    border-radius: 5px;
+	width: 170px; 
+	height: 140px; 
+	display: -webkit-inline-box;
+	margin-left: 30px; 
+}
+
+#nameControl{
+	display: inline-block;
+}
