@@ -148,7 +148,7 @@ function changeFormState(state) {
 }
 
 
-
+/* 시험지관리 아코디언 효과 */
 $(function() {
   $( "#accordion" ).accordion({
       collapsible: true,
@@ -170,3 +170,27 @@ $(function() {
 	   });
 });
 
+/* 시험지 만들기 문제수 선택 슬라이더 */
+$(function() {
+    $('#slider-range-max').slider({
+      range: 'max',
+      min: 1,
+      max: 200,
+      value: 1,
+      slide: function( event, ui ) {
+        $('#amount').val( ui.value );
+      }
+    });
+    $('#amount').val( $('#slider-range-max').slider('value') );
+    $('#slider-range-max')
+    	.css({
+    		'width':'600px',
+    		'margin':'0 0 20px 150px',
+    		'position':'relative;'
+    		});
+  });
+  
+/* 기간 설정 날짜 입력*/
+$(function() {
+    $( "#datepicker, #datepicker2" ).datepicker({ dateFormat: "yy-mm-dd" });
+  });
