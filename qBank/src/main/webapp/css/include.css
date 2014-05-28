@@ -76,6 +76,18 @@ header {
     /* border:#bFFCC00 double 1px; */
 }
 
+#brighttop a{
+	font-size: 15px; 
+	color: white;
+	font-weight: bold; 
+}
+
+#brighttop a:hover{
+	color: black;
+}
+
+
+
 #bbankButton{	
     text-align:left;
 }
@@ -114,6 +126,15 @@ header {
   	width: 80%;
     margin:0 0 0 10;
 }
+
+#brightBottom a{
+	color: white;
+}
+
+#brightBottom b{
+	color: white;
+}
+
 #bfootlogo{
 	width: 150px;
 }
