@@ -1,4 +1,6 @@
 jQuery(function($) {
+	
+	 $( "#toPopup" ).draggable();
 
 	$("a.toPopup").click(function() {
 		console.log(34)
