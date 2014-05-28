@@ -14,11 +14,16 @@
 	
 }
 
-#login-box h2 {
+#login-box h1 {
 	padding:0;
 	margin:0;
 	color: #ebebeb;
 	font: bold 44px "Calibri", Arial;
+}
+
+#login-box p{
+	color: #ebebeb;
+	font-size: 15px; 
 }
 
 
@@ -31,8 +36,6 @@
 	padding: 0px 0px 0 0;
 	margin:0 0 7px 0;
 }
-
-
 
 
 .form-login  {
@@ -69,12 +72,12 @@
 
 .login-box-options  {
 	clear:both;
-	font-size: 12px;
+	font-size: 15px;
 }
 
 .login-box-options a {
 	color: #ebebeb;
-	font-size: 11px;
+	font-size: 15px;
 }
 
 #backgroundPopup {
