@@ -88,9 +88,6 @@ span.arrow1 {
   background-size: cover;
   
 }
-#content1{border:1px solid green; margin:auto; z-index:1; }
-#content2{border:1px solid red; margin:auto; z-index:2; }
-#content3{border:1px solid blue; margin:auto; z-index:3;}
 
 .agreeBox{
  width: 400px; 
