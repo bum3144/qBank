@@ -21,9 +21,8 @@
     left: 50%;
     margin-left: -250px;
     position: fixed;
-    top: 25%;
-    width: 600px;
-    height: 400px;
+    top: 20%;
+    width: 550px;
     z-index: 2;
 }
 div.loader2 {
@@ -38,7 +37,6 @@ div.loader2 {
     margin-left: -10px;
 }
 div.close2 {
-    /* background: url("../image/xBox.png") no-repeat scroll 0 0 transparent; */
     cursor: pointer;
     height: 30px;
     position: absolute;
@@ -76,10 +74,19 @@ span.arrow2 {
     top: 3px;
     width: 1px;
 }
-div#popup_content2 {
-    margin: 4px 7px;
-    /* remove this comment if you want scroll bar
-    overflow-y:scroll;
-    height:200px
-    */
+
+
+#login-box3 {
+	color: #ebebeb;
+	font: 12px Arial, Helvetica, sans-serif;
+	background: url(../image/tree3.png) no-repeat;
+	background-size: cover;
+	height: 360px
 }
+
+#login-box3 h1 {
+	margin:0; 
+	color: #ebebeb;
+	font: bold 44px "Calibri", Arial;
+}
+

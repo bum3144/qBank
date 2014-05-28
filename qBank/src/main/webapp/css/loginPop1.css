@@ -75,13 +75,6 @@ span.arrow1 {
     top: 3px;
     width: 1px;
 }
-div#popup_content1 {
-    margin: 4px 7px;
-    /* remove this comment if you want scroll bar
-    overflow-y:scroll;
-    height:200px
-    */
-}
 
 .contentBox{
   width: 540px; 
