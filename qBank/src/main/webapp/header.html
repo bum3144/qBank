@@ -104,19 +104,19 @@
 
 <div id=content1 class=contentBox>
   <h1>QBank</h1>
-	<h5>회원가입</h5> <br/>
+	<h5><p>회원가입</p></h5> <br/>
 		<button  class="btn btn-primary nextBtn1"
 						style="width: 130px; height: 100px; font-size: 30px;">학 생</button>
 		<button  class="btn btn-primary nextBtn1"
 						style="width: 130px; height: 100px; font-size: 30px; 
 						margin-left: 30px;">선생님</button>
-    	<h5>선택해주세요.</h5>					
+    	<h5><p>선택해주세요.</p></h5>					
 </div>
 
 <div id=content2 class=contentBox>
-  <h1>QBank</h1><br>
+  <h1><p>QBank</p></h1><br>
 		
-<label>회원약관</label>		
+<label><p>회원약관</p></label>		
 <div class=agreeBox >
  제 1 조 (목적)
 이 규칙은 본 사이트의 회원가입에 대한 조건 및 절차와 기타 필요한 사항을 규정함을 목적으로 합니다.
@@ -179,7 +179,7 @@
 ⑤ 당사는 회원에게 제공, 게시 또는 전송한 자료의 신뢰도, 정확성 등의 사항에 관하여 책임을 지지 않습니다.
 	</div>
 <br>
-<label>개인정보보호정책</label>
+<label><p>개인정보보호정책</p></label>
 <div class=agreeBox >
 Qbank 문제은행은 통신비밀보호법, 전기통신사업법, 정보통신망 이용촉진 및 정보보호 등에
 관한 법률 등 정보통신서비스제공자가 준수하여야 할 관련 법령상의 개인정보보호 규정을 준수하며, 관련 법령에
@@ -321,19 +321,111 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 
 <div id=content3 class=contentBox>
   <h1>QBank</h1>
-		<h5>회원가입</h5>
-		클래스:<input id="uclass" class="form-login" size="30" maxlength="20" type="text" placeholder="클래스입력"/><br>
-		아이디:<input id="uid" class="form-login" size="30" maxlength="20" type="text" placeholder="아이디입력"/><br>
-		비밀번호:<input id="password" class="form-login" size="30" maxlength="20" type="text" placeholder="비밀번호입력"/><br>
-		이름:<input id="name" class="form-login" size="30" maxlength="20" type="text" placeholder="이름입력"/><br>
-		성별:<input id="sex" class="form-login" size="30" maxlength="20" type="text" placeholder="성별입력"/>	<br>	
-		생일:<input id="birth" class="form-login" size="30" maxlength="20" type="text" placeholder="생일입력"/><br>
-		이메일:<input id="email" class="form-login" size="30" maxlength="20" type="text" placeholder="이메일입력"/><br>
-		전화번호:<input id="tel" class="form-login" size="30" maxlength="20" type="text" placeholder="전화번호입력"/><br>
-		핸드폰번호:<input id="cell" class="form-login" size="30" maxlength="20" type="text" placeholder="핸드폰번호입력"/><br>
-		우편번호:<input id="zipcode" class="form-login" size="30" maxlength="20" type="text" placeholder="우편번호입력"/><br>
-		주소:<input id="addr1" class="form-login" size="30" maxlength="20" type="text" placeholder="주소입력"/><br>
-		상세주소:<input id="addr2" class="form-login" size="30" maxlength="20" type="text" /><br>
+		<p>회원가입</p>
+		<table style="margin:auto;">
+    <tr>
+        <td><p>클래스:</p></td>
+        <td><input id="uclass" class="form-member" size="30" maxlength="20"
+          type="text" placeholder="클래스입력" /><br></td>
+    </tr>
+		<tr>
+        <td><p>아이디:</p></td>
+        <td><input id="uid" class="form-member" size="30" maxlength="20"
+          type="text" placeholder="아이디입력" /><br></td>
+      </tr>
+    <tr>
+        <td><p>비밀번호:</p></td>
+        <td><input id="password" class="form-member" size="30"
+          maxlength="20" type="text" placeholder="비밀번호입력" /><br></td>
+      </tr>
+      <tr>
+        <td><p>비밀번호확인:</p></td>
+        <td><input id="password" class="form-member" size="30"
+          maxlength="20" type="text" placeholder="비밀번호입력" /><br></td>
+      </tr>
+      <tr>
+        <td><p>이름:</p></td>
+        <td><input id="name" class="form-member" size="30" maxlength="20"
+          type="text" placeholder="이름입력" /><br><br></td>
+      </tr>
+      <tr>
+        <td><p>성별:</p></td>
+        <td><input name="sex" value ="male" type="radio" >남
+         <input name="sex" value="female" type="radio">여
+        <br><br></td>
+      </tr>
+      <tr>
+        <td><p>생년월일:</p></td>
+        <td>
+        <select>
+        <option>2000년</option>
+        <option>1950년</option>
+        </select>
+
+        <select>
+        <option>1월</option>
+        <option>2월</option>
+        </select>
+        
+        <select>
+        <option>1일</option>
+        <option>2일</option>
+        </select>
+        <br><br></td>
+      </tr>
+      <tr>
+        <td><p>이메일:</p></td>
+        <td><input id="email" size="15" maxlength="20"
+          type="text" placeholder="이메일입력" /> @
+           <select id="email">
+           <option>naver.com</option>
+           <option>hanmail.net</option>
+           <option>google.com</option>
+           </select> <br><br></td>
+      </tr>
+      <tr>
+        <td><p>전화번호:</p></td>
+        <td>
+        <input id="tel" size="5" maxlength="3"
+          type="text" placeholder="입력" />-
+        <input id="tel" size="5" maxlength="4"
+          type="text" placeholder="입력" />-
+          <input id="tel" size="5" maxlength="4"
+          type="text" placeholder="입력" /><br><br></td>
+      </tr>
+      
+      <tr>
+        <td><p>핸드폰번호:</p></td>
+        <td><input id="cell" size="5" maxlength="3"
+          type="text" placeholder="입력" />-
+          <input id="cell" size="5" maxlength="4"
+          type="text" placeholder="입력" />-
+          <input id="cell" size="5" maxlength="4"
+          type="text" placeholder="입력" /><br><br></td>
+      </tr>
+      
+      <tr>
+        <td><p>우편번호:</p></td>
+        <td>
+        <input id="zipcode" size="5"maxlength="5" type="text" placeholder="입력" />-
+        <input id="zipcode" size="5"maxlength="5" type="text" placeholder="입력" />
+         <button>우편번호조회</button>
+         <br></td>
+      </tr>
+      
+      <tr>
+        <td><p>주소:</p></td>
+        <td><input id="addr1" class="form-member" size="30" maxlength="20"
+          type="text" placeholder="주소입력" /><br></td>
+      </tr>
+      
+      <tr>
+        <td><p>상세주소:</p></td>
+        <td><input id="addr2" class="form-member" size="30" maxlength="20"
+          type="text" /><br></td>
+      </tr>
+
+    </table>
 </div>
 
   
