@@ -37,16 +37,14 @@ $(document).ready(function(){
 					$('#loginMassege')
 					.text(' 아이디와 암호를 확인해 주세요! ')
 						.css({
-							'color':'red',
-							'background-color': 'white'
+							'color':'red'
 							});
 					
 					setTimeout(function() {
 						$('#loginMassege')
 						.text('로그인을 하시면 많은 정보를 제공 받으실 수 있습니다.')
 						.css({
-							'color':'white',
-							'background-color': ''
+							'color':'white'
 							});
 				      }, 3000 );
 			      	
