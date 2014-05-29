@@ -15,11 +15,13 @@ import qbank.vo.BankTestVo;
 public class BankTestServiceImpl implements BankTestService {
 	@Autowired
 	BankTestDao bankTestDao;
-	
-	@Override
+
+  @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Throwable.class)
+  @Override
   public void add(BankTestVo test) {
 		try {
-			bankTestDao.insert(test);
+			bankTestDao.insert(test);		// 시험지 세팅등록 테이블
+			bankTestDao.insertTest(test);	// 시험지 문제등록 테이블
 		} catch (Throwable ex) {
 			throw new RuntimeException(ex);
 		}

@@ -1,13 +1,12 @@
 package qbank.vo;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 /* setter/getter 적용 <= 캡슐화
  * 
  */
 public class BankTestVo {
-	private int 				no;				
+	private int 				no;	
+	private String				code;
 	private String 				title;  
 	private int 	 			qty;
 	private int 	 			position;
@@ -19,6 +18,13 @@ public class BankTestVo {
 	private int 	 			uno;
 
 	
+	public String getCode() {
+		return code;
+	}
+	public BankTestVo setCode(String code) {
+		this.code = code;
+		return this;
+	}
 	public int getNo() {
 		return no;
 	}

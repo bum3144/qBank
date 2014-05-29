@@ -39,8 +39,14 @@ $(document).ready(function(){
 		$.post(
 			qbank.contextRoot + '/bank/insert.ajax'
 			,{
+				code: $('#tcode').val(),
 				title: $('#title').val(),
-				description: $('#description').val()
+				qty: $('#amount').val(),
+				position: $('#position').val(),
+				texposition: $('#texposition').val(),
+				useyn: $('#useyn').val(),
+				startdate: $('#startdate').val(),
+				enddate: $('#enddate').val()
 			}
 			,function(jsonObj) {
 				loadBankTestList(currPageNo);
@@ -106,7 +112,7 @@ function loadBankTestList(pageNo) {
 							.append( $('<td>')
 								.append( $('<a>')
 									.addClass('titleLink')
-									.attr('data-no', 	test.no)
+									.attr('data-code', 	test.code)
 									.text(test.title) 
 							))							
 							.append('<td>' + test.qty + ' 문항 </td>')
@@ -119,7 +125,7 @@ function loadBankTestList(pageNo) {
 									.addClass('rowDelBtn')
 									.addClass('btn')
 									.addClass('btn-danger')
-									.attr('data-no',test.no)
+									.attr('data-code',test.code)
 							)).css({
 								   'color':'#969a9e',
 								   'font-style':'normal',
@@ -192,5 +198,10 @@ $(function() {
   
 /* 기간 설정 날짜 입력*/
 $(function() {
-    $( "#datepicker, #datepicker2" ).datepicker({ dateFormat: "yy-mm-dd" });
+    $( "#startdate, #enddate" ).datepicker({ dateFormat: "yy-mm-dd" });
+  });
+
+/* 시험지코드 만드는 곳 */
+$(function() {
+    $( "#tcode" ).val(jQuery.now()).toString().split(' ')[4];
   });

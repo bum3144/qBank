@@ -10,6 +10,7 @@ SQL id=인터페이스 메서드명
   <resultMap type="qbank.vo.BankTestVo" id="bankTestMap">
     <id column="SENO" property="no"/><!-- PK 컬럼에 대해서만 설정한다. -->
     <result column="SETITLE" property="title"/>
+    <result column="SECODE" property="code"/>
     <result column="SEQTY" property="qty"/>
     <result column="SEQPOSITION" property="position"/>
     <result column="SETEXPOSITION" property="texposition"/>
@@ -21,11 +22,17 @@ SQL id=인터페이스 메서드명
   </resultMap> 
    
    <insert id="insert" parameterType="bankTestVo">
-    insert into SETTING(SETITLE, SEQTY, SEQPOSITION, SETEXPOSITION, 
-    										SEUSEYN, SESTARTDATE, SEENDDATE, UNO2)
-    values (#{title}, #{qty}, #{position}, #{texposition}, 
-    									#{useyn}, #{startdate}, #{enddate}, #{uno})
-  </insert>
+    insert into SETTING(SECODE, SETITLE, SEQTY, SEQPOSITION, SETEXPOSITION, 
+    										SEUSEYN, SESTARTDATE, SEENDDATE, REGDATE, UNO2)
+    values (#{code},#{title}, #{qty}, #{position}, #{texposition}, 
+    									#{useyn}, #{startdate}, #{enddate}, unix_timestamp(), 1)
+  	</insert>   
+
+    <insert id="insertTest" parameterType="bankTestVo">
+    insert into TEST(SECODE) values (#{code})
+  	</insert>
+  	
+  	
    
   <select id="list" resultMap="bankTestMap" parameterType="map">
     select * from SETTING order by SENO desc 

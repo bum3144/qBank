@@ -7,6 +7,7 @@ import qbank.vo.BankTestVo;
 
 public interface BankTestDao {
 	 void insert(BankTestVo test) throws Throwable;
+	 void insertTest(BankTestVo test) throws Throwable;
 	 List<BankTestVo> list(Map<String, Integer> params) throws Throwable;
 	 BankTestVo detail(int no) throws Throwable;
 	 void update(BankTestVo test) throws Throwable;
