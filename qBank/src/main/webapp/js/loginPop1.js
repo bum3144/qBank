@@ -34,6 +34,101 @@ jQuery(function($) {
         $("div#backgroundPopup1").click(function() {
 		disablePopup();  // function close pop up
 	});
+   
+    /* 학생하고 선생님 버튼 hover */
+        
+        $('#studentBtn').mouseover(function(){
+    		$('#studentImg').css({
+    			'background': 'url(/qBank/image/studentBefor.png) no-repeat',
+    			'background-size': 'cover',
+    			'width': '70px',
+    		    'height': '110px',
+    		    'margin-left': '18px',
+    	        'margin-top': '20px'
+    		});
+    		
+    		$('#studentBtn').css({
+    		 'text-decoration': 'none',
+    		 'background': '-webkit-gradient(linear, left top, left bottom,from(#FDFDFD), color-stop(0.50, #ffffff), to(#FFDE8B))',
+    		 'border': '5px solid #ffbf00',
+			 'color': '#FFDE8B'
+    		});
+    		
+    		$('#studentP').css({
+  			  'color': '#ffbf00'
+  			});
+    	}); 
+    	 
+    	$('#studentBtn').mouseout(function(){
+    		$('#studentImg').css({
+    			'background': 'url(/qBank/image/studentAfter.png) no-repeat',
+    			'background-size': 'contain',
+    			'width': '60px',
+    		    'height': '120px',
+    		    'margin-left': '11px',
+    	        'margin-top': '13px'
+    			
+    		});
+    		
+    		$('#studentBtn').css({
+    			 'background': '-webkit-gradient(linear, left top, left bottom,from(#FDFDFD), color-stop(0.50, #ffffff), to(#d6d6d6))',
+    			 'border': '5px solid #5A3404'
+    			});
+    		
+    		$('#studentP').css({
+				  'color': '#5A3404'
+				});
+    	});    
+    	
+    	
+    	 $('#teacherBtn').mouseover(function(){
+    			$('#teacherImg').css({
+    				'background': 'url(/qBank/image/teacherAfter.png) no-repeat',
+    				'background-size': 'contain',
+    				'width': '70px',
+    			    'height': '120px',
+    			    'margin-left': '10px',
+    		        'margin-top': '40px'
+    			});
+    			
+    			$('#teacherBtn').css({
+    			 'text-decoration': 'none',
+    			 'background': '-webkit-gradient(linear, left top, left bottom,from(#FDFDFD), color-stop(0.50, #ffffff), to(#FFDE8B))',
+    			 'border': '5px solid #ffbf00',
+    			 'color': '#FFDE8B'
+    			});
+    			
+    			$('#teacherP').css({
+    			  'color': '#ffbf00'
+    			});
+    			
+    		}); 
+    		 
+    		$('#teacherBtn').mouseout(function(){
+    			$('#teacherImg').css({
+    				'background': 'url(/qBank/image/teacherBefor.png) no-repeat',
+    				'background-size': 'contain',
+    				'width': '55px',
+    			    'height': '110px',
+    			    'margin-left': '11px',
+    		        'margin-top': '37px'
+    				
+    			});
+    			
+    			$('#teacherBtn').css({
+    				 'background': '-webkit-gradient(linear, left top, left bottom,from(#FDFDFD), color-stop(0.50, #ffffff), to(#d6d6d6))',
+    				 'border': '5px solid #5A3404'
+    				});
+    			
+    			$('#teacherP').css({
+    				  'color': '#5A3404'
+    				});
+    			
+    		});    
+    	    
+        
+    	
+    	/* 학생하고 선생님 버튼 hover 끝 */	
 
 /*	$('a.livebox').click(function() {
 		alert('다친다! 언넝 닫아라!');
