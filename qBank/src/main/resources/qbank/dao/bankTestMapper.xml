@@ -39,11 +39,11 @@ SQL id=인터페이스 메서드명
     limit #{startIndex}, #{pageSize}
   </select>
 
-  <select id="detail" parameterType="int" resultMap="bankTestMap">
-    select SENO, SETITLE, SEQTY, SEQTY, SEQPOSITION, SETEXPOSITION, 
+  <select id="detail" parameterType="String" resultMap="bankTestMap">
+    select SECODE, SENO, SETITLE, SEQTY, SEQPOSITION, SETEXPOSITION, 
     										SEUSEYN, SESTARTDATE, SEENDDATE , REGDATE
     from SETTING
-    where SENO=#{no}
+    where SECODE=#{code}
   </select>
   
   <update id="update" parameterType="bankTestVo">
@@ -55,15 +55,15 @@ SQL id=인터페이스 메서드명
       SEUSEYN=#{useyn},
       SESTARTDATE=#{startdate},
       SEENDDATE=#{enddate}
-    where SENO=#{no}
+    where SECODE=#{code}
   </update>
   
-  <delete id="delete" parameterType="int">
-    delete from TEST where SENO=#{no}
+  <delete id="delete" parameterType="String">
+    delete from TEST where SECODE=#{code}
   </delete>
 
-  <delete id="delete2" parameterType="int">
-    delete from SETTING where SENO=#{no}
+  <delete id="delete2" parameterType="String">
+    delete from SETTING where SECODE=#{code}
   </delete>
 
 

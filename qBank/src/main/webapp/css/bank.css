@@ -67,6 +67,11 @@ textarea{
 	text-align: center;
 /* 	background-color:skyblue; */
 }
+#finishText{
+	text-align: left;
+	font-size: 12px;
+}
+
 #finishBox h5{
 	text-align: center;
 }

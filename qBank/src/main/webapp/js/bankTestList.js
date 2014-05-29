@@ -14,19 +14,25 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click', 'button.rowDelBtn', function(){
-		deleteBankTest( $(this).attr('data-no') );
+		deleteBankTest( $(this).attr('data-code') );
 	});
 	
 	$(document).on('click', 'a.titleLink', function(){
 		$.getJSON(
 			qbank.contextRoot + 
-				'/bank/detail.ajax?no=' + 
-				$(this).attr('data-no'),
+				'/bank/detail.ajax?code=' + 
+				$(this).attr('data-code'),
 			function(jsonObj) {
 				var result = jsonObj.ajaxResult;
 				if (result.status == "ok") {
-					$('#no').val(result.data.no);
+					$('#tcode').val(result.data.code);
 					$('#title').val(result.data.title);
+					$('#amount').val(result.data.title);
+					$('#position').val(result.data.title);
+					$('#texposition').val(result.data.title);
+					$('#useyn').val(result.data.title);
+					$('#startdate').val(result.data.title);
+					$('#enddate').val(result.data.title);
 					
 					changeFormState("update");
 				} else {
@@ -36,6 +42,31 @@ $(document).ready(function(){
 	});
 	
 	$('#btnAdd').click(function(){
+		if (!$('#title').val()){
+			$("#noTitle").slideUp( )
+				.text('제목을 입력해야 합니다')
+				.css({
+					'color':'red',
+					'font-size':'12px'
+					}).delay( 100 ).fadeIn( 400 );
+			$("#title").keypress(function() {
+				$("#noTitle").remove();
+			});
+			return;
+		}
+		if($('#startdate').val() || $('#enddate').val()){
+			$("#finishText")
+			.text('응시 기간을 설정할 경우 시작일과 종료일을 모두 등록하셔야 합니다.')
+			.css({
+				'color':'red',
+				'font-size':'12px'
+				});
+
+			return;
+		}
+
+		
+		
 		$.post(
 			qbank.contextRoot + '/bank/insert.ajax'
 			,{
@@ -81,10 +112,10 @@ $(document).ready(function(){
 	loadBankTestList(1);
 });
 
-function deleteBankTest(no) {
+function deleteBankTest(code) {
 	$.getJSON(
 			qbank.contextRoot + 
-				'/bank/delete.ajax?no=' + no,
+				'/bank/delete.ajax?code=' + code,
 			function(jsonObj) {
 				var result = jsonObj.ajaxResult;
 				if (result.status == "ok") {
@@ -110,10 +141,10 @@ function loadBankTestList(pageNo) {
 							.addClass("dataRow")
 							.append('<td>' + test.no + '</td>')
 							.append( $('<td>')
-								.append( $('<a>')
+								.append( $('<a>').css('cursor','pointer')
 									.addClass('titleLink')
 									.attr('data-code', 	test.code)
-									.text(test.title) 
+									.text(test.title)
 							))							
 							.append('<td>' + test.qty + ' 문항 </td>')
 							.append('<td>' + test.startdate + ' ~ ' + test.enddate + '</td>')
@@ -135,9 +166,7 @@ function loadBankTestList(pageNo) {
 							.appendTo(table);
 					});
 					currPageNo = pageNo;
-					
-					$('#currPageNo').text(pageNo);
-					
+					$('#currPageNo').text(pageNo);					
 					$('#btnReset').click();
 				}
 			});

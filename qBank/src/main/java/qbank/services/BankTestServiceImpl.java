@@ -41,9 +41,9 @@ public class BankTestServiceImpl implements BankTestService {
   }
 
 	@Override
-  public BankTestVo detail(int no) {
+  public BankTestVo detail(String code) {
 		try {
-			return bankTestDao.detail(no);
+			return bankTestDao.detail(code);
 		} catch (Throwable ex) {
 			throw new RuntimeException(ex);
 		}
@@ -66,11 +66,11 @@ public class BankTestServiceImpl implements BankTestService {
 			propagation=Propagation.REQUIRED, 
 			rollbackFor=Throwable.class)
 	@Override
-  public void remove(int no) {
+  public void remove(String code) {
 		try {
-			bankTestDao.delete(no);
+			bankTestDao.delete(code);
 			
-			bankTestDao.delete2(no);
+			bankTestDao.delete2(code);
 		} catch (Throwable ex) {
 			throw new RuntimeException(ex);
 		}

@@ -35,8 +35,8 @@ public class BankTestControl {
 	}
 
 	@RequestMapping("/detail")
-	public AjaxResult detail(int no, Model model) {
-		BankTestVo s = bankTestService.detail(no);
+	public AjaxResult detail(String code, Model model) {
+		BankTestVo s = bankTestService.detail(code);
 		if (s != null) {
 			return new AjaxResult()
 				.setStatus("ok")
@@ -59,8 +59,8 @@ public class BankTestControl {
 	}
 
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public AjaxResult delete(int no) {
-		bankTestService.remove(no);
+	public AjaxResult delete(String code) {
+		bankTestService.remove(code);
 		return new AjaxResult().setStatus("ok");
 	}
 }
