@@ -34,6 +34,37 @@ jQuery(function($) {
         $("div#backgroundPopup1").click(function() {
 		disablePopup();  // function close pop up
 	});
+        
+        
+        /* 회원가입 폼 넘기는거 시작 */
+        
+        $("#content1").css({display:""});
+    	$("#content2").css({display:"none"});
+    	$("#content3").css({display:"none"});
+    	
+    	$('.nextBtn1').on('click',function(){
+    		$("#content1").css({display:"none"});
+    		$("#content2").css({display:""});
+    		$("#content3").css({display:"none"});
+    		
+    	});
+    	
+    	$('.nextBtn2').on('click',function(){
+    		$("#content1").css({display:"none"});
+    		$("#content2").css({display:"none"});
+    		$("#content3").css({display:""});
+    		
+    	});
+    	
+    	$('#nextBtn3').on('click',function(){
+    		$("#content1").css({display:""});
+    		$("#content2").css({display:"none"});
+    		$("#content3").css({display:"none"});
+    	});
+        
+        
+        /* 회원가입 폼 넘기는거 끝 */
+        
    
     /* 학생하고 선생님 버튼 hover */
         
@@ -125,10 +156,10 @@ jQuery(function($) {
     				});
     			
     		});    
-    	    
-        
     	
     	/* 학생하고 선생님 버튼 hover 끝 */	
+    		
+    		
 
 /*	$('a.livebox').click(function() {
 		alert('다친다! 언넝 닫아라!');
@@ -165,3 +196,4 @@ jQuery(function($) {
 	/************** end: functions. **************/
 	    
 }); // jQuery End
+
