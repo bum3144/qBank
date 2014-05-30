@@ -89,15 +89,17 @@
 		
 			<h3 id="acc2"> 시험지 만들기 </h3>
 			<div>	
+			<form class="form-horizontal">    
 		
 			<div class="tcontainer">			
-				<form class="form-horizontal">    
 					
  
 					<div class="form-inline">
 						<label class="col-sm-2 control-label editBox">시험지 코드: </label>
 						<div class="col-sm-10">
 							<input type="text" id="tcode" alt="시험지코드" class="form-control editBox"  readonly>
+							<buttonn id="newCode" type="button" class="btn btn-default btn-xs" style="margin-bottom:18px;display:none;" onclick="createCode();">새코드생성</button> 
+							<span id="notcode"></span>
 						</div>
 					</div>
 					
@@ -126,8 +128,8 @@
 						<label class="col-sm-2 control-label editBox">문제 출제: </label>
 						<div class="col-sm-10 editBox">							
 							<select id="position" class="form-control">
-								<option value="1">랜덤 배치 사용</option>
-								<option value="0">랜덤 배치 미사용</option>
+								<option value="1" class="poVa">랜덤 배치 사용</option>
+								<option value="0" class="poVa">랜덤 배치 미사용</option>
 							</select>
 						</div>
 					</div>
@@ -171,18 +173,19 @@
 						</div>
 					</div>
 					
-				</form>
 			</div>
   
 		<br><br><br>
 				
 			<div id=finishBox>
 			 <hr>
-			 <button id="btnAdd" type="button" class="btn btn-primary newForm">만들기</button>
-			 <button id="btnDelete" type="button" class="btn btn-primary updateForm" style="display:none;">삭제</button>
-			 <button id="btnReset" type="reset" class="btn btn-primary">취소</button>
+			 <button id="btnAdd" type="button" class="btn btn-primary newForm btn-xs">만들기</button>
+			 <button id="btnChange" type="button" class="btn btn-primary updateForm btn-xs" style="display:none;">변경</button>
+			 <button id="btnDelete" type="button" class="btn btn-primary updateForm btn-xs" style="display:none;">삭제</button>
+			 <button id="btnReset" type="reset" class="btn btn-primary btn-xs">취소</button>
 			</div>
 			
+			</form>
 			</div>
 
 	</div><!-- 아코디언 끝 -->

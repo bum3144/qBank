@@ -13,10 +13,12 @@ $(document).ready(function(){
 		loadBankTestList(currPageNo + 1);
 	});
 	
+	/* 시험지 세팅 삭제 */
 	$(document).on('click', 'button.rowDelBtn', function(){
 		deleteBankTest( $(this).attr('data-code') );
 	});
 	
+	/* 시험지 세팅 상세보기 */
 	$(document).on('click', 'a.titleLink', function(){
 		$.getJSON(
 			qbank.contextRoot + 
@@ -27,13 +29,20 @@ $(document).ready(function(){
 				if (result.status == "ok") {
 					$('#tcode').val(result.data.code);
 					$('#title').val(result.data.title);
-					$('#amount').val(result.data.title);
-					$('#position').val(result.data.title);
-					$('#texposition').val(result.data.title);
-					$('#useyn').val(result.data.title);
-					$('#startdate').val(result.data.title);
-					$('#enddate').val(result.data.title);
+
+					testAmount(result.data.qty); // 문제수
 					
+					/* select box value값으로 선택하게 함 */
+					$("#position").val(result.data.position).attr("selected", "selected");					
+					$("#texposition").val(result.data.texposition).attr("selected", "selected");					
+					$("#useyn").val(result.data.useyn).attr("selected", "selected");
+					
+					$('#startdate').val(result.data.startdate);
+					$('#enddate').val(result.data.enddate);
+
+					$('#acc2').click(); // 상세보기 페이지 열기(아코디언)
+					
+					$('#newCode').hide(); // 새코드 생성 버튼 숨기기					
 					changeFormState("update");
 				} else {
 					console.log('해당 시험지가 없습니다.');
@@ -41,7 +50,18 @@ $(document).ready(function(){
 			});
 	});
 	
+	/* 새시험지 세팅 만들기 */
 	$('#btnAdd').click(function(){
+		if(!$('#tcode').val()){
+			$("#notcode").slideUp( )
+				.html('◀코드를 생성하세요')
+				.css({
+					'color':'red',
+					'font-size':'12px'
+					}).delay( 100 ).fadeIn( 400 );
+
+			return;		
+		}
 		if (!$('#title').val()){
 			$("#noTitle").slideUp( )
 				.text('제목을 입력해야 합니다')
@@ -54,7 +74,10 @@ $(document).ready(function(){
 			});
 			return;
 		}
-		if($('#startdate').val() || $('#enddate').val()){
+		if(
+			($('#startdate').val() && !$('#enddate').val()) ||
+			(!$('#startdate').val() && $('#enddate').val()))
+		{
 			$("#finishText")
 			.text('응시 기간을 설정할 경우 시작일과 종료일을 모두 등록하셔야 합니다.')
 			.css({
@@ -64,8 +87,6 @@ $(document).ready(function(){
 
 			return;
 		}
-
-		
 		
 		$.post(
 			qbank.contextRoot + '/bank/insert.ajax'
@@ -82,10 +103,12 @@ $(document).ready(function(){
 			,function(jsonObj) {
 				loadBankTestList(currPageNo);
 				$('#btnReset').click();
+				$('#acc1').click(); // 리스트 페이지 보기 (아코디언)
 			}
 			,'json');
 	});
 	
+	/* 시험지 세팅 수정 */
 	$('#btnChange').click(function(){
 		$.post(
 				qbank.contextRoot + '/bank/update.ajax'
@@ -147,15 +170,16 @@ function loadBankTestList(pageNo) {
 									.text(test.title)
 							))							
 							.append('<td>' + test.qty + ' 문항 </td>')
-							.append('<td>' + test.startdate + ' ~ ' + test.enddate + '</td>')
+							.append('<td>' + 
+									((!test.startdate) ? '무제한' :									
+									test.startdate + ' ~ ' + test.enddate) 									
+									+ '</td>')
 							.append('<td>' + 
 									((test.useyn == 1) ? '사용' : '미사용') 
 										+ '</td>')
 							.append( $('<td>')
 								.append( $('<button>삭제</button>')
-									.addClass('rowDelBtn')
-									.addClass('btn')
-									.addClass('btn-danger')
+									.addClass('rowDelBtn btn btn-danger btn-xs')
 									.attr('data-code',test.code)
 							)).css({
 								   'color':'#969a9e',
@@ -167,7 +191,7 @@ function loadBankTestList(pageNo) {
 					});
 					currPageNo = pageNo;
 					$('#currPageNo').text(pageNo);					
-					$('#btnReset').click();
+				/*	$('#btnReset').click();*/
 				}
 			});
 }
@@ -206,31 +230,45 @@ $(function() {
 });
 
 /* 시험지 만들기 문제수 선택 슬라이더 */
-$(function() {
+testAmount(1);
+function testAmount(val){
     $('#slider-range-max').slider({
-      range: 'max',
-      min: 1,
-      max: 200,
-      value: 1,
-      slide: function( event, ui ) {
-        $('#amount').val( ui.value );
-      }
-    });
-    $('#amount').val( $('#slider-range-max').slider('value') );
-    $('#slider-range-max')
-    	.css({
-    		'width':'600px',
-    		'margin':'0 0 20px 150px',
-    		'position':'relative;'
-    		});
-  });
-  
+        range: 'max',
+        min: 1,
+        max: 200,
+        value: val,
+        slide: function( event, ui ) {
+          $('#amount').val( ui.value );
+        }
+      });
+      $('#amount').val( $('#slider-range-max').slider('value') );
+      $('#slider-range-max')
+      	.css({
+      		'width':'600px',
+      		'margin':'0 0 20px 150px',
+      		'position':'relative;'
+      		});
+}
+
 /* 기간 설정 날짜 입력*/
 $(function() {
     $( "#startdate, #enddate" ).datepicker({ dateFormat: "yy-mm-dd" });
   });
 
 /* 시험지코드 만드는 곳 */
-$(function() {
+createCode();
+function createCode() {
     $( "#tcode" ).val(jQuery.now()).toString().split(' ')[4];
-  });
+ }
+$()
+
+
+/* 취소버튼 클릭시 동작 */
+$('#btnReset').on('click',function(event){
+	event.preventDefault();
+	createCode();	// 새코드 생성
+	testAmount();	// 문제수 초기화
+	$('#title').val('');    
+
+});
+
