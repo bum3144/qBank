@@ -13,6 +13,7 @@ public interface BankTestDao {
 	 void update(BankTestVo test) throws Throwable;
 	 void delete(String code) throws Throwable;
 	 void delete2(String code) throws Throwable;
+	 Integer listCount() throws Throwable;
 }
 
 

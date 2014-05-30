@@ -32,14 +32,13 @@ SQL id=인터페이스 메서드명
     insert into TEST(SECODE) values (#{code})
   	</insert>
   	
-  	
    
   <select id="list" resultMap="bankTestMap" parameterType="map">
     select * from SETTING order by SENO desc 
     limit #{startIndex}, #{pageSize}
   </select>
    
-  <select id="listCount" resultMap="bankTestMap" parameterType="int">
+  <select id="listCount" resultType="qbank.vo.BankTestVo" resultMap="bankTestMap">
     select count(SECODE) from SETTING 
   </select>
 

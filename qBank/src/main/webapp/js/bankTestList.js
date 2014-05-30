@@ -54,11 +54,11 @@ $(document).ready(function(){
 	$('#btnAdd').click(function(){
 		if(!$('#tcode').val()){
 			$("#notcode").slideUp( )
-				.html('◀코드를 생성하세요')
+				.text('◀코드를 생성하세요')
 				.css({
 					'color':'red',
 					'font-size':'12px'
-					}).delay( 100 ).fadeIn( 400 );
+					})
 
 			return;		
 		}
@@ -78,12 +78,12 @@ $(document).ready(function(){
 			($('#startdate').val() && !$('#enddate').val()) ||
 			(!$('#startdate').val() && $('#enddate').val()))
 		{
-			$("#finishText")
+			$("#finishText").slideUp( )
 			.text('응시 기간을 설정할 경우 시작일과 종료일을 모두 등록하셔야 합니다.')
 			.css({
 				'color':'red',
 				'font-size':'12px'
-				});
+				}).delay( 100 ).fadeIn( 400 );
 
 			return;
 		}
@@ -113,18 +113,25 @@ $(document).ready(function(){
 		$.post(
 				qbank.contextRoot + '/bank/update.ajax'
 				,{
-					no: $('#no').val(),
-					title: $('#title').val()
+					code: $('#tcode').val(),
+					title: $('#title').val(),
+					qty: $('#amount').val(),
+					position: $('#position').val(),
+					texposition: $('#texposition').val(),
+					useyn: $('#useyn').val(),
+					startdate: $('#startdate').val(),
+					enddate: $('#enddate').val()
 				}
 				,function(jsonObj) {
 					loadBankTestList(currPageNo);
 					$('#btnReset').click();
+					$('#acc1').click(); // 리스트 페이지 보기 (아코디언)
 				}
 				,'json');
 	});
 	
 	$('#btnDelete').click(function(){
-		deleteBankTest( $('#no').val() );
+		deleteBankTest( $('#tcode').val() );
 	});
 	
 	$('#btnReset').click(function(){
@@ -144,6 +151,7 @@ function deleteBankTest(code) {
 				if (result.status == "ok") {
 					loadBankTestList(currPageNo);
 					$('#btnReset').click();
+					//$('#acc1').click(); // 리스트 페이지 보기 (아코디언)
 				}
 			});
 }
@@ -169,7 +177,7 @@ function loadBankTestList(pageNo) {
 									.attr('data-code', 	test.code)
 									.text(test.title)
 							))							
-							.append('<td>' + test.qty + ' 문항 </td>')
+							.append('<td>' + test.qty + ' == ' + test.listcount + ' 문항 </td>')
 							.append('<td>' + 
 									((!test.startdate) ? '무제한' :									
 									test.startdate + ' ~ ' + test.enddate) 									
@@ -190,7 +198,11 @@ function loadBankTestList(pageNo) {
 							.appendTo(table);
 					});
 					currPageNo = pageNo;
-					$('#currPageNo').text(pageNo);					
+					$('#currPageNo').text(pageNo);	
+					
+
+					
+	
 				/*	$('#btnReset').click();*/
 				}
 			});
@@ -267,8 +279,19 @@ $()
 $('#btnReset').on('click',function(event){
 	event.preventDefault();
 	createCode();	// 새코드 생성
-	testAmount();	// 문제수 초기화
-	$('#title').val('');    
+	testAmount(1);	// 문제수 초기화
+	$('#title').val('');  
+	$("#position option:eq(1)").attr("selected", "selected");
+	$("#texposition option:eq(1)").attr("selected", "selected");
+	$("#useyn option:eq(1)").attr("selected", "selected");
+
+	$('#startdate').val('');
+	$('#enddate').val('');
+	$('#finishText').text('응시 가능 기간을 설정하시려면 날짜 입력창을 클릭하시면 달력을 확인할 수 있습니다.')
+	.css({
+		'color':'gray',
+		'font-size':'12px'
+		});
 
 });
 

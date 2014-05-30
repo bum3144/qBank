@@ -14,8 +14,8 @@ import qbank.vo.BankTestVo;
 @Service
 public class BankTestServiceImpl implements BankTestService {
 	@Autowired
-	BankTestDao bankTestDao;
-
+	BankTestDao bankTestDao;	
+	
   @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Throwable.class)
   @Override
   public void add(BankTestVo test) {
@@ -33,6 +33,12 @@ public class BankTestServiceImpl implements BankTestService {
 			HashMap<String,Integer> params = new HashMap<String,Integer>();
 			params.put("startIndex", (pageNo - 1) * pageSize);
 			params.put("pageSize", pageSize);
+			
+/*			못찾겠다~~~!!	
+			params.put("listCount", bankTestDao.listCount());			
+			
+			System.out.println(params.get("listCount").valueOf(0));
+*/
 			
 			return bankTestDao.list(params);
 		} catch (Throwable ex) {
