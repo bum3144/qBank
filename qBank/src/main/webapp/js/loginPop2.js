@@ -12,14 +12,6 @@ jQuery(function($) {
 	});
 
 	/* event for close the popup */
-	$("div.close2").hover(
-					function() {
-						$('span.ecs_tooltip2').show();
-					},
-					function () {
-    					$('span.ecs_tooltip2').hide();
-  					}
-				);
 
 	$("div.close2").click(function() {
 		disablePopup();  // function close pop up

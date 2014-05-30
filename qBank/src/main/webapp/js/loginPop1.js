@@ -12,20 +12,12 @@ jQuery(function($) {
 	});
 
 	/* event for close the popup */
-	$("div.close1").hover(
-					function() {
-						$('span.ecs_tooltip1').show();
-					},
-					function () {
-    					$('span.ecs_tooltip1').hide();
-  					}
-				);
-
-	$("div.close1").click(function() {
+	
+	$(".close1").click(function() {
 		disablePopup();  // function close pop up
-	   
 	});
 
+	
 	$(this).keyup(function(event) {
 		if (event.which == 27) { // 27 is 'Ecs' in the keyboard
 			disablePopup();  // function close pop up
@@ -46,7 +38,7 @@ jQuery(function($) {
         
         
         /* 회원가입 폼 넘기는거 시작 */
-        $('.toPopup1').on('click',function(){
+        $('a.toPopup1').on('click',function(){
         $("#content1").css({display:""});
     	$("#content2").css({display:"none"});
     	$("#content3").css({display:"none"});
@@ -57,15 +49,15 @@ jQuery(function($) {
     		$("#content1").css({display:"none"});
     		$("#content2").css({display:""});
     		$("#content3").css({display:"none"});
-    		
     	});
+    	
     	
     	$('.nextBtn2').on('click',function(){
     		$("#content1").css({display:"none"});
     		$("#content2").css({display:"none"});
     		$("#content3").css({display:""});
-    		
     	});
+    	
     	
     	$('#nextBtn3').on('click',function(){
     		$("#content1").css({display:""});
