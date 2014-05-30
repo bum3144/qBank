@@ -23,6 +23,7 @@ jQuery(function($) {
 
 	$("div.close1").click(function() {
 		disablePopup();  // function close pop up
+		$("#commentForm").validate();
 	});
 
 	$(this).keyup(function(event) {
@@ -194,7 +195,15 @@ jQuery(function($) {
 			popupStatus = 0;  // and set value to 0
 		}
 	}
+	
+	
+	$('#email_select').change(function(){
+		($(this).val() == '1') ? 
+				$('#email2').prop( "readonly", false ) : 
+				$('#email2').prop( "readonly", true ).val($('#email_select').val());
+		});
+		
 	/************** end: functions. **************/
-	    
+	   
 }); // jQuery End
 

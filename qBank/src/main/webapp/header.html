@@ -9,6 +9,9 @@
 <link rel="stylesheet" href="/qBank/css/loginPop2.css" media="all" />
 <link href="/qBank/css/loginPop.css" rel="stylesheet" type="text/css" />
 
+
+
+
 <div id="bheader">
   <div id="blefttop">
     <a href="/qBank/main2.html" class="font-effect-3d"
@@ -320,6 +323,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 <div id=content3 class=contentBox>
   <h1>QBank</h1>
 		<p>회원가입</p>
+    <form class="cmxform" id="commentForm" method="get" action="">
 		<table style="margin:auto;">
     <tr>
         <td><p>클래스:</p></td>
@@ -329,27 +333,27 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 		<tr>
         <td><p>아이디:</p></td>
         <td><input id="uid" class="form-member" size="30" maxlength="20"
-          type="text" placeholder="아이디입력" /><br></td>
+          type="text" placeholder="아이디입력" required/><br></td>
       </tr>
     <tr>
         <td><p>비밀번호:</p></td>
         <td><input id="password" class="form-member" size="30"
-          maxlength="20" type="text" placeholder="비밀번호입력" /><br></td>
+          maxlength="20" type="text" placeholder="비밀번호입력" required /><br></td>
       </tr>
       <tr>
         <td><p>비밀번호확인:</p></td>
         <td><input id="password" class="form-member" size="30"
-          maxlength="20" type="text" placeholder="비밀번호입력" /><br></td>
+          maxlength="20" type="text" placeholder="비밀번호입력" required /><br></td>
       </tr>
       <tr>
         <td><p>이름:</p></td>
         <td><input id="name" class="form-member" size="30" maxlength="20"
-          type="text" placeholder="이름입력" /><br><br></td>
+          type="text" placeholder="이름입력" required /><br><br></td>
       </tr>
       <tr>
         <td><p>성별:</p></td>
-        <td><input name="sex" value ="male" type="radio" >남
-         <input name="sex" value="female" type="radio">여
+        <td><input name="sex" value ="male" type="radio" required>남
+         <input name="sex" value="female" type="radio" required>여
         <br><br></td>
       </tr>
       <tr>
@@ -373,33 +377,38 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
       </tr>
       <tr>
         <td><p>이메일:</p></td>
-        <td><input id="email" size="15" maxlength="20"
-          type="text" placeholder="이메일입력" /> @
-           <select id="email">
-           <option>naver.com</option>
-           <option>hanmail.net</option>
-           <option>google.com</option>
-           </select> <br><br></td>
+        <td>
+            <input name="email1" type="text" class="box" id="email1" size="12" required>
+            @ <input name="email2" type="text" class="box" id="email2" size="14" >
+            <select name="email_select" class="box" id="email_select" >
+              <option value="1">직접입력</option>
+              <option value="naver.com">naver.com</option>
+              <option value="hotmail.com">hotmail.com</option>
+              <option value="hanmail.com">hanmail.com</option>
+              <option value="yahoo.co.kr">yahoo.co.kr</option>
+            </select>
+
+          </form> <br><br></td>
       </tr>
       <tr>
         <td><p>전화번호:</p></td>
         <td>
         <input id="tel" size="5" maxlength="3"
-          type="text" placeholder="입력" />-
+          type="text" placeholder="입력" required/>-
         <input id="tel" size="5" maxlength="4"
-          type="text" placeholder="입력" />-
+          type="text" placeholder="입력" required/>-
           <input id="tel" size="5" maxlength="4"
-          type="text" placeholder="입력" /><br><br></td>
+          type="text" placeholder="입력" required/><br><br></td>
       </tr>
       
       <tr>
         <td><p>핸드폰번호:</p></td>
         <td><input id="cell" size="5" maxlength="3"
-          type="text" placeholder="입력" />-
+          type="text" placeholder="입력" required/>-
           <input id="cell" size="5" maxlength="4"
-          type="text" placeholder="입력" />-
+          type="text" placeholder="입력" required/>-
           <input id="cell" size="5" maxlength="4"
-          type="text" placeholder="입력" /><br><br></td>
+          type="text" placeholder="입력" required /><br><br></td>
       </tr>
       
       <tr>
@@ -414,16 +423,20 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
       <tr>
         <td><p>주소:</p></td>
         <td><input id="addr1" class="form-member" size="30" maxlength="20"
-          type="text" placeholder="주소입력" /><br></td>
+          type="text" placeholder="주소입력"  /><br></td>
       </tr>
       
       <tr>
         <td><p>상세주소:</p></td>
         <td><input id="addr2" class="form-member" size="30" maxlength="20"
-          type="text" /><br></td>
+          type="text" required /><br></td>
       </tr>
 
     </table>
+    </form>
+    <p>
+      <input class="submit" type="submit" value="Submit"/>
+    </p>
 </div>
 
   
