@@ -23,7 +23,7 @@ jQuery(function($) {
 
 	$("div.close1").click(function() {
 		disablePopup();  // function close pop up
-		$("#commentForm").validate();
+	   
 	});
 
 	$(this).keyup(function(event) {
@@ -36,12 +36,22 @@ jQuery(function($) {
 		disablePopup();  // function close pop up
 	});
         
+        /* 유효성 검사 시작 */
+        
+        $("#joinBtn").click(function(){
+        	$('#commentForm').validate();
+        });
+        
+        /* 유효성 검사 끝 */
+        
         
         /* 회원가입 폼 넘기는거 시작 */
-        
+        $('.toPopup1').on('click',function(){
         $("#content1").css({display:""});
     	$("#content2").css({display:"none"});
     	$("#content3").css({display:"none"});
+        });
+    	
     	
     	$('.nextBtn1').on('click',function(){
     		$("#content1").css({display:"none"});
