@@ -61,7 +61,8 @@ jQuery(function($) {
     		$("#content2").css({display:"none"});
     		$("#content3").css({display:"none"});
     	});
-        
+    	
+    	
         
         /* 회원가입 폼 넘기는거 끝 */
         
