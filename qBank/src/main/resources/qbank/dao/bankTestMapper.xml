@@ -38,6 +38,10 @@ SQL id=인터페이스 메서드명
     select * from SETTING order by SENO desc 
     limit #{startIndex}, #{pageSize}
   </select>
+   
+  <select id="listCount" resultMap="bankTestMap" parameterType="int">
+    select count(SECODE) from SETTING 
+  </select>
 
   <select id="detail" parameterType="String" resultMap="bankTestMap">
     select SECODE, SENO, SETITLE, SEQTY, SEQPOSITION, SETEXPOSITION, 

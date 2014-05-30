@@ -6,6 +6,7 @@ package qbank.vo;
  */
 public class BankTestVo {
 	private int 				no;	
+	private int 				sn;		
 	private String				code;
 	private String 				title;  
 	private int 	 			qty;
@@ -17,7 +18,13 @@ public class BankTestVo {
 	private int				regdate;
 	private int 	 			uno;
 
-	
+	public int getNo() {
+		return no;
+	}
+	public BankTestVo setNo(int no) {
+		this.no = no;
+		return this;
+	}	
 	public String getCode() {
 		return code;
 	}
@@ -25,14 +32,13 @@ public class BankTestVo {
 		this.code = code;
 		return this;
 	}
-	public int getNo() {
-		return no;
+	public int getSn() {
+		return sn;
 	}
-	public BankTestVo setNo(int no) {
-		this.no = no;
+	public BankTestVo setSn(int sn) {
+		this.sn = sn;
 		return this;
 	}
-	
 	public String getTitle() {
 		return title;
 	}
