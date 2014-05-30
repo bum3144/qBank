@@ -36,7 +36,9 @@ div.loader2 {
     position: absolute;
     margin-left: -10px;
 }
-div.close2 {
+.close2 {
+	background: url("../image/closeBtn1.png") no-repeat;
+	background-size: contain;
     cursor: pointer;
     height: 30px;
     position: absolute;
@@ -44,38 +46,6 @@ div.close2 {
     top: 4px;
     width: 30px;
 }
-#xBoxImg{
-	width: 25px;
-	height: 25px;
-}
-span.ecs_tooltip2 {
-    background: none repeat scroll 0 0 #000000;
-    border-radius: 2px 2px 2px 2px;
-    color: #FFFFFF;
-    display: none;
-    font-size: 11px;
-    height: 16px;
-    opacity: 0.7;
-    padding: 4px 3px 2px 5px;
-    position: absolute;
-    right: -62px;
-    text-align: center;
-    top: -51px;
-    width: 93px;
-}
-span.arrow2 {
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 7px solid #000000;
-    display: block;
-    height: 1px;
-    left: 40px;
-    position: relative;
-    top: 3px;
-    width: 1px;
-}
-
-
 #login-box3 {
 	color: #ebebeb;
 	font: 12px Arial, Helvetica, sans-serif;
