@@ -8,8 +8,9 @@ SQL id=인터페이스 메서드명
  -->  
 <mapper namespace="qbank.dao.BankTestDao">
   <resultMap type="qbank.vo.BankTestVo" id="bankTestMap">
-    <id column="SENO" property="no"/><!-- PK 컬럼에 대해서만 설정한다. -->
+    <id column="SECODE" property="code"/> <!-- PK 컬럼에 대해서만 설정한다. -->
     <result column="SETITLE" property="title"/>
+    <result column="SENO" property="no"/>
     <result column="SECODE" property="code"/>
     <result column="SEQTY" property="qty"/>
     <result column="SEQPOSITION" property="position"/>
@@ -19,6 +20,7 @@ SQL id=인터페이스 메서드명
     <result column="SEENDDATE" property="enddate"/>
     <result column="REGDATE" property="regdate"/>
     <result column="UNO2" property="uno"/>
+    <result column="COUNT" property="listcount"/>
   </resultMap> 
    
    <insert id="insert" parameterType="bankTestVo">
@@ -38,8 +40,8 @@ SQL id=인터페이스 메서드명
     limit #{startIndex}, #{pageSize}
   </select>
    
-  <select id="listCount" resultType="qbank.vo.BankTestVo" resultMap="bankTestMap">
-    select count(SECODE) from SETTING 
+  <select id="listCount" resultType="int" resultMap="bankTestMap">
+    select COUNT(SECODE) from SETTING 
   </select>
 
   <select id="detail" parameterType="String" resultMap="bankTestMap">
