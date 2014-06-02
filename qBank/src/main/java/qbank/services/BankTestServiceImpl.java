@@ -34,8 +34,8 @@ public class BankTestServiceImpl implements BankTestService {
 			params.put("startIndex", (pageNo - 1) * pageSize);
 			params.put("pageSize", pageSize);
 
-			int aa = bankTestDao.listCount();
-			System.out.println("<< listcount ====> " + aa);
+
+			System.out.println("<< listcount ====> " + bankTestDao.listCount());
 			
 			return bankTestDao.list(params);
 		} catch (Throwable ex) {
