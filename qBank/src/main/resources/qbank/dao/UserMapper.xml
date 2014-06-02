@@ -46,15 +46,15 @@ SQL 아이디 값을 인터페이스의 메서드 이름과 같게 한다.
           (UCLASS,UID,UPASS,UNAME,UEMAIL,UADDR1,UADDR2,UZIPCODE,UTEL,UCELLPHONE,UBIRTH,USEX)
     values (#{uclass},
             #{uid},
-            #{password},
-            #{name},
-            #{email},
-            #{addr1},
-            #{addr2},
-            #{zipcode},
-            #{tel},
-            #{cell},
-            #{birth},
-            #{sex})
+            #{upassword},
+            #{uname},
+            #{uemail},
+            #{uaddr1},
+            #{uaddr2},
+            #{uzipcode},
+            #{utel},
+            #{ucell},
+            #{ubirth},
+            #{usex})
   </insert>
 </mapper>
