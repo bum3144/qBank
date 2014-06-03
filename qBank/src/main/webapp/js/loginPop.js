@@ -1,4 +1,4 @@
-jQuery(function($) {
+$(document).ready(function(){
 	
 	 $( "#toPopup" ).draggable();
 

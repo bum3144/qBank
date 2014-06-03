@@ -1,9 +1,8 @@
-jQuery(function($) {
-	
+$(document).ready(function(){
+
 	$( "#toPopup1" ).draggable();
 
 	$("a.toPopup1").click(function() {
-		console.log(34)
 		loading(); // loading
 			setTimeout(function(){ // then show popup, deley in .5 second
 				loadPopup(); // function show popup
@@ -64,8 +63,6 @@ jQuery(function($) {
     		$("#content2").css({display:"none"});
     		$("#content3").css({display:"none"});
     	});
-    	
-    	
         
         /* 회원가입 폼 넘기는거 끝 */
         
@@ -162,7 +159,9 @@ jQuery(function($) {
     		});    
     	
     	/* 학생하고 선생님 버튼 hover 끝 */	
+     
     		
+    
     		
 
 /*	$('a.livebox').click(function() {
@@ -198,13 +197,6 @@ jQuery(function($) {
 		}
 	}
 	
-	
-	$('#email_select').change(function(){
-		($(this).val() == '1') ? 
-				$('#email2').prop( "readonly", false ) : 
-				$('#email2').prop( "readonly", true ).val($('#email_select').val());
-		});
-		
 	/************** end: functions. **************/
 	   
 }); // jQuery End

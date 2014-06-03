@@ -4,8 +4,6 @@ $(document).ready(function(){
 		event.preventDefault();
 		if ($('#uid').val().length == 0 ||
 				$('#password').val().length == 0) {
-			
-
 			$('#loginMassege')
 			.text('아이디와 암호는 필수 항목입니다')
 			.css('color','red');
