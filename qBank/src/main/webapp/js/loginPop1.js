@@ -1,5 +1,32 @@
 $(document).ready(function(){
 
+	
+	/* 회원가입 필수 입력체크 시작*/
+	var array = [
+	             {id : 'uid', length : 5 , text : '6글자 입력'},
+		         {id : 'password', length : 6 ,text : '6글자 입력'},
+		         {id : 'name', length : 3 ,text : '3글자 입력'}
+	        	];
+
+	$('input').keyup(function(){	
+		var thisId = $(this).attr("id");
+		var thisVal = $(this).val();
+		
+		$.each(array,function(key,item){
+			if(thisId == item.id){	
+				if(thisVal.length < item.length){					
+				console.log(item.text);
+				}
+			}
+		});
+		
+	});
+
+		
+	/* 회원가입 필수 입력체크 끝 */		
+			
+	
+	
 	$( "#toPopup1" ).draggable();
 
 	$("a.toPopup1").click(function() {
