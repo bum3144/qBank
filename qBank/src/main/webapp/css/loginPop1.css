@@ -56,8 +56,7 @@ div.loader1 {
   background-image: url(/qBank/image/tree3.png);
   background-repeat:no-repeat;
   background-size: cover;
-  color: #ebebeb;
-  font: 15px Arial, Helvetica, sans-serif;
+  
   
 }
 
@@ -78,7 +77,10 @@ div.loader1 {
 	color: #ebebeb;
 	font: bold 44px "Calibri", Arial;
 }
-
+.control-label{
+  color: #ebebeb;
+  font: 15px Arial, Helvetica, sans-serif;
+}
 .contentBox p{
   color: #ebebeb;
   font: 15px Arial, Helvetica, sans-serif;

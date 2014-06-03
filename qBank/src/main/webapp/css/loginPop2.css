@@ -48,10 +48,10 @@ div.loader2 {
 }
 #login-box3 {
 	color: #ebebeb;
-	font: 12px Arial, Helvetica, sans-serif;
+	font: 13px Arial, Helvetica, sans-serif;
 	background: url(../image/tree3.png) no-repeat;
 	background-size: cover;
-	height: 360px
+	height: 360px;
 }
 
 #login-box3 h1 {
