@@ -321,20 +321,20 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 		<h1>QBank</h1>
 		<p>회원가입</p>
 
-		<form class="form-horizontal" role="form">
+   
+		<form id="commentForm" class="form-horizontal cmxform" role="form" method="get" action="">
 
 			<div class="form-group">
 				<label class="col-sm-3 control-label">아이디</label>
 				<div class="col-sm-5">
-					<input type="text" class="form-control" id="inputEmail3"
-						placeholder="ID">
+					<input id="uid2" type="text" class="form-control"  placeholder="ID">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Password</label>
 				<div class="col-sm-5">
-					<input type="password" class="form-control" id="inputPassword3"
+					<input id="password2" type="password" class="form-control" id="inputPassword3"
 						placeholder="Password">
 				</div>
 			</div>
@@ -446,131 +446,9 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				<button id=joinBtn type="submit" class="btn btn-primary">회원가입완료</button>
                 <button class="btn btn-primary">회원가입취소</button>
 				</div>
-			</div>
-			
-			
+     	</form>
 	</div>
-
-	</form>
-
-   <!--  <form class="cmxform" id="commentForm" method="get" action="">
-		<table style="margin:auto;">
-    <tr>
-        <td><p>클래스:</p></td>
-        <td><input id="uclass" class="form-member" size="30" maxlength="20"
-          type="text" placeholder="클래스입력" /><br></td>
-    </tr>
-		<tr>
-        <td><p>아이디:</p></td>
-        <td><input id="uid" class="form-member" size="30" maxlength="20"
-          type="text" placeholder="아이디입력" required/><br></td>
-      </tr>
-    <tr>
-        <td><p>비밀번호:</p></td>
-        <td><input id="password" class="form-member" size="30"
-          maxlength="20" type="text" placeholder="비밀번호입력" required /><br></td>
-      </tr>
-      <tr>
-        <td><p>비밀번호확인:</p></td>
-        <td><input id="password" class="form-member" size="30"
-          maxlength="20" type="text" placeholder="비밀번호확인" required /><br></td>
-      </tr>
-      <tr>
-        <td><p>이름:</p></td>
-        <td><input id="name" class="form-member" size="30" maxlength="20"
-          type="text" placeholder="이름입력" required /><br><br></td>
-      </tr>
-      <tr>
-        <td><p>성별:</p></td>
-        <td><input name="sex" value ="male" type="radio" required>남
-         <input name="sex" value="female" type="radio" required>여
-        <br><br></td>
-      </tr>
-      <tr>
-        <td><p>생년월일:</p></td>
-        <td>
-        <select>
-        <option>2000년</option>
-        <option>1950년</option>
-        </select>
-
-        <select>
-        <option>1월</option>
-        <option>2월</option>
-        </select>
-        
-        <select>
-        <option>1일</option>
-        <option>2일</option>
-        </select>
-        <br><br></td>
-      </tr>
-      <tr>
-        <td><p>이메일:</p></td>
-        <td>
-            <input name="email1" type="text" id="email1" size="12" required>
-            @ <input name="email2" type="text" id="email2" size="14" >
-            <select name="email_select" id="email_select">
-              <option value="1">직접입력</option>
-              <option value="naver.com">naver.com</option>
-              <option value="hotmail.com">hotmail.com</option>
-              <option value="hanmail.com">hanmail.com</option>
-              <option value="yahoo.co.kr">yahoo.co.kr</option>
-            </select>
-
-          <br><br></td>
-      </tr>
-      <tr>
-        <td><p>전화번호:</p></td>
-        <td>
-        <input id="tel" size="5" maxlength="3"
-          type="text" placeholder="입력" required/>-
-        <input id="tel" size="5" maxlength="4"
-          type="text" placeholder="입력" required/>-
-          <input id="tel" size="5" maxlength="4"
-          type="text" placeholder="입력" required/><br><br></td>
-      </tr>
-      
-      <tr>
-        <td><p>핸드폰번호:</p></td>
-        <td><input id="cell" size="5" maxlength="3"
-          type="text" placeholder="입력" required/>-
-          <input id="cell" size="5" maxlength="4"
-          type="text" placeholder="입력" required/>-
-          <input id="cell" size="5" maxlength="4"
-          type="text" placeholder="입력" required /><br><br></td>
-      </tr>
-      
-      <tr>
-        <td><p>우편번호:</p></td>
-        <td>
-        <input id="zipcode" size="5"maxlength="5" type="text" placeholder="입력" />-
-        <input id="zipcode" size="5"maxlength="5" type="text" placeholder="입력" />
-         <button>우편번호조회</button>
-         <br></td>
-      </tr>
-      
-      <tr>
-        <td><p>주소:</p></td>
-        <td><input id="addr1" class="form-member" size="30" maxlength="20"
-          type="text" placeholder="주소입력"  /><br></td>
-      </tr>
-      
-      <tr>
-        <td><p>상세주소:</p></td>
-        <td><input id="addr2" class="form-member" size="30" maxlength="20"
-          type="text" required /><br></td>
-      </tr>
-
-    </table>
-    <br>
-     <button id=joinBtn type="submit" class="btn btn-primary">회원가입완료</button>
-     <a class="btn btn-primary">회원가입취소</a>
-     </form>
-     -->
-      
-  
-</div>
+	</div>
 
 <!--toPopup end-->
 
@@ -626,7 +504,6 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 <div class="loader2"></div>
 <div id="backgroundPopup2"></div>
 <!-- Popup -->
-
 
 
 <!-- 해더 끝 -->
