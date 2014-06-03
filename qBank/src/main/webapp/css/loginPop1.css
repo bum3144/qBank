@@ -56,6 +56,8 @@ div.loader1 {
   background-image: url(/qBank/image/tree3.png);
   background-repeat:no-repeat;
   background-size: cover;
+  color: #ebebeb;
+  font: 15px Arial, Helvetica, sans-serif;
   
 }
 
@@ -78,9 +80,10 @@ div.loader1 {
 }
 
 .contentBox p{
-	color: #ebebeb;
-	font-size: 15px;
+  color: #ebebeb;
+  font: 15px Arial, Helvetica, sans-serif;
 }
+
 
 #studentBtn{
 	
@@ -193,4 +196,4 @@ div.loader1 {
 .form-group{
 	width: 540px; 
 }
-	
+
