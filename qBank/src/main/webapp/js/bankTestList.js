@@ -207,30 +207,36 @@ function loadBankTestList(pageNo) {
 					});
 					currPageNo = pageNo;
 
+					/* 페이징 처리 */
 					var bPageNumList = 10; // 블록에 나타낼 번호 갯수
 					var block = Math.ceil(currPageNo/bPageNumList);	// Math.ceil(currPageNo/bPageNumList) 1.2든 1.7이든 다 2로 계산
 					var count = result.data.count;					// 전체 개시물 수
 					var totalPage =  Math.ceil(count/pageSize);		// 전체 페이지 수 Math.ceil(count/pageSize); 
 					var bStartPage = ((block-1)*bPageNumList)+1;	// 현재 블럭의 시작 페이지 번호 ((block-1)*bPageNumList)+1; 
 					var bEndPage = bStartPage+bPageNumList-1; 		// 현재 블럭의 마지막 페이지 번호 bStartPage+bPageNumList-1;
-				
-					
-
 					var blockHtml = "";
 					 for(var j=bStartPage; j<=bEndPage; j++){
 					 	if(currPageNo == j){
 					 		blockHtml+= "<font size=2 color=red>" + j + "</font>&nbsp;";
 					 	}else{ //서로 다르다면
 					 		if(j <= totalPage){
-					 		blockHtml+= "<font size=2><a href='/qBank/bank/bankTestList.html?currPageNo="+j+"&pageSize="+pageSize+"'>" + j + "</a></font>&nbsp;";
+					 		blockHtml+= "<font size=2><a href='#' class='blockId' data-id='"+j+"'>" + j + "</a></font>&nbsp;";
 					 		}
 					 	}
 					 }					
 					 $('#currPageNo').html(blockHtml);	
-	
+
+
+					// 페이지 번호 클릭이동
+					$('.blockId').click(function(event){
+						loadBankTestList(currPageNo=$(this).attr('data-id'));
+					});		
+						
 				/*	$('#btnReset').click();*/
 				}
+
 			});
+	
 }
 
 function changeFormState(state) {
