@@ -3,10 +3,10 @@ $(document).ready(function(){
 	
 	/* 회원가입 필수 입력체크 시작*/
 	var array = [
-	             {id : 'joinUid', type : 'text' , length : 4 , text : '4~10글자 사이입력', maxlength : 10},
-		         {id : 'joinPassword', type : 'text' , length : 6 ,text : '6~10글자 사이입력', maxlength : 10},
+	             {id : 'joinUid', id2: 'joinUidBox', dataId: 'textChk', type : 'text' , length : 4 , text : '4~10글자 사이입력', maxlength : 10},
+		         {id : 'joinPassword', id2: 'joinPassBox', dataId: 'textChk', type : 'text' , length : 6 ,text : '6~10글자 사이입력', maxlength : 10},
 		         {id : 'joinPassword2', type : 'password' , length : 6 ,text : '6~10글자 사이입력', maxlength : 10},
-		         {id : 'joinName', type : 'text' , length : 2 ,text : '2~20글자 사이입력', maxlength : 20},
+		         {id : 'joinName', id2: 'joinNameBox', dataId: 'textChk', type : 'text' , length : 2 ,text : '2~20글자 사이입력', maxlength : 20},
 		         {id : 'joinSexM', type : 'radio'},
 		         {id : 'joinSexW', type : 'radio'},
 		         {id : 'joinYear', type : 'select'},
@@ -16,8 +16,8 @@ $(document).ready(function(){
 		         {id : 'joinTel', type : 'tel' , length : 9 ,text : '잘못된 번호 예) 010-XXXX-XXXX', maxlength : 13},
 		         {id : 'joinCell', type : 'tel' , length : 9 ,text : '잘못된 번호 예) 010-XXXX-XXXX', maxlength : 13},
 		         {id : 'joinZip', type : 'zip' , length : 7 ,text : '우편번호(숫자만', maxlength : 7},
-		         {id : 'joinAddr1', type : 'text' , length : 6 ,text : '주소입력'},
-		         {id : 'joinAddr2', type : 'text' , length : 6 ,text : '상세주소'},
+		         {id : 'joinAddr1', dataId: 'textChk', type : 'text' , length : 6 ,text : '주소입력'},
+		         {id : 'joinAddr2', dataId: 'textChk', type : 'text' , length : 6 ,text : '상세주소'},
 	        	];
 
 	$('input').keyup(function(){	
@@ -32,19 +32,29 @@ $(document).ready(function(){
 				
 				switch(item.type){
 					case 'text' :
-					if(thisVal.length == 1){
-						$('<div></div>').addClass("col-sm-4 pp").css({'border':'1px solid black'}).appendTo($('#joinUidBox'));
-						if(thisVal.length < item.length || thisVal.length > item.maxlength){	
-							$('<span>' + item.text + '</span>').addClass("msgBox").appendTo($('.pp'));
+						var $test = $('#'+item.dataId);
+						
+						if(thisVal.length < item.length || thisVal.length > item.maxlength){
+							
+								if($test.attr("id") != item.dataId){
+									$('<div></div>')
+									.attr('id', item.dataId)		
+									.addClass("col-sm-4")
+									.css({'font-size':'12px','margin-top':'10px',
+										'color':'red','text-align':'left'})
+									.appendTo($('#'+item.id2))
+									.append('<span>' + item.text + '</span>')
+								}
 							//$('.msgBox').Text(item.text);
+							
 						}else{
 							console.log('등록가능 아이디입니다');	
+							if($test.attr("id") == item.dataId){
+								$('#'+item.dataId).remove();
+							}
 						}
 						
-					}else if(thisVal.length == 0){
-						$('.msgBox').remove();
-					}
-						
+
 					break;
 		
 					case 'email' :

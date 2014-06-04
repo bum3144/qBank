@@ -1,6 +1,6 @@
 
 	$(document).ready(function() {
-
+/*
 		$("#checkAll").click(function(){
 			if ($("#checkAll").is(":checked")) {	
 				$("input[name=box]:checkbox").each(function() {
@@ -14,7 +14,7 @@
 				});	
 			}
 		});
-
+*/
 		/*		
 		// 체크 박스 모두 체크
 		$("#checkAll").click(function() {
@@ -32,7 +32,7 @@
 
 		
 		
-		// 체크 되어 있는 값 추출
+/*		// 체크 되어 있는 값 추출
 		$("#getCheckedAll").click(function() {
 			$("input[name=box]:checked").each(function() {
 				var test = $(this).val();
@@ -50,7 +50,7 @@
 
 		// test case
 		test1();
-
+*/
 	});
 
 	function test1() {

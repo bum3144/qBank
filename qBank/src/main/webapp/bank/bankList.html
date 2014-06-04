@@ -9,10 +9,9 @@
 	href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d">
 <link rel="stylesheet" href="../css/include.css"/>
 <link rel="stylesheet" href="../css/bank.css"/>
-<link rel="StyleSheet" href="../css/dtree.css"/>
 
- <!-- 2 load the theme CSS file -->
-<link rel="stylesheet" href="../jstree/dist/themes/default/style.min.css" />
+ <!-- 1 load the theme CSS file -->
+<link rel="stylesheet" type="text/css" href="//w2ui.com/src/w2ui-1.3.min.css" />
 </head>
 <body>
 
@@ -26,24 +25,16 @@
 		<div id="bnav">	
 		
 			<div class="row">
-				<div id="">
-	    			<span class="view2">
-	    			<button type="button" class="btn btn-success btn-sm" onclick="demo_create();">
-	    			<i class="glyphicon glyphicon-asterisk"></i> 생성</button>
-	    			</span>		    
-	   				<span class="view2">
-	   				<button type="button" class="btn btn-warning btn-sm" onclick="demo_rename();">
-	   				<i class="glyphicon glyphicon-pencil"></i> 수정</button>
-	   				</span>
-	   				<span class="view2">
-	   				<button type="button" class="btn btn-danger btn-sm" onclick="demo_delete();">
-	   				<i class="glyphicon glyphicon-remove"></i> 삭제</button>
-	   				</span>
+				<div id="leftMenu" style="text-align:center; margin:0 0 10px 0 ;">
+					<span class="view2"><input type="button" value="Add1" onclick="add1()"/> </span>
+					<span class="view2"><input type="button" value="Add2" onclick="add2()"/> </span>
+					<span class="view2"><input type="button" value="Add3" onclick="add3()"/> </span>
+					<span class="view2"><input type="button" value="Del" onclick="removeItem()"/></span>
 				</div>
 
 				<!-- 3 setup a container element -->
 				<div class="col-md-12">
-					<div id="jstree_demo" class="demo" style="margin-top:1em; min-height:200px;"></div>	
+					<div id="sidebar" style="height: 450px"></div>
 				</div>	
 			</div>	
 
@@ -69,11 +60,11 @@
 						<tr class="warning">
 							<th>번호</th>
 							<th>문제명</th>
-							<th>문형 <span class="caret"></span></th>
+							<th>문형 <!-- <span class="caret"></span> --></th>
 							<th>등록날자</th>
 							<th>문제코드</th>
-							<th>사용 <span class="caret"></span></th>
-							<th><input type="checkbox" id='check_all'/></th>
+							<th>사용</th>
+							<th><!-- <input type="checkbox" id='check_all'/> --></th>
 						</tr>
 						<tr class="dataRow">
 							<td>1</td>
@@ -92,33 +83,6 @@
 							<td>Q0001</td>
 							<td>O</td>
 							<td><input type="checkbox" name='mycheck' value='2'/></td>
-						</tr>
-						<tr class="dataRow">
-							<td>3</td>
-							<td>Coral reefs oWe their brilliant ..</td>
-							<td>객관식</td>
-							<td>2013-10-20</td>
-							<td>Q0001</td>
-							<td>O</td>
-							<td><input type="checkbox" name='mycheck' value='3'/></td>
-						</tr>
-						<tr class="dataRow">
-							<td>4</td>
-							<td>Coral reefs oWe their brilliant ..</td>
-							<td>객관식</td>
-							<td>2013-10-20</td>
-							<td>Q0001</td>
-							<td>O</td>
-							<td><input type="checkbox" name='mycheck' value='3'/></td>
-						</tr>
-						<tr class="dataRow">
-							<td>5</td>
-							<td>Coral reefs oWe their brilliant ..</td>
-							<td>객관식</td>
-							<td>2013-10-20</td>
-							<td>Q0001</td>
-							<td>O</td>
-							<td><input type="checkbox" name='mycheck' value='4'/></td>
 						</tr>
 					</tbody>
 				</table>
@@ -153,116 +117,16 @@
 	<!-- 풋터 -->
 	<div id="bfooter"></div>
 	<!-- 풋터 끝 -->
-<script type="text/javascript" src="../js/dtree.js"></script>
 
-<script src="../jstree/dist/libs/jquery.js"></script>
-<script src="../jstree/dist/jstree.min.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- 4 include the jQuery library -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="//w2ui.com/src/w2ui-1.3.min.js"></script>
 <script	src="../js/bank.js"></script>
 <script src="../js/include.js"></script>
 
-  <!-- 4 include the jQuery library -->
-  <script src="../jstree/dist/libs/jquery.js"></script>
-  <!-- 5 include the minified jstree source -->
-  <script src="../jstree/dist/jstree.min.js"></script>
-  <script>
-  $(function () {
-    // 6 create an instance when the DOM is ready
-		$('#jstree_demo').jstree({
-					"core" : {
-						"animation" : 0,
-						"check_callback" : true,
-						"themes" : { "stripes" : true },
-						'data' : {
-							'url' : function (node) {
-								return node.id === '#' ? 
-										'../jstree/docs/assets/ajax_demo_roots.json' : 
-											'../jstree/docs/assets/ajax_demo_children.json';
-							},
-							'data' : function (node) {
-								return { 'id' : node.id };
-							}
-						}
-					},
-					"types" : {
-						"#" : { "max_children" : 2, 
-							"max_depth" : 4, 
-							"valid_children" : ["root"] 
-					},
-						"root" : { 
-						/* 	"icon" : "../jstree/docs/assets/images/tree_icon.png",  */
-							"valid_children" : ["default","file"] 
-					},
-						"default" : { 
-							"valid_children" : ["default","file"] 
-					},
-						"file" : { 
-							"icon" : "glyphicon glyphicon-file", 
-							"valid_children" : [] 
-					}
-					
-					},
-					"plugins" : [ 
-					              "contextmenu",  "search", 
-					              "state", "types", "wholerow" 
-					              ]
-				});  
+<!-- 5 include the minified source -->
+<script src="../js/leftTreeMenu.js"></script>
 	
-	
-	
-    // 7 bind to events triggered on the tree
-    $('#jstree_demo').on("changed.jstree", function (e, data) {
-      console.log(data.selected);
-    });
-    
-    // 8 interact with the tree - either way is OK
-    $('button').on('click', function () {
-      $('#jstree_demo').jstree(true).select_node('child_node_1');
-      $('#jstree_demo').jstree('select_node', 'child_node_1');
-      $.jstree.reference('#jstree_demo').select_node('child_node_1');
-    });
-  });
-  </script>
-
-					
-<script>
-	function demo_create() {
-		var ref = $('#jstree_demo').jstree(true),
-			sel = ref.get_selected();
-		if(!sel.length) { return false; }
-		sel = sel[0];
-		sel = ref.create_node(sel, {"type":"file"});
-		if(sel) {
-			ref.edit(sel);
-		}
-	};
-	function demo_rename() {
-		var ref = $('#jstree_demo').jstree(true),
-			sel = ref.get_selected();
-		if(!sel.length) { return false; }
-		sel = sel[0];
-		ref.edit(sel);
-	};
-	function demo_delete() {
-		var ref = $('#jstree_demo').jstree(true),
-			sel = ref.get_selected();
-		if(!sel.length) { return false; }
-		ref.delete_node(sel);
-	};
-	$(function () {
-		var to = false;
-		$('#demo_q').keyup(function () {
-			if(to) { clearTimeout(to); }
-			to = setTimeout(function () {
-				var v = $('#demo_q').val();
-				$('#jstree_demo').jstree(true).search(v);
-			}, 250);
-		});
-	
-	});
-</script>
-
-
 </body>
 </html>
