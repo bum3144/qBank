@@ -32,11 +32,19 @@ $(document).ready(function(){
 				
 				switch(item.type){
 					case 'text' :
-						if(thisVal.length < item.length || thisVal.length > item.maxlength){					
-							console.log(item.text);
+					if(thisVal.length == 1){
+						$('<div></div>').addClass("col-sm-4 pp").css({'border':'1px solid black'}).appendTo($('#joinUidBox'));
+						if(thisVal.length < item.length || thisVal.length > item.maxlength){	
+							$('<span>' + item.text + '</span>').addClass("msgBox").appendTo($('.pp'));
+							//$('.msgBox').Text(item.text);
 						}else{
 							console.log('등록가능 아이디입니다');	
 						}
+						
+					}else if(thisVal.length == 0){
+						$('.msgBox').remove();
+					}
+						
 					break;
 		
 					case 'email' :
