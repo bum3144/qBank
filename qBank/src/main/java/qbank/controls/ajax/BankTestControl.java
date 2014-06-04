@@ -1,5 +1,9 @@
 package qbank.controls.ajax;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,9 +33,13 @@ public class BankTestControl {
 			@RequestParam(value="pageNo",defaultValue="1") int pageNo, 
 			@RequestParam(value="pageSize",defaultValue="10") int pageSize) {
 		
+	 HashMap<String,Object> params = new HashMap<String,Object>();
+      params.put("list",bankTestService.list(pageNo, pageSize));
+      params.put("count",bankTestService.listCount());
+		
 		return new AjaxResult()
 			.setStatus("ok")
-			.setData(bankTestService.list(pageNo, pageSize));
+			.setData(params);
 	}
 
 	@RequestMapping("/detail")

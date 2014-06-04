@@ -33,15 +33,23 @@ public class BankTestServiceImpl implements BankTestService {
 			HashMap<String,Integer> params = new HashMap<String,Integer>();
 			params.put("startIndex", (pageNo - 1) * pageSize);
 			params.put("pageSize", pageSize);
-
-
-			System.out.println("<< listcount ====> " + bankTestDao.listCount());
 			
 			return bankTestDao.list(params);
 		} catch (Throwable ex) {
 			throw new RuntimeException(ex);
 		}
   }
+	
+	@Override
+	  public int listCount() {
+			try {
+				
+				return bankTestDao.count();
+			} catch (Throwable ex) {
+				throw new RuntimeException(ex);
+			}
+	  }
+	
 
 	@Override
   public BankTestVo detail(String code) {

@@ -1,7 +1,5 @@
-var currPageNo = 1;	// 현재 페이지 (pageNum)
-var pageSize = 5;	// 페이지에 보여줄 갯수 (list)
-
-
+var currPageNo = 1;
+var pageSize = 5;
 
 $(document).ready(function(){
 
@@ -166,67 +164,44 @@ function loadBankTestList(pageNo) {
 			function(jsonObj){
 				var result = jsonObj.ajaxResult;
 				
-			//	console.log(jsonObj);
-				count = result.data.count;
-				
-				if (result.status == 'ok' && result.data.list.length > 0) {
+				if (result.data.length > 0) {
 					var table = $('#bankTestList');
 					$('.dataRow').remove();
-					$.each(result.data, function(index, obj){
-						$.each(obj,function(index,test){
-
-							$('<tr>')
-								.addClass("dataRow")
-								.append('<td>' + test.no + '</td>')
-								.append( $('<td>')
-									.append( $('<a>').css('cursor','pointer')
-										.addClass('titleLink')
-										.attr('data-code', 	test.code)
-										.text(test.title)
-								))							
-								.append('<td>' + test.qty  + ' 문항 </td>')
-								.append('<td>' + 
-										((!test.startdate) ? '무제한' :									
-										test.startdate + ' ~ ' + test.enddate) 									
+					$.each(result.data, function(index, test){
+						$('<tr>')
+							.addClass("dataRow")
+							.append('<td>' + test.no + '</td>')
+							.append( $('<td>')
+								.append( $('<a>').css('cursor','pointer')
+									.addClass('titleLink')
+									.attr('data-code', 	test.code)
+									.text(test.title)
+							))							
+							.append('<td>' + test.qty + ' == ' + test.listcount + ' 문항 </td>')
+							.append('<td>' + 
+									((!test.startdate) ? '무제한' :									
+									test.startdate + ' ~ ' + test.enddate) 									
+									+ '</td>')
+							.append('<td>' + 
+									((test.useyn == 1) ? '사용' : '미사용') 
 										+ '</td>')
-								.append('<td>' + 
-										((test.useyn == 1) ? '사용' : '미사용') 
-											+ '</td>')
-								.append( $('<td>')
-									.append( $('<button>삭제</button>')
-										.addClass('rowDelBtn btn btn-danger btn-xs')
-										.attr('data-code',test.code)
-								)).css({
-									   'color':'#969a9e',
-									   'font-style':'normal',
-									   'font-size' : '13px',
-								   	   'vertical-align' : 'baseline'
-									   })
-								.appendTo(table);
-						});
+							.append( $('<td>')
+								.append( $('<button>삭제</button>')
+									.addClass('rowDelBtn btn btn-danger btn-xs')
+									.attr('data-code',test.code)
+							)).css({
+								   'color':'#969a9e',
+								   'font-style':'normal',
+								   'font-size' : '13px',
+							   	   'vertical-align' : 'baseline'
+								   })
+							.appendTo(table);
 					});
 					currPageNo = pageNo;
-
-					var bPageNumList = 10; // 블록에 나타낼 번호 갯수
-					var block = Math.ceil(currPageNo/bPageNumList);	// Math.ceil(currPageNo/bPageNumList) 1.2든 1.7이든 다 2로 계산
-					var count = result.data.count;					// 전체 개시물 수
-					var totalPage =  Math.ceil(count/pageSize);		// 전체 페이지 수 Math.ceil(count/pageSize); 
-					var bStartPage = ((block-1)*bPageNumList)+1;	// 현재 블럭의 시작 페이지 번호 ((block-1)*bPageNumList)+1; 
-					var bEndPage = bStartPage+bPageNumList-1; 		// 현재 블럭의 마지막 페이지 번호 bStartPage+bPageNumList-1;
-				
+					$('#currPageNo').text(pageNo);	
 					
 
-					var blockHtml = "";
-					 for(var j=bStartPage; j<=bEndPage; j++){
-					 	if(currPageNo == j){
-					 		blockHtml+= "<font size=2 color=red>" + j + "</font>&nbsp;";
-					 	}else{ //서로 다르다면
-					 		if(j <= totalPage){
-					 		blockHtml+= "<font size=2><a href='/qBank/bank/bankTestList.html?currPageNo="+j+"&pageSize="+pageSize+"'>" + j + "</a></font>&nbsp;";
-					 		}
-					 	}
-					 }					
-					 $('#currPageNo').html(blockHtml);	
+					
 	
 				/*	$('#btnReset').click();*/
 				}

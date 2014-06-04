@@ -10,4 +10,5 @@ public interface BankTestService {
 	BankTestVo detail(String code);
 	void change(BankTestVo test);
 	void remove(String code);
+	int listCount();
 }

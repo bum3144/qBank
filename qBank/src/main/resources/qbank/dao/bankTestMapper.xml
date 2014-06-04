@@ -40,7 +40,7 @@ SQL id=인터페이스 메서드명
     limit #{startIndex}, #{pageSize}
   </select>
    
-  <select id="listCount" resultType="int" resultMap="bankTestMap">
+  <select id="count" resultType="int" parameterType="int">
     select COUNT(SECODE) from SETTING 
   </select>
 
