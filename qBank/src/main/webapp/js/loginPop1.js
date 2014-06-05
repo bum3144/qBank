@@ -5,7 +5,7 @@ $(document).ready(function(){
 	var array = [
 	             {id : 'joinUid', id2: 'joinUidBox', dataId: 'textChk', type : 'text' , length : 4 , text : '4~10글자 사이입력', maxlength : 10},
 		         {id : 'joinPassword', id2: 'joinPassBox', dataId: 'textChk', type : 'text' , length : 6 ,text : '6~10글자 사이입력', maxlength : 10},
-		         {id : 'joinPassword2', type : 'password' , length : 6 ,text : '6~10글자 사이입력', maxlength : 10},
+		         {id : 'joinPassword2',id2: 'joinPassCheckBox', type : 'passwordCheck', dataId: 'textChk' , length : 6 ,text : '비밀번호가 동일하지 않음', maxlength : 10},
 		         {id : 'joinName', id2: 'joinNameBox', dataId: 'textChk', type : 'text' , length : 2 ,text : '2~20글자 사이입력', maxlength : 20},
 		         {id : 'joinSexM', type : 'radio'},
 		         {id : 'joinSexW', type : 'radio'},
@@ -29,32 +29,16 @@ $(document).ready(function(){
 		$.each(array,function(key,item){
 			
 			if(thisId == item.id){	
+				var $test = $('#'+item.dataId);
 				
 				switch(item.type){
 					case 'text' :
-						var $test = $('#'+item.dataId);
-						
 						if(thisVal.length < item.length || thisVal.length > item.maxlength){
-							
-								if($test.attr("id") != item.dataId){
-									$('<div></div>')
-									.attr('id', item.dataId)		
-									.addClass("col-sm-4")
-									.css({'font-size':'12px','margin-top':'10px',
-										'color':'red','text-align':'left'})
-									.appendTo($('#'+item.id2))
-									.append('<span>' + item.text + '</span>')
-								}
-							//$('.msgBox').Text(item.text);
-							
+							  makeMsgBox($test,item);
 						}else{
-							console.log('등록가능 아이디입니다');	
-							if($test.attr("id") == item.dataId){
-								$('#'+item.dataId).remove();
+							 removeMsgBox($test,item);
 							}
 						}
-						
-
 					break;
 		
 					case 'email' :
@@ -72,6 +56,18 @@ $(document).ready(function(){
 							 console.log('등록가능 전화번호입니다');							 
 						 }
 					break;
+					
+					case 'passwordCheck' :
+						 if (($("#joinPassword").val()) != ($("#joinPassword2").val())) {
+							 makeMsgBox($test,item);
+
+						 }else{
+							 removeMsgBox($test,item);
+						 }
+					break;
+
+					
+				
 					
 					default:
 						console.log("비고");
@@ -343,6 +339,34 @@ $(document).ready(function(){
 			$("#backgroundPopup1").fadeOut("normal");
 			popupStatus = 0;  // and set value to 0
 		}
+	}
+	
+	function makeMsgBox(test,item){
+		 if(test.attr("id") != item.dataId){
+				$('<div></div>')
+				.attr('id', item.dataId)		
+				.addClass("col-sm-4")
+				.css({'font-size':'12px','margin-top':'10px',
+					'color':'white','text-align':'left'})
+				.appendTo($('#'+item.id2))
+				.append('<span>' + item.text + '</span>')
+			   $('#' + item.id).css({
+			   'border-color':'#C40F33',
+			   '-webkit-box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(228, 37, 76, 0.6)',
+			   'box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(228, 37, 76, 0.6)'
+			   })
+			}
+	}
+	
+	function removeMsgBox(test,item){
+		 if(test.attr("id") == item.dataId){
+				$('#'+item.dataId).remove();
+				$('#' + item.id).css({
+					   'border-color':'#66afe9',
+					   '-webkit-box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)',
+					   'box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)'
+					   })
+			}
 	}
 	
 	/************** end: functions. **************/
