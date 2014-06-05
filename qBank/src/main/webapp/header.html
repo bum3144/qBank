@@ -12,6 +12,7 @@
 <script src="/qBank/js/loginPop1.js"></script>
 <script src="/qBank/js/loginPop2.js"></script>
 <script src="/qBank/js/login.js"></script>
+<script src="/qBank/js/common.js"></script>
   
 <div id="bheader">
   <div id="blefttop">
@@ -370,16 +371,16 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 			<div class="form-group">
 				<label class="col-sm-3 control-label">생년월일</label>
 				<div class="col-sm-3">				
-					<input type="text" class="form-control" id="joinYear1">
+					<input type="text" class="form-control" id="joinYear" placeholder="1991년" numberOnly="true">
 				</div>	
 				<div class="col-sm-2">
-					<select  class="form-control" id="sMonth" name="sMonth" onchange="setDaySelect('sYear', 'sMonth', 'sDay')">
-					</select>월
+					<input type="text" class="form-control" id="joinMonth" placeholder="5월" numberOnly="true">
 				</div>
 				<div class="col-sm-2">
-					<select class="form-control" id="sDay" name="sDay" onchange="setDaySelect('sYear', 'sMonth', 'sDay')">
-					</select>일
+					<input type="text" class="form-control" id="joinDay" placeholder="8일" numberOnly="true">
 				</div>
+				
+				
 				
 				
 <!-- 				
