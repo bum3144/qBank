@@ -95,6 +95,46 @@ $(document).ready(function(){
 
 	
 	
+	
+	
+	/* 로그인 아이디 체크 */
+	/* ID check */
+	$('#joinUid').keyup( function(){
+	//	console.log($('#joinUid').val());
+		$.getJSON(
+				qbank.contextRoot + 
+					'/joinChk/chk.ajax?uid=' + 
+					$(this).val(),
+				function(jsonObj) {
+					var result = jsonObj.ajaxResult;
+
+					console.log(result);
+					if (result.status == "ok") {
+
+						//console.log(result.data);
+						console.log(result.data);
+						
+
+					} else {
+						console.log('아이디가 없습니다.');
+					}
+				});
+	
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//팝업창 관련 
 	$( "#toPopup1" ).draggable();
 
