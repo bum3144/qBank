@@ -116,7 +116,7 @@
   <h1>QBank</h1><br>
 		
     <p>회원약관</p>	
-<div class=agreeBox >
+<div class=agreeBox style='font-size: 11px'>
  제 1 조 (목적)
 이 규칙은 본 사이트의 회원가입에 대한 조건 및 절차와 기타 필요한 사항을 규정함을 목적으로 합니다.
 
@@ -179,7 +179,7 @@
 	</div>
 <br>
 <label><p>개인정보보호정책</p></label>
-<div class=agreeBox >
+<div class=agreeBox style='font-size: 11px'>
 Qbank 문제은행은 통신비밀보호법, 전기통신사업법, 정보통신망 이용촉진 및 정보보호 등에
 관한 법률 등 정보통신서비스제공자가 준수하여야 할 관련 법령상의 개인정보보호 규정을 준수하며, 관련 법령에
 의거한 개인정보취급방침을 정하여 이용자 권익 보호에 최선을 다하고 있습니다. 
@@ -335,15 +335,15 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 			</div>
 
 			<div id="joinPassBox" class="form-group">
-				<label class="col-sm-3 control-label">Password</label>
+				<label class="col-sm-3 control-label">비밀번호</label>
 				<div class="col-sm-5">
 					<input id="joinPassword" type="password" class="form-control"
 						placeholder="Password">
 				</div>
 			</div>
 
-			<div class="form-group">
-				<label class="col-sm-3 control-label">Password</label>
+			<div id="joinPassCheckBox" class="form-group">
+				<label class="col-sm-3 control-label">비밀번호 확인</label>
 				<div class="col-sm-5">
 					<input id="joinPassword2" type="password" class="form-control"
 						placeholder="Password Check">
@@ -362,8 +362,8 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 			<div class="form-group">
 				<label class="col-sm-3 control-label">성별</label>
 				<div class="col-sm-3">
-					<input type="radio" id="joinSexM" value="M" checked> 남 &nbsp;&nbsp;&nbsp; 
-					<input type="radio" id="joinSexW" value="W">여
+					<input type="radio" id="joinSexM" value="M" name=sex checked> 남 &nbsp;&nbsp;&nbsp; 
+					<input type="radio" id="joinSexW" value="W" name=sex>여
 				</div>
 			</div>
 
@@ -435,7 +435,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				</div>
 			</div>
 			
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<label class="col-sm-3 control-label">우편번호</label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" id="joinZip" placeholder="ZipCode">
@@ -457,7 +457,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				<div class="col-sm-6">
 					<input type="text" class="form-control" id="joinAddr2" placeholder="Address">
 				</div>
-			</div>
+			</div> -->
 			<br>
 			<div class="form-group">
 				<button id=joinBtn type="submit" class="btn btn-primary">회원가입완료</button>
