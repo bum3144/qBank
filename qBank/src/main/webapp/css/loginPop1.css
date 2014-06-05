@@ -77,10 +77,11 @@ div.loader1 {
 	color: #ebebeb;
 	font: bold 44px "Calibri", Arial;
 }
-.control-label{
+#content3.control-label{
   color: #ebebeb;
   font: 15px Arial, Helvetica, sans-serif;
 }
+
 .contentBox p{
   color: #ebebeb;
   font: 15px Arial, Helvetica, sans-serif;
