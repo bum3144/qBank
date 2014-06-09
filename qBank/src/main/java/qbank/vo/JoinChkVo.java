@@ -7,8 +7,16 @@ public class JoinChkVo implements Serializable{
 
   int 		uno;
   String 	uid;
+  String 	uemail;
   
   
+	public String getUemail() {
+		return uemail;
+	}
+	public JoinChkVo setUemail(String uemail) {
+		this.uemail = uemail;
+		return this;
+	}
 	public int getUno() {
 		return uno;
 	}

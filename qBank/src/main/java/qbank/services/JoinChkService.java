@@ -3,4 +3,5 @@ import qbank.vo.JoinChkVo;
 
 public interface JoinChkService {
 	JoinChkVo getJoinUser(String uid);
+	JoinChkVo getJoinEmail(String uemail);
 }

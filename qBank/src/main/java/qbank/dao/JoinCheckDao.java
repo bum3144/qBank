@@ -6,4 +6,5 @@ import qbank.vo.JoinChkVo;
 
 public interface JoinCheckDao {
 	JoinChkVo getJoinUser(Map<String,String> params);
+	JoinChkVo getJoinEmail(Map<String,String> params);
 }

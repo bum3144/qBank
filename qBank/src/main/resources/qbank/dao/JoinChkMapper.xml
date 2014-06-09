@@ -8,12 +8,17 @@
   <resultMap type="qbank.vo.JoinChkVo" id="joinChkMap">
     <id column="UNO" property="uno"/><!-- PK 컬럼에 대해서만 설정한다. -->
     <result column="UID" property="uid"/>
+     <result column="UEMAIL" property="uemail"/>
   </resultMap> 
 
 
   
   <select id="getJoinUser" parameterType="map" resultMap="joinChkMap">
     select UID from USERS where UID=#{uid}
+  </select>
+  
+  <select id="getJoinEmail" parameterType="map" resultMap="joinChkMap">
+    select UEMAIL from USERS where UEMAIL=#{uemail}
   </select>
   
 </mapper>

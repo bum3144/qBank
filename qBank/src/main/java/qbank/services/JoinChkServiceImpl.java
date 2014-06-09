@@ -25,6 +25,18 @@ public class JoinChkServiceImpl implements JoinChkService {
 		throw new RuntimeException(ex);
 	}
 	}
+
+	@Override
+  public JoinChkVo getJoinEmail(String uemail) {
+		try {
+			HashMap<String,String> params = new HashMap<String,String>();
+			params.put("uemail", uemail);
+			
+			return joinCheckDao.getJoinEmail(params);
+	} catch (Throwable ex) {
+		throw new RuntimeException(ex);
+	 }
+  }
 	
 	
 
