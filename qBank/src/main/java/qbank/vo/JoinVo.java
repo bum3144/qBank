@@ -14,11 +14,11 @@ public class JoinVo {
   String  ubirth;
   String 	uemail;
   String  utel;
-  String  ucellphone;
+  String  ucell;
   String  uzipcode;
   String  uaddr1;
   String  uaddr2;
-  String  uphotpath;
+  String  uphotopath;
   
 	
 	public int getUno() {
@@ -85,10 +85,10 @@ public class JoinVo {
 		return this;
 	}
 	public String getUcellphone() {
-		return ucellphone;
+		return ucell;
 	}
 	public JoinVo setUcellphone(String ucellphone) {
-		this.ucellphone = ucellphone;
+		this.ucell = ucellphone;
 		return this;
 	}
 	public String getUzipcode() {
@@ -114,10 +114,10 @@ public class JoinVo {
 	}
 
 	public String getUphotpath() {
-		return uphotpath;
+		return uphotopath;
 	}
 	public JoinVo setUphotpath(String uphotpath) {
-		this.uphotpath = uphotpath;
+		this.uphotopath = uphotpath;
 		return this;
 	}
   
