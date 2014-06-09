@@ -3,7 +3,6 @@ $(document).ready(function(){
 	 $( "#toPopup" ).draggable();
 
 	$("a.toPopup").click(function() {
-		console.log(34)
 		loading(); // loading
 			setTimeout(function(){ // then show popup, deley in .5 second
 				loadPopup(); // function show popup

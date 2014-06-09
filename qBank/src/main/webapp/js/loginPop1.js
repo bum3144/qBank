@@ -40,7 +40,6 @@ $(document).ready(function(){
 							 removeMsgBox($test,item);
 							
 						}
-						
 
 					break;
 		
@@ -61,12 +60,21 @@ $(document).ready(function(){
 					break;
 					
 					case 'passwordCheck' :
-						 if (($("#joinPassword").val()) != ($("#joinPassword2").val())) {
-							 makeMsgBox($test,item);
-
-						 }else{
+						if(thisVal.length < item.length || thisVal.length > item.maxlength){
+							  makeMsgBox($test,item);
+							  if (($("#joinPassword").val()) != ($("#joinPassword2").val())) {
+									 makeMsgBox($test,item);
+							   }else{
+									 removeMsgBox($test,item);
+								 }
+						}else{
 							 removeMsgBox($test,item);
-						 }
+							
+						}
+						
+							 
+						
+						
 					break;
 
 					
@@ -97,13 +105,12 @@ $(document).ready(function(){
 	
 	
 	
-	/* 로그인 아이디 체크 */
 	/* ID check */
 	$('#joinUid').keyup( function(){
 	//	console.log($('#joinUid').val());
 		$.getJSON(
 				qbank.contextRoot + 
-					'/joinChk/chk.ajax?uid=' + 
+					'/joinChk/chkId.ajax?uid=' + 
 					$(this).val(),
 				function(jsonObj) {
 					var result = jsonObj.ajaxResult;
@@ -117,6 +124,26 @@ $(document).ready(function(){
 
 					} else {
 						console.log('아이디가 없습니다.');
+					}
+				});
+	
+	});
+	
+	/* Email check */
+	$('#joinEmail').keyup( function(){
+	//	console.log($('#joinUid').val());
+		$.getJSON(
+				qbank.contextRoot + 
+					'/joinChk/chkEmail.ajax?uemail=' + 
+					$(this).val(),
+				function(jsonObj) {
+					var result = jsonObj.ajaxResult;
+                                  
+					console.log(result);
+					if (result.status == "ok") {
+						console.log(result.data);
+					} else {
+						console.log('이메일이 없습니다.');
 					}
 				});
 	
