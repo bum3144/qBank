@@ -382,7 +382,7 @@ $(document).ready(function(){
 				'-webkit-box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(228, 37, 76, 0.6)',
 				'box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(228, 37, 76, 0.6)'
 			})
-		
+	}
 		
 	function makeMsgBox3(test,item){
 		 if(test.attr("id") == item.dataId){
