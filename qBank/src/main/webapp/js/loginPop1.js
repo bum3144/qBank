@@ -60,23 +60,21 @@ $(document).ready(function(){
 		
 					case 'email' :
 						 if (!regex.test(thisVal) ) {
-							// makeMsgBox($test, item);
-							 console.log('aaaaa');
+							 makeMsgBox($test,item,thisVal);
 						 }else{
-							 console.log('bbbbb');
-//							 $.getJSON(
-//										qbank.contextRoot + 
-//											'/joinChk/chkEmail.ajax?uemail=' + 
-//											thisVal,
-//										function(jsonObj) {
-//											var result = jsonObj.ajaxResult;
-//											console.log(result);
-//											if (result.status == "ok") {
-//												makeMsgBox3($test, item);
-//											} else {
-//												makeMsgBox2($test, item);
-//											}
-//										});							 
+							 $.getJSON(
+										qbank.contextRoot + 
+											'/joinChk/chkEmail.ajax?uemail=' + 
+											thisVal,
+										function(jsonObj) {
+											var result = jsonObj.ajaxResult;
+											console.log(result);
+											if (result.status == "ok") {
+												makeMsgBox3($test, item);
+											} else {
+												makeMsgBox2($test, item);
+											}
+										});							 
 						 }
 					break;	
 		
