@@ -3,7 +3,8 @@ $(document).ready(function(){
 	
 	/* 회원가입 필수 입력체크 시작*/
 	var array = [
-	             {id : 'joinUid', id2: 'joinUidBox', dataId: 'textChk', type : 'text' , length : 4 , text : '4~10글자 사이입력', maxlength : 10},
+	             {id : 'joinUid', id2: 'joinUidBox', dataId: 'textChk', type : 'id' , length : 4 , text : '4~10글자 사이입력', text2 : '등록가능한 아이디입니다',
+	            	 text3 : '중복되는 아이디입니다',maxlength : 10},
 		         {id : 'joinPassword', id2: 'joinPassBox', dataId: 'textChk', type : 'text' , length : 6 ,text : '6~10글자 사이입력', maxlength : 10},
 		         {id : 'joinPassword2',id2: 'joinPassCheckBox', type : 'passwordCheck', dataId: 'textChk' , length : 6 ,text : '비밀번호가 동일하지 않음', maxlength : 10},
 		         {id : 'joinName', id2: 'joinNameBox', dataId: 'textChk', type : 'text' , length : 2 ,text : '2~20글자 사이입력', maxlength : 20},
@@ -12,7 +13,7 @@ $(document).ready(function(){
 		         {id : 'joinYear', type : 'select'},
 		         {id : 'joinMonth', type : 'select'},
 		         {id : 'joinDay', type : 'select'},
-		         {id : 'joinEmail', type : 'email' ,text : '잘못된 이메일 형식'},
+		         {id : 'joinEmail',id2: 'joinEmailBox', type : 'email', dataId: 'textChk',text : '잘못된 이메일 형식',text2 : '등록가능한 이메일입니다',text3: '중복된 이메일입니다'},
 		         {id : 'joinTel', type : 'tel' , length : 9 ,text : '잘못된 번호 예) 010-XXXX-XXXX', maxlength : 13},
 		         {id : 'joinCell', type : 'tel' , length : 9 ,text : '잘못된 번호 예) 010-XXXX-XXXX', maxlength : 13},
 		         {id : 'joinZip', type : 'zip' , length : 7 ,text : '우편번호(숫자만', maxlength : 7},
@@ -32,22 +33,50 @@ $(document).ready(function(){
 				var $test = $('#'+item.dataId);
 				
 				switch(item.type){
-					case 'text' :
+					case 'id' :
 						
 						if(thisVal.length < item.length || thisVal.length > item.maxlength){
 							  makeMsgBox($test,item);
 						}else{
-							 removeMsgBox($test,item);
 							
+							$.getJSON(
+									qbank.contextRoot + 
+										'/joinChk/chkId.ajax?uid=' + 
+										thisVal,
+									function(jsonObj) {
+										var result = jsonObj.ajaxResult;
+
+										console.log(result);
+										if (result.status == "ok") {
+                                            makeMsgBox3($test, item);
+										} else {
+											makeMsgBox2($test, item);
+										}
+									});
 						}
 
 					break;
+					
 		
 					case 'email' :
-						 if (!regex.test(thisVal)) {
-							 console.log(item.text);	
+						 if (!regex.test(thisVal) ) {
+							// makeMsgBox($test, item);
+							 console.log('aaaaa');
 						 }else{
-							 console.log('등록가능 이메일입니다');							 
+							 console.log('bbbbb');
+//							 $.getJSON(
+//										qbank.contextRoot + 
+//											'/joinChk/chkEmail.ajax?uemail=' + 
+//											thisVal,
+//										function(jsonObj) {
+//											var result = jsonObj.ajaxResult;
+//											console.log(result);
+//											if (result.status == "ok") {
+//												makeMsgBox3($test, item);
+//											} else {
+//												makeMsgBox2($test, item);
+//											}
+//										});							 
 						 }
 					break;	
 		
@@ -71,18 +100,9 @@ $(document).ready(function(){
 							 removeMsgBox($test,item);
 							
 						}
-						
-							 
-						
-						
 					break;
-
-					
-				
-					
 					default:
 						console.log("비고");
-						
 					break;
 				}
 			
@@ -102,59 +122,60 @@ $(document).ready(function(){
 	// 패스워드확인창 새로고침
 
 	
+	//클래스 값 지정
 	$('#studentBtn').click(function(){
 		$('#joinClass').val('student');
 	});
 	$('#teacherBtn').click(function(){
 		$('#joinClass').val('teacher');
 	});	
+	//클래스 값 지정
 	
-	/* ID check */
-	$('#joinUid').keyup( function(){
-	//	console.log($('#joinUid').val());
-		$.getJSON(
-				qbank.contextRoot + 
-					'/joinChk/chkId.ajax?uid=' + 
-					$(this).val(),
-				function(jsonObj) {
-					var result = jsonObj.ajaxResult;
 
-					console.log(result);
-					if (result.status == "ok") {
-
-						//console.log(result.data);
-						console.log(result.data);
-						
-
-					} else {
-						console.log('아이디가 없습니다.');
-					}
-				});
 	
-	});
 	
 	/* Email check */
-	$('#joinEmail').keyup( function(){
-	//	console.log($('#joinUid').val());
-		$.getJSON(
-				qbank.contextRoot + 
-					'/joinChk/chkEmail.ajax?uemail=' + 
-					$(this).val(),
-				function(jsonObj) {
-					var result = jsonObj.ajaxResult;
-                                  
-					console.log(result);
-					if (result.status == "ok") {
-						console.log(result.data);
-					} else {
-						console.log('이메일이 없습니다.');
-					}
-				});
+//	$('#joinEmail').keyup( function(){
+//	//	console.log($('#joinUid').val());
+//		$.getJSON(
+//				qbank.contextRoot + 
+//					'/joinChk/chkEmail.ajax?uemail=' + 
+//					$(this).val(),
+//				function(jsonObj) {
+//					var result = jsonObj.ajaxResult;
+//                                  
+//					console.log(result);
+//					if (result.status == "ok") {
+//						console.log(result.data);
+//					} else {
+//						console.log('이메일이 없습니다.');
+//					}
+//				});
+//	
+//	});
 	
+	
+	/* 회원가입 */
+	
+	$('#joinBtn').click(function(){
+		
+		$.post(
+			qbank.contextRoot + '/join/insert.ajax'
+			,{
+			    uclass: $('#joinClass').val(),
+			    uid: $('#joinUid').val(),
+			 	upass: $('#joinPassword').val(),
+			  	uname: $('#joinName').val(),
+			    usex: $(':radio[name="sex"]:checked').val(),
+			    ubirth: $('#joinYear').val() + $('#joinMonth').val() + $('#joinDay').val(),
+			   	uemail: $('#joinEmail').val(),
+			    utel: $('#joinTel').val(),
+			    ucellphone: $('#joinCell').val()
+			   
+			}
+			,function(jsonObj){}
+			,'json');
 	});
-	
-	
-	
 	
 	
 	
@@ -382,6 +403,42 @@ $(document).ready(function(){
 			   '-webkit-box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(228, 37, 76, 0.6)',
 			   'box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(228, 37, 76, 0.6)'
 			   })
+			}
+	}
+	
+	function makeMsgBox3(test,item){
+		 if(test.attr("id") == item.dataId){
+			 $('#'+item.dataId).remove();
+				$('<div></div>')
+				.attr('id', item.dataId)		
+				.addClass("col-sm-4")
+				.css({'font-size':'12px','margin-top':'10px',
+					'color':'red','text-align':'left'})
+				.appendTo($('#'+item.id2))
+				.append('<span>' + item.text3 + '</span>')
+			   $('#' + item.id).css({
+			   'border-color':'#C40F33',
+			   '-webkit-box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(228, 37, 76, 0.6)',
+			   'box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(228, 37, 76, 0.6)'
+			   })
+			}
+	}
+	
+	function makeMsgBox2(test,item){
+		 if(test.attr("id") == item.dataId){
+			 $('#'+item.dataId).remove();
+				$('<div></div>')
+				.attr('id', item.dataId)		
+				.addClass("col-sm-4")
+				.css({'font-size':'12px','margin-top':'10px',
+					'color':'white','text-align':'left'})
+				.appendTo($('#'+item.id2))
+				.append('<span>' + item.text2 + '</span>')
+			   $('#' + item.id).css({
+					   'border-color':'#66afe9',
+					   '-webkit-box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)',
+					   'box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)'
+					   })
 			}
 	}
 	
