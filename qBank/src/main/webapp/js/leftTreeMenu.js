@@ -37,6 +37,14 @@ $(function () {
 	})
 });
 
+$('#add1').click(function(){
+	w2ui.sidebar.add([
+	      			{ id: 'level-4', text: 'Level 4', img: 'icon-folder', expanded: true}
+	      	]);
+	w2ui.sidebar.expand('level-2');
+});
+
+
 
 
 function add1() {
