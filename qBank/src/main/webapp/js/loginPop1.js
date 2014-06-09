@@ -102,8 +102,12 @@ $(document).ready(function(){
 	// 패스워드확인창 새로고침
 
 	
-	
-	
+	$('#studentBtn').click(function(){
+		$('#joinClass').val('student');
+	});
+	$('#teacherBtn').click(function(){
+		$('#joinClass').val('teacher');
+	});	
 	
 	/* ID check */
 	$('#joinUid').keyup( function(){
