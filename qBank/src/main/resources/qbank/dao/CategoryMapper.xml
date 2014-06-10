@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BankTestMapper.xml -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 구현체 자동 생성하려면 SQL 파일을 Dao인터페이스와 맞춰야 한다.
+namespace=인터페이스이름(패키지 이름 포함)
+SQL id=인터페이스 메서드명
+ -->  
+
+<mapper namespace="qbank.dao.CategoryDao">
+  <resultMap type="qbank.vo.CategoryVo" id="categoryMap">
+    <id column="CCODE" property="code"/> <!-- PK 컬럼에 대해서만 설정한다. -->
+    <result column="CNAME" property="name"/>
+    <result column="CURL" property="url"/>
+    <result column="CPARENT" property="parent"/>
+    <result column="CSEQ" property="seq"/>
+    <result column="CDEPTH" property="depth"/>
+    <result column="CUSEYN" property="useyn"/>
+  </resultMap> 
+   
+   
+  <select id="list" resultMap="categoryMap">
+    select CCODE, CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN 
+    from CATEGORY 
+    order by CCODE asc
+  </select>
+   
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
