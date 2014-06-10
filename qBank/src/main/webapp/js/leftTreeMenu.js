@@ -1,3 +1,29 @@
+
+
+$(document).ready(function(){
+	loadCategory();
+	
+	/* 카테고리 LIST */
+	function loadCategory() {
+		$.post(
+				qbank.contextRoot + '/gategory/list.ajax'
+				,function(jsonObj) {
+					var result = jsonObj.ajaxResult;
+						console.log(jsonObj);
+					if (result.status == 'ok') {
+						$.each(result.data, function(index, obj){
+
+							console.log(index.no);
+						});
+					}
+				}
+				,'json');
+	}
+
+});
+
+
+
 $(function () {
 	$('#sidebar').w2sidebar({
 		name: 'sidebar',
