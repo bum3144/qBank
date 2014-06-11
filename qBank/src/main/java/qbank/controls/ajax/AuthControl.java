@@ -73,7 +73,7 @@ public class AuthControl {
 	@RequestMapping("/logout")
   public String logout(HttpSession session) {
 	  session.invalidate();
-	  return "redirect:login.html";
+	  return "redirect:main2.html";
   }
 	
 	@RequestMapping("/getLoginUser")
@@ -89,6 +89,8 @@ public class AuthControl {
 									.setData(loginUser);
 		}
 	}
+	
+	
 }
 
 
