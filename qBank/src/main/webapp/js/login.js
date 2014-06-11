@@ -27,10 +27,10 @@ $(document).ready(function(){
 						'true':'false'
 			},
 			success: function(jsonObj){
-				console.log(jsonObj);
 				var result = jsonObj.ajaxResult;
+				var user = result.data;
 				if (result.status == "ok" && result.data == "success") {
-					location.href="/qBank/bank/bankList.html";
+					//location.href="/qBank/bank/bankList.html";
 				} else {
 					$('#loginMassege')
 					.text(' 아이디와 암호를 확인해 주세요! ')

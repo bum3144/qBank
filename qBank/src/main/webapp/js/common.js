@@ -19,4 +19,5 @@ bit.contextRoot = bit.getContextRootPath();
 $(function(){
 	$(document).on("keyup", "input:text[numberOnly]", function() {$(this).val( $(this).val().replace(/[^0-9]/gi,"") );});
 	$(document).on("keyup", "input:text[datetimeOnly]", function() {$(this).val( $(this).val().replace(/[^0-9:\-]/gi,"") );});
+	$(document).on("keyup", "input:text[textOnly]",function() {$(this).val( $(this).val().replace( /[^ㄱ-ㅎㅏ-ㅣ가-힣A-za-z\s]/gi,"") );});
 });

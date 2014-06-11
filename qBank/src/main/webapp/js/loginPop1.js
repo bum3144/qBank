@@ -4,21 +4,19 @@ $(document).ready(function(){
 	/* 회원가입 필수 입력체크 시작*/
 	var array = [
 	             {id : 'joinUid', id2: 'joinUidBox', dataId: 'textChk', type : 'id' , length : 4 , text : '4~10글자 사이입력', 
-	            	 text2 : '등록가능한 아이디입니다', text3 : '중복되는 아이디입니다', maxlength : 10},
-		         {id : 'joinPassword', id2: 'joinPassBox', dataId: 'textChk', type : 'text' , length : 6 ,text : '6~10글자 사이입력', maxlength : 10},
-		         {id : 'joinPassword2',id2: 'joinPassCheckBox', type : 'passwordCheck', dataId: 'textChk' , length : 6 ,text : '비밀번호가 동일하지 않음', maxlength : 10},
-		         {id : 'joinName', id2: 'joinNameBox', dataId: 'textChk', type : 'text' , length : 2 ,text : '2~20글자 사이입력', maxlength : 20},
+	            	 text2 : '등록가능한 아이디', text3 : '중복되는 아이디', maxlength : 10},
+		         {id : 'joinPassword', id2: 'joinPassBox', dataId: 'textChk', type : 'password' , length : 6 ,text : '6~10글자 사이입력', text2: '사용가능 비밀번호', maxlength : 10},
+		         {id : 'joinPassword2',id2: 'joinPassCheckBox', type : 'passwordCheck', dataId: 'textChk' , length : 6 ,text : '동일하지 않은 비밀번호',text2 : '동일한 비밀번호', maxlength : 10},
+		         {id : 'joinName', id2: 'joinNameBox', dataId: 'textChk', type : 'text' , length : 2 ,text : '2~20글자 사이입력',text2: '사용가능 이름', maxlength : 20},
 		         {id : 'joinSexM', type : 'radio'},
 		         {id : 'joinSexW', type : 'radio'},
 		         {id : 'joinYear', type : 'select'},
 		         {id : 'joinMonth', type : 'select'},
 		         {id : 'joinDay', type : 'select'},
-		         {id : 'joinEmail',id2: 'joinEmailBox', type : 'email', dataId: 'textChk',text : '잘못된 이메일 형식',text2 : '등록가능한 이메일입니다',text3: '중복된 이메일입니다'},
-		         {id : 'joinTel', type : 'tel' , length : 9 ,text : '잘못된 번호 예) 010-XXXX-XXXX', maxlength : 13},
-		         {id : 'joinCell', type : 'tel' , length : 9 ,text : '잘못된 번호 예) 010-XXXX-XXXX', maxlength : 13},
-		         {id : 'joinZip', type : 'zip' , length : 7 ,text : '우편번호(숫자만', maxlength : 7},
-		         {id : 'joinAddr1', dataId: 'textChk', type : 'text' , length : 6 ,text : '주소입력'},
-		         {id : 'joinAddr2', dataId: 'textChk', type : 'text' , length : 6 ,text : '상세주소'},
+		         {id : 'joinEmail',id2: 'joinEmailBox', type : 'email', dataId: 'textChk',text : '잘못된 이메일 형식',text2 : '등록가능한 이메일',text3: '중복된 이메일'},
+		         {id : 'joinTel',id2: 'joinTelBox', type : 'tel', dataId: 'textChk', length : 9 , text : '잘못된 번호', text2 : '등록가능한 번호', maxlength : 13},
+		         {id : 'joinCell', id2: 'joinCellBox', type : 'tel', dataId: 'textChk', length : 9 ,text : '잘못된 번호', text2 : '등록가능한 번호', maxlength : 13},
+
 	        	];
 
 	$('input').keyup(function(){	
@@ -50,11 +48,20 @@ $(document).ready(function(){
 										if (result.status == "ok") {
                                             makeMsgBox3($test, item);
 										} else {
-											makeMsgBox2($test, item);
+											makeMsgBox2($test, item,thisVal);
 										}
 									});
 						}
 
+					break;
+					
+	                case 'text' :
+	                	
+	                	if(thisVal.length < item.length || thisVal.length > item.maxlength){
+							  makeMsgBox($test,item,thisVal);
+						}else{
+							makeMsgBox2($test,item,thisVal);
+						}
 					break;
 					
 		
@@ -72,7 +79,7 @@ $(document).ready(function(){
 											if (result.status == "ok") {
 												makeMsgBox3($test, item);
 											} else {
-												makeMsgBox2($test, item);
+												makeMsgBox2($test, item,thisVal);
 											}
 										});							 
 						 }
@@ -80,25 +87,33 @@ $(document).ready(function(){
 		
 					case 'tel' :
 						 if (!regExp.test(thisVal)) {
-							 console.log(item.text);	
-						 }else{
-							 console.log('등록가능 전화번호입니다');							 
+							 makeMsgBox($test, item , thisVal);
+						 }else if(regExp.test(thisVal)){
+							 makeMsgBox2($test, item , thisVal);
 						 }
 					break;
 					
-					case 'passwordCheck' :
+					case 'password' :
 						if(thisVal.length < item.length || thisVal.length > item.maxlength){
-							  makeMsgBox($test,item);
-							  if (($("#joinPassword").val()) != ($("#joinPassword2").val())) {
-									 makeMsgBox($test,item);
-							   }else{
-									 removeMsgBox($test,item);
-								 }
+							 makeMsgBox($test, item, thisVal);
+							 $("#joinPassword2").attr("disabled",true);
 						}else{
-							 removeMsgBox($test,item);
-							
+							makeMsgBox2($test, item, thisVal);
+							$("#joinPassword2").attr("disabled",false);
 						}
+						break;
+					
+					
+					case 'passwordCheck' :
+							  if (($("#joinPassword").val()) != ($("#joinPassword2").val())) {
+									 makeMsgBox($test,item,thisVal);
+							   }else{
+								   makeMsgBox2($test, item,thisVal);
+							   }
+						
 					break;
+					
+					
 					default:
 						console.log("비고");
 					break;
@@ -136,7 +151,7 @@ $(document).ready(function(){
 	/* 회원가입 */
 	
 	$('#joinBtn').click(function(){
-		
+		 
 		$.post(
 			qbank.contextRoot + '/join/insert.ajax'
 			,{
@@ -382,6 +397,25 @@ $(document).ready(function(){
 			})
 	}
 		
+	
+	
+	function makeMsgBox2(test,item,thisVal){
+		 (test.attr("id") == item.dataId) ? $('#'+item.dataId).remove() : ' ';
+			 
+				$('<div></div>')
+				.attr('id', item.dataId)		
+				.addClass("col-sm-4")
+				.css({'font-size':'12px','margin-top':'10px',
+					'color':'white','text-align':'left'})
+				.appendTo($('#'+item.id2))
+				.append('<span>' + item.text2 + '</span>')
+			   $('#' + item.id).css({
+					   'border-color':'#66afe9',
+					   '-webkit-box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)',
+					   'box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)'
+					   })
+			}
+	
 	function makeMsgBox3(test,item){
 		 if(test.attr("id") == item.dataId){
 			 $('#'+item.dataId).remove();
@@ -400,34 +434,7 @@ $(document).ready(function(){
 			}
 	}
 	
-	function makeMsgBox2(test,item){
-		 if(test.attr("id") == item.dataId){
-			 $('#'+item.dataId).remove();
-				$('<div></div>')
-				.attr('id', item.dataId)		
-				.addClass("col-sm-4")
-				.css({'font-size':'12px','margin-top':'10px',
-					'color':'white','text-align':'left'})
-				.appendTo($('#'+item.id2))
-				.append('<span>' + item.text2 + '</span>')
-			   $('#' + item.id).css({
-					   'border-color':'#66afe9',
-					   '-webkit-box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)',
-					   'box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)'
-					   })
-			}
-	}
 	
-	function removeMsgBox(test,item){
-		 if(test.attr("id") == item.dataId){
-				$('#'+item.dataId).remove();
-				$('#' + item.id).css({
-					   'border-color':'#66afe9',
-					   '-webkit-box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)',
-					   'box-shadow':'inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)'
-					   })
-			}
-	}
 	
 	/************** end: functions. **************/
 	   
