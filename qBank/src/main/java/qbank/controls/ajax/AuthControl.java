@@ -35,6 +35,7 @@ public class AuthControl {
 			String uid, 
 			String password, 
 			@RequestParam(required=false) String saveUid,
+			HttpSession session,
 			HttpServletResponse response,
 			Model model) {
 		try {
@@ -47,7 +48,7 @@ public class AuthControl {
 					
 				} else {
 					result = new AjaxResult().setStatus("ok")	.setData("success");
-					model.addAttribute("loginUser", userVo);
+					session.setAttribute("loginUser", userVo);
 					
 					if (saveUid.equals("true")) {
 						Cookie cookie = new Cookie("loginUid", uid);

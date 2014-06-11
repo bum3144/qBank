@@ -24,6 +24,7 @@ public class joinControl {
 
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public AjaxResult insert(JoinVo vo) {
+		
 		joinService.add(vo);
 		return new AjaxResult().setStatus("ok");
 	}
