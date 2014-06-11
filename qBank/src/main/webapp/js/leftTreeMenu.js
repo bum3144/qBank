@@ -1,71 +1,81 @@
 
 $(document).ready(
-		function() {
-			loadCategory();
-
-			/* 카테고리 LIST */
-			function loadCategory() {
-				$.post(qbank.contextRoot + '/gategory/list.ajax', function(
-						jsonObj) {
-					var result = jsonObj.ajaxResult;
-					if (result.status == 'ok') {
-						// console.log(jsonObj);
-
-						/* 카테고리 준비 시작 */
-						$('#sidebar').w2sidebar({
-							name : 'sidebar',
-							img : 'icon-folder',
-							nodes : []
+	function() {
+		loadCategory();
+	
+		/* 카테고리 LIST */
+		function loadCategory() {
+			$.post(qbank.contextRoot + '/gategory/list.ajax', function(
+					jsonObj) {
+				var result = jsonObj.ajaxResult;
+				if (result.status == 'ok') {
+					// console.log(jsonObj);
+	
+					/* 카테고리 준비 시작 */
+					$('#sidebar').w2sidebar({
+						name : 'sidebar',
+						img : 'icon-folder',
+						nodes : []
+					});
+					w2ui.sidebar.on('*', function(event) {
+						//console.log('Event: ' + event.type + ' Target: ' + event.target);
+						//console.log(event);
+					})
+					/* 카테고리 준비 종료 */
+	
+					// 반복시작
+					$.each(result.data, function(index, obj) {
+						var count = obj.length;
+						$.each(obj, function(index, test) {
+							// console.log(test);
+							var cate1st = test.parent;
+							var cate2nd = test.parent + "-" + test.seq;
+							var cate3rd = test.parent + "-" + test.seq
+									+ "-" + test.depth;
+	
+							if (!test.depth && !test.seq) {
+								w2ui['sidebar'].add({
+									id : cate1st,
+									text : test.name,
+									img : 'icon-folder',
+									expanded : true
+								});
+	
+							} else if (!test.depth) {
+								w2ui['sidebar'].add(cate1st, {
+									id : cate2nd,
+									text : test.name,
+									img : 'icon-folder'
+								});
+	
+							} else {
+								w2ui['sidebar'].add(cate2nd, {
+									id : cate3rd,
+									text : test.name,
+									img : 'icon-page'
+								});
+							}
+	
 						});
-						w2ui.sidebar.on('*', function(event) {
-							console.log('Event: ' + event.type + ' Target: '
-									+ event.target);
-							console.log(event);
-						})
-						/* 카테고리 준비 종료 */
+					});
+					// 반복 끝
+	
+				}
+			}, 'json');
+		}
+	
+	});
 
-						// 반복시작
-						$.each(result.data, function(index, obj) {
-							var count = obj.length;
-							$.each(obj, function(index, test) {
-								// console.log(test);
-								var cate1st = test.parent;
-								var cate2nd = test.parent + "-" + test.seq;
-								var cate3rd = test.parent + "-" + test.seq
-										+ "-" + test.depth;
 
-								if (!test.depth && !test.seq) {
-									w2ui['sidebar'].add({
-										id : cate1st,
-										text : test.name,
-										img : 'icon-folder',
-										expanded : true
-									});
-
-								} else if (!test.depth) {
-									w2ui['sidebar'].add(cate1st, {
-										id : cate2nd,
-										text : test.name,
-										img : 'icon-folder'
-									});
-
-								} else {
-									w2ui['sidebar'].add(cate2nd, {
-										id : cate3rd,
-										text : test.name,
-										img : 'icon-page'
-									});
-								}
-
-							});
-						});
-						// 반복 끝
-
-					}
-				}, 'json');
-			}
-
-		});
+/*
+ * w2popup.open({
+	title   : 'Popup Title HTML',
+	body    : 'Body HTML',
+	buttons : 'Buttons HTML'
+});
+w2alert('This is an alert');
+w2confirm('Are you sure?', function btn(answer) { alert(answer); })
+ */
 
 $('#add1').click(function() {
 	w2ui.sidebar.add([ {
