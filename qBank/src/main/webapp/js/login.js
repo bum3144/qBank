@@ -30,7 +30,7 @@ $(document).ready(function(){
 				var result = jsonObj.ajaxResult;
 				var user = result.data;
 				if (result.status == "ok" && result.data == "success") {
-					//location.href="/qBank/bank/bankList.html";
+					location.href="/qBank/main2.html";
 				} else {
 					$('#loginMassege')
 					.text(' 아이디와 암호를 확인해 주세요! ')
