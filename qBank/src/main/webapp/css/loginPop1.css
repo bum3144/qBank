@@ -65,7 +65,7 @@ div.loader1 {
  height: 120px; 
  margin: auto; 
  overflow:auto;
- border: double chocolate;
+ border: ridge aliceblue;
  padding: 5px; 
  background: white;
  color: black;
