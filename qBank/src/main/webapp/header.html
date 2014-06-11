@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/qBank/css/loginPop.css" media="all" />
 <link rel="stylesheet" href="/qBank/css/loginPop1.css" media="all" />
 <link rel="stylesheet" href="/qBank/css/loginPop2.css" media="all" />
+<link rel="stylesheet" href="/resources/demos/style.css">
 <link href="/qBank/css/loginPop.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
   
@@ -34,8 +35,9 @@
         </a></li>
 
         <ul class="nav nav-tabs">
-          <div style="margin-top: 8px; ">
-          <table align="right" border="0" cellpadding="0" cellspacing="0">
+          <div style="margin-top: 8px;">
+          
+          <table id="logoutTable" align="right" border="0" cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
                 <td><span class="view2"><a href="#" class="toPopup">
@@ -46,6 +48,17 @@
               </tr>
             </tbody>
           </table>
+          
+          <table id="loginTable" align="right" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr>
+                <td><span id="idSpan">&nbsp;&nbsp;|</span> &nbsp;&nbsp;</td>
+                <td><a href="#">내정보</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                <td><a id="logout" href="#">로그아웃</a></td>
+              </tr>
+            </tbody>
+          </table> 
+          
           </div>
         </ul>
       </ul>
@@ -119,6 +132,7 @@
 		
     <p>회원약관</p>	
 <div class=agreeBox style='font-size: 11px'>
+<pre>
  제 1 조 (목적)
 이 규칙은 본 사이트의 회원가입에 대한 조건 및 절차와 기타 필요한 사항을 규정함을 목적으로 합니다.
 
@@ -178,10 +192,12 @@
 ③ 본 홈페이지 운영의 중단으로 인하여 회원에게 발생할 수 있는 제반 손해에 대하여 배상할 책임을 지지 않습니다.
 ④ 회원의 귀책사유로 인한 본 사이트 운영장애에 대하여 책임을 지지 않으며 이로 인해 본사가 입는 손해는 해당 회원이 배상하여야 합니다.
 ⑤ 당사는 회원에게 제공, 게시 또는 전송한 자료의 신뢰도, 정확성 등의 사항에 관하여 책임을 지지 않습니다.
-	</div>
+</pre>
+</div>
 <br>
 <label><p>개인정보보호정책</p></label>
 <div class=agreeBox style='font-size: 11px'>
+<pre>
 Qbank 문제은행은 통신비밀보호법, 전기통신사업법, 정보통신망 이용촉진 및 정보보호 등에
 관한 법률 등 정보통신서비스제공자가 준수하여야 할 관련 법령상의 개인정보보호 규정을 준수하며, 관련 법령에
 의거한 개인정보취급방침을 정하여 이용자 권익 보호에 최선을 다하고 있습니다. 
@@ -315,6 +331,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 11. 기타 
 현 개인정보취급방침 내용 추가, 삭제 및 수정이 있을 시에는 '공지사항'을 통해 고지할 것입니다. 
 최종수정일자 : 2013년 8월 26일
+</pre>
 </div>	
  <br>
  <button class="btn btn-primary">회원가입취소</button>&nbsp;
@@ -357,7 +374,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				<label class="col-sm-3 control-label">비밀번호 확인</label>
 				<div class="col-sm-5">
 					<input id="joinPassword2" type="password" class="form-control"
-						placeholder="Password Check"  maxlength="10">
+						placeholder="Password Check"  maxlength="10" name="sel">
 				</div>
 			</div>
 
@@ -365,7 +382,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				<label class="col-sm-3 control-label">이름</label>
 				<div class="col-sm-5">
 					<input id="joinName" type="text" class="form-control"
-						placeholder="이름">
+						placeholder="이름" textOnly='true'>
 				</div>
 			</div>
 
@@ -432,17 +449,17 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				</div>
 			</div>
 			
-			<div class="form-group">
+			<div id="joinTelBox" class="form-group">
 				<label class="col-sm-3 control-label">전화번호</label>
 				<div class="col-sm-5">
-					<input type="text" class="form-control" id="joinTel" placeholder="Phone Number">
+					<input type="text" class="form-control" id="joinTel" placeholder="예)01X-XXX-XXXX" datetimeOnly="true">
 				</div>
 			</div>
 			
-			<div class="form-group">
+			<div id="joinCellBox" class="form-group">
 				<label class="col-sm-3 control-label">핸드폰번호</label>
 				<div class="col-sm-5">
-					<input type="text" class="form-control" id="joinCell" placeholder="CellPhone Number">
+					<input type="text" class="form-control" id="joinCell" placeholder="예)01X-XXX-XXXX" datetimeOnly="true">
 				</div>
 			</div>
 			
@@ -543,6 +560,5 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 <div class="loader2"></div>
 <div id="backgroundPopup2"></div>
 <!-- Popup -->
-
 
 <!-- 해더 끝 -->
