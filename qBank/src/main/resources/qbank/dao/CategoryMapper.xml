@@ -22,7 +22,7 @@ SQL id=인터페이스 메서드명
   <select id="list" resultMap="categoryMap">
     select CCODE, CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN 
     from CATEGORY 
-    order by CCODE asc
+    order by CPARENT, CSEQ, CDEPTH asc
   </select>
    
 </mapper>
