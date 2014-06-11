@@ -17,6 +17,8 @@ $(document).ready(function(){
 			return;			
 		}
 		
+		
+		
 		$.ajax('header.ajax', {
 			type: 'POST',
 			dataType: 'json', /*서버에서 보내는 데이터의 형식 지정 */

@@ -21,3 +21,36 @@ $(function(){
 	$(document).on("keyup", "input:text[datetimeOnly]", function() {$(this).val( $(this).val().replace(/[^0-9:\-]/gi,"") );});
 	$(document).on("keyup", "input:text[textOnly]",function() {$(this).val( $(this).val().replace( /[^ㄱ-ㅎㅏ-ㅣ가-힣A-za-z\s]/gi,"") );});
 });
+
+
+		$.getJSON(
+		 '/qBank/getLoginUser.ajax',
+		function(jsonObj) {
+			var result = jsonObj.ajaxResult;
+			if (result.status == "ok") {
+			var user = result.data;
+				
+		   $('#logoutTable').hide();
+		   $('#loginTable').show();
+		   $('#idSpan').text(user.uid + "님이 로그인하셨습니다");
+			  
+			} else {
+			//	alert("로그인 하지 않았습니다.");
+				$('#loginTable').hide();
+				$('#logoutTable').show();
+			//	location.href = "/qBank/main2.html";
+			}
+		});
+
+
+
+$('#logoutBtn').on('click', function(e){
+	e.preventDefault();
+ 	console.log('uuuuu');
+ 	$.ajax({
+			url: '/qBank/logout.ajax',
+			success: location.href= '/qBank/main2.html'
+				
+ 	});
+	
+ });
