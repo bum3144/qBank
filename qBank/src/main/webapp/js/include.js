@@ -2,7 +2,6 @@ function qbank() {}
 
 qbank.getContextRootPath = function() {
 	var currPath = location.pathname;
-	console.log(currPath);
 
 	var end = currPath.indexOf('/', 1);
 	return currPath.substring(0, end);

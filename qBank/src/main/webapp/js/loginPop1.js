@@ -181,6 +181,7 @@ $(document).ready(function(){
 	
 	
 	//팝업창 관련 
+	
 	$( "#toPopup1" ).draggable();
 
 	$("a.toPopup1").click(function() {
@@ -355,6 +356,7 @@ $(document).ready(function(){
 	function loading() {
 		$("div.loader1").show();
 	}
+	
 	function closeloading() {
 		$("div.loader1").fadeOut('normal');
 	}
