@@ -65,6 +65,7 @@
     top:0px;
     left:0px; 
 }
+
 #toPopup {
     font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
     background: none repeat scroll 0 0 #FFFFFF;
@@ -80,6 +81,7 @@
     width: 550px;
     z-index: 2;
 }
+
 div.loader {
     background: url("/qBank/image/loading.gif") no-repeat scroll 0 0 transparent;
     height: 32px;
