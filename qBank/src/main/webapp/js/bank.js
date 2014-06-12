@@ -99,14 +99,25 @@
 				}
 			});
 
-		        $("#previewBackPopup").click(function() {
-				disablePopup();  // function close pop up
-			});
 
 		        /* 미리보기창 띄우기 */
 		        
 		        
-		   /* 
+		   /* 문제 미리보기에 가져오기 */
+		        
+		    $("#previewBtn").click(function(){
+		       var babo =$("#questVal").val();
+		       $("#questPreview").text(babo);
+		       
+		    }) ;
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		   /* 문제 미리보기에 가져오기  */      
 		        
 		        
 		        
