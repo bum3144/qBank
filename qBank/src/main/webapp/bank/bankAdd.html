@@ -106,11 +106,12 @@
 
 						<div class="form-inline">
 							<label>문형: </label> 
-							<select class="form-control">
+							<select id="typeSelector" class="form-control">
 								<option>객관식</option>
 								<option>주관식</option>
 								<option>서술형</option>
 							</select> 
+							
 							<label>난이도: </label> 
 							<select class="form-control">
 								<option>상</option>
@@ -128,7 +129,7 @@
 
 						<div class=questBox>
 							<label>문제입력 </label>
-								<textarea class="form-control" rows="5"></textarea>
+								<textarea id="questVal" class="form-control" rows="5"></textarea>
 						</div>
 						
 						<div class=questBox>
@@ -149,9 +150,9 @@
 							<input type="checkbox" id="mediaCheck" /> <label> 미디어파일등록 </label>
 							<input id="mediaDisplay" class="questDisplay" type="file" value="파일을 선택해주세요"></input>
 						</div>
+ 
 
-
-						<div class=questBox>
+						<div id="exSelectBox" class=questBox>
 							<label>보기 
 								<select id="exSelector">
 									<option>2</option>
@@ -171,6 +172,12 @@
 							
 							</div>
 						</div>
+						
+						<div id="answerBox" class=questBox>
+							<label>정답 </label>
+								<textarea class="form-control" rows="5"></textarea>
+						</div>
+						
 						
 						<div class=questBox>
 							<input type="checkbox" id="comentCheck" />
@@ -207,11 +214,19 @@
     <!--your content start-->
     <div id="previewBox" align="center">
        <h3>문제 미리보기</h3>
-       <div style="border:1px solid black; text-align: center; height: 40px; margin-top: 40px;">문제</div>
-       <div style="border:1px solid black; text-align: center; height: 80px;">지문</div>
+       <div style="border:1px solid black; text-align: center; margin-top: 40px;">
+       <span id="questPreview"></span>
+       </div>
+       <div style="border:1px solid black; text-align: center; height: 80px;">
+       <span id="textPreview"></span>
+       </div>
        <div style="border:1px solid black; text-align: center; height: 100px;">보기</div>
-       <div style="border:1px solid black; text-align: center; height: 40px;">해설</div>
-       <div style="border:1px solid black; text-align: center; height: 40px;">출처</div>
+       <div style="border:1px solid black; text-align: center; height: 40px;">
+       <span id="textPreview"></span>
+       </div>
+       <div style="border:1px solid black; text-align: center; height: 40px;">
+       <span id="textPreview"></span>
+       </div>
      </div>
 
   </div>
