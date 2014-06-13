@@ -41,6 +41,13 @@ SQL id=인터페이스 메서드명
     where  CPARENT = #{parent} and CSEQ = #{seq} and CDEPTH != ''
     order by CPARENT asc
   </select>
+      
+  <select id="cclick" resultMap="categoryMap" parameterType="map">
+    select CCODE, CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN 
+    from CATEGORY 
+    where  CPARENT = #{parent} and CSEQ = #{seq} and CDEPTH = #{depth}
+    order by CPARENT asc
+  </select>
    
 </mapper>
 
