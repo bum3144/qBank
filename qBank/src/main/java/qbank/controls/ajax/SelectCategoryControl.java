@@ -46,6 +46,16 @@ public class SelectCategoryControl {
 		params.put("third",selectcategoryService.list3rd(parent,seq));
 			return new AjaxResult().setStatus("ok").setData(params);
 	}
+
+	@RequestMapping("/categoryClick")
+	public AjaxResult cclick(
+			@RequestParam(value="parent") String parent,
+			@RequestParam(value="seq") String seq,
+			@RequestParam(value="depth") String depth){
+		HashMap<String,Object> params = new HashMap<String,Object>();
+		params.put("click",selectcategoryService.cclick(parent,seq,depth));
+			return new AjaxResult().setStatus("ok").setData(params);
+	}
 }
 
 
