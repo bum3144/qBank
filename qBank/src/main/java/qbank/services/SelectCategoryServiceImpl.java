@@ -49,12 +49,10 @@ public class SelectCategoryServiceImpl implements SelectCategoryService {
 
 
 	@Override
-  public List<CategoryVo> cclick(String parent, String seq, String depth) {
+  public List<CategoryVo> cclick(String cname) {
 		try {		
 			HashMap<String,String> params = new HashMap<String,String>();
-			params.put("parent", parent);
-			params.put("seq", seq);		
-			params.put("depth", depth);			
+			params.put("cname", cname);
 			return selectcategoryDao.cclick(params);
 		} catch (Throwable ex) {
 			throw new RuntimeException(ex);

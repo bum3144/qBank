@@ -19,27 +19,18 @@ $(document).ready(
 					});
 					
 					w2ui.sidebar.on('*', function(event) {
-					//	console.log(event);
-					//	console.log('Event: ' + event.type + ' Target: ' + event.target);
-					//	console.log($('#classCode').val(event.target));
-
+						//console.log(event);
+						//console.log('Event: ' + event.type + ' Target: ' + event.target + ' Name: ' + event.text);
+						//console.log(w2ui.sidebar.get(event.target));
+						
+						
 						var cc = event.target;
 						if(event.type=='click'){
-							var ccArray = cc.split('-');
-							var params;
+							var params = w2ui.sidebar.get(cc).text;
 							
-							//console.log(ccArray[0] + ' * ' + ccArray[1] + ' * ' + ccArray[2]);
-/*							
-							if(ccArray[0]) params = "?parent='"+ccArray[0]+"'&seq=NULL&depth=NULL";
-							if(ccArray[1]) params = "?parent='"+ccArray[0]+"'&seq='"+ccArray[1]+"'&depth=NULL";
-							if(ccArray[2]) params = "?parent='"+ccArray[0]+"'&seq='"+ccArray[1]+"'&depth='"+ccArray[2]+"'";
-							*/
-							
-							if(ccArray[0]) params = "?parent="+ccArray[0];
-							if(ccArray[1]) params += "&seq="+ccArray[1];
-							if(ccArray[2]) params += "&depth="+ccArray[2];
-							
-							//console.log(params);
+							//console.log(w2ui.sidebar.get(cc));
+							//console.log(w2ui.sidebar.get(cc).text);
+							 params = "?cname='"+params+"'";
 							
 							$.getJSON(qbank.contextRoot + 
 									'/selectcate/categoryClick.ajax' + params,

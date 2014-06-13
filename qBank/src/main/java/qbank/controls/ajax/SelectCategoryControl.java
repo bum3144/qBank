@@ -49,11 +49,9 @@ public class SelectCategoryControl {
 
 	@RequestMapping("/categoryClick")
 	public AjaxResult cclick(
-			@RequestParam(value="parent") String parent,
-			@RequestParam(value="seq") String seq,
-			@RequestParam(value="depth") String depth){
+			@RequestParam(value="cname") String cname){
 		HashMap<String,Object> params = new HashMap<String,Object>();
-		params.put("click",selectcategoryService.cclick(parent,seq,depth));
+		params.put("click",selectcategoryService.cclick(cname));
 			return new AjaxResult().setStatus("ok").setData(params);
 	}
 }

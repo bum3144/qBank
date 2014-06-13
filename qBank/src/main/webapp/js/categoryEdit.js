@@ -10,9 +10,9 @@ $(document).ready(function(){
 		success: function (result) {
 			var result = result.ajaxResult;
 			if (result.status == 'ok') {
-				console.log('okokok');
+				//console.log('okokok');
 				$.each(result.data, function(index, obj) {
-					console.log(result.data);
+					//console.log(result.data);
 					$.each(obj, function(index, test) {
 						$('#select1').append('<option value="' +test.parent+ '">' 
 								+ test.name + '</option>');

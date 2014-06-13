@@ -31,7 +31,7 @@ SQL id=인터페이스 메서드명
     select CCODE, CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN 
     from CATEGORY 
     where  CPARENT = #{parent} and CSEQ is not null and CDEPTH is null
-    order by CPARENT, CSEQ asc
+    order by CPARENT asc
   </select>
       
    
@@ -39,14 +39,13 @@ SQL id=인터페이스 메서드명
     select CCODE, CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN 
     from CATEGORY 
     where  CPARENT = #{parent} and CSEQ = #{seq} and CDEPTH is not null
-    order by CPARENT asc
+    order by CPARENT, CSEQ asc
   </select>
       
   <select id="cclick" resultMap="categoryMap" parameterType="map">
     select CCODE, CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN 
     from CATEGORY 
-    where  CPARENT = #{parent} and CSEQ = #{seq} and CDEPTH = #{depth}
-    order by CPARENT asc
+    where  CNAME = #{cname} 
   </select>
    
 </mapper>

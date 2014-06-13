@@ -9,7 +9,7 @@ public interface SelectCategoryService {
 	List<CategoryVo> list1st();
 	List<CategoryVo> list2nd(String parent);
 	List<CategoryVo> list3rd(String parent, String seq);
-	List<CategoryVo> cclick(String parent, String seq, String depth);
+	List<CategoryVo> cclick(String cname);
 	
 	
 /*	void add(BankTestVo test);
