@@ -23,27 +23,43 @@ public class SelectCategoryServiceImpl implements SelectCategoryService {
 			throw new RuntimeException(ex);
 		}
   }
+
 	@Override
-	  public List<CategoryVo> list2nd(String parent) {
-			try {		
-				HashMap<String,String> params = new HashMap<String,String>();
-				params.put("parent", parent);
-				return selectcategoryDao.list2nd(params);
-			} catch (Throwable ex) {
-				throw new RuntimeException(ex);
-			}
-	  }
+  public List<CategoryVo> list2nd(String parent) {
+		try {		
+			HashMap<String,String> params = new HashMap<String,String>();
+			params.put("parent", parent);
+			return selectcategoryDao.list2nd(params);
+		} catch (Throwable ex) {
+			throw new RuntimeException(ex);
+		}
+  }
+
 	@Override
-	  public List<CategoryVo> list3rd(String parent, String seq) {
-			try {		
-				HashMap<String,String> params = new HashMap<String,String>();
-				params.put("parent", parent);
-				params.put("seq", seq);			
-				return selectcategoryDao.list3rd(params);
-			} catch (Throwable ex) {
-				throw new RuntimeException(ex);
-			}
-	  }
+  public List<CategoryVo> list3rd(String parent, String seq) {
+		try {		
+			HashMap<String,String> params = new HashMap<String,String>();
+			params.put("parent", parent);
+			params.put("seq", seq);			
+			return selectcategoryDao.list3rd(params);
+		} catch (Throwable ex) {
+			throw new RuntimeException(ex);
+		}
+  }
+
+
+	@Override
+  public List<CategoryVo> cclick(String parent, String seq, String depth) {
+		try {		
+			HashMap<String,String> params = new HashMap<String,String>();
+			params.put("parent", parent);
+			params.put("seq", seq);		
+			params.put("depth", depth);			
+			return selectcategoryDao.cclick(params);
+		} catch (Throwable ex) {
+			throw new RuntimeException(ex);
+		}
+  }
 
 
 
