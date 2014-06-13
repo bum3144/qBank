@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BankTestMapper.xml -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 구현체 자동 생성하려면 SQL 파일을 Dao인터페이스와 맞춰야 한다.
+namespace=인터페이스이름(패키지 이름 포함)
+SQL id=인터페이스 메서드명
+ -->  
+<mapper namespace="qbank.dao.QuestDao">
+  <resultMap type="qbank.vo.QuestVo" id="QuestMap">
+    <id column="QNO" property="no"/> <!-- PK 컬럼에 대해서만 설정한다. -->
+    <result column="QCODE" property="qcode"/>
+    <result column="QTYPE" property="type"/>
+    <result column="QLEVEL" property="level"/>
+    <result column="QEDITUSE" property="edituse"/>
+    <result column="QNAME" property="name"/>
+    <result column="QTEXT" property="text"/>
+    <result column="QCOMMENT" property="comment"/>
+    <result column="QSOURCE" property="source"/>
+    <result column="QUSEYN" property="useyn"/>
+    <result column="QWRITER" property="writer"/>
+    <result column="QDATE" property="date"/>
+    <result column="CCODE" property="ccode"/>
+  </resultMap> 
+   
+   
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
