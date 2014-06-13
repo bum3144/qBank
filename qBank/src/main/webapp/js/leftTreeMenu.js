@@ -17,10 +17,42 @@ $(document).ready(
 						img : 'icon-folder',
 						nodes : []
 					});
+					
 					w2ui.sidebar.on('*', function(event) {
-						//console.log('Event: ' + event.type + ' Target: ' + event.target);
-						//console.log(event);
+					//	console.log(event);
+					//	console.log('Event: ' + event.type + ' Target: ' + event.target);
+					//	console.log($('#classCode').val(event.target));
+
+						var cc = event.target;
+						if(event.type=='click'){
+							var ccArray = cc.split('-');
+							var params;
+							
+							console.log(ccArray[0] + ' * ' + ccArray[1] + ' * ' + ccArray[2]);
+							
+							if(ccArray[0]) params = "?parent='"+ccArray[0]+"'&seq=NULL&depth=NULL";
+							if(ccArray[1]) params = "?parent='"+ccArray[0]+"'&seq='"+ccArray[1]+"'&depth=NULL";
+							if(ccArray[2]) params = "?parent='"+ccArray[0]+"'&seq='"+ccArray[1]+"'&depth='"+ccArray[2]+"'";
+							
+							console.log(params);
+							
+							$.getJSON(qbank.contextRoot + 
+									'/selectcate/categoryClick.ajax' + params,
+								function(jsonObj) {
+									var result = jsonObj.ajaxResult;
+									if (result.status == "ok") {
+										console.log($('#classCode').val(event.target));
+
+									} else {
+										console.log('카테고리 선택 오류.');
+									}
+								});							
+							
+						}
+							
+
 					})
+ 
 					/* 카테고리 준비 종료 */
 	
 					// 반복시작
@@ -68,7 +100,7 @@ $(document).ready(
 
 
 /*
- * w2popup.open({
+w2popup.open({
 	title   : 'Popup Title HTML',
 	body    : 'Body HTML',
 	buttons : 'Buttons HTML'

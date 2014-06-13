@@ -11,7 +11,7 @@ $(document).ready(function(){
 			var result = result.ajaxResult;
 			if (result.status == 'ok') {
 				$.each(result.data, function(index, obj) {
-					console.log(result.data);
+					//console.log(result.data);
 					$.each(obj, function(index, test) {
 						$('#select1').append('<option value="' +test.parent+ '">' 
 								+ test.name + '</option>');
@@ -30,9 +30,10 @@ $(document).ready(function(){
 		
 		optionRemove1();
 		optionRemove2();
-			
-		$('#select2').show();
+		
+		($('#select1').val()) ? $('#select2').show() : $('#select2').hide()
 		$('#select3').hide();
+		
 		$.ajax({
 			type: "GET",
 			url: qbank.contextRoot + '/selectcate/second.ajax?parent='+$('#select1').val(),
