@@ -28,20 +28,25 @@ $(document).ready(
 							var ccArray = cc.split('-');
 							var params;
 							
-							console.log(ccArray[0] + ' * ' + ccArray[1] + ' * ' + ccArray[2]);
-							
+							//console.log(ccArray[0] + ' * ' + ccArray[1] + ' * ' + ccArray[2]);
+/*							
 							if(ccArray[0]) params = "?parent='"+ccArray[0]+"'&seq=NULL&depth=NULL";
 							if(ccArray[1]) params = "?parent='"+ccArray[0]+"'&seq='"+ccArray[1]+"'&depth=NULL";
 							if(ccArray[2]) params = "?parent='"+ccArray[0]+"'&seq='"+ccArray[1]+"'&depth='"+ccArray[2]+"'";
+							*/
 							
-							console.log(params);
+							if(ccArray[0]) params = "?parent="+ccArray[0];
+							if(ccArray[1]) params += "&seq="+ccArray[1];
+							if(ccArray[2]) params += "&depth="+ccArray[2];
+							
+							//console.log(params);
 							
 							$.getJSON(qbank.contextRoot + 
 									'/selectcate/categoryClick.ajax' + params,
 								function(jsonObj) {
 									var result = jsonObj.ajaxResult;
 									if (result.status == "ok") {
-										console.log($('#classCode').val(event.target));
+										console.log(result.data);
 
 									} else {
 										console.log('카테고리 선택 오류.');

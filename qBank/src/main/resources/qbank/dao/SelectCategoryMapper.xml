@@ -22,7 +22,7 @@ SQL id=인터페이스 메서드명
   <select id="list1st" resultMap="categoryMap">
     select CCODE, CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN 
     from CATEGORY 
-    where CSEQ = '' and CDEPTH = ''
+    where CSEQ is null and CDEPTH is null
     order by CPARENT asc
   </select>
       
@@ -30,7 +30,7 @@ SQL id=인터페이스 메서드명
   <select id="list2nd" resultMap="categoryMap" parameterType="map">
     select CCODE, CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN 
     from CATEGORY 
-    where  CPARENT = #{parent} and CSEQ != '' and CDEPTH = ''
+    where  CPARENT = #{parent} and CSEQ is not null and CDEPTH is null
     order by CPARENT, CSEQ asc
   </select>
       
@@ -38,7 +38,7 @@ SQL id=인터페이스 메서드명
   <select id="list3rd" resultMap="categoryMap" parameterType="map">
     select CCODE, CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN 
     from CATEGORY 
-    where  CPARENT = #{parent} and CSEQ = #{seq} and CDEPTH != ''
+    where  CPARENT = #{parent} and CSEQ = #{seq} and CDEPTH is not null
     order by CPARENT asc
   </select>
       
