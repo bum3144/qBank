@@ -1,10 +1,9 @@
 
 $(document).ready(
 	function() {
-		loadCategory();
-	
+
 		/* 카테고리 LIST */
-		function loadCategory() {
+
 			$.post(qbank.contextRoot + '/gategory/list.ajax', function(
 					jsonObj) {
 				var result = jsonObj.ajaxResult;
@@ -30,14 +29,21 @@ $(document).ready(
 							
 							//console.log(w2ui.sidebar.get(cc));
 							//console.log(w2ui.sidebar.get(cc).text);
-							 params = "?cname='"+params+"'";
+							 params = '?cname=' + params;
 							
 							$.getJSON(qbank.contextRoot + 
 									'/selectcate/categoryClick.ajax' + params,
 								function(jsonObj) {
 									var result = jsonObj.ajaxResult;
 									if (result.status == "ok") {
-										console.log(result.data);
+										var rData = result.data.list[0];
+										console.log(rData);
+										
+										$('#classCode').val(event.target);
+										$('#className').val(rData.name);
+										
+								
+									//	$('#classUse').val(rData.useyn);
 
 									} else {
 										console.log('카테고리 선택 오류.');
@@ -90,9 +96,54 @@ $(document).ready(
 	
 				}
 			}, 'json');
-		}
+
 	
 	});
+
+
+
+
+function select1(parent){
+	if(!$('#select1').val()){
+		$('#select2, #select3').hide();
+	}
+
+	$.ajax({
+		type: "GET",
+		url: qbank.contextRoot + '/selectcate/frist.ajax',
+		dataType: 'json', 
+		success: function (result) {
+			var result = result.ajaxResult;
+			if (result.status == 'ok') {
+				$('#select1').val(parent);
+			}
+		},
+		error: function(errorThrown){
+			console.log('1카테고리 박스 에러 : ' + errorThrown);
+		}
+
+	});
+	
+}
+
+
+
+
+
+function optionRemove1(){
+	$("select[id='select2']").find('option').each(function() {
+		$(this).remove();
+	 });
+}
+
+function optionRemove2(){
+	$("select[id='select3']").find('option').each(function() {
+		$(this).remove();
+	 });
+}
+
+
+
 
 
 /*

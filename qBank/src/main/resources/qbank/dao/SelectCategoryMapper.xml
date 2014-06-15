@@ -42,10 +42,10 @@ SQL id=인터페이스 메서드명
     order by CPARENT, CSEQ asc
   </select>
       
-  <select id="cclick" resultMap="categoryMap" parameterType="map">
+  <select id="click" resultMap="categoryMap" parameterType="map">
     select CCODE, CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN 
     from CATEGORY 
-    where  CNAME = #{cname} 
+    where CNAME = #{cname} 
   </select>
    
 </mapper>

@@ -3,9 +3,11 @@ package qbank.services;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import qbank.controls.ajax.SelectCategoryControl;
 import qbank.dao.SelectCategoryDao;
 import qbank.vo.CategoryVo;
 
@@ -13,7 +15,7 @@ import qbank.vo.CategoryVo;
 public class SelectCategoryServiceImpl implements SelectCategoryService {
 	@Autowired
 	SelectCategoryDao selectcategoryDao;	
-	
+	static Logger log = Logger.getLogger(SelectCategoryControl.class);
 
 	@Override
   public List<CategoryVo> list1st() {
@@ -40,7 +42,7 @@ public class SelectCategoryServiceImpl implements SelectCategoryService {
 		try {		
 			HashMap<String,String> params = new HashMap<String,String>();
 			params.put("parent", parent);
-			params.put("seq", seq);			
+			params.put("seq", seq);	
 			return selectcategoryDao.list3rd(params);
 		} catch (Throwable ex) {
 			throw new RuntimeException(ex);
@@ -49,11 +51,13 @@ public class SelectCategoryServiceImpl implements SelectCategoryService {
 
 
 	@Override
-  public List<CategoryVo> cclick(String cname) {
+  public List<CategoryVo> click(String name) {
 		try {		
 			HashMap<String,String> params = new HashMap<String,String>();
-			params.put("cname", cname);
-			return selectcategoryDao.cclick(params);
+			log.debug("3 - cname ----> " + name);
+			params.put("cname", name);
+			log.debug("4 - name ----> " + params);
+			return selectcategoryDao.click(params);
 		} catch (Throwable ex) {
 			throw new RuntimeException(ex);
 		}
