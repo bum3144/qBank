@@ -41,9 +41,15 @@ $(document).ready(
 										
 										$('#classCode').val(event.target);
 										$('#className').val(rData.name);
-										
-								
-									//	$('#classUse').val(rData.useyn);
+										$('#className1').val(rData.name);
+										$('#choiceBox').css('border-color','#F0A03A');
+										$('#disText').html('카테고리가 선택 되었습니다.')
+											.css({
+												'color':'red',
+												'font-weight':'bold'
+												});
+										$('#choiceModDel').show();
+										$('#classUse').val(rData.useyn);
 
 									} else {
 										console.log('카테고리 선택 오류.');

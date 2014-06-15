@@ -64,18 +64,12 @@ textarea{
   min-width:350px; 
 }
 
-#finishBox{
-	text-align: center;
-/* 	background-color:skyblue; */
-}
+
 #finishText{
 	text-align: left;
 	font-size: 12px;
 }
 
-#finishBox h5{
-	text-align: center;
-}
 
 hr{
   border-top:1px solid gray;
@@ -84,4 +78,40 @@ hr{
 .checkbox{
 	margin: auto;
 	height: 54px;
+}
+
+
+#choiceBox{
+	position: relative;
+  width: 750px;
+  height: 150px;
+	margin-bottom: 14px;
+	margin: 10px;
+	padding: 9px 14px;
+	background-color: #f7f7f9;
+	border: 1px solid #e1e1e8;
+	border-radius: 4px;
+}
+#choiceBox2{
+	position: relative;
+  width: 750px;
+  height: 200px;
+	margin-bottom: 14px;
+	margin: 10px;
+	padding: 9px 14px;
+	background-color: #f7f7f9;
+	border: 1px solid #e1e1e8;
+	border-radius: 4px;
+	display: none;
+}
+#choiceModDel, #delete-confirm{
+	display: none;
+	margin-left: 10px;
+}
+#choiceDelete{
+	background-color: #FF0000;
+}
+#finishBox{
+	display: none;
+	margin-left: 10px;
 }

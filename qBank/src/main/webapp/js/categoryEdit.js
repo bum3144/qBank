@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$('.col-sm-2').css('font-size','12px');
 	if(!$('#select1').val()){
 		$('#select2, #select3').hide();
 	}
@@ -99,5 +100,26 @@ $(document).ready(function(){
 		 });
 	}
 	
+	$('#choiceModify').on('click', function() {
+		$('#choiceBox2, #finishBox').show('blind', 500);	
+	});
 	
+	
+	$('#choiceDelete').on('click', function() {
+	    $( "#delete-confirm" ).dialog({
+	      resizable: false,
+	      height:400,
+	      height:200,
+	      modal: true,
+	      buttons: {
+	        "삭제합니다": function() {
+	          $( this ).dialog( "close" );
+	        },
+	        "취소": function() {
+	          $( this ).dialog( "close" );
+	        }
+	      }
+	    });
+	});
+	 
 });
