@@ -101,7 +101,8 @@ $(document).ready(function(){
 	}
 	
 	$('#choiceModify').on('click', function() {
-		$('#choiceBox2, #finishBox').show('blind', 500);	
+		$('#choiceBox3, #finishBox2').hide('blind', 500);	
+		$('#choiceBox2, #finishBox1').show('blind', 500);	
 	});
 	
 	
@@ -121,5 +122,12 @@ $(document).ready(function(){
 	      }
 	    });
 	});
-	 
+	
+	$('#choiceCreate').on('click', function() {
+		$('#choiceBox2, #finishBox1').hide('blind', 500);	
+		$('#choiceBox3, #finishBox2').show('blind', 500);	
+	});	 
+	
+	
+	
 });

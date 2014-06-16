@@ -51,6 +51,8 @@ $(document).ready(
 										$('#choiceModDel').show();
 										$('#classUse').val(rData.useyn);
 
+										$('#choiceBox3, #finishBox2').hide('blind', 500);	
+										$('#choiceBox2, #finishBox1').show('blind', 500);	
 									} else {
 										console.log('카테고리 선택 오류.');
 									}
