@@ -92,10 +92,10 @@ hr{
 	border: 1px solid #e1e1e8;
 	border-radius: 4px;
 }
-#choiceBox2{
+#choiceBox2, #choiceBox3{
 	position: relative;
   width: 750px;
-  height: 200px;
+  height: 220px;
 	margin-bottom: 14px;
 	margin: 10px;
 	padding: 9px 14px;
@@ -111,7 +111,7 @@ hr{
 #choiceDelete{
 	background-color: #FF0000;
 }
-#finishBox{
+#finishBox1, #finishBox2{
 	display: none;
 	margin-left: 10px;
 }
