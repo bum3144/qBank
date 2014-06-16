@@ -26,10 +26,7 @@ jQuery(function($) {
 		disablePopup();  // function close pop up
 	});
 
-/*	$('a.livebox').click(function() {
-		alert('다친다! 언넝 닫아라!');
-	return false;
-	});*/
+
 
 	 /************** start: functions. **************/
 	function loading() {
