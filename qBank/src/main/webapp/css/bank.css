@@ -95,7 +95,7 @@ hr{
 #choiceBox2, #choiceBox3{
 	position: relative;
   width: 750px;
-  height: 220px;
+  height: 250px;
 	margin-bottom: 14px;
 	margin: 10px;
 	padding: 9px 14px;
@@ -104,7 +104,7 @@ hr{
 	border-radius: 4px;
 	display: none;
 }
-#choiceModDel, #delete-confirm{
+#delete-confirm, #create-confirm, #modify-message, #help-message{
 	display: none;
 	margin-left: 10px;
 }
@@ -115,3 +115,23 @@ hr{
 	display: none;
 	margin-left: 10px;
 }
+#help{
+	color: #0084b4;
+	cursor: pointer;
+}
+#sidebar{
+	 height: 600px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
