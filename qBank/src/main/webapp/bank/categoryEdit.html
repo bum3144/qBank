@@ -26,7 +26,7 @@
 			<!-- 카테고리 트리 -->
       <div class="row">
         <div class="col-md-12">
-          <div id="sidebar" style="height: 450px"></div>
+          <div id="sidebar"></div>
         </div>  
       </div>  
 			<!--  카테고리 트리 끝 -->
@@ -58,7 +58,14 @@
 								<input id="classCode" type="text" class="form-control editBox" placeholder="CODE" readonly>
 							</div>
 						</div>
-						
+<!-- 						
+						<div class="form-inline">
+							<label class="col-sm-2 control-label editBox">경로: </label>
+							<div class="col-sm-10">
+								<input id="classUrl" type="text" class="form-control editBox" placeholder="CATEGORY NAME" readonly>
+							</div>
+						</div>
+-->
 						<div class="form-inline">
 							<label class="col-sm-2 control-label editBox">선택 이름: </label>
 							<div class="col-sm-10">
@@ -70,8 +77,8 @@
 				
 				<div id="choiceModDel" class="form-inline">	
 					<button id="choiceCreate" type="button">신규 카테고리를 생성합니다.</button>
-					<button id="choiceModify" type="button" >선택 카테고리 수정합니다.</button>
-					<button id="choiceDelete" type="button">선택 카테고리 삭제합니다.</button>
+					<button id="choiceModify" type="button" >선택한 카테고리 수정합니다.</button>
+					<button id="choiceDelete" type="button">선택한 카테고리 삭제합니다.</button>
 				</div>
 
 
@@ -88,18 +95,20 @@
 						<div class="form-inline">
 							<label class="col-sm-2 control-label editBox">변경할 위치: </label>
 							<div class="col-sm-10">
-								
 								<select id="select1" class="form-control editBox" tabindex="1">
 								<option value="">-- 1차 선 택 --</option>
 								</select>
-										
 								<select id="select2" class="form-control editBox" tabindex="1">
 								<option value="">-- 2차 선 택 --</option>
 								</select>
-												
 								<select id="select3" class="form-control editBox" tabindex="1">
 								<option value="">-- 3차 선 택 --</option>
 								</select>
+								<select id="select0" class="form-control editBox input-sm btn-warning" tabindex="1">
+								<option value="F">앞으로 생성</option>
+								<option value="B">뒤로 생성</option>
+								</select>
+								
 										
 							</div>
 						</div>
@@ -109,6 +118,7 @@
 							<label class="col-sm-2 control-label editBox">변경할 이름: </label>
 							<div class="col-sm-10">
 								<input id="className1" type="text" class="form-control editBox" placeholder="카테고리 이름 입력">
+								<span id="createErr1"></span>
 							</div>
 						</div>
 	
@@ -117,7 +127,7 @@
 						<div class="form-inline">
 							<label class="col-sm-2 control-label editBox">사용 유무: </label>
 							<div class="col-sm-10 editBox">
-								<select id="classUse" class="form-control">
+								<select id="classUse1" class="form-control">
 									<option value="Y">사용</option>
 									<option value="N">미사용</option>
 								</select>
@@ -126,7 +136,7 @@
 
 					</div>
 					<div id="finishBox1" class="form-inline">
-					<button type="button">카테고리 수정을 완료합니다</button>
+					<button type="button" class="form-control editBox input-sm btn-warning">카테고리 수정을 완료합니다</button>
 					</div>
 
 
@@ -134,34 +144,45 @@
           <div id="choiceBox3">  
 						<div class="form-inline">
 								<ul>
-									<li>신규 카테고리 생성 </li>
+									<li>신규 카테고리 생성 <span id="help">[HELP]</span></li>
 									<li id="disText"> 카테고리를 생성 정보를 입력해 주세요.</li>
+									<li id="disText"> 생성할 위치를 선택하지 않으면 1차 카테고리에 생성됩니다.</li>
 								</ul>
 						</div>
 						<div class="form-inline">
 							<label class="col-sm-2 control-label editBox">생성할 위치: </label>
 							<div class="col-sm-10">
-								<select id="select1" class="form-control editBox" tabindex="1">
+								<select id="select11" class="form-control editBox" tabindex="1">
 								<option value="">-- 1차 선 택 --</option>
 								</select>
-								<select id="select2" class="form-control editBox" tabindex="1">
+								<select id="select22" class="form-control editBox" tabindex="1">
 								<option value="">-- 2차 선 택 --</option>
 								</select>
-								<select id="select3" class="form-control editBox" tabindex="1">
+								<input id="select33" type="text">
+								<!-- <select id="select33" class="form-control editBox" tabindex="1">
 								<option value="">-- 3차 선 택 --</option>
-								</select>
+								</select> -->
 							</div>
 						</div>
 						<div class="form-inline">
 							<label class="col-sm-2 control-label editBox">생성할 이름: </label>
 							<div class="col-sm-10">
-								<input id="className1" type="text" class="form-control editBox" placeholder="카테고리 이름 입력">
+								<input id="className11" type="text" class="form-control editBox" placeholder="카테고리 이름 입력">
+								<span id="createErr11"></span>
 							</div>
 						</div>
+<!-- 						
+						<div class="form-inline">
+							<label class="col-sm-2 control-label editBox">생성할 URL: </label>
+							<div class="col-sm-10">
+								<input id="classUrl11" type="text" class="form-control editBox" placeholder="카테고리 경로 입력">
+							</div>
+						</div>
+ -->						
 						<div class="form-inline">
 							<label class="col-sm-2 control-label editBox">사용 유무: </label>
 							<div class="col-sm-10 editBox">
-								<select id="classUse" class="form-control">
+								<select id="classUse11" class="form-control">
 									<option value="Y">사용</option>
 									<option value="N">미사용</option>
 								</select>
@@ -169,7 +190,7 @@
 						</div>
 					</div>
 					<div id="finishBox2" class="form-inline">
-					<button type="button">카테고리 생성을 완료합니다</button>
+					<button id="createBtn" type="button" class="form-control editBox input-sm btn-success">카테고리 생성을 완료합니다</button>
 					</div>
 
 				</form>
@@ -178,17 +199,29 @@
 	</div>
 	
 	
-	<div id="delete-confirm" title="카테고리를 삭제하시겠습니까?">
-	  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;">
-	  </span>삭제하시면 복구할 수 없습니다!<br>
-	  			 정말 삭제 하시겠습니까?</p>
+	<div id="delete-confirm" title="카테고리를 삭제">
+	  <p><span class="ui-icon ui-icon-alert" style="float:left; 
+	  margin:0 7px 20px 0;"></span>삭제하시면 복구할 수 없습니다!<br>
+	  정말 삭제 하시겠습니까?</p>
+	</div>		
+	
+	<div id="create-confirm" title="카테고리를 생성">
+	  <p><span class="ui-icon ui-icon-alert" style="float:left; 
+	  margin:0 7px 20px 0;"></span>생성할 위치가 정확합니까?<br>
+	  카테고리를 생성합니까?</p>
 	</div>	
+	
+	<div id="modify-message" title="카테고리 수정/삭제">
+  <p><span class="ui-icon ui-icon-circle-check" style="float:left; 
+    margin:0 7px 50px 0;"></span>
+    카테고리 수정 및 삭제하시려면 먼저 선택해 주셔야 합니다.</p>
+  </div>
+  
 	<!-- 풋터 -->
 	<div id="bfooter"></div>
 	<!-- 풋터 끝 -->
 	
 <!-- 4 include the jQuery library -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script src="//w2ui.com/src/w2ui-1.3.min.js"></script>
@@ -198,61 +231,5 @@
 <!-- 5 include the minified source -->
 <script src="../js/leftTreeMenu.js"></script>
 
-<script language = "javascript"> 
-
-
-/* 
-
-// 선택박스 변경시 이벤트
-$('select').selectBox().change(function () {
-    alert($(this).val());
-});
-//default
-$('select').selectBox();
-
-// or with custom settings
-$('select').selectBox({
-    mobile: true,
-    menuSpeed: 'fast'
-});
-
-
-
-
-
-	
-$("#select1").selectbox({
-	onOpen: function (inst) {
-		console.log("open", inst);
-	},
-	onClose: function (inst) {
-		//console.log("close", inst);
-	},
-	onChange: function (val, inst) {
-		$.ajax({
-			type: "GET",
-			data: {country_id: val},
-			url: "ajax.php",
-			success: function (data) {
-				$("#boxCity").html(data);
-				$("#city_id").selectbox();
-			}
-		});
-	},
-	effect: "slide"
-});
-$(".nova").selectbox({
-	effect: "fade"
-});
-$("#vehicle_id").selectbox({
-	speed: 400
-});	
-
-
-
-		$(function () {
-			$("#select1").selectbox();
-		}); */
-</script>
 </body>
 </html>

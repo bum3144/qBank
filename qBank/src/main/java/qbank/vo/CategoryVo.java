@@ -8,7 +8,7 @@ public class CategoryVo {
 	private String 	 			seq;
 	private String 	 			depth;
 	private String 	 			useyn;
-	
+	private String 	 			classCode;
 	
 	public int getCode() {
 		return code;
@@ -59,5 +59,25 @@ public class CategoryVo {
 		this.useyn = useyn;
 		return this;
 	}
+	public String getClassCode() {
+		return classCode;
+	}
+	public CategoryVo setClassCode(String classCode) {
+		this.classCode = classCode;
+		return this;
+	}
+	@Override
+	public String toString() {
+		return "CategoryVo [code=" + code + ", name=" + name + ", url=" + url
+				+ ", parent=" + parent + ", seq=" + seq + ", depth=" + depth
+				+ ", useyn=" + useyn + ", classCode="
+				+ classCode + "]";
+	}
+
+
+
+
+
+	
 
 }

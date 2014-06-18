@@ -3,33 +3,27 @@ $(document).ready(
 	function() {
 
 		/* 카테고리 LIST */
-
+		
+		/* 카테고리 준비 시작 */
+		$('#sidebar').w2sidebar({
+			name : 'sidebar',
+			img : 'icon-folder',
+			nodes : []
+		});
+		
+		
 			$.post(qbank.contextRoot + '/gategory/list.ajax', function(
 					jsonObj) {
 				var result = jsonObj.ajaxResult;
 				if (result.status == 'ok') {
-					// console.log(jsonObj);
-	
-					/* 카테고리 준비 시작 */
-					$('#sidebar').w2sidebar({
-						name : 'sidebar',
-						img : 'icon-folder',
-						nodes : []
-					});
-					
+
 					w2ui.sidebar.on('*', function(event) {
-						//console.log(event);
 						//console.log('Event: ' + event.type + ' Target: ' + event.target + ' Name: ' + event.text);
-						//console.log(w2ui.sidebar.get(event.target));
-						
 						
 						var cc = event.target;
 						if(event.type=='click'){
 							var params = w2ui.sidebar.get(cc).text;
-							
-							//console.log(w2ui.sidebar.get(cc));
-							//console.log(w2ui.sidebar.get(cc).text);
-							 params = '?cname=' + params;
+							params = '?cname=' + params;
 							
 							$.getJSON(qbank.contextRoot + 
 									'/selectcate/categoryClick.ajax' + params,
@@ -50,9 +44,57 @@ $(document).ready(
 												});
 										$('#choiceModDel').show();
 										$('#classUse').val(rData.useyn);
+										
+										/* 촤측 카테고리 선택하면 생성할 위치 2차까지 보여주기 */
+										$('#select11').val(rData.parent); //생성할 1차 위치
+										$('#select33').val(rData.depth);  //생성할 3차 위치
+										$(function(){
+											optionRemove11();
+											optionRemove22();
+											($('#select11').val()) ? $('#select22').show() : $('#select22').hide()
+											$.ajax({
+												type: "GET",
+												url: qbank.contextRoot + '/selectcate/second.ajax?parent='+$('#select11').val(),
+												dataType: 'json', 
+												success: function (result) {
+													var result = result.ajaxResult;
+													if (result.status == 'ok') {
+														$.each(result.data, function(index, obj) {
+															$('#select22').append('<option value="">- 2차 선 택 -</option>');
+															$.each(obj, function(index, test) {
+																$('#select22').append('<option value="' +test.seq+ '">' 
+																		+ test.name + '</option>');
+																if(rData.seq==test.seq){ // 생성할 2차 위치
+																	$("#select22").val(test.seq).attr("selected", "selected");
+																}
+															});
+														});
+													}	
+												},
+												error: function(errorThrown){
+													console.log('2카테고리 박스 에러 : ' + errorThrown);
+												}
+											});										
+										});
 
-										$('#choiceBox3, #finishBox2').hide('blind', 500);	
-										$('#choiceBox2, #finishBox1').show('blind', 500);	
+										
+										function optionRemove11(){
+											$("select[id='select22']").find('option').each(function() {
+												$(this).remove();
+											 });
+										}
+										function optionRemove22(){
+											$("select[id='select33']").find('option').each(function() {
+												$(this).remove();
+											 });
+										}
+										/* 촤측 카테고리 선택하면 생성할 위치 2차까지 보여주기 */
+										
+										
+									//	$('#choiceBox3, #finishBox2').hide('blind', 500);	
+									//	$('#choiceBox2, #finishBox1').show('blind', 500);	
+									// 카테고리 클릭하면 자동으로 수정 페이지 열리게 함.
+										
 									} else {
 										console.log('카테고리 선택 오류.');
 									}
@@ -87,7 +129,7 @@ $(document).ready(
 								w2ui['sidebar'].add(cate1st, {
 									id : cate2nd,
 									text : test.name,
-									img : 'icon-folder'
+									img : 'icon-columns'
 								});
 	
 							} else {
@@ -101,10 +143,13 @@ $(document).ready(
 						});
 					});
 					// 반복 끝
-	
+
 				}
 			}, 'json');
-
+			
+			
+		
+		
 	
 	});
 

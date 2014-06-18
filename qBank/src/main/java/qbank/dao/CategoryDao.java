@@ -8,6 +8,10 @@ import qbank.vo.CategoryVo;
 
 public interface CategoryDao {
 	List<CategoryVo> list(Map<String, Integer> params) throws Throwable;
+	void insert(CategoryVo cateData) throws Throwable;
+	String maxParent(CategoryVo vo) throws Throwable;
+	String maxSeq(CategoryVo vo) throws Throwable;
+	String maxDepth(CategoryVo vo) throws Throwable;
 
 }
 

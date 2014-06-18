@@ -17,13 +17,47 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
   public List<CategoryVo> list() {
 		try {			
-		
 			return categoryDao.list(null);
 		} catch (Throwable ex) {
 			throw new RuntimeException(ex);
 		}
   }
 
+	  @Override
+	  public void add(CategoryVo cateData) {
+			try {
+				categoryDao.insert(cateData);
+			} catch (Throwable ex) {
+				throw new RuntimeException(ex);
+			}
+	  }
+
+	@Override
+	public String maxParent(CategoryVo vo) {
+		try {			
+			return categoryDao.maxParent(vo);
+		} catch (Throwable ex) {
+			throw new RuntimeException(ex);
+		}
+	}
+
+	@Override
+	public String maxSeq(CategoryVo vo) {
+		try {			
+			return categoryDao.maxSeq(vo);
+		} catch (Throwable ex) {
+			throw new RuntimeException(ex);
+		}
+	}
+
+	@Override
+	public String maxDepth(CategoryVo vo) {
+		try {			
+			return categoryDao.maxDepth(vo);
+		} catch (Throwable ex) {
+			throw new RuntimeException(ex);
+		}
+	}
 
 
 }
