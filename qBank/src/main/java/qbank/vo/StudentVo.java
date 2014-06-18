@@ -3,7 +3,7 @@ package qbank.vo;
 public class StudentVo extends UserVo {
   private static final long serialVersionUID = 1L;
 
-  String 	company;
+  	String 	company;
 	String 	position;
 	int 			workingState;
 	String		lastSchool;
