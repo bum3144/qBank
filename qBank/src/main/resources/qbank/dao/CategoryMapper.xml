@@ -25,6 +25,30 @@ SQL id=인터페이스 메서드명
     order by CPARENT, CSEQ, CDEPTH asc
   </select>
    
+     
+  <select id="maxParent" resultType="string" parameterType="categoryVo">
+	 insert category (cname, curl, cparent, cseq, cdepth, cuseyn) 
+			select #{name} ,null , max(cparent)+1 , null, null, #{useyn} from category; 
+  </select>   
+    
+  <select id="maxSeq" resultType="string" parameterType="categoryVo">
+	 insert category (cname, curl, cparent, cseq, cdepth, cuseyn) 
+			select #{name} ,null , #{parent}, if((max(cseq) is null)=0 , max(cseq)+1 , 1) , null, #{useyn} 
+	 from category where cparent = #{parent}; 
+  </select>     
+  
+  <select id="maxDepth" resultType="string" parameterType="categoryVo">
+	 insert category (cname, curl, cparent, cseq, cdepth, cuseyn) 
+			select #{name} ,null , #{parent}, #{seq}, if((max(cdepth) is null)=0 , max(cdepth)+1 , 1) , #{useyn} 
+	 from category where cparent = #{parent} and cseq = #{seq}; 
+  </select>
+  
+     
+  <insert id="insert" parameterType="categoryVo">
+    insert into CATEGORY(CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN)
+    values (#{name}, #{url}, #{parent}, #{seq}, #{depth}, #{useyn})
+  </insert> 
+    
 </mapper>
 
 
