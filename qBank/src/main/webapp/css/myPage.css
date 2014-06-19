@@ -1,0 +1,39 @@
+.menu_simple ul {
+margin-top: 0;
+padding: 0;
+list-style-type: none;
+}
+ 
+.menu_simple ul li a {
+text-decoration: none;
+color: rgb(60, 41, 7);
+padding: 10.5px 11px;
+background-color: rgb(231, 231, 231);
+border: 2px solid rgb(70, 49, 10);
+display: block;
+font-size: 20px;
+margin-top: 5px;
+border-radius: 5px;
+text-align: center;
+}
+ 
+.menu_simple ul li a:focus {
+background-color: orange;
+}
+ 
+.menu_simple ul li a:hover, .menu_simple ul li .current {
+color: white;
+background-color: orange;
+}
+
+#leftMenu{
+  float: left;
+  padding: 10px;
+  width: 20%;
+  background-color: rgb(41, 77, 22);
+  border: 5px solid rgb(80, 54, 6);
+  margin: 1%;
+  border-radius: 10px;
+}
+
+
