@@ -29,7 +29,6 @@ $(function(){
 			var result = jsonObj.ajaxResult;
 			if (result.status == "ok") {
 			var user = result.data;
-				
 		   $('#logoutTable').hide();
 		   $('#loginTable').show();
 		   $('#idSpan').text(user.uid + "님이 로그인하셨습니다");
@@ -46,7 +45,6 @@ $(function(){
 
 $('#logoutBtn').on('click', function(e){
 	e.preventDefault();
- 	console.log('uuuuu');
  	$.ajax({
 			url: '/qBank/logout.ajax',
 			success: location.href= '/qBank/main2.html'
