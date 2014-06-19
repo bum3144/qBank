@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문제은행 List</title>	
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d">
+<link rel="stylesheet" href="../css/include.css"/>
+<link rel="stylesheet" href="../css/bank.css"/>
+<link rel="stylesheet" href="../css/myPage.css"/>
+
+
+ <!-- 1 load the theme CSS file -->
+</head>
+<body>
+
+
+	<!-- 해더 -->
+	<div id="btop"></div>
+	<div id="bblock"></div>
+	<!-- 해더 끝 -->
+	
+	<div id="bcontainer">	
+	<div id="leftMenu">	
+	 <div class="menu_simple">
+ <ul>
+ <li><a href="#">Link 1</a></li>
+ <li><a href="#">Link 2</a></li>
+ <li><a href="#">Link 3</a></li>
+ <li><a href="#">Link 4</a></li>
+ <li><a href="#">Link 5</a></li>
+ </ul>
+ </div>
+	</div>	
+
+		
+
+		<div id="bflex-column">
+		<br>
+		 <p style="font-size: 400%; margin-left: 5%; ">My page</p>
+   
+   <div id="detailControlBox">     
+   <form class="form-horizontal" role="form" method="get" action="">
+      <br><br>
+      <div id="detailClassBox" class="form-group">
+        <label class="col-sm-3 control-label">클래스</label>
+        <div class="col-sm-3">
+          <input id="detailClass" type="text" class="form-control" readonly>
+        </div>
+        
+      </div>
+      
+			<div id="detailUidBox" class="form-group">
+				<label class="col-sm-3 control-label">아이디</label>
+				<div class="col-sm-3">
+					<input id="detailUid" type="text" class="form-control"  placeholder="ID" maxlength="10" readonly>
+				</div>
+				
+			</div>
+
+			<div id="detailPassBox" class="form-group">
+				<label class="col-sm-3 control-label">비밀번호</label>
+				<div class="col-sm-3">
+					<input id="detailPassword" type="password" class="form-control"
+						placeholder="Password"  maxlength="10">
+				</div>
+			</div>
+
+			<div id="detailPassCheckBox" class="form-group">
+				<label class="col-sm-3 control-label">비밀번호 확인</label>
+				<div class="col-sm-3">
+					<input id="detailPassword2" type="password" class="form-control"
+						placeholder="Password Check"  maxlength="10" name="sel">
+				</div>
+			</div>
+
+			<div id="detailNameBox" class="form-group">
+				<label class="col-sm-3 control-label">이름</label>
+				<div class="col-sm-3">
+					<input id="detailName" type="text" class="form-control"
+						placeholder="이름" textOnly='true' readonly>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">성별</label>
+				<div class="col-sm-3">
+					<input type="radio" id="detailSexM" value="M" name="sex" checked> 남 &nbsp;&nbsp;&nbsp; 
+					<input type="radio" id="detailSexW" value="W" name="sex"> 여
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">생년월일</label>
+				<div class="col-sm-2" style="width: 11%; padding-right: 0%; " >				
+					<input type="text" class="form-control" id="detailYear" placeholder="1991년" numberOnly="true"
+					maxlength="4">
+				</div>	
+					<label class="col-sm-1 control-label" style="width: 1px;">년</label>
+				
+				<div class="col-sm-1" style="padding-right: 0%;">
+					<input type="text" class="form-control" id="detailMonth" placeholder="5월" numberOnly="true"
+					maxlength="2">
+				</div>
+				    <label class="col-sm-1 control-label" style="width: 1px;">월</label>
+				
+				<div class="col-sm-1" style="padding-right: 0%;">
+					<input type="text" class="form-control" id="detailDay" placeholder="8일" numberOnly="true"
+					maxlength="2">
+				</div>
+				  <label class="col-sm-1 control-label" style="width: 1px;">일</label>
+					
+			</div>
+			
+			<div id="detailEmailBox" class="form-group">
+				<label class="col-sm-3 control-label">이메일</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="detailEmail" placeholder="Email">
+				</div>
+			</div>
+			
+			<div id="detailTelBox" class="form-group">
+				<label class="col-sm-3 control-label">전화번호</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="detailTel" placeholder="예)01X-XXX-XXXX" datetimeOnly="true">
+				</div>
+			</div>
+			
+			<div id="detailCellBox" class="form-group">
+				<label class="col-sm-3 control-label">핸드폰번호</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="detailCell" placeholder="예)01X-XXX-XXXX" datetimeOnly="true">
+				</div>
+			</div>
+			
+		
+			<br>
+     	</form>
+     	</div>
+			<div>
+				<button id=updateBtn type="submit" class="btn btn-primary">정보수정</button>
+                <button class="btn btn-primary">취소</button>
+			</div>
+		</div>			
+	</div>
+
+		
+	<!-- 풋터 -->
+	<div id="bfooter"></div>
+	<!-- 풋터 끝 -->
+
+<!-- 4 include the jQuery library -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//w2ui.com/src/w2ui-1.3.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script src="../js/include.js"></script>
+<script src="../js/myPage.js"></script>
+<!-- 5 include the minified source -->
+	
+</body>
+</html>
