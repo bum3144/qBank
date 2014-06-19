@@ -7,15 +7,15 @@ package qbank.vo;
 public class BankTestVo {
 	private int 				no;	
 	private int 				listcount;		
-	private String				code;
-	private String 				title;  
+	private String			code;
+	private String 			title;  
 	private int 	 			qty;
 	private int 	 			position;
 	private int 	 			texposition;
 	private int 	 			useyn;
-	private String				startdate;
-	private String				enddate;
-	private int				regdate;
+	private String			startdate;
+	private String			enddate;
+	private int			  	regdate;
 	private int 	 			uno;
 
 	public int getNo() {

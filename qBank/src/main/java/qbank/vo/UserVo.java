@@ -14,12 +14,19 @@ public class UserVo implements Serializable{
   String  ubirth;
   String 	uemail;
   String  utel;
-  String  ucellphone;
+  String  ucell;
   String  uzipcode;
   String  uaddr1;
   String  uaddr2;
+  String  uphotopath;
   
   
+	public String getUphotopath() {
+		return uphotopath;
+	}
+	public void setUphotopath(String uphotopath) {
+		this.uphotopath = uphotopath;
+	}
 	public int getUno() {
 		return uno;
 	}
@@ -83,11 +90,11 @@ public class UserVo implements Serializable{
 		this.utel = utel;
 		return this;
 	}
-	public String getUcellphone() {
-		return ucellphone;
+	public String getUcell() {
+		return ucell;
 	}
-	public UserVo setUcellphone(String ucellphone) {
-		this.ucellphone = ucellphone;
+	public UserVo setUcell(String ucell) {
+		this.ucell = ucell;
 		return this;
 	}
 	public String getUzipcode() {
