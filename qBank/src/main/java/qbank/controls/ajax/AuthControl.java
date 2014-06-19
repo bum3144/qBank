@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import qbank.services.AuthService;
-import qbank.services.UserGroup;
 import qbank.vo.AjaxResult;
 import qbank.vo.UserVo;
 
@@ -33,15 +32,16 @@ public class AuthControl {
 	@RequestMapping("/header")
 	public AjaxResult login(
 			String uid, 
-			String password, 
+			String upass, 
 			@RequestParam(required=false) String saveUid,
 			HttpSession session,
 			HttpServletResponse response,
 			Model model) {
+		
 		try {
 
 				UserVo userVo = authService.getLoginUser(
-							uid, password, UserGroup.STUDENT);
+							uid, upass);
 				AjaxResult result = null;
 				if (userVo == null) {
 					result =  new AjaxResult().setStatus("ok").setData("failure");
@@ -52,7 +52,7 @@ public class AuthControl {
 					
 					if (saveUid.equals("true")) {
 						Cookie cookie = new Cookie("loginUid", uid);
-						cookie.setDomain("http://localhost:9999"); // 서버 범위
+						cookie.setDomain("http://s15.java48.com:9999"); // 서버 범위
 						cookie.setPath("/qBank");					// 하위 폴더 범위
 						
 						response.addCookie(cookie);
@@ -79,6 +79,7 @@ public class AuthControl {
 	@RequestMapping("/getLoginUser")
 	public AjaxResult getLoginUser(HttpSession session) {
 		UserVo loginUser = (UserVo) session.getAttribute("loginUser");
+    		
 		if (loginUser == null) {
 			return new AjaxResult()
 									.setStatus("failure")
