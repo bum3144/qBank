@@ -9,7 +9,7 @@
 SQL 아이디 값을 인터페이스의 메서드 이름과 같게 한다.
  -->  
 <mapper namespace="qbank.dao.JoinDao">
-  <resultMap type="qbank.vo.JoinVo" id="joinMap">
+  <resultMap type="qbank.vo.UserVo" id="joinMap">
     <id column="UNO" property="uno"/><!-- PK 컬럼에 대해서만 설정한다. -->
     <result column="UCLASS" property="uclass"/>
     <result column="UID" property="uid"/>
@@ -23,7 +23,7 @@ SQL 아이디 값을 인터페이스의 메서드 이름과 같게 한다.
      <result column="UPHOTOPATH" property="uphotopath"/>
   </resultMap> 
 
-  <insert id="insert" parameterType="joinVo"
+  <insert id="insert" parameterType="UserVo"
       useGeneratedKeys="true" keyColumn="UNO" keyProperty="uno">
     insert into USERS 
           (UCLASS,UID,UPASS,UNAME,UEMAIL,UADDR1,UADDR2,UZIPCODE,UTEL,UCELLPHONE,UBIRTH,USEX,UPHOTOPATH)
@@ -41,6 +41,23 @@ SQL 아이디 값을 인터페이스의 메서드 이름과 같게 한다.
             #{usex},
             #{uphotopath})
   </insert>
+  
+  <update id="update" parameterType="UserVo">
+    update USERS set
+      UPASS=#{upass},
+      UEMAIL=#{uemail},
+      UTEL=#{utel},
+      UCELLPHONE=#{ucell},
+      UBIRTH=#{ubirth}
+    where UID=#{uid}
+  </update>
+  
+  <select id="detail" parameterType="UserVo" resultMap="joinMap">
+    select UNO, UCLASS, UID, UPASS, UNAME, UEMAIL, UTEL, 
+    										UCELLPHONE, UBIRTH, USEX , UPHOTOPATH
+    from USERS
+    where UID=#{uid}
+  </select>
   
 
 </mapper>
