@@ -2,28 +2,30 @@ package qbank.services;
 
 import java.util.HashMap;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import qbank.dao.StudentDao;
+import qbank.controls.ajax.AuthControl;
+import qbank.dao.UserDao;
 import qbank.vo.UserVo;
 
 @Service
 public class AuthServiceImpl implements AuthService {
+	static Logger log = Logger.getLogger(AuthControl.class);
+	
 	@Autowired
-	StudentDao studentDao;
+	UserDao userDao;
 	
 	@Override
-	public UserVo getLoginUser(String uid, String password, UserGroup group) {
+	public UserVo getLoginUser(String uid, String upass) {
+		
 		try {
-			if (group == UserGroup.STUDENT) {
 				HashMap<String,String> params = new HashMap<String,String>();
 				params.put("uid", uid);
-				params.put("password", password);
-				
-				return studentDao.getLoginUser(params);
-			}
-			return null;
+				params.put("upass", upass);
+				return userDao.getLoginUser(params);
+			
 		} catch (Throwable ex) {
 			throw new RuntimeException(ex);
 		}
