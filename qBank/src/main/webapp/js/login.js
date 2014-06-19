@@ -24,13 +24,14 @@ $(document).ready(function(){
 			dataType: 'json', /*서버에서 보내는 데이터의 형식 지정 */
 			data: { /* 서버쪽으로 보내는 데이터 */
 				uid: $('#uid').val(),
-				password: $('#password').val(),
+				upass: $('#password').val(),
 				saveUid: ($('#saveUid:checked').length > 0) ? 
 						'true':'false'
 			},
 			success: function(jsonObj){
 				var result = jsonObj.ajaxResult;
 				var user = result.data;
+				console.log(jsonObj);
 				if (result.status == "ok" && result.data == "success") {
 					location.href="/qBank/main2.html";
 				} else {
