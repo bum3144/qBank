@@ -160,10 +160,10 @@ $(document).ready(function(){
 			 	upass: $('#joinPassword').val(),
 			  	uname: $('#joinName').val(),
 			    usex: $(':radio[name="sex"]:checked').val(),
-			    ubirth: $('#joinYear').val() + $('#joinMonth').val() + $('#joinDay').val(),
+			    ubirth: $('#joinYear').val() + "-" + $('#joinMonth').val() + "-" + $('#joinDay').val(),
 			   	uemail: $('#joinEmail').val(),
 			    utel: $('#joinTel').val(),
-			    ucellphone: $('#joinCell').val()
+			    ucell: $('#joinCell').val()
 			   
 			}
 			,function(jsonObj){}
