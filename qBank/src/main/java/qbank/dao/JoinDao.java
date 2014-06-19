@@ -1,9 +1,11 @@
 package qbank.dao;
 
-import qbank.vo.JoinVo;
+import qbank.vo.UserVo;
 
 public interface JoinDao {
-	 void insert(JoinVo join) throws Throwable;
+	 void insert(UserVo join) throws Throwable;
+	 UserVo detail(UserVo myId) throws Throwable;
+	 void update(UserVo vo) throws Throwable;
 }
 
 
