@@ -59,7 +59,7 @@ public class CategoryControl {
 	public AjaxResult update(CategoryVo vo) {
 		
 		log.debug("update ===== ++ ===== :" + vo.toString());
-		//categoryService.change(vo);
+		categoryService.change(vo);
 		return  new AjaxResult().setStatus("ok");
 	}
 	
