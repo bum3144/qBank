@@ -6,19 +6,21 @@ list-style-type: none;
  
 .menu_simple ul li a {
 text-decoration: none;
-color: rgb(60, 41, 7);
+color: white;
 padding: 10.5px 11px;
-background-color: rgb(231, 231, 231);
-border: 2px solid rgb(70, 49, 10);
+background-color: rgb(41, 77, 22);
+border: 3px solid white;
 display: block;
-font-size: 20px;
-margin-top: 5px;
+font-size: 22px;
+font-family: fantasy;
+margin-top: 6px;
 border-radius: 5px;
 text-align: center;
 }
  
 .menu_simple ul li a:focus {
 background-color: orange;
+
 }
  
 .menu_simple ul li a:hover, .menu_simple ul li .current {
@@ -35,5 +37,20 @@ background-color: orange;
   margin: 1%;
   border-radius: 10px;
 }
+
+#detailControlBox{
+	border: 2px solid gray;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    margin: 5%;
+    margin-top: 2%;
+    
+}
+
+#detailControlBox .control-label{
+	
+}
+
 
 
