@@ -5,16 +5,13 @@
 <title>시험지 List</title>	
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" 
-	href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d"> 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
- 
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d"> 
 <link rel="stylesheet" href="../css/include.css"/>
 <link rel="stylesheet" href="../css/bank.css"/>
-<link rel="StyleSheet" href="../css/dtree.css"/>
+<!-- 1 load the theme CSS file -->
+<link rel="stylesheet" type="text/css" href="//w2ui.com/src/w2ui-1.3.min.css" />
 </head>
 <body>
-<script type="text/javascript" src="../js/dtree.js"></script>
 
 	<!-- 해더 -->
 	<div id="btop"></div>		
@@ -22,36 +19,14 @@
 	<!-- 해더 끝 -->
 	
 	<div id="bcontainer">	
-		<div id="bnav">		
-		<p>
-		<a href="javascript: d.openAll();">open all</a> 
-		| <a href="javascript: d.closeAll();">close all</a>
-		</p>
-			
-			<!-- 문제은행 트리 -->
-			<div id="dTree">
-				<script type="text/javascript">	
-				d = new dTree('d');
-		
-				d.add(0,-1,'문제은행');
-				d.add(1,0,'ENGLISH','#');
-				d.add(2,1,'GRAMMAR','#');
-				d.add(3,2,'동사','#');
-				d.add(4,3,'B Verb','#');
-				d.add(5,3,'동사의 시제','#');
-				d.add(6,1,'LISTENING','#');
-				d.add(7,6,'Listening Test','#','Pictures of Gullfoss and Geysir');
-				d.add(8,1,'WRITING','#');
-				d.add(9,0,'MATH','#','Pictures I\'ve taken over the years','','','img/imgfolder.gif');
-				d.add(10,9,'도형과 방정식','#','Pictures of Gullfoss and Geysir');
-				d.add(11,10,'집합과 명제','#');
-				d.add(16,0,'Recycle Bin','example01.html','','','img/trash.gif');
-		
-				document.write(d);	
-			</script>
-			</div>
-			<!--  문제은행 트리 끝 -->
-		
+		<div id="bnav">	
+			<div class="row">
+				<!-- 3 setup a container element -->
+				<div class="col-md-12">
+					<div id="sidebar" style="height: 450px"></div>
+				</div>	
+			</div>	
+
 		</div>
 
 		<div id="bflex-column">
@@ -193,12 +168,17 @@
 	<!-- 풋터 -->
 	<div id="bfooter"></div>
 	<!-- 풋터 끝 -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- 4 include the jQuery library -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//w2ui.com/src/w2ui-1.3.min.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
 <script src="../js/common.js"></script>
 <script src="../js/include.js"></script>
 <script	src="../js/bankTestList.js"></script>
+<!-- 5 include the minified source -->
+<script src="../js/leftTreeMenu.js"></script>
 
 </body>
 </html>
