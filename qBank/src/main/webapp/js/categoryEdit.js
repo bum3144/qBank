@@ -182,11 +182,11 @@ $(document).ready(function(){
 	          
 	          var classData = $('#classCode').val().split("-");
 	          var params = '?cname=' + $('#className').val();
-	          if(classData[0]){ params += '&cparent=' + classData[0]; }
-	          else if(classData[1]){ params += '&cseq=' + classData[1]; }
-	          else if(classData[2]){ params += '&cseq=' + classData[2]; }
+	      //    if(classData[0]){ params += '&cparent=' + classData[0]; }
+	      //    else if(classData[1]){ params += '&cseq=' + classData[1]; }
+	      //    else if(classData[2]){ params += '&cseq=' + classData[2]; }
 	          
-      		$.getJSON(qbank.contextRoot + '/category/delete.ajax?' + params,
+      		$.getJSON(qbank.contextRoot + '/category/delete.ajax' + params,
 			function(jsonObj) {
 				var result = jsonObj.ajaxResult;
 				if (result.status == "ok") {

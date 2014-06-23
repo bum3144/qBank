@@ -48,7 +48,10 @@ SQL id=인터페이스 메서드명
     insert into CATEGORY(CNAME, CURL, CPARENT, CSEQ, CDEPTH, CUSEYN)
     values (#{name}, #{url}, #{parent}, #{seq}, #{depth}, #{useyn})
   </insert> 
-    
+  
+  <delete id="delete" parameterType="String">
+    delete from CATEGORY where CNAME=#{name}
+  </delete>    
 </mapper>
 
 

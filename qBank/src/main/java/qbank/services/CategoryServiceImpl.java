@@ -58,7 +58,15 @@ public class CategoryServiceImpl implements CategoryService {
 			throw new RuntimeException(ex);
 		}
 	}
-
+	
+	@Override
+	  public void remove(String cname) {
+			try {
+				categoryDao.delete(cname);
+			} catch (Throwable ex) {
+				throw new RuntimeException(ex);
+			}
+	  }
 
 }
 

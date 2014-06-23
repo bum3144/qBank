@@ -45,9 +45,9 @@ public class CategoryControl {
 	}	
 
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public AjaxResult delete(String code) {
+	public AjaxResult delete(String cname) {
 		
-		categoryService.remove(code);
+		categoryService.remove(cname);
 		return new AjaxResult().setStatus("ok");
 	}	
 	

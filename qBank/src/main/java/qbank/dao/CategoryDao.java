@@ -12,6 +12,7 @@ public interface CategoryDao {
 	String maxParent(CategoryVo vo) throws Throwable;
 	String maxSeq(CategoryVo vo) throws Throwable;
 	String maxDepth(CategoryVo vo) throws Throwable;
+	 void delete(String cname) throws Throwable;
 
 }
 
