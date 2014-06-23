@@ -13,7 +13,7 @@ import qbank.vo.AjaxResult;
 import qbank.vo.CategoryVo;
 
 @Controller
-@RequestMapping("/gategory")
+@RequestMapping("/category")
 public class CategoryControl {
 	static Logger log = Logger.getLogger(CategoryControl.class);
 
