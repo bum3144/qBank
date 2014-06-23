@@ -12,7 +12,7 @@ $(document).ready(
 		});
 		
 		
-			$.post(qbank.contextRoot + '/gategory/list.ajax', function(
+			$.post(qbank.contextRoot + '/category/list.ajax', function(
 					jsonObj) {
 				var result = jsonObj.ajaxResult;
 				if (result.status == 'ok') {
