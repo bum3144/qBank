@@ -12,6 +12,7 @@ public interface CategoryService {
 	String maxSeq(CategoryVo vo);
 	String maxDepth(CategoryVo vo);
 	void remove(String cname);
+	void change(CategoryVo vo);
 	
 /*	void add(BankTestVo test);
 	BankTestVo detail(String code);

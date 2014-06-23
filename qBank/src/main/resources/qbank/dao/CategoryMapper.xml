@@ -52,6 +52,16 @@ SQL id=인터페이스 메서드명
   <delete id="delete" parameterType="String">
     delete from CATEGORY where CNAME=#{name}
   </delete>    
+  
+  
+  
+  <update id="update" parameterType="categoryVo">
+    update CATEGORY set
+      CNAME=#{name},
+      CUSEYN=#{useyn}
+    where CCODE=#{code}
+  </update>
+  
 </mapper>
 
 

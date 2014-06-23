@@ -32,7 +32,8 @@ $(document).ready(
 									if (result.status == "ok") {
 										var rData = result.data.list[0];
 										console.log(rData);
-										
+
+										$('#cCode').val(rData.code);
 										$('#classCode').val(event.target);
 										$('#className').val(rData.name);
 										$('#className1').val(rData.name);

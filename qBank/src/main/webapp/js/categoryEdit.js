@@ -191,9 +191,10 @@ $(document).ready(function(){
 				var result = jsonObj.ajaxResult;
 				if (result.status == "ok") {
 					console.log('카테고리 삭제 ok');
+					document.location.reload(true);	
+					// 페이지 다시 로딩 -> 추후 비동기로 변경 예정!
 				}
 			});  
-        
 	        },
 	        "취소": function() {
 	          $( this ).dialog( "close" );
@@ -201,6 +202,57 @@ $(document).ready(function(){
 	      }
 	    });
 	});
+
+	
+	// 수정 전 경고창 띄우기
+	$('#finishModify').on('click', function() {
+	    $( "#modify-confirm" ).dialog({
+	      resizable: false,
+	      height:200,
+	      modal: true,
+	      buttons: {
+	        "수정합니다": function() {
+	          $( this ).dialog( "close" );
+	          
+	    		$.ajax(qbank.contextRoot + '/category/modify.ajax', {
+	    			type: 'POST',
+	    			dataType: 'json', /* 리턴 형식 */
+	    			data: { /* 보내는 데이터 */
+	    				code:		$('#cCode').val(),
+	    				name:		$('#className1').val(),
+	    				parent:		$('#select1').val(),
+	    				seq:		$('#select2').val(),
+	    				depth:		$('#select3').val(),
+	    				useyn:		$('#classUse1').val(),
+	    				classCode: 	$('#classCode').val()
+	    			},
+	    			success: function(jsonObj){
+	    				var result = jsonObj.ajaxResult;
+	    				if (result.status == "ok") {
+	    					//console.log('카테고리 생성 완료!' + result);
+	    					document.location.reload(true);
+	    					// 페이지 다시 로딩 -> 추후 비동기로 변경 예정!
+	    				} else {
+	    					alert('카테고리 수정 실패!');
+	    				}
+	    			},
+	    			error: function(xhr, status, errorThrown){
+	    				alert('카테고리 수정 오류 발생!');
+	    				console.log(status);
+	    				console.log(errorThrown);
+	    			}
+	    		});	           
+      		
+      		
+	        },
+	        "취소": function() {
+	          $( this ).dialog( "close" );
+	        }
+	      }
+	    });
+	});
+	
+	
 	
 	// 카테고리 생성 입력 창 보이기
 	$('#choiceCreate').on('click', function() {

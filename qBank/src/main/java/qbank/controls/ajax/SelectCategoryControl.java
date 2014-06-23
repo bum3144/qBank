@@ -51,9 +51,9 @@ public class SelectCategoryControl {
 	public AjaxResult sclick(
 			@RequestParam(value="cname") String name){
 		HashMap<String,Object> params = new HashMap<String,Object>();
-		log.debug("1 - cname ----> " + name);
+		log.debug("1### - cname ----> " + name);
 		params.put("list",selectcategoryService.click(name));
-		log.debug("2 - params ----> " + params);
+		log.debug("2### - params ----> " + params);
 			return new AjaxResult().setStatus("ok").setData(params);
 	}
 

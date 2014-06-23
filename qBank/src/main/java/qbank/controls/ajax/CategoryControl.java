@@ -5,11 +5,13 @@ import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import qbank.services.CategoryService;
 import qbank.vo.AjaxResult;
+import qbank.vo.BankTestVo;
 import qbank.vo.CategoryVo;
 
 @Controller
@@ -46,10 +48,20 @@ public class CategoryControl {
 
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
 	public AjaxResult delete(String cname) {
-		
+		//log.debug("delete ===== ++ ===== :" +cname);
 		categoryService.remove(cname);
 		return new AjaxResult().setStatus("ok");
 	}	
+
+	
+
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public AjaxResult update(CategoryVo vo) {
+		
+		log.debug("update ===== ++ ===== :" + vo.toString());
+		//categoryService.change(vo);
+		return  new AjaxResult().setStatus("ok");
+	}
 	
 }
 

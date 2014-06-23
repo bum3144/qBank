@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import qbank.dao.CategoryDao;
+import qbank.vo.BankTestVo;
 import qbank.vo.CategoryVo;
 
 @Service
@@ -68,6 +69,18 @@ public class CategoryServiceImpl implements CategoryService {
 			}
 	  }
 
+	
+
+	@Override
+  public void change(CategoryVo vo) {
+		try {
+			categoryDao.update(vo);
+		} catch (Throwable ex) {
+			throw new RuntimeException(ex);
+		}
+  }
+		
+	
 }
 
 
