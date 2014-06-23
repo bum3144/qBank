@@ -6,10 +6,8 @@ $(document).ready(function(){
 			qbank.contextRoot + 
 				'/join/detail.ajax',
 			function(jsonObj) {
-				console.log(jsonObj);
 				var result = jsonObj.ajaxResult;
 				var data = result.data;
-				console.log(data.usex);
 				if (result.status == "ok") {
 					$('#detailUid').val(data.uid);
 					$('#detailClass').val(data.uclass);
@@ -55,7 +53,82 @@ $(document).ready(function(){
 				,'json');
 	});
 	
+	/* 업데이트 폼 체크 */
 	
+	var array = [
+		         {id : 'detailPassword', id2: 'detailPassMsg', dataId: 'textChk', type : 'password' , length : 6 ,text : '6~10글자 사이입력', text2: '사용가능 비밀번호', maxlength : 10},
+		         {id : 'detailPassword2',id2: 'detailPassCheckMsg', type : 'passwordCheck', dataId: 'textChk' , length : 6 ,text : '동일하지 않은 비밀번호',text2 : '동일한 비밀번호', maxlength : 10},
+		         {id : 'detailEmail',id2: 'detailEmailMsg', type : 'email', dataId: 'textChk',text : '잘못된 이메일 형식',text2 : '등록가능한 이메일',text3: '중복된 이메일'},
+		         {id : 'detailTel',id2: 'detailTelMsg', type : 'tel', dataId: 'textChk', length : 9 , text : '잘못된 번호', text2 : '등록가능한 번호', maxlength : 13},
+		         {id : 'detailCell', id2: 'detailCellMsg', type : 'tel', dataId: 'textChk', length : 9 ,text : '잘못된 번호', text2 : '등록가능한 번호', maxlength : 13},
+	        	];
 	
-	
+	$('input').keyup(function(){	
+		var thisId = $(this).attr("id");
+		var thisVal = $(this).val();	
+		var regExp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/; // 전화번호체크
+		var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/; // 이메일체크
+
+		$.each(array,function(key,item){
+		  if(thisId == item.id){
+			  var msgBox = $('#'+item.id2);
+			  
+			  switch(item.type){
+			  case 'password' :
+				  if(thisVal.length < item.length || thisVal.length > item.maxlength){
+					 $('#' + item.id2).css({'color':'red'});
+					 msgBox.text(item.text);
+					 $("#detailPassword2").attr("disabled",true);
+				}else{
+					msgBox.empty();
+					$('#' + item.id2).css({'color':'black'});
+					msgBox.text(item.text2);
+					$("#detailPassword2").attr("disabled",false);
+				}
+				  break;
+			  
+			  case 'passwordCheck' :
+				  if (($("#detailPassword").val()) != ($("#detailPassword2").val())) {
+					  $('#' + item.id2).css({'color':'red'});
+					  msgBox.text(item.text);
+				   }else{
+					   msgBox.empty();
+					   $('#' + item.id2).css({'color':'black'});
+					   msgBox.text(item.text2);
+				   }
+		          break;
+			  case 'email' :
+				   if (!regex.test(thisVal) ) {
+					   $('#' + item.id2).css({'color':'red'});
+						  msgBox.text(item.text);
+				  }else{
+					  msgBox.empty();
+					   $('#' + item.id2).css({'color':'black'});
+					   msgBox.text(item.text2);
+				  }
+		         break;
+		         
+			  case 'tel' :
+				  if (!regExp.test(thisVal)) {
+					  $('#' + item.id2).css({'color':'red'});
+					  msgBox.text(item.text);
+					 }else if(regExp.test(thisVal)){
+						 $('#' + item.id2).css({'color':'black'});
+						   msgBox.text(item.text2);
+					 }
+				break;
+			  }
+		  }
+		  
+		});
+		
 	});
+	
+	
+	// 패스워드확인창 새로고침
+	$('#detailPassword').keyup(function(){
+		$('#detailPassword2').val("");
+	});
+	// 패스워드확인창 새로고침
+	
+});
