@@ -244,7 +244,7 @@ $(document).ready(function(){
 	        "생성합니다": function() {
 
 	        	
-	    		$.ajax(qbank.contextRoot + '/gategory/create.ajax', {
+	    		$.ajax(qbank.contextRoot + '/category/create.ajax', {
 	    			type: 'POST',
 	    			dataType: 'json', /* 리턴 형식 */
 	    			data: { /* 보내는 데이터 */
