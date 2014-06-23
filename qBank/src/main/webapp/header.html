@@ -25,11 +25,13 @@
 
       <ul class="nav nav-tabs">
         <li class="dropdown"><a class="dropdown-toggle"
-          href="/qBank/bank/bankList.html">문제은행</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" 
-					href="/qBank/bank/categoryEdit.html">카테고리관리 </a></li>
+          href="/qBank/bank/bankList.html"> 문제은행 </a></li>
         <li class="dropdown"><a class="dropdown-toggle"
-					href="/qBank/bank/bankTestList.html">시험지관리</a></li>
+          data-toggle="dropdown" href="/qBank/bank/categoryEdit.html">
+            카테고리관리 </a></li>
+        <li class="dropdown"><a class="dropdown-toggle"
+          data-toggle="dropdown" href="/qBank/bank/bankTestList.html"> 시험지관리
+        </a></li>
 
         <ul class="nav nav-tabs">
           <div style="margin-top: 8px;">
@@ -50,7 +52,7 @@
             <tbody>
               <tr>
                 <td><span id="idSpan"></span>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
-                <td><a href="#">내정보</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                <td><a id=myPageLink href="/qBank/bank/myPage.html">내정보</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
                 <td><a id="logoutBtn" href="#">로그아웃</a></td>
                 
               </tr>
@@ -396,47 +398,17 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 			<div class="form-group">
 				<label class="col-sm-3 control-label">생년월일</label>
 				<div class="col-sm-3">				
-					<input type="text" class="form-control" id="joinYear" placeholder="1991년" numberOnly="true">
+					<input type="text" class="form-control" id="joinYear" placeholder="1991년" numberOnly="true"
+					 maxlength="4">
 				</div>	
 				<div class="col-sm-2">
-					<input type="text" class="form-control" id="joinMonth" placeholder="5월" numberOnly="true">
+					<input type="text" class="form-control" id="joinMonth" placeholder="5월" numberOnly="true"
+					maxlength="2">
 				</div>
 				<div class="col-sm-2">
-					<input type="text" class="form-control" id="joinDay" placeholder="8일" numberOnly="true">
+					<input type="text" class="form-control" id="joinDay" placeholder="8일" numberOnly="true"
+					maxlength="2">
 				</div>
-				
-				
-				
-				
-<!-- 				
-					<select class="form-control" id="joinYear">
-						<option value="1991">1991</option>
-						<option value="1992">1992</option>
-						<option value="1993">1993</option>
-						<option value="1994">1994</option>
-						<option value="1995">1995</option>
-					</select>
-				</div>	
-				<div class="col-sm-2">
-					<select  class="form-control" id="joinMonth">
-						<option value="01">01</option>
-						<option value="02">02</option>
-						<option value="03">03</option>
-						<option value="04">04</option>
-						<option value="05">05</option>
-					</select>
-					</div>
-					<div class="col-sm-2">
-					<select class="form-control" id="joinDay">
-						<option value="11">11</option>
-						<option value="12">12</option>
-						<option value="13">13</option>
-						<option value="14">14</option>
-						<option value="15">15</option>
-					</select>
--->
-					
-					
 					
 			</div>
 			
@@ -461,29 +433,7 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 				</div>
 			</div>
 			
-			<!-- <div class="form-group">
-				<label class="col-sm-3 control-label">우편번호</label>
-				<div class="col-sm-4">
-					<input type="text" class="form-control" id="joinZip" placeholder="ZipCode">
-				</div>
-				<div class="col-sm-2">
-				 <button class=btn>우편번호조회</button>
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-sm-3 control-label">주소</label>
-				<div class="col-sm-6">
-					<input type="text" class="form-control" id="joinAddr1" placeholder="Address">
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-sm-3 control-label">상세주소</label>
-				<div class="col-sm-6">
-					<input type="text" class="form-control" id="joinAddr2" placeholder="Address">
-				</div>
-			</div> -->
+		
 			<br>
 			<div class="form-group">
 				<button id=joinBtn type="submit" class="btn btn-primary">회원가입완료</button>
