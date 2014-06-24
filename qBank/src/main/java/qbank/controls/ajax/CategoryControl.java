@@ -29,6 +29,7 @@ public class CategoryControl {
 	@RequestMapping("/list")
 	public AjaxResult list() {
 		HashMap<String,Object> params = new HashMap<String,Object>();
+		log.debug("========>" + params);
 		params.put("category",categoryService.list());
 			return new AjaxResult().setStatus("ok").setData(params);
 	}
