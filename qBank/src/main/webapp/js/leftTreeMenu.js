@@ -49,7 +49,7 @@ $(document).ready(
 										
 										/* 촤측 카테고리 선택하면 생성할 위치 2차까지 보여주기 */
 										$('#select11').val(rData.parent); //생성할 1차 위치
-										$('#select33').val(rData.depth);  //생성할 3차 위치
+										//$('#select33').val(rData.depth);  //생성할 3차 위치
 										$(function(){
 											optionRemove11();
 											optionRemove22();
