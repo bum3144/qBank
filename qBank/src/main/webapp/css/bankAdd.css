@@ -27,8 +27,8 @@
 
 
 textarea{ 
-  width: 500px; 
-  max-width:500px;  
+  width: 800px; 
+  max-width:800px;  
   min-width:350px; 
 }
 
@@ -42,7 +42,7 @@ textarea{
 
 .questBox{
 	display: list-item;
-	margin-left: 20%; 
+	margin: 0 auto; 
 	margin-bottom: 20px; 
 }
 .btnBox{
@@ -114,4 +114,7 @@ hr{
     right:3px;
     top: 4px;
     width: 30px;
+}
+div#bokiChk > div {
+	margin-bottom: 5px;
 }
