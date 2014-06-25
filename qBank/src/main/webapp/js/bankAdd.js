@@ -345,6 +345,52 @@ $(document).ready(function(){
 		   });
   });
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+$('#addBtn').on('click',function(){
+	if(!!$('#select11').val()){
+		dial();
+		return false;
+	}
+	
+	$.ajax({
+		type: "GET",
+		url: qbank.contextRoot + '/bank/bankAdd.ajax',
+		dataType: 'json', 
+		success: function (result) {
+			var result = result.ajaxResult;
+			if (result.status == 'ok') {
+				//console.log('okokok');
+				$.each(result.data, function(index, obj) {
+					//console.log(result.data);
+					$.each(obj, function(index, test) {
+						console.log('=================');
+					});
+				});
+			}	
+		},
+		error: function(errorThrown){
+			console.log('bankAdd 에러 : ' + errorThrown);
+		}
+	});
+	
+	
+});  
+  
+  
+  
+  
+  
+  
+  
 
 });
 
