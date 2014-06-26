@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="../css/include.css"/>
 <link rel="stylesheet" href="../css/bank.css"/>
 <link rel="StyleSheet" href="../css/bankAdd.css"/>
-<!-- 1 load the theme CSS file -->
 <link rel="stylesheet" type="text/css" href="//w2ui.com/src/w2ui-1.3.min.css" />
 
 </head>
@@ -43,34 +42,32 @@
 			<br>
 			
 			<div id="selectGroup">
-
-						<div class="bcategory form-inline">
-							<label> 1 차 분류 선택 </label> <select class="form-control">
-								<option>ENGLISH</option>
-								<option>MATH</option>
+		   <ul>
+		   <li>등록할 위치를 선택해주세요. </li>
+		   </ul>
+		    <form class="form-horizontal" role="form">
+					<div class="form-group" style="padding-left: 3%;">
+						<div class="col-sm-3">
+							<select id="select11" class="form-control" tabindex="1">
+							<option value="">-- 1차 선 택 --</option>
 							</select>
 						</div>
-
-
-
-						<div class="bcategory form-inline">
-							<label> 2 차 분류 선택 </label> <select class="form-control">
-								<option>GRAMMAR</option>
-								<option>LISTENING</option>
+						<div class="col-sm-3">
+							<select id="select22" class="form-control" tabindex="1">
+							<option value="">-- 2차 선 택 --</option>
 							</select>
 						</div>
-
-
-
-						<div class="bcategory form-inline">
-							<label> 3 차 분류 선택 </label> <select class="form-control">
-								<option>동사</option>
+						<div class="col-sm-3">
+							<select id="select33" class="form-control" tabindex="1">
+							<option value="">-- 3차 선 택 --</option>
 							</select>
 						</div>
-
 					</div>
+				</form>	
+			 </div>
+	      <br>	
 					
-					<div id="blevel">
+					<div id="blevel" style="padding-left: 5%;">
 
 						<div class="form-inline">
 							<label>문형: </label> 
@@ -86,8 +83,6 @@
 								<option>중</option>
 								<option>하</option>
 							</select>
-				            <label > 에디터 사용</label>
-				            <input type="checkbox"/>
 						</div>
 					</div>
 
@@ -97,28 +92,28 @@
 
 						<div class=questBox>
 							<label>문제입력 </label>
-								<textarea id="questVal" class="form-control" rows="5"></textarea>
+							<!-- <textarea name="editor1"></textarea> -->
+							<textarea id="questVal" class="form-control" rows="2"></textarea>
+							
 						</div>
 						
 						<div class=questBox>
 							<input type="checkbox" id="textCheck" /> <label>지문입력</label>
 							<div>
-								<textarea id="textDisplay" class="questDisplay" class="form-control" rows="5"></textarea>
+							<!-- <textarea name="editor1"></textarea> -->
+							<textarea id="textDisplay" class="questDisplay" class="form-control" rows="5"></textarea>
 							</div>
 						</div>
-						
 
 						<div class=questBox>
 							<input type="checkbox" id="imageCheck" /> <label> 이미지 등록 </label>
 							<input id="imageDisplay" class="questDisplay" type="file" value="파일을 선택해주세요"></input>
 						</div>
 
-
-                        <div class=questBox>
-							<input type="checkbox" id="mediaCheck" /> <label> 미디어파일등록 </label>
+             <div class=questBox>
+							<input type="checkbox" id="mediaCheck" /> <label> mp3파일등록 </label>
 							<input id="mediaDisplay" class="questDisplay" type="file" value="파일을 선택해주세요"></input>
 						</div>
- 
 
 						<div id="exSelectBox" class=questBox>
 							<label>보기 
@@ -131,18 +126,38 @@
 								&nbsp;(정답을 체크해주세요.)
 								</label>
 						
-							<div class="form-inline">
-						    <div><input type="checkbox"/><label>1</label><input type="text" class="form-control textInput" /></div>
-							<div id="exBox2"><input type="checkbox"/><label>2</label><input type="text" class="form-control textInput" /></div>
-							<div id="exBox3"><input type="checkbox"/><label>3</label><input type="text" class="form-control textInput" /></div>
-							<div id="exBox4"><input type="checkbox"/><label>4</label><input type="text" class="form-control textInput" /></div>
-							<div id="exBox5"><input type="checkbox"/><label>5</label><input type="text" class="form-control textInput" /></div>
-							
+							<div id="bokiChk" class="form-inline">
+						    <div id="exBox1">
+						    	<input type="checkbox"/>
+						    	<label>1</label>
+						    	<input type="text" class="form-control textInput" />
+						    </div>
+								<div id="exBox2">
+									<input type="checkbox"/>
+									<label>2</label>
+									<input type="text" class="form-control textInput" />
+								</div>
+								<div id="exBox3">
+									<input type="checkbox"/>
+									<label>3</label>
+									<input type="text" class="form-control textInput" />
+								</div>
+								<div id="exBox4">
+									<input type="checkbox"/>
+									<label>4</label>
+									<input type="text" class="form-control textInput" />
+								</div>
+								<div id="exBox5">
+									<input type="checkbox"/>
+									<label>5</label>
+									<input type="text" class="form-control textInput" />
+								</div>
 							</div>
 						</div>
 						
 						<div id="answerBox" class=questBox>
 							<label>정답 </label>
+								<!-- <textarea name="editor2"></textarea> -->
 								<textarea class="form-control" rows="5"></textarea>
 						</div>
 						
@@ -150,14 +165,13 @@
 						<div class=questBox>
 							<input type="checkbox" id="comentCheck" />
 							<label> 해설 입력 </label>
-							<input id="comentDisplay" class="form-control textInput questDisplay" type="text" value="해설을 입력해주세요"></input>
-							
+							<input id="comentDisplay" class="form-control textInput questDisplay" type="text" placeholder="해설을 입력해주세요"></input>
 						</div>
 						
 						<div class=questBox>
 							 <input type="checkbox" id="sourceCheck" /> 
 							 <label>출처 입력</label>
-							<input id="sourceDisplay" class="form-control textInput questDisplay" class="" type="text" value="해설을 입력해주세요"></input>
+							<input id="sourceDisplay" class="form-control textInput questDisplay" class="" type="text" placeholder="해설을 입력해주세요"></input>
 						</div>
 
 					</div>
@@ -166,7 +180,7 @@
 				<div class="btnBox">
 				 <button class="btn btn-primary">취소</button>
 				 <button id="previewBtn" class="btn btn-primary">미리보기</button>
-				 <button class="btn btn-primary">완료</button>
+				 <button id="addBtn" class="btn btn-primary">완료</button>
 				</div>
 				
 				
@@ -206,21 +220,26 @@
 		
 		
 		
-		
-		
-		
 	<!-- 풋터 -->
 	<div id="bfooter"></div>
 	<!-- 풋터 끝 -->
 						
-<!-- 4 include the jQuery library -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//w2ui.com/src/w2ui-1.3.min.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<script src="../js/common.js"></script>
-<script	src="../js/bank.js"></script>
-<script src="../js/include.js"></script>
-<!-- 5 include the minified source -->
-<script src="../js/leftTreeMenu2.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="//w2ui.com/src/w2ui-1.3.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/include.js"></script>
+<script type="text/javascript" src="../js/leftTreeMenu2.js"></script>
+<script type="text/javascript" src="../js/bankAdd.js"></script>
+<script type="text/javascript" src="../js/bank.js"></script>
+
+<script type="text/javascript" src="../ckeditor_full/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace( 'editor1', {
+      filebrowserUploadUrl: qbank.contextRoot + '/upload/upload.ajax'
+  });
+	CKEDITOR.replace( 'editor2' );
+</script>
+
 </body>
 </html>

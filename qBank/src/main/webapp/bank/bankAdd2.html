@@ -100,23 +100,20 @@
 						<div class=questBox>
 							<input type="checkbox" id="textCheck" /> <label>지문입력</label>
 							<div>
-							<textarea name="editor1"></textarea>
-							<!-- <textarea id="textDisplay" class="questDisplay" class="form-control" rows="5"></textarea> -->
+							<!-- <textarea name="editor1"></textarea> -->
+							<textarea id="textDisplay" class="questDisplay" class="form-control" rows="5"></textarea>
 							</div>
 						</div>
-
 
 						<div class=questBox>
 							<input type="checkbox" id="imageCheck" /> <label> 이미지 등록 </label>
 							<input id="imageDisplay" class="questDisplay" type="file" value="파일을 선택해주세요"></input>
 						</div>
 
-
              <div class=questBox>
-							<input type="checkbox" id="mediaCheck" /> <label> 미디어파일등록 </label>
+							<input type="checkbox" id="mediaCheck" /> <label> mp3파일등록 </label>
 							<input id="mediaDisplay" class="questDisplay" type="file" value="파일을 선택해주세요"></input>
 						</div>
- 
 
 						<div id="exSelectBox" class=questBox>
 							<label>보기 
@@ -160,8 +157,8 @@
 						
 						<div id="answerBox" class=questBox>
 							<label>정답 </label>
-								<textarea name="editor2"></textarea>
-								<!-- <textarea class="form-control" rows="5"></textarea> -->
+								<!-- <textarea name="editor2"></textarea> -->
+								<textarea class="form-control" rows="5"></textarea>
 						</div>
 						
 						
@@ -223,9 +220,6 @@
 		
 		
 		
-		
-		
-		
 	<!-- 풋터 -->
 	<div id="bfooter"></div>
 	<!-- 풋터 끝 -->
@@ -244,9 +238,7 @@
   CKEDITOR.replace( 'editor1', {
       filebrowserUploadUrl: qbank.contextRoot + '/upload/upload.ajax'
   });
-  
 	CKEDITOR.replace( 'editor2' );
-	
 </script>
 
 </body>
