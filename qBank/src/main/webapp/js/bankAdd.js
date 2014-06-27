@@ -1,9 +1,12 @@
 $(document).ready(function(){
+
+	var regExpImg = /([^\s]+(?=\.(jpg|gif|png|JPG|GIF|PNG))\.\2)/; // jpg|gif|png 이미지만 사용
+	var regExpMp3 = /([^\s]+(?=\.(mp3|MP3))\.\2)/; // mp3만 사용
+	
 	$('.col-sm-2').css('font-size','12px');
 	if(!$('#select1, #select11').val()){
 		$('#select2, #select3, #select22, #select33').hide();
 	}
-
 	/* 카테고리 선택박스 (수정/생성) 관련 시작 */
 	$.ajax({
 		type: "GET",
@@ -349,22 +352,88 @@ $(document).ready(function(){
   
   
   
-  
-  
-  
-  
-  
-  
 $('#addBtn').on('click',function(){
-	if(!!$('#select11').val()){
-		dial();
+	if(!$('#select11').val()){
+		dailogAll('등록위치를 선택하셔야 합니다');
+		$('#select11').focus();
 		return false;
 	}
+	if(!$('#questVal').val()){
+		dailogAll('문제를 입력하셔야 합니다');
+		$('#questVal').focus();
+		return false;
+	}
+	if($("input:checkbox[id='textCheck']").is(":checked") == true){
+		if(!$('#textDisplay').val()){
+			dailogAll('지문을 입력하셔야 합니다');
+			$('#textDisplay').focus();
+			return false;
+		}
+	}
+	if($("input:checkbox[id='imageCheck']").is(":checked") == true){
+		if(!$('#imageDisplay').val()){
+			dailogAll('이미지를 선택하셔야 합니다');
+			$('#imageDisplay').focus();
+			return false;
+		}else{
+			if(!regExpImg.test($('#imageDisplay').val())){
+				dailogAll('이미지 파일만 등록 가능합니다. [jpg,gif,png]' );
+				$('#imageDisplay').focus();
+				return false;
+			}
+		}
+	}
+	if($("input:checkbox[id='mediaCheck']").is(":checked") == true){
+		if(!$('#mediaDisplay').val()){
+			dailogAll('MP3파일을 선택하셔야 합니다');
+			$('#mediaDisplay').focus();
+			return false;
+		}else{
+			if(!regExpMp3.test($('#mediaDisplay').val())){
+				dailogAll('MP3파일만 등록 가능합니다. [mp3]');
+				$('#mediaDisplay').focus();
+				return false;
+			}
+		}
+	}
+	//$('input[name=bokidap]:checked').val()
+	
+
+	
+	var eSu = $('#exSelector').val();
+	for(i=1;i<=eSu;i++){
+		if(!$('#exText'+i).val()){
+			dailogAll('보기를 입력해 주세요', $('#exText'+i));
+			return false;
+		}
+	}
+	
+	if(!$(':radio[name="bokidap"]:checked').val()){ 
+		dailogAll('정답을 선택해 주세요!');
+		return false; 
+	}
+
+		//dailogAll($('#exText'+(su--)).val());
+/*		if(!$('#exText'+(su--)).val()){
+			dailogAll($('#exText'+(su--)).val());
+			$('#exText'+(su--)).focus();
+			return false;
+		}*/
+
 	
 	$.ajax({
-		type: "GET",
-		url: qbank.contextRoot + '/bank/bankAdd.ajax',
+		type: "POST",
+		url: qbank.contextRoot + '/bankadd/insert.ajax',
 		dataType: 'json', 
+		data: { /* 보내는 데이터 */
+			name:		$('#className11').val(),
+		//	url:		$('#classUrl11').val(),
+			parent:		$('#select11').val(),
+			seq:		$('#select22').val(),
+			depth:		$('#select33').val(),
+			useyn:		$('#classUse11').val(),
+			classCode: 	$('#classCode').val()
+		},
 		success: function (result) {
 			var result = result.ajaxResult;
 			if (result.status == 'ok') {
@@ -387,8 +456,21 @@ $('#addBtn').on('click',function(){
   
   
   
-  
-  
+  /* 필수 입력 체크 경고창 띄우기 */
+  function dailogAll(msg,f){
+		$("#dialog-message").empty();
+		$("#dialog-message").append('<p>'+ msg +'</p>');
+		$("#dialog-message").dialog({
+		      modal: true,
+		      buttons: {
+		        Ok: function() {
+		          $( this ).dialog( "close" );
+		          $(f).focus();
+		        }
+		      }
+		});
+  }
+  /* 필수 입력 체크 경고창 띄우기 */
   
   
 
