@@ -3,11 +3,10 @@ $(document).ready(
 	function() {
 
 		/* 카테고리 LIST */
-		
 		/* 카테고리 준비 시작 */
 		$('#sidebar').w2sidebar({
 			name : 'sidebar',
-			img : 'icon-folder',
+			img : null,
 			nodes : []
 		});
 		
@@ -156,7 +155,7 @@ $(document).ready(
 							var cate2nd = test.parent + "-" + test.seq;
 							var cate3rd = test.parent + "-" + test.seq
 									+ "-" + test.depth;
-	
+	                        
 							if (!test.depth && !test.seq) {
 								w2ui['sidebar'].add({
 									id : cate1st,
@@ -164,6 +163,8 @@ $(document).ready(
 									img : 'icon-folder',
 									expanded : true
 								});
+							
+								
 	
 							} else if (!test.depth) {
 								w2ui['sidebar'].add(cate1st, {
