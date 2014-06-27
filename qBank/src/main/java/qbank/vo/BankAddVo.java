@@ -9,7 +9,7 @@ public class BankAddVo {
 	private String 			qcode;		
 	private String			qtype;
 	private String 			qlevel;  
-	private String 	 		qedityse;
+	private String 	 		qedituse;
 	private String 	 		qname;
 	private String 	 		qtext;
 	private String 	 		qcomment;
@@ -59,11 +59,11 @@ public class BankAddVo {
 		this.qlevel = qlevel;
 		return this;
 	}
-	public String getQedityse() {
-		return qedityse;
+	public String getQedituse() {
+		return qedituse;
 	}
-	public BankAddVo setQedityse(String qedityse) {
-		this.qedityse = qedityse;
+	public BankAddVo setQedituse(String qedituse) {
+		this.qedituse = qedituse;
 		return this;
 	}
 	public String getQname() {

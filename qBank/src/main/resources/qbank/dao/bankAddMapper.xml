@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BankAddMapper.xml -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 구현체 자동 생성하려면 SQL 파일을 Dao인터페이스와 맞춰야 한다.
+namespace=인터페이스이름(패키지 이름 포함) SQL id=인터페이스 메서드명
+ -->  
+<mapper namespace="qbank.dao.BankAddDao">
+  <resultMap type="qbank.vo.BankAddVo" id="bankAddMap">
+    <id column="QNO" property="no"/> <!-- PK 컬럼에 대해서만 설정한다. -->
+    <result column="QCODE" property="code"/>
+    <result column="QTYPE" property="type"/>
+    <result column="QLEVEL" property="level"/>
+    <result column="QEDITUSE" property="edituse"/>
+    <result column="QNAME" property="name"/>
+    <result column="QTEXT" property="text"/>
+    <result column="QCOMMENT" property="comment"/>
+    <result column="QSOURCE" property="source"/>
+    <result column="QUSEYN" property="useyn"/>
+    <result column="QWRITER" property="writer"/>
+    <result column="QDATE" property="date"/>
+  </resultMap> 
+   
+  <insert id="insert" parameterType="bankAddVo">
+    insert into QBANK(QCODE, QTYPE, QLEVEL, QEDITUSE, QNAME, QTEXT, 
+    									QCOMMENT, QSOURCE, QUSEYN, QWRITER, QDATE)
+    values (#{code},#{type}, #{level}, #{edituse}, #{name}, #{text}, 
+    				#{comment}, #{source}, #{useyn}, #{writer}, unix_timestamp())
+  </insert>   
+
+  <insert id="insertTest" parameterType="bankTestVo">
+    insert into TEST(SECODE) values (#{code})
+  </insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

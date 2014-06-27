@@ -36,14 +36,22 @@ public class CategoryControl {
 
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public AjaxResult create(CategoryVo vo) {
-		if((vo.getParent()=="") && (vo.getSeq()=="") && (vo.getDepth()=="")) {
+		
+		//log.debug("Create ===== ++ ===== :" + vo.toString());
+		
+		if((vo.getParent() == null || vo.getParent().isEmpty()) 
+				&& (vo.getSeq() == null || vo.getSeq().isEmpty()) 
+				&& (vo.getDepth() == null || vo.getDepth().isEmpty())) {
+			//log.debug("maxParent ===== ++ ===== :" + vo.toString());
 			categoryService.maxParent(vo);	    
-		}else if((vo.getSeq()=="") && (vo.getDepth()=="")) {
+		}else if((vo.getSeq() == null || vo.getSeq().isEmpty()) 
+				&& (vo.getDepth() == null || vo.getDepth().isEmpty())) {
+			//log.debug("getSeq ===== ++ ===== :" + vo.toString());
 			categoryService.maxSeq(vo);	    
 		}else{
+			//log.debug("getDepth ===== ++ ===== :" + vo.toString());
 			categoryService.maxDepth(vo);
 		}
-		//log.debug("Create ===== ++ ===== :" + vo.toString());
 		return new AjaxResult().setStatus("ok");
 	}	
 

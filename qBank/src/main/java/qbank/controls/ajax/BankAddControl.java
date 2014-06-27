@@ -50,7 +50,7 @@ public class BankAddControl {
 
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public AjaxResult insert(BankAddVo vo) {
-		bankAddService.add(vo);
+	//	bankAddService.add(vo);
 		return new AjaxResult().setStatus("ok");
 	}
 
