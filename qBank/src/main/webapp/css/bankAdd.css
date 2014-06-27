@@ -4,15 +4,15 @@
 }
 
 #selectGroup{
-	border:2px solid orange; 
-	margin-bottom: 20px; 
-	width: 90%;
-	height: 80px;
-	border-radius: 10px;  
-	margin: auto;
-	padding: 5px; 
-	padding-left: 10%; 
-	background-color: rgb(245, 245, 245);
+border: 2px solid rgb(226, 79, 79);
+margin-bottom: 20px;
+width: 90%;
+height: 80px;
+border-radius: 10px;
+margin: auto;
+padding: 5px;
+padding-left: 10%;
+background-color: rgb(252, 242, 232);
 }
 
 .bcategory{
@@ -33,11 +33,11 @@ textarea{
 }
 
 .container{
-	width: 90%;
-    padding: 5%;
-    border: 2px solid orange;
-    border-radius: 10px;
-    background-color: rgb(245, 245, 245);
+width: 90%;
+padding: 5%;
+border: 2px solid rgb(226, 79, 79);
+border-radius: 10px;
+background-color: rgb(252, 242, 232);
 }
 
 .questBox{
@@ -114,6 +114,9 @@ hr{
     right:3px;
     top: 4px;
     width: 30px;
+
+}
+
 }
 div#bokiChk > div {
 	margin-bottom: 5px;
