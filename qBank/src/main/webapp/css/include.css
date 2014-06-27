@@ -153,6 +153,25 @@ header {
 	background-size: contain;
 }
 
+.setImg{
+	width: 7%;
+	height: 60px;
+	margin-top: 1%;
+	background-image: url("../image/set.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.testImg{
+	width: 7%;
+	height: 60px;
+	margin-top: 1%;
+	background-image: url("../image/test.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+
 #cotegoryTop{
 background-color: rgb(226, 79, 79);
 margin: 1px;
@@ -179,6 +198,8 @@ border-top-left-radius: 8px;
 .w2ui-sidebar .w2ui-sidebar-div .w2ui-node{
 	background-image: linear-gradient(#FFFFFF,#edf1f6);
 }
+
+
 
 
 

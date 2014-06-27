@@ -26,7 +26,8 @@ border-radius: 10px;
   -webkit-flex: 1;
           flex: 1;
   padding: 10px;
-/*   border : thin solid green; */
+ margin-left: 3%;
+ margin-right: 3%;
 }
 
 #bbankAdd {
@@ -83,24 +84,22 @@ hr{
 
 #choiceBox{
 	position: relative;
-  width: 750px;
-  height: 150px;
+    width: 750px;
+    height: 150px;
 	margin-bottom: 14px;
-	margin: 10px;
 	padding: 9px 14px;
-	background-color: #f7f7f9;
-	border: 1px solid #e1e1e8;
+	background-color: rgb(252, 242, 232);
+	border: 1px solid rgb(226, 79, 79);
 	border-radius: 4px;
 }
 #choiceBox2, #choiceBox3{
 	position: relative;
-  width: 750px;
-  height: 250px;
+    width: 750px;
+    height: 250px;
 	margin-bottom: 14px;
-	margin: 10px;
 	padding: 9px 14px;
-	background-color: #f7f7f9;
-	border: 1px solid #e1e1e8;
+	background-color: rgb(252, 242, 232);
+	border: 1px solid rgb(226, 79, 79);
 	border-radius: 4px;
 	display: none;
 }
