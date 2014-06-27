@@ -128,29 +128,29 @@
 						
 							<div id="bokiChk" class="form-inline">
 						    <div id="exBox1">
-						    	<input type="checkbox"/>
+						    	<input type="radio" name="bokidap" value="1"/>
 						    	<label>1</label>
-						    	<input type="text" class="form-control textInput" />
+						    	<input id="exText1" type="text" class="form-control textInput exText" />
 						    </div>
 								<div id="exBox2">
-									<input type="checkbox"/>
+									<input type="radio" name="bokidap" value="2"/>
 									<label>2</label>
-									<input type="text" class="form-control textInput" />
+									<input id="exText2" type="text" class="form-control textInput exText" />
 								</div>
 								<div id="exBox3">
-									<input type="checkbox"/>
+									<input type="radio" name="bokidap" value="3"/>
 									<label>3</label>
-									<input type="text" class="form-control textInput" />
+									<input id="exText3" type="text" class="form-control textInput exText" />
 								</div>
 								<div id="exBox4">
-									<input type="checkbox"/>
+									<input type="radio" name="bokidap" value="4"/>
 									<label>4</label>
-									<input type="text" class="form-control textInput" />
+									<input id="exText4" type="text" class="form-control textInput exText" />
 								</div>
 								<div id="exBox5">
-									<input type="checkbox"/>
+									<input type="radio" name="bokidap" value="5"/>
 									<label>5</label>
-									<input type="text" class="form-control textInput" />
+									<input id="exText5" type="text" class="form-control textInput exText" />
 								</div>
 							</div>
 						</div>
@@ -217,7 +217,10 @@
 <div id="previewBackPopup"></div>
 		
 <!--  미리보기창끝   -->		
-		
+	
+	<!-- 경고창 -->
+	<div id="dialog-message" title="경고!">
+  </div>		
 		
 		
 	<!-- 풋터 -->
@@ -235,10 +238,10 @@
 
 <script type="text/javascript" src="../ckeditor_full/ckeditor.js"></script>
 <script>
-  CKEDITOR.replace( 'editor1', {
+/*   CKEDITOR.replace( 'editor1', {
       filebrowserUploadUrl: qbank.contextRoot + '/upload/upload.ajax'
   });
-	CKEDITOR.replace( 'editor2' );
+	CKEDITOR.replace( 'editor2' ); */
 </script>
 
 </body>
