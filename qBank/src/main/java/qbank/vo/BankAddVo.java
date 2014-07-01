@@ -1,34 +1,22 @@
 package qbank.vo;
 
-
-/* setter/getter 적용 <= 캡슐화
- * 
- */
 public class BankAddVo {
-	private int 			qno;	
-	private String 			qcode;		
-	private String			qtype;
-	private String 			qlevel;  
-	private String 	 		qedituse;
-	private String 	 		qname;
-	private String 	 		qtext;
-	private String 	 		qcomment;
-	private String			qsource;
-	private String			quseyn;
-	private String			qwriter;
-	private String 	 		qdate;
-	private int 	 		ccode;
-	
-	private int 	 		ono;
-	private String 	 		oname;
-	private String 	 		oanswer;
-	
-	private String 	 		danswer;
-	
-	private int 	 		fno;
-	private String 	 		ftype;
-	private String 	 		fpath;
-	
+	private int 			qno;		//문제번호
+	private String 			qcode;		//문제코드
+	private String			qtype;		//문제유형
+	private String 			qlevel;  	//난이도
+	private String 	 		qedituse;	//에디터사용유무
+	private String 	 		qname;		//문제명	
+	private boolean 		textCheck;	//지문 입력 체크	
+	private String 	 		qtext;		//문제 지문
+	private boolean 		commentCheck;	//문제 해설 체크
+	private String 	 		qcomment;	//문제 해설
+	private boolean		sourceCheck;	//문제 출처 체크
+	private String			qsource;	//문제 출처
+	private String			quseyn;		//사용 유무
+	private String			qwriter;	//작성자
+	private String 	 		qdate;		//작성일
+	private int 	 		ccode;		//카테고리 번호
 	
 	
 	public int getQno() {
@@ -73,11 +61,32 @@ public class BankAddVo {
 		this.qname = qname;
 		return this;
 	}
+	public boolean getTextCheck() {
+		return textCheck;
+	}
+	public BankAddVo setTextCheck(boolean textCheck) {
+		this.textCheck = textCheck;
+		return this;
+	}
 	public String getQtext() {
 		return qtext;
 	}
 	public BankAddVo setQtext(String qtext) {
 		this.qtext = qtext;
+		return this;
+	}
+	public boolean getCommentCheck() {
+		return commentCheck;
+	}
+	public BankAddVo setCommentCheck(boolean commentCheck) {
+		this.commentCheck = commentCheck;
+		return this;
+	}
+	public boolean getSourceCheck() {
+		return sourceCheck;
+	}
+	public BankAddVo setSourceCheck(boolean sourceCheck) {
+		this.sourceCheck = sourceCheck;
 		return this;
 	}
 	public String getQcomment() {
@@ -122,55 +131,17 @@ public class BankAddVo {
 		this.ccode = ccode;
 		return this;
 	}
-	public int getOno() {
-		return ono;
+	@Override
+	public String toString() {
+		return "BankAddVo [qno=" + qno + ", qcode=" + qcode + ", qtype="
+				+ qtype + ", qlevel=" + qlevel + ", qedituse=" + qedituse
+				+ ", qname=" + qname + ", textCheck=" + textCheck + ", qtext="
+				+ qtext + ", commentCheck=" + commentCheck + ", qcomment="
+				+ qcomment + ", sourceCheck=" + sourceCheck + ", qsource="
+				+ qsource + ", quseyn=" + quseyn + ", qwriter=" + qwriter
+				+ ", qdate=" + qdate + ", ccode=" + ccode + "]";
 	}
-	public BankAddVo setOno(int ono) {
-		this.ono = ono;
-		return this;
-	}
-	public String getOname() {
-		return oname;
-	}
-	public BankAddVo setOname(String oname) {
-		this.oname = oname;
-		return this;
-	}
-	public String getOanswer() {
-		return oanswer;
-	}
-	public BankAddVo setOanswer(String oanswer) {
-		this.oanswer = oanswer;
-		return this;
-	}
-	public String getDanswer() {
-		return danswer;
-	}
-	public BankAddVo setDanswer(String danswer) {
-		this.danswer = danswer;
-		return this;
-	}
-	public int getFno() {
-		return fno;
-	}
-	public BankAddVo setFno(int fno) {
-		this.fno = fno;
-		return this;
-	}
-	public String getFtype() {
-		return ftype;
-	}
-	public BankAddVo setFtype(String ftype) {
-		this.ftype = ftype;
-		return this;
-	}
-	public String getFpath() {
-		return fpath;
-	}
-	public BankAddVo setFpath(String fpath) {
-		this.fpath = fpath;
-		return this;
-	}
+
 
 	
 	
