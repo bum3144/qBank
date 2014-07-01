@@ -65,7 +65,7 @@
 		
 		$('#answerBox').hide();
 		$('#typeSelector').change(function(){
-			if($(this).val() == '객관식'){
+			if($(this).val() == 'objective'){
 				$('#exSelectBox').show();
 				$('#answerBox').hide();
 			}else{
