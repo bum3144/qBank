@@ -354,85 +354,106 @@ $(document).ready(function(){
   
 $('#addBtn').on('click',function(){
 	if(!$('#select11').val()){
-		dailogAll('등록위치를 선택하셔야 합니다');
-		$('#select11').focus();
+		dailogAll('등록위치를 선택하셔야 합니다',$('#select11'));
 		return false;
 	}
 	if(!$('#questVal').val()){
-		dailogAll('문제를 입력하셔야 합니다');
-		$('#questVal').focus();
+		dailogAll('문제를 입력하셔야 합니다',$('#questVal'));
 		return false;
 	}
 	if($("input:checkbox[id='textCheck']").is(":checked") == true){
 		if(!$('#textDisplay').val()){
-			dailogAll('지문을 입력하셔야 합니다');
-			$('#textDisplay').focus();
+			dailogAll('지문을 입력하셔야 합니다',$('#textDisplay'));
 			return false;
 		}
 	}
 	if($("input:checkbox[id='imageCheck']").is(":checked") == true){
 		if(!$('#imageDisplay').val()){
-			dailogAll('이미지를 선택하셔야 합니다');
-			$('#imageDisplay').focus();
+			dailogAll('이미지를 선택하셔야 합니다',$('#imageDisplay'));
 			return false;
 		}else{
 			if(!regExpImg.test($('#imageDisplay').val())){
-				dailogAll('이미지 파일만 등록 가능합니다. [jpg,gif,png]' );
-				$('#imageDisplay').focus();
+				dailogAll('이미지 파일만 등록 가능합니다. [jpg,gif,png]',$('#imageDisplay'));
 				return false;
 			}
 		}
 	}
 	if($("input:checkbox[id='mediaCheck']").is(":checked") == true){
 		if(!$('#mediaDisplay').val()){
-			dailogAll('MP3파일을 선택하셔야 합니다');
-			$('#mediaDisplay').focus();
+			dailogAll('MP3파일을 선택하셔야 합니다',$('#mediaDisplay'));
 			return false;
 		}else{
 			if(!regExpMp3.test($('#mediaDisplay').val())){
-				dailogAll('MP3파일만 등록 가능합니다. [mp3]');
-				$('#mediaDisplay').focus();
+				dailogAll('MP3파일만 등록 가능합니다. [mp3]',$('#mediaDisplay'));
 				return false;
 			}
 		}
 	}
-	//$('input[name=bokidap]:checked').val()
 	
-
-	
-	var eSu = $('#exSelector').val();
-	for(i=1;i<=eSu;i++){
-		if(!$('#exText'+i).val()){
-			dailogAll('보기를 입력해 주세요', $('#exText'+i));
+	if($('#typeSelector').val() == 'objective'){
+		var eSu = $('#exSelector').val();
+		for(i=1;i<=eSu;i++){
+			if(!$('#exText'+i).val()){
+				dailogAll('보기를 입력해 주세요', $('#exText'+i));
+				return false;
+			}
+		}
+		if(!$(':radio[name="bokidap"]:checked').val()){ 
+			dailogAll('정답을 선택해 주세요!');
+			return false; 
+		}	
+	}else{
+		if(!$('#answerText').val()){
+			dailogAll('정답을 입력해 주세요',$('#answerText'));
 			return false;
 		}
 	}
 	
-	if(!$(':radio[name="bokidap"]:checked').val()){ 
-		dailogAll('정답을 선택해 주세요!');
-		return false; 
-	}
-
-		//dailogAll($('#exText'+(su--)).val());
-/*		if(!$('#exText'+(su--)).val()){
-			dailogAll($('#exText'+(su--)).val());
-			$('#exText'+(su--)).focus();
+	
+	if($("input:checkbox[id='comentCheck']").is(":checked") == true){
+		if(!$('#comentDisplay').val()){
+			dailogAll('해설을 입력하셔야 합니다',$('#comentDisplay'));
 			return false;
-		}*/
+		}
+	}
+	if($("input:checkbox[id='sourceCheck']").is(":checked") == true){
+		if(!$('#sourceDisplay').val()){
+			dailogAll('출처을 입력하셔야 합니다',$('#sourceDisplay'));
+			return false;
+		}
+	}
 
 	
 	$.ajax({
 		type: "POST",
 		url: qbank.contextRoot + '/bankadd/insert.ajax',
+//		contentType: 'multipart/form-data',
 		dataType: 'json', 
 		data: { /* 보내는 데이터 */
-			name:		$('#className11').val(),
-		//	url:		$('#classUrl11').val(),
-			parent:		$('#select11').val(),
-			seq:		$('#select22').val(),
-			depth:		$('#select33').val(),
-			useyn:		$('#classUse11').val(),
-			classCode: 	$('#classCode').val()
+			ccode:			$('#cCode').val(),
+//			parent:			$('#select11').val(),
+//			seq:			$('#select22').val(),
+//			depth:			$('#select33').val(),
+			qtype:			$('#typeSelector').val(),
+			qlevel:			$('#level').val(),
+			qname:			$('#questVal').val(),
+			textCheck:		$('#textCheck').val(),
+			textDisplay:	$('#textDisplay').val(),
+			imageCheck:		$('#imageDisplay').val(),
+			imageDisplay:	$('#imageCheck').val(),
+			mediaCheck:		$('#mediaDisplay').val(),
+			mediaDisplay:	$('#mediaCheck').val(),
+			exSelectoer:	$('#exSelectoer').val(),
+			oname1:			$('#exText1').val(),
+			oname2:			$('#exText2').val(),
+			oname3:			$('#exText3').val(),
+			oname4:			$('#exText4').val(),
+			oname5:			$('#exText5').val(),
+			oanswer:		$('#bokidap').val(),
+			comentCheck:	$('#comentCheck').val(),
+			comentDisplay:	$('#comentDisplay').val(),
+			sourceCheck:	$('#sourceCheck').val(),
+			sourceDisplay:	$('#sourceDisplay').val()
 		},
 		success: function (result) {
 			var result = result.ajaxResult;
