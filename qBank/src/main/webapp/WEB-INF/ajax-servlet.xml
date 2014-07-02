@@ -17,7 +17,7 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
 		<!-- one of the properties available; the maximum file size in bytes -->
-		<property name="maxUploadSize" value="5000000" />
+		<property name="maxUploadSize" value="10000000" />
 	</bean>
 
 	<!-- DispatcherServlet에게 JSP의 위치를 알려줌 => DispatcherServlet은 실제 자신이 직접 JSP를 
