@@ -24,6 +24,7 @@
 	
 	<div id="bcontainer">
 		<div id="bnav">
+		<div id=cotegoryTop ><h4>Category</h4></div> 
 			<div class="row">
 				<!-- 3 setup a container element -->
 				<div class="col-md-12">
@@ -33,6 +34,8 @@
 			
 		</div>
 
+		<form class="form-horizontal" name="form1" id="form1" method="post" 
+		action="/qBank/bankadd/insert.ajax" role="form" enctype="multipart/form-data">
 		<div id="bflex-column">
 			<section>
 				<h1>▣ 문제 은행 등록</h1>
@@ -43,27 +46,27 @@
 			
 			<div id="selectGroup">
 		   <ul>
-		   <li>등록할 위치를 선택해주세요. </li>
+		   <li>등록할 위치를 선택해주세요. <input type="hidden" name="cCode" id="cCode"></li>
 		   </ul>
-		    <form class="form-horizontal" role="form">
+		   <!--  <form class="form-horizontal" action="/bankadd/insert.ajax" role="form" enctype="multipart/form-data"> -->
 					<div class="form-group" style="padding-left: 3%;">
 						<div class="col-sm-3">
-							<select id="select11" class="form-control" tabindex="1">
+							<select name="select11" id="select11" class="form-control" tabindex="1">
 							<option value="">-- 1차 선 택 --</option>
 							</select>
 						</div>
 						<div class="col-sm-3">
-							<select id="select22" class="form-control" tabindex="1">
+							<select name="select22" id="select22" class="form-control" tabindex="1">
 							<option value="">-- 2차 선 택 --</option>
 							</select>
 						</div>
 						<div class="col-sm-3">
-							<select id="select33" class="form-control" tabindex="1">
+							<select name="select33" id="select33" class="form-control" tabindex="1">
 							<option value="">-- 3차 선 택 --</option>
 							</select>
 						</div>
 					</div>
-				</form>	
+				<!-- </form>	 -->
 			 </div>
 	      <br>	
 					
@@ -71,17 +74,17 @@
 
 						<div class="form-inline">
 							<label>문형: </label> 
-							<select id="typeSelector" class="form-control">
-								<option>객관식</option>
-								<option>주관식</option>
-								<option>서술형</option>
+							<select name="typeSelector" id="typeSelector" class="form-control">
+								<option value="objective">객관식</option>
+								<option value="subjective">주관식</option>
+								<option value="discriptive">서술형</option>
 							</select> 
 							
 							<label>난이도: </label> 
-							<select class="form-control">
-								<option>상</option>
-								<option>중</option>
-								<option>하</option>
+							<select name="level" id="level" class="form-control">
+								<option value="1">상</option>
+								<option value="2">중</option>
+								<option value="3">하</option>
 							</select>
 						</div>
 					</div>
@@ -93,35 +96,35 @@
 						<div class=questBox>
 							<label>문제입력 </label>
 							<!-- <textarea name="editor1"></textarea> -->
-							<textarea id="questVal" class="form-control" rows="2"></textarea>
+							<textarea name="questVal" id="questVal" class="form-control" rows="2"></textarea>
 							
 						</div>
 						
 						<div class=questBox>
-							<input type="checkbox" id="textCheck" /> <label>지문입력</label>
+							<input type="checkbox" name="textCheck" id="textCheck" /> <label>지문입력</label>
 							<div>
 							<!-- <textarea name="editor1"></textarea> -->
-							<textarea id="textDisplay" class="questDisplay" class="form-control" rows="5"></textarea>
+							<textarea name="textDisplay" id="textDisplay" class="questDisplay" class="form-control" rows="5"></textarea>
 							</div>
 						</div>
 
 						<div class=questBox>
-							<input type="checkbox" id="imageCheck" /> <label> 이미지 등록 </label>
-							<input id="imageDisplay" class="questDisplay" type="file" value="파일을 선택해주세요"></input>
+							<input type="checkbox" name="imageCheck" id="imageCheck" /> <label> 이미지 등록 </label>
+							<input name="imageDisplay" id="imageDisplay" class="questDisplay" type="file" value="파일을 선택해주세요"></input>
 						</div>
 
              <div class=questBox>
-							<input type="checkbox" id="mediaCheck" /> <label> mp3파일등록 </label>
-							<input id="mediaDisplay" class="questDisplay" type="file" value="파일을 선택해주세요"></input>
+							<input type="checkbox" name="mediaCheck" id="mediaCheck" /> <label> mp3파일등록 </label>
+							<input name="mediaDisplay" id="mediaDisplay" class="questDisplay" type="file" value="파일을 선택해주세요"></input>
 						</div>
 
 						<div id="exSelectBox" class=questBox>
 							<label>보기 
-								<select id="exSelector">
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+								<select name="exSelector" id="exSelector">
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
 								</select>
 								&nbsp;(정답을 체크해주세요.)
 								</label>
@@ -130,27 +133,27 @@
 						    <div id="exBox1">
 						    	<input type="radio" name="bokidap" value="1"/>
 						    	<label>1</label>
-						    	<input id="exText1" type="text" class="form-control textInput exText" />
+						    	<input name="exText1" id="exText1" type="text" class="form-control textInput exText" />
 						    </div>
 								<div id="exBox2">
 									<input type="radio" name="bokidap" value="2"/>
 									<label>2</label>
-									<input id="exText2" type="text" class="form-control textInput exText" />
+									<input name="exText2" id="exText2" type="text" class="form-control textInput exText" />
 								</div>
 								<div id="exBox3">
 									<input type="radio" name="bokidap" value="3"/>
 									<label>3</label>
-									<input id="exText3" type="text" class="form-control textInput exText" />
+									<input name="exText3" id="exText3" type="text" class="form-control textInput exText" />
 								</div>
 								<div id="exBox4">
 									<input type="radio" name="bokidap" value="4"/>
 									<label>4</label>
-									<input id="exText4" type="text" class="form-control textInput exText" />
+									<input name="exText4" id="exText4" type="text" class="form-control textInput exText" />
 								</div>
 								<div id="exBox5">
 									<input type="radio" name="bokidap" value="5"/>
 									<label>5</label>
-									<input id="exText5" type="text" class="form-control textInput exText" />
+									<input name="exText5" id="exText5" type="text" class="form-control textInput exText" />
 								</div>
 							</div>
 						</div>
@@ -158,20 +161,20 @@
 						<div id="answerBox" class=questBox>
 							<label>정답 </label>
 								<!-- <textarea name="editor2"></textarea> -->
-								<textarea class="form-control" rows="5"></textarea>
+								<textarea name="answerText" id="answerText" class="form-control" rows="5"></textarea>
 						</div>
 						
 						
 						<div class=questBox>
-							<input type="checkbox" id="comentCheck" />
+							<input type="checkbox" name="comentCheck" id="comentCheck" />
 							<label> 해설 입력 </label>
-							<input id="comentDisplay" class="form-control textInput questDisplay" type="text" placeholder="해설을 입력해주세요"></input>
+							<input name="comentDisplay" id="comentDisplay" class="form-control textInput questDisplay" type="text" placeholder="해설을 입력해주세요"></input>
 						</div>
 						
 						<div class=questBox>
-							 <input type="checkbox" id="sourceCheck" /> 
+							 <input type="checkbox" name="sourceCheck" id="sourceCheck" /> 
 							 <label>출처 입력</label>
-							<input id="sourceDisplay" class="form-control textInput questDisplay" class="" type="text" placeholder="해설을 입력해주세요"></input>
+							<input name="sourceDisplay" id="sourceDisplay" class="form-control textInput questDisplay" class="" type="text" placeholder="해설을 입력해주세요"></input>
 						</div>
 
 					</div>
@@ -185,6 +188,7 @@
 				
 				
 			</div>
+			</form>
 				
 		</div>
 		
