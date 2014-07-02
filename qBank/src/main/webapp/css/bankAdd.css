@@ -120,3 +120,6 @@ hr{
 div#bokiChk > div {
 	margin-bottom: 5px;
 }
+#textDisplay{
+	width: 684px;
+}
