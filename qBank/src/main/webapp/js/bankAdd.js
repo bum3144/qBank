@@ -352,6 +352,18 @@ $(document).ready(function(){
   
   
   
+/*  
+  // 초기화
+  $('#textDisplay').empty();
+  $('#imageDisplay').empty();
+  $('#mediaDisplay').empty();
+  $('#answerText').empty();
+  $('#comentDisplay').empty();
+  $('#sourceDisplay').empty();
+  $("#typeSelector option:eq(1)").attr("selected", "selected");
+  $("#level option:eq(1)").attr("selected", "selected");
+  $("#exSelector option:eq(1)").attr("selected", "selected");
+*/
 $('#addBtn').on('click',function(){
 	if(!$('#select11').val()){
 		dailogAll('등록위치를 선택하셔야 합니다',$('#select11'));
@@ -409,7 +421,6 @@ $('#addBtn').on('click',function(){
 		}
 	}
 	
-	
 	if($("input:checkbox[id='comentCheck']").is(":checked") == true){
 		if(!$('#comentDisplay').val()){
 			dailogAll('해설을 입력하셔야 합니다',$('#comentDisplay'));
@@ -423,55 +434,35 @@ $('#addBtn').on('click',function(){
 		}
 	}
 
+
 	
-	$.ajax({
-		type: "POST",
-		url: qbank.contextRoot + '/bankadd/insert.ajax',
-//		contentType: 'multipart/form-data',
-		dataType: 'json', 
-		data: { /* 보내는 데이터 */
-			ccode:			$('#cCode').val(),
-//			parent:			$('#select11').val(),
-//			seq:			$('#select22').val(),
-//			depth:			$('#select33').val(),
-			qtype:			$('#typeSelector').val(),
-			qlevel:			$('#level').val(),
-			qname:			$('#questVal').val(),
-			textCheck:		$('#textCheck').val(),
-			textDisplay:	$('#textDisplay').val(),
-			imageCheck:		$('#imageDisplay').val(),
-			imageDisplay:	$('#imageCheck').val(),
-			mediaCheck:		$('#mediaDisplay').val(),
-			mediaDisplay:	$('#mediaCheck').val(),
-			exSelectoer:	$('#exSelectoer').val(),
-			oname1:			$('#exText1').val(),
-			oname2:			$('#exText2').val(),
-			oname3:			$('#exText3').val(),
-			oname4:			$('#exText4').val(),
-			oname5:			$('#exText5').val(),
-			oanswer:		$('#bokidap').val(),
-			comentCheck:	$('#comentCheck').val(),
-			comentDisplay:	$('#comentDisplay').val(),
-			sourceCheck:	$('#sourceCheck').val(),
-			sourceDisplay:	$('#sourceDisplay').val()
-		},
-		success: function (result) {
-			var result = result.ajaxResult;
-			if (result.status == 'ok') {
+	$('#form1').submit(function(e){
+		var formObj = $(this);
+		var formURL = formObj.Attr("action");
+		var formData = new FormData(this);
+		
+		$.ajax({
+			url: qbank.contextRoot + "/bankadd/insert.ajax",
+			type: "POST",
+			mimeType: 'multipart/form-data',
+			contentType: false,
+			cache: false,
+			processData: false,
+			dataType: 'json', 
+			data: formData,
+
+			success: function (result) {					
+				loadSubjectList(currPageNo);
+				//$('#btnReset').click();
 				//console.log('okokok');
-				$.each(result.data, function(index, obj) {
-					//console.log(result.data);
-					$.each(obj, function(index, test) {
-						console.log('=================');
-					});
-				});
-			}	
-		},
-		error: function(errorThrown){
-			console.log('bankAdd 에러 : ' + errorThrown);
-		}
+			},
+			error: function(errorThrown){
+				console.log('bankAdd 에러 : ' + errorThrown);
+			}
+		});	
+		e.preventDefault();	// 디폴트 액션을 예방한다.
+		e.unbind();
 	});
-	
 	
 });  
   
