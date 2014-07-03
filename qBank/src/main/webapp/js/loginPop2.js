@@ -26,6 +26,42 @@ jQuery(function($) {
 		disablePopup();  // function close pop up
 	});
 
+        // 아이디찾기 
+        
+        $("#findIdBtn").on('click', function(e){
+        	e.preventDefault();
+    		$.getJSON(
+    			qbank.contextRoot + 
+    				'/find/findId.ajax?email=' + 
+    				$("#findId_emailBox").val(), 
+    			function(jsonObj) {
+    				var result = jsonObj.ajaxResult;
+    				if (result.status == "ok") {
+    				    alert("이메일 전송이 완료되었습니다.");
+    				} else {
+    					alert("해당이메일이 없습니다.");
+    				}
+    			});
+    		
+    	});
+        
+        $("#findPassBtn").on('click', function(e){
+        	e.preventDefault();
+    		$.getJSON(
+    			qbank.contextRoot + 
+    				'/find/findPass.ajax?id=' + 
+    				$("#findPass_IdBox").val() + "&email=" +
+    				$("#findPass_EmailBox").val(), 
+    			function(jsonObj) {
+    				var result = jsonObj.ajaxResult;
+    				if (result.status == "ok") {
+    				    alert("이메일 전송이 완료되었습니다.");
+    				} else {
+    					alert("해당이메일이 없습니다.");
+    				}
+    			});
+    		
+    	});
 
 
 	 /************** start: functions. **************/
