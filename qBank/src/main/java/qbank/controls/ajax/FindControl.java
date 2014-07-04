@@ -1,16 +1,16 @@
 package qbank.controls.ajax;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.mail.MailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import qbank.services.FindService;
 import qbank.vo.AjaxResult;
@@ -30,11 +30,17 @@ public class FindControl {
 	 */
 	
 	@RequestMapping("/findId")
-	public AjaxResult checkId(String email,HttpServletResponse response,Model model) {
+	public AjaxResult checkId(String email,HttpServletResponse response,Model model
+			)throws IOException {
+		
+		response.setContentType("text/html");
+		
 		
 		ApplicationContext context = 
         new ClassPathXmlApplicationContext("beans.xml");
-  		
+  	
+		String html = "";
+		
 		try {
 				UserVo findVo = findService.getUserId(email);
 				AjaxResult result = null;
@@ -45,11 +51,21 @@ public class FindControl {
 					
 					if(findVo.getUemail().equals(email)){
 						
+						
+						html += "<html><head><meta charset='UTF-8'>";
+						html += "<title>email Form</title>";
+					  html += "<br></head><body><div style='text-align: center; border: 4px solid rgb(226, 79, 79); width: 50%;border-radius: 10px;background: rgb(252, 242, 232);margin: auto;'>";
+					  html += "<h1>Qbank ID 찾기</h1><br>";
+						html += "<strong>" + findVo.getUname() +"</strong><span>&nbsp;님의 아이디는&nbsp;</span><strong>" + findVo.getUid() + "</strong><span>&nbsp;입니다</span><br>";
+						html += "<br><a href='http://s15.java48.com:9999/qBank/main2.html'>QBank 바로가기</a><br></div></body></html>";
+						
+				
+						
 					MailMail mm = (MailMail) context.getBean("mailMail");
 		      mm.sendMail("ura0508@gmail.com",
 		      		findVo.getUemail(),
 		  		   "QBank 아이디찾기 메일발송", 
-		  		   findVo.getUname() + "님의 아이디는" + findVo.getUid() + "입니다.");
+		  		   html);
 					}
 				    	model.addAttribute("findId", findVo);
 				}
@@ -73,6 +89,8 @@ public class FindControl {
 		ApplicationContext context = 
         new ClassPathXmlApplicationContext("beans.xml");
   		
+		String html = "";
+		
 		try {
 				UserVo findVo = findService.getUserPass(id,email);
 				log.debug(id + "-===========-" + email);
@@ -84,11 +102,21 @@ public class FindControl {
 					
 					if(findVo.getUemail().equals(email) && findVo.getUid().equals(id)){
 						
+						
+						html += "<html><head><meta charset='UTF-8'>";
+						html += "<title>email Form</title>";
+					  html += "<br></head><body><div style='text-align: center; border: 4px solid rgb(226, 79, 79); width: 50%;border-radius: 10px;background: rgb(252, 242, 232);margin: auto;'>";
+					  html += "<h1>Qbank Password 찾기</h1><br>";
+						html += "<strong>" + findVo.getUname() +"</strong><span>&nbsp;님의 비밀번호는&nbsp;</span><strong>" + findVo.getUpass() + "</strong><span>&nbsp;입니다</span><br>";
+						html += "<br><a href='http://s15.java48.com:9999/qBank/main2.html'>QBank 바로가기</a><br></div></body></html>";
+						
+				
+						
 					MailMail mm = (MailMail) context.getBean("mailMail");
 		      mm.sendMail("ura0508@gmail.com",
 		      		findVo.getUemail(),
 		  		   "QBank 비밀번호찾기 메일발송", 
-		  		   findVo.getUname() + "님의 비밀번호는" + findVo.getUpass() + "입니다.");
+		  		  html);
 					}
 				    	model.addAttribute("findId", findVo);
 				}
