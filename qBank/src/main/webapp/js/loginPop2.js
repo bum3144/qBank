@@ -26,8 +26,9 @@ jQuery(function($) {
 		disablePopup();  // function close pop up
 	});
 
-        // 아이디찾기 
         
+        
+        // 아이디찾기 
         $("#findIdBtn").on('click', function(e){
         	e.preventDefault();
     		$.getJSON(
@@ -38,13 +39,18 @@ jQuery(function($) {
     				var result = jsonObj.ajaxResult;
     				if (result.status == "ok") {
     				    alert("이메일 전송이 완료되었습니다.");
+    				    $("#findId_emailBox").val('');
     				} else {
     					alert("해당이메일이 없습니다.");
     				}
     			});
     		
     	});
+        //아이디찾기 끝 
         
+        
+        
+         //비밀번호 찾기 
         $("#findPassBtn").on('click', function(e){
         	e.preventDefault();
     		$.getJSON(
@@ -56,12 +62,14 @@ jQuery(function($) {
     				var result = jsonObj.ajaxResult;
     				if (result.status == "ok") {
     				    alert("이메일 전송이 완료되었습니다.");
+    				    $("#findPass_IdBox").val('');
+    				    $("#findPass_EmailBox").val('');
     				} else {
     					alert("해당이메일이 없습니다.");
     				}
     			});
-    		
     	});
+        //비밀번호 찾기 끝
 
 
 	 /************** start: functions. **************/
