@@ -8,9 +8,13 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d">
 <link rel="stylesheet" href="../css/include.css"/>
 <link rel="stylesheet" href="../css/bank.css"/>
-<link rel="stylesheet" href="../css/myPage.css"/>
-
-
+<!-- 1 load the theme CSS file -->
+<link rel="stylesheet" type="text/css" href="//w2ui.com/src/w2ui-1.3.min.css" />
+<style>
+.w2ui-sidebar .w2ui-sidebar-div .w2ui-node{
+background-image: linear-gradient(#FFFFFF,#edf1f6);
+}
+</style>
  <!-- 1 load the theme CSS file -->
 </head>
 <body>
@@ -22,7 +26,18 @@
 	<!-- 해더 끝 -->
 	
 	<div id="bcontainer">	
-	<div id="leftMenu">	
+		<div id="bnav">	
+		 <div id=cotegoryTop ><h4>Category</h4></div> 
+			<div class="row">
+				<!-- 3 setup a container element -->
+				<div class="col-md-12">
+				<div id="sidebar" style="background-color: white!important; height: 400px;" ></div>
+				</div>	
+			</div>	
+
+		</div>
+
+<!-- 		<div id="leftMenu">	
 	 <div class="menu_simple">
  <ul>
  <li><a href="#">Link 1</a></li>
@@ -32,9 +47,7 @@
  <li><a href="#">Link 5</a></li>
  </ul>
  </div>
-	</div>	
-
-		
+	</div>	 -->	
 
 		<div id="bflex-column">
 		<br>
@@ -166,8 +179,9 @@
 <script src="//w2ui.com/src/w2ui-1.3.min.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-<script src="../js/include.js"></script>
-<script src="../js/myPage.js"></script>
+<script src="../js/include.js"></script> 
+<script src="../js/myPage.js"></script> 
+<script src="../js/leftTreeMenu.js"></script>
 <!-- 5 include the minified source -->
 	
 </body>
