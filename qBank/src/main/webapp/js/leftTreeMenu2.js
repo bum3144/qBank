@@ -32,6 +32,8 @@ $(document).ready(
 										var rData = result.data.list[0];
 										console.log(rData);
 
+										//문제코드
+										$('#qcode').val(event.target + '+' + rData.code);
 										$('#cCode').val(rData.code);
 										$('#classCode').val(event.target);
 										$('#className').val(rData.name);
