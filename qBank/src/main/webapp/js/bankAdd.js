@@ -365,6 +365,7 @@ $(document).ready(function(){
   $("#exSelector option:eq(1)").attr("selected", "selected");
 */
 $('#addBtn').on('click',function(){
+	
 	if(!$('#select11').val()){
 		dailogAll('등록위치를 선택하셔야 합니다',$('#select11'));
 		return false;

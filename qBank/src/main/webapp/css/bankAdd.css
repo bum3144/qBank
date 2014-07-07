@@ -123,3 +123,6 @@ div#bokiChk > div {
 #textDisplay{
 	width: 684px;
 }
+input[name="exBox1"] {
+	width: 200px;
+}

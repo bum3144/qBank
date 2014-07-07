@@ -46,42 +46,33 @@ public class BankAddControl {
 
 		UserVo loginUser = (UserVo) session.getAttribute("loginUser");
 		vo.setQwriter(loginUser.getUid());	// 작성자를 저장하기 위한 세션아이디
+		
+		//########## 문제 등록 1 (기본정보등록) ##########//
+		bankAddService.add(vo);			
+		//########## 문제 등록 1 (기본정보등록) ##########//
+		
+		dvo.setQno(vo.getQno());	//
+		ovo.setQno(vo.getQno());	//문제 등록 번호 갖고 오기
+		fvo.setQno(vo.getQno());	//
 
-		//log.debug("# BankAddVo # :" + vo.toString() + "# BankAddDiscriptiveVo # :" + dvo.toString() + "# BankAddObjectiveVo # :" + ovo.toString());
-//		bankAddService.add(vo);	
-		
-//		log.debug("    #@@@@ vo.getQno # :" +vo.getQno()); 
-		
-//		dvo.setQno(vo.getQno());
-//		ovo.setQno(vo.getQno());
-//		fvo.setQno(vo.getQno());
-		
-		ovo.setQno(30);
-		log.debug("    #@@@@ dvo.getQno # :" + dvo.getQno() + "    #@@@@ ovo.getQno # :" + ovo.getQno() + "    #@@@@ fvo.getQno # :" + fvo.getQno());
 	
 		if(vo.getTypeSelector().equals("objective")) {
 			
-			for(int i=0; i<=ovo.getExText().length; i++){
-				if(ovo.getExText()[i].isEmpty()) {		}
-			}
-/*			
-			log.debug("    #@@@@ getExText().length # :" + ovo.getExText().length);
-			log.debug("    #@@@@ ovo.getQno 1# :" + ovo.getExText()[0]);
-			log.debug("    #@@@@ ovo.getQno 2# :" + ovo.getExText()[1]);
-			log.debug("    #@@@@ ovo.getQno 3# :" + ovo.getExText()[2]);
-			log.debug("    #@@@@ ovo.getQno 4# :" + ovo.getExText()[3]);
-			log.debug("    #@@@@ ovo.getQno 5# :" + ovo.getExText()[4]);
-*/		
-			bankAddService.addObj(ovo);	
+			//########## 문제 등록 2 (객관식보기등록) ##########//
+			bankAddService.addObj(ovo);
+			//########## 문제 등록 2 (객관식보기등록) ##########//
+			
 		}else {
-//			bankAddService.addDis(dvo);	
+
+			//########## 문제 등록 3 (주관식/서술형등록) ##########//
+			bankAddService.addDis(dvo);		 
+			//########## 문제 등록 3 (주관식/서술형등록) ##########//
 		}
 		
 		if(fvo.isImageCheck() || fvo.isMediaCheck()) {
 			if(fvo.isImageCheck()) { // 이미지(jpg,gif,png) 파일 처리
 				MultipartFile report = req.getFile("imageDisplay");
 				String fname = report.getOriginalFilename();
-				
 				if (!report.isEmpty()) {
 					fileSave(fvo, report, fname);	
 				}
@@ -94,18 +85,14 @@ public class BankAddControl {
 				}
 			}		
 		}		
-		
-
 		return "redirect:/bank/bankAdd.html";
 	}
 
-	
 	private void fileSave(BankAddFileVo fvo, MultipartFile report, String fname)
 			throws Error {
 		String fullPath = servletContext.getRealPath("/upload");
-		log.debug("###### fullPath ####### :" + fullPath);
-		// 화일 확장자 구하기
-		int pos = fname.lastIndexOf( "." );
+		
+		int pos = fname.lastIndexOf( "." );		// 화일 확장자 구하기
 		String ext = fname.substring( pos + 1 );
 		try {
 				String filename = 
@@ -114,9 +101,10 @@ public class BankAddControl {
 				report.transferTo(savedFile); 
 				fvo.setFpath(fullPath + "/" + filename + "." + ext);
 				fvo.setFtype(ext);
-				log.debug("# savedFile # :" + savedFile);
 				
-//				bankAddService.addFile(fvo);	
+				//########## 문제 등록 4 (파일등록) ##########//
+				bankAddService.addFile(fvo);	// 
+				//########## 문제 등록 4 (파일등록) ##########//
 		} catch (Throwable ex) {
 			throw new Error(ex);
 		}

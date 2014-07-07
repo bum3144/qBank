@@ -41,20 +41,32 @@
 		$('#exSelector').change(function(){
 			if($(this).val() == 2){
 				$('#exBox3').hide();
+				$('#exText3').attr('name','hide-exText');
 				$('#exBox4').hide();
+				$('#exText4').attr('name','hide-exText');
 				$('#exBox5').hide();
+				$('#exText5').attr('name','hide-exText');
 			}else if ($(this).val() == 3){
 				$('#exBox3').show();
+				$('#exText3').attr('name','exText');
 				$('#exBox4').hide();
+				$('#exText4').attr('name','hide-exText');
 				$('#exBox5').hide();
+				$('#exText5').attr('name','hide-exText');
 			}else if ($(this).val() == 4){
 				$('#exBox3').show();
+				$('#exText3').attr('name','exText');
 				$('#exBox4').show();
+				$('#exText4').attr('name','exText');
 				$('#exBox5').hide();
+				$('#exText5').attr('name','hide-exText');
 			}else{
 				$('#exBox3').show();
+				$('#exText3').attr('name','exText');
 				$('#exBox4').show();
+				$('#exText4').attr('name','exText');
 				$('#exBox5').show();
+				$('#exText5').attr('name','exText');
 			}
 		});
 		
