@@ -12,6 +12,7 @@ $(document).ready(function(){
 					$('#detailUid').val(data.uid);
 					$('#detailClass').val(data.uclass);
 					$('#detailName').val(data.uname);
+					$('#detailPassword').val(data.upass);
 					$('#detailEmail').val(data.uemail);
 					$('#detailTel').val(data.utel);
 					$('#detailCell').val(data.ucell);
@@ -36,6 +37,10 @@ $(document).ready(function(){
 	
 	/*유저 정보 변경 */
 	$('#updateBtn').click(function(){
+		
+		if($('#detailPassword').val() != $('#detailPassword2').val()){
+			alert("비밀번호를 확인해주세요");
+		}else{
 		$.post(
 				qbank.contextRoot + '/join/update.ajax'
 				,{
@@ -51,6 +56,7 @@ $(document).ready(function(){
 				   console.log(jsonObj);
 				}
 				,'json');
+		}
 	});
 	
 	/* 업데이트 폼 체크 */
