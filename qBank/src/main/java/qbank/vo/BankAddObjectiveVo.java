@@ -4,9 +4,10 @@ import java.util.Arrays;
 
 
 public class BankAddObjectiveVo {
-	
+
+	private int 			qno;			//문제번호
 	private int 	 		ono;			//객관식 보기 번호
-	private int 	 		exSelector;	//객관식 보기 수량
+	private int 	 		exSelector;		//객관식 보기 수량
 	private String[] 	 	exText;			//객관식 보기명(한번에5개까지)
 	private String 		 	exText1;		//객관식 보기1
 	private String 	 		exText2;		//객관식 보기2
@@ -16,6 +17,13 @@ public class BankAddObjectiveVo {
 	private String 	 		bokidap;		//객관식 답
 	
 	
+	public int getQno() {
+		return qno;
+	}
+	public BankAddObjectiveVo setQno(int qno) {
+		this.qno = qno;
+		return this;
+	}
 	public int getOno() {
 		return ono;
 	}
@@ -79,17 +87,18 @@ public class BankAddObjectiveVo {
 		this.bokidap = bokidap;
 		return this;
 	}
-	
 	@Override
 	public String toString() {
-		return "BankAddObjectiveVo [ono=" + ono + ", exSelector="
-				+ exSelector + ", exText=" + Arrays.toString(exText)
-				+ ", exText1=" + exText1 + ", exText2=" + exText2
-				+ ", exText3=" + exText3 + ", exText4=" + exText4
-				+ ", exText5=" + exText5 + ", bokidap=" + bokidap + "]";
+		return "BankAddObjectiveVo [qno=" + qno + ", ono=" + ono
+				+ ", exSelector=" + exSelector + ", exText="
+				+ Arrays.toString(exText) + ", exText1=" + exText1
+				+ ", exText2=" + exText2 + ", exText3=" + exText3
+				+ ", exText4=" + exText4 + ", exText5=" + exText5
+				+ ", bokidap=" + bokidap + "]";
 	}
 
-	
+
+
 	
 	
 	
