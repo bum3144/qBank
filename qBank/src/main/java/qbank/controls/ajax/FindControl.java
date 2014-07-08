@@ -79,7 +79,6 @@ public class FindControl {
 					.setStatus("error")
 					.setData(ex.getMessage());
 		}
-		
 	}
 	
 	
@@ -132,10 +131,6 @@ public class FindControl {
 		}
 		
 	}
-	
-	
-	
-	
 }
 
 
