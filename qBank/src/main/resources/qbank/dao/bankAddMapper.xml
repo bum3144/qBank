@@ -7,30 +7,59 @@ namespace=인터페이스이름(패키지 이름 포함) SQL id=인터페이스 
  -->  
 <mapper namespace="qbank.dao.BankAddDao">
   <resultMap type="qbank.vo.BankAddVo" id="bankAddMap">
-    <id column="QNO" property="no"/> <!-- PK 컬럼에 대해서만 설정한다. -->
-    <result column="QCODE" property="code"/>
-    <result column="QTYPE" property="type"/>
+    <id column="QNO" property="qno"/> <!-- PK 컬럼에 대해서만 설정한다. -->
+    <result column="QCODE" property="qcode"/>
+    <result column="QTYPE" property="typeSelector"/>
     <result column="QLEVEL" property="level"/>
-    <result column="QEDITUSE" property="edituse"/>
-    <result column="QNAME" property="name"/>
-    <result column="QTEXT" property="text"/>
-    <result column="QCOMMENT" property="comment"/>
-    <result column="QSOURCE" property="source"/>
-    <result column="QUSEYN" property="useyn"/>
-    <result column="QWRITER" property="writer"/>
-    <result column="QDATE" property="date"/>
+    <result column="QEDITUSE" property="qedituse"/>
+    <result column="QNAME" property="questVal"/>
+    <result column="QTEXT" property="textDisplay"/>
+    <result column="QCOMMENT" property="comentDisplay"/>
+    <result column="QSOURCE" property="sourceDisplay"/>
+    <result column="QUSEYN" property="quseyn"/>
+    <result column="QWRITER" property="qwriter"/>
+    <result column="QDATE" property="qdate"/>
+    <result column="CCODE" property="cCode"/>
+  </resultMap> 
+
+  <resultMap type="qbank.vo.BankAddDiscriptiveVo" id="bankAddDisMap">
+    <result column="QNO" property="qno"/>
+    <result column="DANSWER" property="answerText"/>
   </resultMap> 
    
-  <insert id="insert" parameterType="bankAddVo">
-    insert into QBANK(QCODE, QTYPE, QLEVEL, QEDITUSE, QNAME, QTEXT, 
-    									QCOMMENT, QSOURCE, QUSEYN, QWRITER, QDATE)
-    values (#{code},#{type}, #{level}, #{edituse}, #{name}, #{text}, 
-    				#{comment}, #{source}, #{useyn}, #{writer}, unix_timestamp())
+   
+   
+  <insert id="insert" parameterType="bankAddVo" useGeneratedKeys="true" keyProperty="qno">
+    insert into QBANK (QTYPE, QLEVEL, QEDITUSE, QNAME, QTEXT, 
+    									QCOMMENT, QSOURCE, QUSEYN, QWRITER, QDATE, CCODE)
+    values (#{typeSelector}, #{level}, #{qedituse}, #{questVal}, 
+    				#{textDisplay}, #{comentDisplay}, #{sourceDisplay}, #{quseyn}, 
+    				#{qwriter}, NOW(), #{cCode})
+  </insert>   
+   
+   
+  <insert id="insert3" parameterType="BankAddDiscriptiveVo">
+    insert into DISCRIPTIVE (QNO, DANSWER)
+    values (#{qno}, #{answerText})
   </insert>   
 
-  <insert id="insertTest" parameterType="bankTestVo">
-    insert into TEST(SECODE) values (#{code})
-  </insert>
+   
+  <insert id="insert4" parameterType="BankAddFileVo">
+    insert into FILE (QNO, FTYPE, FPATH)
+    values (#{qno}, #{ftype}, #{fpath})
+  </insert>   
+
+
+
+<insert id="insert2" useGeneratedKeys="true" parameterType="BankAddObjectiveVo">
+    INSERT INTO OBJECTIVE (ONAME,OANSWER,QNO) VALUES (
+    <foreach collection="exText" index="i" item="exText" open="" close="" separator="),(">
+        #{exText},#{bokidap},#{qno}
+    </foreach>
+ 		)
+</insert>
+
+
 
 </mapper>
 
