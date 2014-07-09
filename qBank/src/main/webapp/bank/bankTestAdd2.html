@@ -928,13 +928,11 @@ background-image: linear-gradient(#FFFFFF,#edf1f6);
 	<!-- 풋터 끝 -->
 
 	<!-- Popup -->
-	<div id="toPopup">
-		<div class="close">닫기</div>
-		<span class="ecs_tooltip">Press Esc to close <span
-			class="arrow"></span></span>
-		<div id="popup_content">
+	<div id="detailPopup">
+		<div class="detailClose"></div>
+		<div id="detailContent">
 			<!--your content start-->
-			<p>문제 수정 하기 </p>
+			<h3>문제 수정 하기 </h3>
 			<p>
 				<div class="container">
 					<div class=questBox>
@@ -946,7 +944,7 @@ background-image: linear-gradient(#FFFFFF,#edf1f6);
 						<input type="checkbox" /> <label>지문입력</label>
 						<div>
 							<textarea class="form-control" rows="3">A: Do you like milk or juice?
-B: I like juice.</textarea>
+                    B: I like juice.</textarea>
 						</div>
 					</div>
 	
@@ -968,13 +966,12 @@ B: I like juice.</textarea>
 						</div>
 					</div>
 	
-					<div class=questBox><br>
+					<div class=questBox ><br>
 						<input type="checkbox" /> <label> 해설 입력 </label> <input
 							class="textInput" type="text" value="해설을 입력해주세요">
-	
 					</div>
 	
-					<div class=questBox><br>
+					<div class=questBox  ><br>
 						<input type="checkbox" /> <label>출처 입력</label> <input
 							class="textInput" class="" type="text"
 							value="해설을 입력해주세요">
@@ -996,8 +993,8 @@ B: I like juice.</textarea>
 	</div>
 	<!--toPopup end-->
 
-	<div class="loader"></div>
-	<div id="backgroundPopup"></div>
+	<div class="detailLoader"></div>
+	<div id="detailBackgroundPopup"></div>
 	<!-- Popup -->
 
 <!-- 4 include the jQuery library -->
