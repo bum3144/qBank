@@ -303,7 +303,6 @@ createCode();
 function createCode() {
     $( "#tcode" ).val(jQuery.now()).toString().split(' ')[4];
  }
-$()
 
 
 /* 취소버튼 클릭시 동작 */
