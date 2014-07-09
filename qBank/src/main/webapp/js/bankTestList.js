@@ -16,12 +16,13 @@ $(document).ready(function(){
 	});
 	
 	/* 시험지 세팅 삭제 */
-	$(document).on('click', 'button.rowDelBtn', function(){
-		deleteBankTest( $(this).attr('data-code') );
+	$(document).on('click', 'a.titleLink', function(){
+		location.href= qbank.contextRoot +
+				'/bank/bankTestAdd2.html';
 	});
 	
 	/* 시험지 세팅 상세보기 */
-	$(document).on('click', 'a.titleLink', function(){
+	$(document).on('click', '.viewLink', function(){
 		$.getJSON(
 			qbank.contextRoot + 
 				'/bank/detail.ajax?code=' + 
@@ -134,6 +135,7 @@ $(document).ready(function(){
 	
 	$('#btnDelete').click(function(){
 		deleteBankTest( $('#tcode').val() );
+		$('#acc1').click();
 	});
 	
 	$('#btnReset').click(function(){
@@ -193,8 +195,8 @@ function loadBankTestList(pageNo) {
 										((test.useyn == 1) ? '사용' : '미사용') 
 											+ '</td>')
 								.append( $('<td>')
-									.append( $('<button>삭제</button>')
-										.addClass('rowDelBtn btn btn-danger btn-xs')
+									.append( $('<button>수정</button>')
+										.addClass('viewLink btn btn-warning btn-xs')
 										.attr('data-code',test.code)
 								)).css({
 									   'color':'#969a9e',
