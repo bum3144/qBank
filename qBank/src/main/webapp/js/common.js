@@ -33,7 +33,7 @@ $(document).ready(function(){
 				var user = result.data;
 			   $('#logoutTable').hide();
 			   $('#loginTable').show();
-			   $('#idSpan').text(user.uid + "님이 로그인하셨습니다");
+			   $('#idSpan').append('<button class="btn btn-warning btn-xs" onFocus="this.blur()">'+ user.uid + ' 님</button>');
 				  
 				} else {
 				//	alert("로그인 하지 않았습니다.");
