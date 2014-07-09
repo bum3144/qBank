@@ -1,6 +1,7 @@
 package qbank.controls.ajax;
 
 import java.io.File;
+import java.util.HashMap;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -13,10 +14,12 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import qbank.services.BankAddService;
+import qbank.vo.AjaxResult;
 import qbank.vo.BankAddDiscriptiveVo;
 import qbank.vo.BankAddFileVo;
 import qbank.vo.BankAddObjectiveVo;
@@ -37,7 +40,26 @@ public class BankAddControl {
 	public BankAddControl() {
 		log.debug("BankAddControl 생성됨");
 	}
+
+	//*********************>> 문제은행 - 문제 목록 시작 <<*********************//
+	@RequestMapping("/list")
+	public AjaxResult list(
+			@RequestParam(value="pageNo",defaultValue="1") int pageNo, 
+			@RequestParam(value="pageSize",defaultValue="10") int pageSize) {
+		
+	 HashMap<String,Object> params = new HashMap<String,Object>();
+      params.put("list",bankAddService.list(pageNo, pageSize));
+      params.put("count",bankAddService.listCount());
+		
+		return new AjaxResult()
+			.setStatus("ok")
+			.setData(params);
+	}
+	//*********************>> 문제은행 - 문제 목록 끝 <<*********************//
 	
+	
+	
+	//*********************>> 문제은행 - 문제 등록 시작 <<*********************//
 	@Transactional(propagation=Propagation.REQUIRED,rollbackFor=Throwable.class)
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insert(MultipartHttpServletRequest req, BankAddVo vo, 
@@ -47,9 +69,9 @@ public class BankAddControl {
 		UserVo loginUser = (UserVo) session.getAttribute("loginUser");
 		vo.setQwriter(loginUser.getUid());	// 작성자를 저장하기 위한 세션아이디
 		
-		//########## 문제 등록 1 (기본정보등록) ##########//
+		//********** 문제 등록 1 (기본정보등록) **********//
 		bankAddService.add(vo);			
-		//########## 문제 등록 1 (기본정보등록) ##########//
+		//********** 문제 등록 1 (기본정보등록) **********//
 		
 		dvo.setQno(vo.getQno());	//
 		ovo.setQno(vo.getQno());	//문제 등록 번호 갖고 오기
@@ -58,15 +80,15 @@ public class BankAddControl {
 	
 		if(vo.getTypeSelector().equals("objective")) {
 			
-			//########## 문제 등록 2 (객관식보기등록) ##########//
+			//********** 문제 등록 2 (객관식보기등록) **********//
 			bankAddService.addObj(ovo);
-			//########## 문제 등록 2 (객관식보기등록) ##########//
+			//********** 문제 등록 2 (객관식보기등록) **********//
 			
 		}else {
 
-			//########## 문제 등록 3 (주관식/서술형등록) ##########//
+			//********** 문제 등록 3 (주관식/서술형등록) **********//
 			bankAddService.addDis(dvo);		 
-			//########## 문제 등록 3 (주관식/서술형등록) ##########//
+			//********** 문제 등록 3 (주관식/서술형등록) **********//
 		}
 		
 		if(fvo.isImageCheck() || fvo.isMediaCheck()) {
@@ -102,14 +124,14 @@ public class BankAddControl {
 				fvo.setFpath(fullPath + "/" + filename + "." + ext);
 				fvo.setFtype(ext);
 				
-				//########## 문제 등록 4 (파일등록) ##########//
+				//********** 문제 등록 4 (파일등록) **********//
 				bankAddService.addFile(fvo);	// 
-				//########## 문제 등록 4 (파일등록) ##########//
+				//********** 문제 등록 4 (파일등록) **********//
 		} catch (Throwable ex) {
 			throw new Error(ex);
 		}
 	}	
-	
+	//*********************>> 문제은행 - 문제 등록 끝 <<*********************//	
 	
 	
 	

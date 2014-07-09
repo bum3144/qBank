@@ -42,54 +42,101 @@ background-image: linear-gradient(#FFFFFF,#edf1f6);
 					<div id="sidebar" style="background-color: white!important; height: 400px;" ></div>
 				</div>	
 			</div>	
-
 		</div>	
-
-		<div id="bflex-column">
-		<br>
-			<div>
-			   <div style="display: flex; font-family: 'Nanum Gothic Coding', serif;"><div class="pencilImg"></div><h1>문제 은행 List</h1></div>
-			<br>
-			<a href="#">ENGLISH</a> &raquo; 
-			<a href="#">GRAMMAR</a> &raquo; 
-			<a href="#">동사</a> &raquo; 
-			<a href="#">B Verb</a>			
-			</div>
+		<div id="bflex-column"><br>
+	    <div style="display: flex; font-family: 'Nanum Gothic Coding', serif;">
+		   <div class="pencilImg"></div><h1>문제 은행 List</h1>
+	    </div>
 			<section>			
 				<div id="bbankAdd">
 					<button type="button" onclick="javascript:location.href='bankAdd.html'">등록</button>
 					<button type="button">삭제</button>
 				</div>				
 				<br>
-				<table id="subjectList" class="table table-hover">
+				<table id="bankList" class="table table-hover">
 					<tbody>
 						<tr class="warning">
 							<th>번호</th>
-							<th>문제명</th>
+							<th>카테고리</th>
 							<th>문형 <!-- <span class="caret"></span> --></th>
-							<th>등록날자</th>
-							<th>문제코드</th>
+							<th>문제명</th>
+							<th>등록일</th>
 							<th>사용</th>
-							<th><!-- <input type="checkbox" id='check_all'/> --></th>
 						</tr>
 						<tr class="dataRow">
 							<td>1</td>
-							<td>Coral reefs oWe their brilliant ..</td>
+							<td>ENGLISH</td>
 							<td>객관식</td>
-							<td>2013-10-20</td>
-							<td>Q0001</td>
+							<td>다음 안내문의 내용과 일치하는 것은?</td>
+							<td>2014-6-20</td>
 							<td>O</td>
-							<td><input type="checkbox" name='mycheck' value='1'/></td>
 						</tr>
 						<tr class="dataRow">
 							<td>2</td>
-							<td>Coral reefs oWe their brilliant ..</td>
+							<td>GRAMMER</td>
 							<td>객관식</td>
-							<td>2013-10-20</td>
-							<td>Q0001</td>
+							<td>다음 글의 주제로 가장 적절한 것은?</td>
+							<td>2014-5-20</td>
 							<td>O</td>
-							<td><input type="checkbox" name='mycheck' value='2'/></td>
 						</tr>
+						<tr class="dataRow">
+							<td>3</td>
+							<td>GRAMMER</td>
+							<td>주관식</td>
+							<td>Modern Pottery Museum에 관한 내용과 일치하는 것은?</td>
+							<td>2013-5-11</td>
+							<td>O</td>
+						</tr>
+						<tr class="dataRow">
+							<td>4</td>
+							<td>LISTENING</td>
+							<td>주관식</td>
+							<td>대화를 듣고 적절한 것을 고르시오.</td>
+							<td>2014-3-20</td>
+							<td>O</td>
+						</tr>
+						<tr class="dataRow">
+							<td>5</td>
+							<td>ENGLISH</td>
+							<td>객관식</td>
+							<td>다음 안내문의 내용과 일치하는 것은?</td>
+							<td>2014-6-20</td>
+							<td>O</td>
+						</tr>
+						<tr class="dataRow">
+							<td>6</td>
+							<td>GRAMMER</td>
+							<td>객관식</td>
+							<td>다음 글의 주제로 가장 적절한 것은?</td>
+							<td>2014-5-20</td>
+							<td>O</td>
+						</tr>
+						<tr class="dataRow">
+							<td>7</td>
+							<td>GRAMMER</td>
+							<td>주관식</td>
+							<td>Modern Pottery Museum에 관한 내용과 일치하는 것은?</td>
+							<td>2013-5-11</td>
+							<td>O</td>
+						</tr>
+						<tr class="dataRow">
+							<td>8</td>
+							<td>LISTENING</td>
+							<td>주관식</td>
+							<td>대화를 듣고 적절한 것을 고르시오.</td>
+							<td>2014-3-20</td>
+							<td>O</td>
+						</tr>
+
+						<tr class="dataRow">
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+
 					</tbody>
 				</table>
 
@@ -101,7 +148,7 @@ background-image: linear-gradient(#FFFFFF,#edf1f6);
 				</div><br>
 
 
-				<div id="bpageSerch">	
+<!-- 				<div id="bpageSerch">	
 			 		<div class="col-xs-2">    				
 						<select class="form-control">
 						<option>문제명</option>
@@ -112,7 +159,7 @@ background-image: linear-gradient(#FFFFFF,#edf1f6);
 			    	<input type="text" class="form-control" 
 			    			placeholder="검색어를 입력하세요" id="inputSuccess3">
 			  	</div>
-
+ -->
 				</div>							
 			</section>
 		</div>			
