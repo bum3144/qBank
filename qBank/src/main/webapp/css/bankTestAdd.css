@@ -97,3 +97,55 @@
 	padding: 0px; 
 	width: 440px; 
 }
+
+
+#detailBackgroundPopup {
+    z-index:1;
+    position: fixed;
+    display:none;
+    height:100%;
+    width:100%;
+    background:#000000;
+    top:0px;
+    left:0px; 
+}
+
+
+#detailPopup{
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 10px solid #ccc;
+    border-radius: 3px 3px 3px 3px;
+    color: #333333;
+    display: none;
+    font-size: 14px;
+    left: 50%;
+    margin-left: -22%;
+    position: fixed;
+    top: 10%;
+    width: 70%;
+    z-index: 3;
+    padding: 3%;
+}
+.detailLoader {
+    background: url("/qBank/image/loading.gif") no-repeat scroll 0 0 transparent;
+    height: 32px;
+    width: 32px;
+    display: none;
+    z-index: 9999;
+    top: 40%;
+    left: 50%;
+    position: absolute;
+    margin-left: -10px;
+
+}
+.detailClose{
+	background: url("../image/closeBtn1.png") no-repeat;
+	background-size: contain;
+    cursor: pointer;
+    height: 30px;
+    position: absolute;
+    right:3px;
+    top: 4px;
+    width: 30px;
+}
