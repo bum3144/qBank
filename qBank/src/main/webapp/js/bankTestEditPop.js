@@ -1,4 +1,5 @@
 jQuery(function($) {
+	$( "#detailPopup" ).draggable();
 
 	$(".test1").click(function() {
 			loading(); // loading
@@ -9,16 +10,8 @@ jQuery(function($) {
 	});
 
 	/* event for close the popup */
-	$("div.close").hover(
-					function() {
-						$('span.ecs_tooltip').show();
-					},
-					function () {
-    					$('span.ecs_tooltip').hide();
-  					}
-				);
 
-	$("div.close").click(function() {
+	$(".detailClose").click(function() {
 		disablePopup();  // function close pop up
 	});
 
@@ -28,7 +21,7 @@ jQuery(function($) {
 		}
 	});
 
-        $("div#backgroundPopup").click(function() {
+        $("#detailBackgroundPopup").click(function() {
 		disablePopup();  // function close pop up
 	});
 
@@ -39,10 +32,10 @@ jQuery(function($) {
 */
 	 /************** start: functions. **************/
 	function loading() {
-		$("div.loader").show();
+		$("#detailLoader").show();
 	}
 	function closeloading() {
-		$("div.loader").fadeOut('normal');
+		$("#detailLoader").fadeOut('normal');
 	}
 
 	var popupStatus = 0; // set value
@@ -50,17 +43,17 @@ jQuery(function($) {
 	function loadPopup() {
 		if(popupStatus == 0) { // if value is 0, show popup
 			closeloading(); // fadeout loading
-			$("#toPopup").fadeIn(0500); // fadein popup div
-			$("#backgroundPopup").css("opacity", "0.7"); // css opacity, supports IE7, IE8
-			$("#backgroundPopup").fadeIn(0001);
+			$("#detailPopup").fadeIn(0500); // fadein popup div
+			$("#detailBackgroundPopup").css("opacity", "0.7"); // css opacity, supports IE7, IE8
+			$("#detailBackgroundPopup").fadeIn(0001);
 			popupStatus = 1; // and set value to 1
 		}
 	}
 
 	function disablePopup() {
 		if(popupStatus == 1) { // if value is 1, close popup
-			$("#toPopup").fadeOut("normal");
-			$("#backgroundPopup").fadeOut("normal");
+			$("#detailPopup").fadeOut("normal");
+			$("#detailBackgroundPopup").fadeOut("normal");
 			popupStatus = 0;  // and set value to 0
 		}
 	}
