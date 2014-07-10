@@ -2,6 +2,9 @@ jQuery(function($) {
 	
 	$( "#toPopup2" ).draggable();
 
+	$('#dialog1').hide();
+	$('#dialog2').hide();
+	
 	$("a.toPopup2").click(function() {
 		loading(); // loading
 			setTimeout(function(){ // then show popup, deley in .5 second
@@ -38,10 +41,11 @@ jQuery(function($) {
     			function(jsonObj) {
     				var result = jsonObj.ajaxResult;
     				if (result.status == "ok") {
-    				    alert("이메일 전송이 완료되었습니다.");
+    					mailSend();
+    					disablePopup();
     				    $("#findId_emailBox").val('');
     				} else {
-    					alert("해당이메일이 없습니다.");
+    					mailSendErr();
     				}
     			});
     		
@@ -61,11 +65,14 @@ jQuery(function($) {
     			function(jsonObj) {
     				var result = jsonObj.ajaxResult;
     				if (result.status == "ok") {
-    				    alert("이메일 전송이 완료되었습니다.");
+    					$('#clickMe').click();
+    					mailSend();
+    					disablePopup();
+    					
     				    $("#findPass_IdBox").val('');
     				    $("#findPass_EmailBox").val('');
     				} else {
-    					alert("해당이메일이 없습니다.");
+    					mailSendErr();
     				}
     			});
     	});
@@ -100,4 +107,42 @@ jQuery(function($) {
 		}
 	}
 	/************** end: functions. **************/
+	
+	
+	
+	
+	
+	
+/*	메일발송 메세지  */
+	function mailSend(){
+		$("#dialog1").dialog({
+		modal:true,
+	    buttons: {
+	    	Ok: function() {
+	    		$( this ).dialog( "close" );
+	    	}
+	    },
+		open:function() {
+		 $(this).parents(".ui-dialog:first").find(".ui-dialog-titlebar-close").hide();
+		},
+		width:300
+		});
+	}
+	function mailSendErr(){
+		$("#dialog2").dialog({
+		modal:true, 
+	    buttons: {
+	    	Ok: function() {
+	    		$( this ).dialog( "close" );
+	    	}
+	    },
+		open:function() {
+		 $(this).parents(".ui-dialog:first").find(".ui-dialog-titlebar-close").hide();
+		},
+		width:300
+		});
+	}
+/*	메일발송 메세지  */	
+	
+	
 }); // jQuery End

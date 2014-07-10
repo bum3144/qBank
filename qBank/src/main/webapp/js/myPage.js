@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+	$('#mypageDialog').hide();
 	
 	/*유저 정보 불러오기*/
 	$.getJSON(
@@ -54,8 +54,12 @@ $(document).ready(function(){
 				}
 				,function(jsonObj) {
 				   console.log(jsonObj);
+				   mailSend();
+				   $('#detailPassword2').val('');
+				   $('#detailPassCheckMsg').text('')
 				}
 				,'json');
+		
 		}
 	});
 	
@@ -136,5 +140,28 @@ $(document).ready(function(){
 		$('#detailPassword2').val("");
 	});
 	// 패스워드확인창 새로고침
+	
+	
+	
+	/*	정소 수정 완료 메시지  */
+	function mailSend(){
+		$("#mypageDialog").dialog({
+		modal:true,
+	    buttons: {
+	    	Ok: function() {
+	    		$( this ).dialog( "close" );
+	    	}
+	    },
+		open:function() {
+		 $(this).parents(".ui-dialog:first").find(".ui-dialog-titlebar-close").hide();
+		},
+		width:300
+		});
+	}
+	
+	
+	
+	
+	
 	
 });

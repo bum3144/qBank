@@ -162,8 +162,8 @@ $(document).ready(
 								w2ui['sidebar'].add({
 									id : cate1st,
 									text : test.name,
-									img : 'icon-folder',
-									expanded : true
+									img : 'icon-folder'
+									//,expanded : true
 								});
 							
 								

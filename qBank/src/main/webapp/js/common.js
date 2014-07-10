@@ -33,12 +33,15 @@ $(document).ready(function(){
 				var user = result.data;
 			   $('#logoutTable').hide();
 			   $('#loginTable').show();
-			   $('#idSpan').append('<button class="btn btn-warning btn-xs" onFocus="this.blur()">'+ user.uid + ' 님</button>');
+			   $('#idSpan').show();
+			   $('#idSpan button').html(user.uid + ' 님');
 				  
 				} else {
 				//	alert("로그인 하지 않았습니다.");
 				// 메인 페이지를 제외하고 로그인 후 페이지 이동 가능 처리
 					$('#loginTable').hide();
+
+					$('#idSpan').hide();
 					$('#logoutTable').show();
 					var myUrl = location.href;
 					var subUrl = 'main2.html';
