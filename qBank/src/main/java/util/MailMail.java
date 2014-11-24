@@ -1,12 +1,11 @@
 package util;
 
 import javax.mail.Message.RecipientType;
+import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.mail.MessagingException;
 
 import org.springframework.mail.MailException;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
 
 

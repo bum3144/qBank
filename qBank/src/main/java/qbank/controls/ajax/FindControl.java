@@ -17,6 +17,7 @@ import qbank.vo.AjaxResult;
 import qbank.vo.UserVo;
 import util.MailMail;
 
+
 @Controller
 @RequestMapping("/find")
 public class FindControl {
@@ -57,12 +58,12 @@ public class FindControl {
 					  html += "<br></head><body><div style='text-align: center; border: 4px solid rgb(226, 79, 79); width: 50%;border-radius: 10px;background: rgb(252, 242, 232);margin: auto;'>";
 					  html += "<h1>Qbank ID 찾기</h1><br>";
 						html += "<strong>" + findVo.getUname() +"</strong><span>&nbsp;님의 아이디는&nbsp;</span><strong>" + findVo.getUid() + "</strong><span>&nbsp;입니다</span><br>";
-						html += "<br><a href='http://s15.java48.com:9999/qBank/main2.html'>QBank 바로가기</a><br></div></body></html>";
+						html += "<br><a href='http://localhost:9999/qBank/main2.html'>QBank 바로가기</a><br></div></body></html>";
 						
 				
 						
 					MailMail mm = (MailMail) context.getBean("mailMail");
-		      mm.sendMail("ura0508@gmail.com",
+		      mm.sendMail("bum3144@gmail.com",
 		      		findVo.getUemail(),
 		  		   "QBank 아이디찾기 메일발송", 
 		  		   html);
@@ -107,12 +108,12 @@ public class FindControl {
 					  html += "<br></head><body><div style='text-align: center; border: 4px solid rgb(226, 79, 79); width: 50%;border-radius: 10px;background: rgb(252, 242, 232);margin: auto;'>";
 					  html += "<h1>Qbank Password 찾기</h1><br>";
 						html += "<strong>" + findVo.getUname() +"</strong><span>&nbsp;님의 비밀번호는&nbsp;</span><strong>" + findVo.getUpass() + "</strong><span>&nbsp;입니다</span><br>";
-						html += "<br><a href='http://s15.java48.com:9999/qBank/main2.html'>QBank 바로가기</a><br></div></body></html>";
+						html += "<br><a href='http://localhost:9999/qBank/main2.html'>QBank 바로가기</a><br></div></body></html>";
 						
 				
 						
 					MailMail mm = (MailMail) context.getBean("mailMail");
-		      mm.sendMail("ura0508@gmail.com",
+		      mm.sendMail("bum3144@gmail.com",
 		      		findVo.getUemail(),
 		  		   "QBank 비밀번호찾기 메일발송", 
 		  		  html);
@@ -132,30 +133,3 @@ public class FindControl {
 		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
